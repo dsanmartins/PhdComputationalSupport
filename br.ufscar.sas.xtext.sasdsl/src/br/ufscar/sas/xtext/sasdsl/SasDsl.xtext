@@ -1,0 +1,9 @@
+grammar br.ufscar.sas.xtext.sasdsl.SasDsl with org.eclipse.xtext.common.Terminals
+
+generate sasDsl "http://www.ufscar.br/sas/xtext/sasdsl/SasDsl"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
