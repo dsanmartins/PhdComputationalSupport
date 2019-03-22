@@ -6,11 +6,16 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.12">
   <genPackages prefix="SasDsl" basePackage="br.ufscar.sas.xtext.sasdsl" disposableProviderFactory="true"
       fileExtensions="sas" ecorePackage="SasDsl.ecore#/">
-    <genClasses ecoreClass="SasDsl.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//Model/greetings"/>
+    <genClasses ecoreClass="SasDsl.ecore#//ArchitectureDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//ArchitectureDefinition/section"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="SasDsl.ecore#//Sections">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//Sections/abstractions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Sections/compositions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Sections/restrictions"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//Abstractions">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Abstractions/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

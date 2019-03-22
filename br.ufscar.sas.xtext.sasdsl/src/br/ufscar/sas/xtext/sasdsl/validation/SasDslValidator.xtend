@@ -3,7 +3,6 @@
  */
 package br.ufscar.sas.xtext.sasdsl.validation
 
-
 /**
  * This class contains custom validation rules. 
  *

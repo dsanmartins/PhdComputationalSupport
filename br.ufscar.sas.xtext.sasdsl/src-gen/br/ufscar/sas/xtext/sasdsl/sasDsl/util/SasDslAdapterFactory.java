@@ -76,14 +76,19 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
     new SasDslSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseArchitectureDefinition(ArchitectureDefinition object)
       {
-        return createModelAdapter();
+        return createArchitectureDefinitionAdapter();
       }
       @Override
-      public Adapter caseGreeting(Greeting object)
+      public Adapter caseSections(Sections object)
       {
-        return createGreetingAdapter();
+        return createSectionsAdapter();
+      }
+      @Override
+      public Adapter caseAbstractions(Abstractions object)
+      {
+        return createAbstractionsAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -108,31 +113,46 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition <em>Architecture Definition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Model
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createArchitectureDefinitionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Sections <em>Sections</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Greeting
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Sections
    * @generated
    */
-  public Adapter createGreetingAdapter()
+  public Adapter createSectionsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions <em>Abstractions</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions
+   * @generated
+   */
+  public Adapter createAbstractionsAdapter()
   {
     return null;
   }

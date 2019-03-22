@@ -73,17 +73,24 @@ public class SasDslSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case SasDslPackage.MODEL:
+      case SasDslPackage.ARCHITECTURE_DEFINITION:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        ArchitectureDefinition architectureDefinition = (ArchitectureDefinition)theEObject;
+        T result = caseArchitectureDefinition(architectureDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SasDslPackage.GREETING:
+      case SasDslPackage.SECTIONS:
       {
-        Greeting greeting = (Greeting)theEObject;
-        T result = caseGreeting(greeting);
+        Sections sections = (Sections)theEObject;
+        T result = caseSections(sections);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.ABSTRACTIONS:
+      {
+        Abstractions abstractions = (Abstractions)theEObject;
+        T result = caseAbstractions(abstractions);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,33 +99,49 @@ public class SasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Architecture Definition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Architecture Definition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T caseArchitectureDefinition(ArchitectureDefinition object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Sections</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Sections</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGreeting(Greeting object)
+  public T caseSections(Sections object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstractions</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstractions</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractions(Abstractions object)
   {
     return null;
   }

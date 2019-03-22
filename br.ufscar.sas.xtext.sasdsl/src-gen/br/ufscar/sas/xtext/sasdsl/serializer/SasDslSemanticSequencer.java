@@ -3,9 +3,10 @@
  */
 package br.ufscar.sas.xtext.sasdsl.serializer;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Greeting;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Model;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.Sections;
 import br.ufscar.sas.xtext.sasdsl.services.SasDslGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Set;
@@ -33,11 +34,14 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SasDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case SasDslPackage.GREETING:
-				sequence_Greeting(context, (Greeting) semanticObject); 
+			case SasDslPackage.ABSTRACTIONS:
+				sequence_Abstractions(context, (Abstractions) semanticObject); 
 				return; 
-			case SasDslPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case SasDslPackage.ARCHITECTURE_DEFINITION:
+				sequence_ArchitectureDefinition(context, (ArchitectureDefinition) semanticObject); 
+				return; 
+			case SasDslPackage.SECTIONS:
+				sequence_Sections(context, (Sections) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,31 +50,49 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Greeting returns Greeting
+	 *     Abstractions returns Abstractions
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name+=ID name+=ID*)+
 	 */
-	protected void sequence_Greeting(ISerializationContext context, Greeting semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.GREETING__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+	protected void sequence_Abstractions(ISerializationContext context, Abstractions semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Model returns Model
+	 *     ArchitectureDefinition returns ArchitectureDefinition
 	 *
 	 * Constraint:
-	 *     greetings+=Greeting+
+	 *     section+=Sections+
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_ArchitectureDefinition(ISerializationContext context, ArchitectureDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Sections returns Sections
+	 *
+	 * Constraint:
+	 *     (abstractions=Abstractions compositions=Compositions restrictions=Restrictions)
+	 */
+	protected void sequence_Sections(ISerializationContext context, Sections semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.SECTIONS__ABSTRACTIONS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.SECTIONS__ABSTRACTIONS));
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.SECTIONS__COMPOSITIONS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.SECTIONS__COMPOSITIONS));
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.SECTIONS__RESTRICTIONS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.SECTIONS__RESTRICTIONS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSectionsAccess().getAbstractionsAbstractionsParserRuleCall_0_0(), semanticObject.getAbstractions());
+		feeder.accept(grammarAccess.getSectionsAccess().getCompositionsCompositionsParserRuleCall_1_0(), semanticObject.getCompositions());
+		feeder.accept(grammarAccess.getSectionsAccess().getRestrictionsRestrictionsParserRuleCall_2_0(), semanticObject.getRestrictions());
+		feeder.finish();
 	}
 	
 	

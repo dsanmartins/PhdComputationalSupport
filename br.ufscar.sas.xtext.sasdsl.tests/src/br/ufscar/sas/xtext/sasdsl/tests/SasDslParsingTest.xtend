@@ -3,7 +3,7 @@
  */
 package br.ufscar.sas.xtext.sasdsl.tests
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Model
+import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition
 import com.google.inject.Inject
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
@@ -17,7 +17,7 @@ import org.junit.runner.RunWith
 class SasDslParsingTest{
 
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<ArchitectureDefinition> parseHelper
 
 	@Test 
 	def void loadModel() {

@@ -27,7 +27,7 @@ public class SasDslParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "ArchitectureDefinition";
 	}
 
 	public SasDslGrammarAccess getGrammarAccess() {

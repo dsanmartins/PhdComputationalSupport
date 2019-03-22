@@ -35,9 +35,19 @@ public class SasDslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getGreetingAccess().getGroup(), "rule__Greeting__Group__0");
-					put(grammarAccess.getModelAccess().getGreetingsAssignment(), "rule__Model__GreetingsAssignment");
-					put(grammarAccess.getGreetingAccess().getNameAssignment_1(), "rule__Greeting__NameAssignment_1");
+					put(grammarAccess.getAbstractionAccess().getAlternatives(), "rule__Abstraction__Alternatives");
+					put(grammarAccess.getSectionsAccess().getGroup(), "rule__Sections__Group__0");
+					put(grammarAccess.getAbstractionsAccess().getGroup(), "rule__Abstractions__Group__0");
+					put(grammarAccess.getAbstractionsAccess().getGroup_3(), "rule__Abstractions__Group_3__0");
+					put(grammarAccess.getAbstractionsAccess().getGroup_3_1(), "rule__Abstractions__Group_3_1__0");
+					put(grammarAccess.getCompositionsAccess().getGroup(), "rule__Compositions__Group__0");
+					put(grammarAccess.getRestrictionsAccess().getGroup(), "rule__Restrictions__Group__0");
+					put(grammarAccess.getArchitectureDefinitionAccess().getSectionAssignment(), "rule__ArchitectureDefinition__SectionAssignment");
+					put(grammarAccess.getSectionsAccess().getAbstractionsAssignment_0(), "rule__Sections__AbstractionsAssignment_0");
+					put(grammarAccess.getSectionsAccess().getCompositionsAssignment_1(), "rule__Sections__CompositionsAssignment_1");
+					put(grammarAccess.getSectionsAccess().getRestrictionsAssignment_2(), "rule__Sections__RestrictionsAssignment_2");
+					put(grammarAccess.getAbstractionsAccess().getNameAssignment_3_0(), "rule__Abstractions__NameAssignment_3_0");
+					put(grammarAccess.getAbstractionsAccess().getNameAssignment_3_1_1(), "rule__Abstractions__NameAssignment_3_1_1");
 				}
 			};
 		}
@@ -48,7 +58,7 @@ public class SasDslParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalSasDslParser typedParser = (InternalSasDslParser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRuleArchitectureDefinition();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

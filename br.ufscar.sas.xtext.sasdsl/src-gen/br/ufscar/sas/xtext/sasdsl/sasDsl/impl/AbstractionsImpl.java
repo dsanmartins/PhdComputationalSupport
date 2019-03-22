@@ -3,57 +3,50 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Greeting;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Greeting</b></em>'.
+ * An implementation of the model object '<em><b>Abstractions</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.GreetingImpl#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.AbstractionsImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeting
+public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Abstractions
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<String> name;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected GreetingImpl()
+  protected AbstractionsImpl()
   {
     super();
   }
@@ -66,7 +59,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.GREETING;
+    return SasDslPackage.Literals.ABSTRACTIONS;
   }
 
   /**
@@ -74,22 +67,13 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<String> getName()
   {
+    if (name == null)
+    {
+      name = new EDataTypeEList<String>(String.class, this, SasDslPackage.ABSTRACTIONS__NAME);
+    }
     return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.GREETING__NAME, oldName, name));
   }
 
   /**
@@ -102,7 +86,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case SasDslPackage.GREETING__NAME:
+      case SasDslPackage.ABSTRACTIONS__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -113,13 +97,15 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case SasDslPackage.GREETING__NAME:
-        setName((String)newValue);
+      case SasDslPackage.ABSTRACTIONS__NAME:
+        getName().clear();
+        getName().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +121,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case SasDslPackage.GREETING__NAME:
-        setName(NAME_EDEFAULT);
+      case SasDslPackage.ABSTRACTIONS__NAME:
+        getName().clear();
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +138,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case SasDslPackage.GREETING__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SasDslPackage.ABSTRACTIONS__NAME:
+        return name != null && !name.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -175,4 +161,4 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
     return result.toString();
   }
 
-} //GreetingImpl
+} //AbstractionsImpl

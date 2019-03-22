@@ -6,6 +6,7 @@ package br.ufscar.sas.xtext.sasdsl.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
@@ -21,52 +22,199 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.Model");
-		private final Assignment cGreetingsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cGreetingsGreetingParserRuleCall_0 = (RuleCall)cGreetingsAssignment.eContents().get(0);
+	public class ArchitectureDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.ArchitectureDefinition");
+		private final Assignment cSectionAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cSectionSectionsParserRuleCall_0 = (RuleCall)cSectionAssignment.eContents().get(0);
 		
-		//Model:
-		//	greetings+=Greeting*;
+		//ArchitectureDefinition:
+		//	section+=Sections*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//greetings+=Greeting*
-		public Assignment getGreetingsAssignment() { return cGreetingsAssignment; }
+		//section+=Sections*
+		public Assignment getSectionAssignment() { return cSectionAssignment; }
 		
-		//Greeting
-		public RuleCall getGreetingsGreetingParserRuleCall_0() { return cGreetingsGreetingParserRuleCall_0; }
+		//Sections
+		public RuleCall getSectionSectionsParserRuleCall_0() { return cSectionSectionsParserRuleCall_0; }
 	}
-	public class GreetingElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.Greeting");
+	public class SectionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.Sections");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHelloKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cExclamationMarkKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cAbstractionsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cAbstractionsAbstractionsParserRuleCall_0_0 = (RuleCall)cAbstractionsAssignment_0.eContents().get(0);
+		private final Assignment cCompositionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCompositionsCompositionsParserRuleCall_1_0 = (RuleCall)cCompositionsAssignment_1.eContents().get(0);
+		private final Assignment cRestrictionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRestrictionsRestrictionsParserRuleCall_2_0 = (RuleCall)cRestrictionsAssignment_2.eContents().get(0);
 		
-		//Greeting:
-		//	'Hello' name=ID '!';
+		//Sections:
+		//	abstractions=Abstractions compositions=Compositions restrictions=Restrictions;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Hello' name=ID '!'
+		//abstractions=Abstractions compositions=Compositions restrictions=Restrictions
 		public Group getGroup() { return cGroup; }
 		
-		//'Hello'
-		public Keyword getHelloKeyword_0() { return cHelloKeyword_0; }
+		//abstractions=Abstractions
+		public Assignment getAbstractionsAssignment_0() { return cAbstractionsAssignment_0; }
 		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//Abstractions
+		public RuleCall getAbstractionsAbstractionsParserRuleCall_0_0() { return cAbstractionsAbstractionsParserRuleCall_0_0; }
+		
+		//compositions=Compositions
+		public Assignment getCompositionsAssignment_1() { return cCompositionsAssignment_1; }
+		
+		//Compositions
+		public RuleCall getCompositionsCompositionsParserRuleCall_1_0() { return cCompositionsCompositionsParserRuleCall_1_0; }
+		
+		//restrictions=Restrictions
+		public Assignment getRestrictionsAssignment_2() { return cRestrictionsAssignment_2; }
+		
+		//Restrictions
+		public RuleCall getRestrictionsRestrictionsParserRuleCall_2_0() { return cRestrictionsRestrictionsParserRuleCall_2_0; }
+	}
+	public class AbstractionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.Abstractions");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAbstractionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cAbstractionParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_3_0_0 = (RuleCall)cNameAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cNameAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_3_1_1_0 = (RuleCall)cNameAssignment_3_1_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Abstractions:
+		//	'Abstractions'
+		//	'{'
+		//	Abstraction (name+=ID (',' name+=ID)* ';')+
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Abstractions' '{' Abstraction (name+=ID (',' name+=ID)* ';')+ '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Abstractions'
+		public Keyword getAbstractionsKeyword_0() { return cAbstractionsKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//Abstraction
+		public RuleCall getAbstractionParserRuleCall_2() { return cAbstractionParserRuleCall_2; }
+		
+		//(name+=ID (',' name+=ID)* ';')+
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//name+=ID
+		public Assignment getNameAssignment_3_0() { return cNameAssignment_3_0; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_3_0_0() { return cNameIDTerminalRuleCall_3_0_0; }
 		
-		//'!'
-		public Keyword getExclamationMarkKeyword_2() { return cExclamationMarkKeyword_2; }
+		//(',' name+=ID)*
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//','
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+		
+		//name+=ID
+		public Assignment getNameAssignment_3_1_1() { return cNameAssignment_3_1_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_1_1_0() { return cNameIDTerminalRuleCall_3_1_1_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3_2() { return cSemicolonKeyword_3_2; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+	public class CompositionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.Compositions");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCompositionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//Compositions:
+		//	'Compositions'
+		//	'{'
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Compositions' '{' '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Compositions'
+		public Keyword getCompositionsKeyword_0() { return cCompositionsKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+	public class RestrictionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.Restrictions");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRestrictionsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//Restrictions:
+		//	'Restrictions'
+		//	'{'
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Restrictions' '{' '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Restrictions'
+		public Keyword getRestrictionsKeyword_0() { return cRestrictionsKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+	public class AbstractionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.Abstraction");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cMonitorKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cManagingKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cManagedKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//Abstraction:
+		//	'Monitor' | 'Managing' | 'Managed';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Monitor' | 'Managing' | 'Managed'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'Monitor'
+		public Keyword getMonitorKeyword_0() { return cMonitorKeyword_0; }
+		
+		//'Managing'
+		public Keyword getManagingKeyword_1() { return cManagingKeyword_1; }
+		
+		//'Managed'
+		public Keyword getManagedKeyword_2() { return cManagedKeyword_2; }
 	}
 	
 	
-	private final ModelElements pModel;
-	private final GreetingElements pGreeting;
+	private final ArchitectureDefinitionElements pArchitectureDefinition;
+	private final SectionsElements pSections;
+	private final AbstractionsElements pAbstractions;
+	private final CompositionsElements pCompositions;
+	private final RestrictionsElements pRestrictions;
+	private final AbstractionElements pAbstraction;
 	
 	private final Grammar grammar;
 	
@@ -77,8 +225,12 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pModel = new ModelElements();
-		this.pGreeting = new GreetingElements();
+		this.pArchitectureDefinition = new ArchitectureDefinitionElements();
+		this.pSections = new SectionsElements();
+		this.pAbstractions = new AbstractionsElements();
+		this.pCompositions = new CompositionsElements();
+		this.pRestrictions = new RestrictionsElements();
+		this.pAbstraction = new AbstractionElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -108,24 +260,71 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model:
-	//	greetings+=Greeting*;
-	public ModelElements getModelAccess() {
-		return pModel;
+	//ArchitectureDefinition:
+	//	section+=Sections*;
+	public ArchitectureDefinitionElements getArchitectureDefinitionAccess() {
+		return pArchitectureDefinition;
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getArchitectureDefinitionRule() {
+		return getArchitectureDefinitionAccess().getRule();
 	}
 	
-	//Greeting:
-	//	'Hello' name=ID '!';
-	public GreetingElements getGreetingAccess() {
-		return pGreeting;
+	//Sections:
+	//	abstractions=Abstractions compositions=Compositions restrictions=Restrictions;
+	public SectionsElements getSectionsAccess() {
+		return pSections;
 	}
 	
-	public ParserRule getGreetingRule() {
-		return getGreetingAccess().getRule();
+	public ParserRule getSectionsRule() {
+		return getSectionsAccess().getRule();
+	}
+	
+	//Abstractions:
+	//	'Abstractions'
+	//	'{'
+	//	Abstraction (name+=ID (',' name+=ID)* ';')+
+	//	'}';
+	public AbstractionsElements getAbstractionsAccess() {
+		return pAbstractions;
+	}
+	
+	public ParserRule getAbstractionsRule() {
+		return getAbstractionsAccess().getRule();
+	}
+	
+	//Compositions:
+	//	'Compositions'
+	//	'{'
+	//	'}';
+	public CompositionsElements getCompositionsAccess() {
+		return pCompositions;
+	}
+	
+	public ParserRule getCompositionsRule() {
+		return getCompositionsAccess().getRule();
+	}
+	
+	//Restrictions:
+	//	'Restrictions'
+	//	'{'
+	//	'}';
+	public RestrictionsElements getRestrictionsAccess() {
+		return pRestrictions;
+	}
+	
+	public ParserRule getRestrictionsRule() {
+		return getRestrictionsAccess().getRule();
+	}
+	
+	//Abstraction:
+	//	'Monitor' | 'Managing' | 'Managed';
+	public AbstractionElements getAbstractionAccess() {
+		return pAbstraction;
+	}
+	
+	public ParserRule getAbstractionRule() {
+		return getAbstractionAccess().getRule();
 	}
 	
 	//terminal ID:

@@ -65,8 +65,9 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
   {
     switch (eClass.getClassifierID())
     {
-      case SasDslPackage.MODEL: return createModel();
-      case SasDslPackage.GREETING: return createGreeting();
+      case SasDslPackage.ARCHITECTURE_DEFINITION: return createArchitectureDefinition();
+      case SasDslPackage.SECTIONS: return createSections();
+      case SasDslPackage.ABSTRACTIONS: return createAbstractions();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -77,10 +78,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Model createModel()
+  public ArchitectureDefinition createArchitectureDefinition()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    ArchitectureDefinitionImpl architectureDefinition = new ArchitectureDefinitionImpl();
+    return architectureDefinition;
   }
 
   /**
@@ -88,10 +89,21 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Greeting createGreeting()
+  public Sections createSections()
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    SectionsImpl sections = new SectionsImpl();
+    return sections;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Abstractions createAbstractions()
+  {
+    AbstractionsImpl abstractions = new AbstractionsImpl();
+    return abstractions;
   }
 
   /**

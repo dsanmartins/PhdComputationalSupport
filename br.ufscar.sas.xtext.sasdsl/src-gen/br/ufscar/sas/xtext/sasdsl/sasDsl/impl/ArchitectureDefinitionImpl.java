@@ -3,9 +3,9 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Greeting;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Model;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.Sections;
 
 import java.util.Collection;
 
@@ -23,35 +23,35 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Architecture Definition</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ModelImpl#getGreetings <em>Greetings</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getSection <em>Section</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container implements ArchitectureDefinition
 {
   /**
-   * The cached value of the '{@link #getGreetings() <em>Greetings</em>}' containment reference list.
+   * The cached value of the '{@link #getSection() <em>Section</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGreetings()
+   * @see #getSection()
    * @generated
    * @ordered
    */
-  protected EList<Greeting> greetings;
+  protected EList<Sections> section;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected ArchitectureDefinitionImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.MODEL;
+    return SasDslPackage.Literals.ARCHITECTURE_DEFINITION;
   }
 
   /**
@@ -72,13 +72,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Greeting> getGreetings()
+  public EList<Sections> getSection()
   {
-    if (greetings == null)
+    if (section == null)
     {
-      greetings = new EObjectContainmentEList<Greeting>(Greeting.class, this, SasDslPackage.MODEL__GREETINGS);
+      section = new EObjectContainmentEList<Sections>(Sections.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__SECTION);
     }
-    return greetings;
+    return section;
   }
 
   /**
@@ -91,8 +91,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SasDslPackage.MODEL__GREETINGS:
-        return ((InternalEList<?>)getGreetings()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
+        return ((InternalEList<?>)getSection()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SasDslPackage.MODEL__GREETINGS:
-        return getGreetings();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
+        return getSection();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SasDslPackage.MODEL__GREETINGS:
-        getGreetings().clear();
-        getGreetings().addAll((Collection<? extends Greeting>)newValue);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
+        getSection().clear();
+        getSection().addAll((Collection<? extends Sections>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SasDslPackage.MODEL__GREETINGS:
-        getGreetings().clear();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
+        getSection().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +159,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case SasDslPackage.MODEL__GREETINGS:
-        return greetings != null && !greetings.isEmpty();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
+        return section != null && !section.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //ArchitectureDefinitionImpl

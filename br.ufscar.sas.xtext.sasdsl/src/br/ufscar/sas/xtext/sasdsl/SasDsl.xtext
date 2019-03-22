@@ -2,8 +2,34 @@ grammar br.ufscar.sas.xtext.sasdsl.SasDsl with org.eclipse.xtext.common.Terminal
 
 generate sasDsl "http://www.ufscar.br/sas/xtext/sasdsl/SasDsl"
 
-Model:
-	greetings+=Greeting*;
+ArchitectureDefinition:
+	section=Sections;
 	
-Greeting:
-	'Hello' name=ID '!';
+Sections:
+	abstractions=Abstractions compositions=Compositions restrictions=Restrictions;
+
+Abstractions:
+	'Abstractions'
+	'{'
+		Abstraction (name+=ID (',' name+=ID)* ';')+
+	'}'
+	;
+	
+Compositions:
+	'Compositions'
+	'{'
+	
+	'}'
+	;
+
+Restrictions:
+	'Restrictions'
+	'{'
+	'}'
+	;
+	
+Abstraction:
+	'Monitor'| 'Managing'|'Managed'
+;
+	
+

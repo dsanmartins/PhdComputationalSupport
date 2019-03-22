@@ -24,22 +24,31 @@ public interface SasDslFactory extends EFactory
   SasDslFactory eINSTANCE = br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Architecture Definition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Architecture Definition</em>'.
    * @generated
    */
-  Model createModel();
+  ArchitectureDefinition createArchitectureDefinition();
 
   /**
-   * Returns a new object of class '<em>Greeting</em>'.
+   * Returns a new object of class '<em>Sections</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greeting</em>'.
+   * @return a new object of class '<em>Sections</em>'.
    * @generated
    */
-  Greeting createGreeting();
+  Sections createSections();
+
+  /**
+   * Returns a new object of class '<em>Abstractions</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstractions</em>'.
+   * @generated
+   */
+  Abstractions createAbstractions();
 
   /**
    * Returns the package supported by this factory.

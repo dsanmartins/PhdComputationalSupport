@@ -58,103 +58,192 @@ public interface SasDslPackage extends EPackage
   SasDslPackage eINSTANCE = br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl <em>Architecture Definition</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ModelImpl
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getModel()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getArchitectureDefinition()
    * @generated
    */
-  int MODEL = 0;
+  int ARCHITECTURE_DEFINITION = 0;
 
   /**
-   * The feature id for the '<em><b>Greetings</b></em>' containment reference list.
+   * The feature id for the '<em><b>Section</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__GREETINGS = 0;
+  int ARCHITECTURE_DEFINITION__SECTION = 0;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The number of structural features of the '<em>Architecture Definition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int ARCHITECTURE_DEFINITION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.GreetingImpl <em>Greeting</em>}' class.
+   * The meta object id for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SectionsImpl <em>Sections</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.GreetingImpl
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getGreeting()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SectionsImpl
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getSections()
    * @generated
    */
-  int GREETING = 1;
+  int SECTIONS = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GREETING__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Greeting</em>' class.
+   * The feature id for the '<em><b>Abstractions</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GREETING_FEATURE_COUNT = 1;
+  int SECTIONS__ABSTRACTIONS = 0;
+
+  /**
+   * The feature id for the '<em><b>Compositions</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTIONS__COMPOSITIONS = 1;
+
+  /**
+   * The feature id for the '<em><b>Restrictions</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTIONS__RESTRICTIONS = 2;
+
+  /**
+   * The number of structural features of the '<em>Sections</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTIONS_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.AbstractionsImpl <em>Abstractions</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.AbstractionsImpl
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getAbstractions()
+   * @generated
+   */
+  int ABSTRACTIONS = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACTIONS__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Abstractions</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACTIONS_FEATURE_COUNT = 1;
 
 
   /**
-   * Returns the meta object for class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Model <em>Model</em>}'.
+   * Returns the meta object for class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition <em>Architecture Definition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Model
+   * @return the meta object for class '<em>Architecture Definition</em>'.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition
    * @generated
    */
-  EClass getModel();
+  EClass getArchitectureDefinition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Model#getGreetings <em>Greetings</em>}'.
+   * Returns the meta object for the containment reference list '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getSection <em>Section</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Greetings</em>'.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Model#getGreetings()
-   * @see #getModel()
+   * @return the meta object for the containment reference list '<em>Section</em>'.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getSection()
+   * @see #getArchitectureDefinition()
    * @generated
    */
-  EReference getModel_Greetings();
+  EReference getArchitectureDefinition_Section();
 
   /**
-   * Returns the meta object for class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Greeting <em>Greeting</em>}'.
+   * Returns the meta object for class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Sections <em>Sections</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Greeting</em>'.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Greeting
+   * @return the meta object for class '<em>Sections</em>'.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Sections
    * @generated
    */
-  EClass getGreeting();
+  EClass getSections();
 
   /**
-   * Returns the meta object for the attribute '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Greeting#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Sections#getAbstractions <em>Abstractions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Greeting#getName()
-   * @see #getGreeting()
+   * @return the meta object for the containment reference '<em>Abstractions</em>'.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Sections#getAbstractions()
+   * @see #getSections()
    * @generated
    */
-  EAttribute getGreeting_Name();
+  EReference getSections_Abstractions();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Sections#getCompositions <em>Compositions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Compositions</em>'.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Sections#getCompositions()
+   * @see #getSections()
+   * @generated
+   */
+  EAttribute getSections_Compositions();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Sections#getRestrictions <em>Restrictions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Restrictions</em>'.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Sections#getRestrictions()
+   * @see #getSections()
+   * @generated
+   */
+  EAttribute getSections_Restrictions();
+
+  /**
+   * Returns the meta object for class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions <em>Abstractions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Abstractions</em>'.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions
+   * @generated
+   */
+  EClass getAbstractions();
+
+  /**
+   * Returns the meta object for the attribute list '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Name</em>'.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions#getName()
+   * @see #getAbstractions()
+   * @generated
+   */
+  EAttribute getAbstractions_Name();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -180,40 +269,74 @@ public interface SasDslPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl <em>Architecture Definition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ModelImpl
-     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getModel()
+     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl
+     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getArchitectureDefinition()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass ARCHITECTURE_DEFINITION = eINSTANCE.getArchitectureDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Greetings</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Section</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__GREETINGS = eINSTANCE.getModel_Greetings();
+    EReference ARCHITECTURE_DEFINITION__SECTION = eINSTANCE.getArchitectureDefinition_Section();
 
     /**
-     * The meta object literal for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.GreetingImpl <em>Greeting</em>}' class.
+     * The meta object literal for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SectionsImpl <em>Sections</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.GreetingImpl
-     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getGreeting()
+     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SectionsImpl
+     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getSections()
      * @generated
      */
-    EClass GREETING = eINSTANCE.getGreeting();
+    EClass SECTIONS = eINSTANCE.getSections();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Abstractions</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GREETING__NAME = eINSTANCE.getGreeting_Name();
+    EReference SECTIONS__ABSTRACTIONS = eINSTANCE.getSections_Abstractions();
+
+    /**
+     * The meta object literal for the '<em><b>Compositions</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SECTIONS__COMPOSITIONS = eINSTANCE.getSections_Compositions();
+
+    /**
+     * The meta object literal for the '<em><b>Restrictions</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SECTIONS__RESTRICTIONS = eINSTANCE.getSections_Restrictions();
+
+    /**
+     * The meta object literal for the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.AbstractionsImpl <em>Abstractions</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.AbstractionsImpl
+     * @see br.ufscar.sas.xtext.sasdsl.sasDsl.impl.SasDslPackageImpl#getAbstractions()
+     * @generated
+     */
+    EClass ABSTRACTIONS = eINSTANCE.getAbstractions();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ABSTRACTIONS__NAME = eINSTANCE.getAbstractions_Name();
 
   }
 
