@@ -3,7 +3,7 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLManaging;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import java.util.Collection;
@@ -18,18 +18,18 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstractions</b></em>'.
+ * An implementation of the model object '<em><b>DCL Managing</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.AbstractionsImpl#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DCLManagingImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Abstractions
+public class DCLManagingImpl extends MinimalEObjectImpl.Container implements DCLManaging
 {
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
@@ -46,7 +46,7 @@ public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Ab
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AbstractionsImpl()
+  protected DCLManagingImpl()
   {
     super();
   }
@@ -59,7 +59,7 @@ public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Ab
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.ABSTRACTIONS;
+    return SasDslPackage.Literals.DCL_MANAGING;
   }
 
   /**
@@ -71,7 +71,7 @@ public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Ab
   {
     if (name == null)
     {
-      name = new EDataTypeEList<String>(String.class, this, SasDslPackage.ABSTRACTIONS__NAME);
+      name = new EDataTypeEList<String>(String.class, this, SasDslPackage.DCL_MANAGING__NAME);
     }
     return name;
   }
@@ -86,7 +86,7 @@ public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Ab
   {
     switch (featureID)
     {
-      case SasDslPackage.ABSTRACTIONS__NAME:
+      case SasDslPackage.DCL_MANAGING__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -103,7 +103,7 @@ public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Ab
   {
     switch (featureID)
     {
-      case SasDslPackage.ABSTRACTIONS__NAME:
+      case SasDslPackage.DCL_MANAGING__NAME:
         getName().clear();
         getName().addAll((Collection<? extends String>)newValue);
         return;
@@ -121,7 +121,7 @@ public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Ab
   {
     switch (featureID)
     {
-      case SasDslPackage.ABSTRACTIONS__NAME:
+      case SasDslPackage.DCL_MANAGING__NAME:
         getName().clear();
         return;
     }
@@ -138,7 +138,7 @@ public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Ab
   {
     switch (featureID)
     {
-      case SasDslPackage.ABSTRACTIONS__NAME:
+      case SasDslPackage.DCL_MANAGING__NAME:
         return name != null && !name.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -161,4 +161,4 @@ public class AbstractionsImpl extends MinimalEObjectImpl.Container implements Ab
     return result.toString();
   }
 
-} //AbstractionsImpl
+} //DCLManagingImpl

@@ -66,8 +66,22 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
     switch (eClass.getClassifierID())
     {
       case SasDslPackage.ARCHITECTURE_DEFINITION: return createArchitectureDefinition();
-      case SasDslPackage.SECTIONS: return createSections();
-      case SasDslPackage.ABSTRACTIONS: return createAbstractions();
+      case SasDslPackage.DCL_ABSTRACTIONS: return createDCLAbstractions();
+      case SasDslPackage.DCL_MANAGING: return createDCLManaging();
+      case SasDslPackage.DCL_MANAGED: return createDCLManaged();
+      case SasDslPackage.DCL_CONTROL_LOOP_MANAGER: return createDCLControlLoopManager();
+      case SasDslPackage.DCL_CONTROL_LOOP: return createDCLControlLoop();
+      case SasDslPackage.DCL_MONITOR: return createDCLMonitor();
+      case SasDslPackage.DCL_ANALYZER: return createDCLAnalyzer();
+      case SasDslPackage.DCL_PLANNER: return createDCLPlanner();
+      case SasDslPackage.DCL_EXECUTOR: return createDCLExecutor();
+      case SasDslPackage.DCL_KNOWLEDGE: return createDCLKnowledge();
+      case SasDslPackage.DCL_SENSOR: return createDCLSensor();
+      case SasDslPackage.DCL_EFFECTOR: return createDCLEffector();
+      case SasDslPackage.DCL_PROBE: return createDCLProbe();
+      case SasDslPackage.DCL_GAUGE: return createDCLGauge();
+      case SasDslPackage.DCL_REFERENCE_INPUT: return createDCLReferenceInput();
+      case SasDslPackage.DCL_MEASURED_OUTPUT: return createDCLMeasuredOutput();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -89,10 +103,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Sections createSections()
+  public DCLAbstractions createDCLAbstractions()
   {
-    SectionsImpl sections = new SectionsImpl();
-    return sections;
+    DCLAbstractionsImpl dclAbstractions = new DCLAbstractionsImpl();
+    return dclAbstractions;
   }
 
   /**
@@ -100,10 +114,164 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Abstractions createAbstractions()
+  public DCLManaging createDCLManaging()
   {
-    AbstractionsImpl abstractions = new AbstractionsImpl();
-    return abstractions;
+    DCLManagingImpl dclManaging = new DCLManagingImpl();
+    return dclManaging;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLManaged createDCLManaged()
+  {
+    DCLManagedImpl dclManaged = new DCLManagedImpl();
+    return dclManaged;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLControlLoopManager createDCLControlLoopManager()
+  {
+    DCLControlLoopManagerImpl dclControlLoopManager = new DCLControlLoopManagerImpl();
+    return dclControlLoopManager;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLControlLoop createDCLControlLoop()
+  {
+    DCLControlLoopImpl dclControlLoop = new DCLControlLoopImpl();
+    return dclControlLoop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLMonitor createDCLMonitor()
+  {
+    DCLMonitorImpl dclMonitor = new DCLMonitorImpl();
+    return dclMonitor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLAnalyzer createDCLAnalyzer()
+  {
+    DCLAnalyzerImpl dclAnalyzer = new DCLAnalyzerImpl();
+    return dclAnalyzer;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLPlanner createDCLPlanner()
+  {
+    DCLPlannerImpl dclPlanner = new DCLPlannerImpl();
+    return dclPlanner;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLExecutor createDCLExecutor()
+  {
+    DCLExecutorImpl dclExecutor = new DCLExecutorImpl();
+    return dclExecutor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLKnowledge createDCLKnowledge()
+  {
+    DCLKnowledgeImpl dclKnowledge = new DCLKnowledgeImpl();
+    return dclKnowledge;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLSensor createDCLSensor()
+  {
+    DCLSensorImpl dclSensor = new DCLSensorImpl();
+    return dclSensor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLEffector createDCLEffector()
+  {
+    DCLEffectorImpl dclEffector = new DCLEffectorImpl();
+    return dclEffector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLProbe createDCLProbe()
+  {
+    DCLProbeImpl dclProbe = new DCLProbeImpl();
+    return dclProbe;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLGauge createDCLGauge()
+  {
+    DCLGaugeImpl dclGauge = new DCLGaugeImpl();
+    return dclGauge;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLReferenceInput createDCLReferenceInput()
+  {
+    DCLReferenceInputImpl dclReferenceInput = new DCLReferenceInputImpl();
+    return dclReferenceInput;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DCLMeasuredOutput createDCLMeasuredOutput()
+  {
+    DCLMeasuredOutputImpl dclMeasuredOutput = new DCLMeasuredOutputImpl();
+    return dclMeasuredOutput;
   }
 
   /**

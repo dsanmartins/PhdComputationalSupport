@@ -33,22 +33,148 @@ public interface SasDslFactory extends EFactory
   ArchitectureDefinition createArchitectureDefinition();
 
   /**
-   * Returns a new object of class '<em>Sections</em>'.
+   * Returns a new object of class '<em>DCL Abstractions</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sections</em>'.
+   * @return a new object of class '<em>DCL Abstractions</em>'.
    * @generated
    */
-  Sections createSections();
+  DCLAbstractions createDCLAbstractions();
 
   /**
-   * Returns a new object of class '<em>Abstractions</em>'.
+   * Returns a new object of class '<em>DCL Managing</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstractions</em>'.
+   * @return a new object of class '<em>DCL Managing</em>'.
    * @generated
    */
-  Abstractions createAbstractions();
+  DCLManaging createDCLManaging();
+
+  /**
+   * Returns a new object of class '<em>DCL Managed</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Managed</em>'.
+   * @generated
+   */
+  DCLManaged createDCLManaged();
+
+  /**
+   * Returns a new object of class '<em>DCL Control Loop Manager</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Control Loop Manager</em>'.
+   * @generated
+   */
+  DCLControlLoopManager createDCLControlLoopManager();
+
+  /**
+   * Returns a new object of class '<em>DCL Control Loop</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Control Loop</em>'.
+   * @generated
+   */
+  DCLControlLoop createDCLControlLoop();
+
+  /**
+   * Returns a new object of class '<em>DCL Monitor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Monitor</em>'.
+   * @generated
+   */
+  DCLMonitor createDCLMonitor();
+
+  /**
+   * Returns a new object of class '<em>DCL Analyzer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Analyzer</em>'.
+   * @generated
+   */
+  DCLAnalyzer createDCLAnalyzer();
+
+  /**
+   * Returns a new object of class '<em>DCL Planner</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Planner</em>'.
+   * @generated
+   */
+  DCLPlanner createDCLPlanner();
+
+  /**
+   * Returns a new object of class '<em>DCL Executor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Executor</em>'.
+   * @generated
+   */
+  DCLExecutor createDCLExecutor();
+
+  /**
+   * Returns a new object of class '<em>DCL Knowledge</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Knowledge</em>'.
+   * @generated
+   */
+  DCLKnowledge createDCLKnowledge();
+
+  /**
+   * Returns a new object of class '<em>DCL Sensor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Sensor</em>'.
+   * @generated
+   */
+  DCLSensor createDCLSensor();
+
+  /**
+   * Returns a new object of class '<em>DCL Effector</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Effector</em>'.
+   * @generated
+   */
+  DCLEffector createDCLEffector();
+
+  /**
+   * Returns a new object of class '<em>DCL Probe</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Probe</em>'.
+   * @generated
+   */
+  DCLProbe createDCLProbe();
+
+  /**
+   * Returns a new object of class '<em>DCL Gauge</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Gauge</em>'.
+   * @generated
+   */
+  DCLGauge createDCLGauge();
+
+  /**
+   * Returns a new object of class '<em>DCL Reference Input</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Reference Input</em>'.
+   * @generated
+   */
+  DCLReferenceInput createDCLReferenceInput();
+
+  /**
+   * Returns a new object of class '<em>DCL Measured Output</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DCL Measured Output</em>'.
+   * @generated
+   */
+  DCLMeasuredOutput createDCLMeasuredOutput();
 
   /**
    * Returns the package supported by this factory.

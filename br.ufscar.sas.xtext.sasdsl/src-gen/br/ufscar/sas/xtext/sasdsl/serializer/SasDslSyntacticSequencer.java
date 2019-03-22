@@ -26,21 +26,9 @@ public class SasDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getAbstractionRule())
-			return getAbstractionToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * Abstraction:
-	 * 	'Monitor'| 'Managing'|'Managed'
-	 * ;
-	 */
-	protected String getAbstractionToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "Monitor";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {

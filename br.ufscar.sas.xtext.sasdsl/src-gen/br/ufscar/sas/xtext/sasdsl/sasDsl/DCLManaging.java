@@ -9,21 +9,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Abstractions</b></em>'.
+ * A representation of the model object '<em><b>DCL Managing</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DCLManaging#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getAbstractions()
+ * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDCLManaging()
  * @model
  * @generated
  */
-public interface Abstractions extends EObject
+public interface DCLManaging extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute list.
@@ -35,10 +35,10 @@ public interface Abstractions extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getAbstractions_Name()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDCLManaging_Name()
    * @model unique="false"
    * @generated
    */
   EList<String> getName();
 
-} // Abstractions
+} // DCLManaging

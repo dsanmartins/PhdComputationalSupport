@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getSection <em>Section</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getAbstractions <em>Abstractions</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getArchitectureDefinition()
@@ -26,19 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface ArchitectureDefinition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Section</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.Sections}.
+   * Returns the value of the '<em><b>Abstractions</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.DCLAbstractions}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Section</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Abstractions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Section</em>' containment reference list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getArchitectureDefinition_Section()
+   * @return the value of the '<em>Abstractions</em>' containment reference list.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getArchitectureDefinition_Abstractions()
    * @model containment="true"
    * @generated
    */
-  EList<Sections> getSection();
+  EList<DCLAbstractions> getAbstractions();
 
 } // ArchitectureDefinition

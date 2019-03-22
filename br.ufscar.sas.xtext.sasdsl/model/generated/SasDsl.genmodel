@@ -7,15 +7,28 @@
   <genPackages prefix="SasDsl" basePackage="br.ufscar.sas.xtext.sasdsl" disposableProviderFactory="true"
       fileExtensions="sas" ecorePackage="SasDsl.ecore#/">
     <genClasses ecoreClass="SasDsl.ecore#//ArchitectureDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//ArchitectureDefinition/section"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//ArchitectureDefinition/abstractions"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//Sections">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//Sections/abstractions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Sections/compositions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Sections/restrictions"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLAbstractions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DCLAbstractions/managing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DCLAbstractions/name"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//Abstractions">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Abstractions/name"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLManaging">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DCLManaging/name"/>
     </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLManaged"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLControlLoopManager"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLControlLoop"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLMonitor"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLAnalyzer"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLPlanner"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLExecutor"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLKnowledge"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLSensor"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLEffector"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLProbe"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLGauge"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLReferenceInput"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DCLMeasuredOutput"/>
   </genPackages>
 </genmodel:GenModel>

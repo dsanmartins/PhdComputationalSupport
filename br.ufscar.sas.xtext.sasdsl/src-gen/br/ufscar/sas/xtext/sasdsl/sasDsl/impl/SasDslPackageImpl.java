@@ -3,11 +3,25 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Abstractions;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLAbstractions;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLAnalyzer;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLControlLoop;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLControlLoopManager;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLEffector;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLExecutor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLGauge;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLKnowledge;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLManaged;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLManaging;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLMeasuredOutput;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLMonitor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLPlanner;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLProbe;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLReferenceInput;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLSensor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslFactory;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Sections;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -36,14 +50,112 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sectionsEClass = null;
+  private EClass dclAbstractionsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass abstractionsEClass = null;
+  private EClass dclManagingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclManagedEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclControlLoopManagerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclControlLoopEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclMonitorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclAnalyzerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclPlannerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclExecutorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclKnowledgeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclSensorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclEffectorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclProbeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclGaugeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclReferenceInputEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dclMeasuredOutputEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -123,7 +235,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getArchitectureDefinition_Section()
+  public EReference getArchitectureDefinition_Abstractions()
   {
     return (EReference)architectureDefinitionEClass.getEStructuralFeatures().get(0);
   }
@@ -133,9 +245,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSections()
+  public EClass getDCLAbstractions()
   {
-    return sectionsEClass;
+    return dclAbstractionsEClass;
   }
 
   /**
@@ -143,9 +255,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSections_Abstractions()
+  public EReference getDCLAbstractions_Managing()
   {
-    return (EReference)sectionsEClass.getEStructuralFeatures().get(0);
+    return (EReference)dclAbstractionsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -153,9 +265,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSections_Compositions()
+  public EAttribute getDCLAbstractions_Name()
   {
-    return (EAttribute)sectionsEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)dclAbstractionsEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -163,9 +275,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSections_Restrictions()
+  public EClass getDCLManaging()
   {
-    return (EAttribute)sectionsEClass.getEStructuralFeatures().get(2);
+    return dclManagingEClass;
   }
 
   /**
@@ -173,9 +285,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAbstractions()
+  public EAttribute getDCLManaging_Name()
   {
-    return abstractionsEClass;
+    return (EAttribute)dclManagingEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -183,9 +295,139 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAbstractions_Name()
+  public EClass getDCLManaged()
   {
-    return (EAttribute)abstractionsEClass.getEStructuralFeatures().get(0);
+    return dclManagedEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLControlLoopManager()
+  {
+    return dclControlLoopManagerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLControlLoop()
+  {
+    return dclControlLoopEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLMonitor()
+  {
+    return dclMonitorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLAnalyzer()
+  {
+    return dclAnalyzerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLPlanner()
+  {
+    return dclPlannerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLExecutor()
+  {
+    return dclExecutorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLKnowledge()
+  {
+    return dclKnowledgeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLSensor()
+  {
+    return dclSensorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLEffector()
+  {
+    return dclEffectorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLProbe()
+  {
+    return dclProbeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLGauge()
+  {
+    return dclGaugeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLReferenceInput()
+  {
+    return dclReferenceInputEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDCLMeasuredOutput()
+  {
+    return dclMeasuredOutputEClass;
   }
 
   /**
@@ -219,15 +461,42 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     // Create classes and their features
     architectureDefinitionEClass = createEClass(ARCHITECTURE_DEFINITION);
-    createEReference(architectureDefinitionEClass, ARCHITECTURE_DEFINITION__SECTION);
+    createEReference(architectureDefinitionEClass, ARCHITECTURE_DEFINITION__ABSTRACTIONS);
 
-    sectionsEClass = createEClass(SECTIONS);
-    createEReference(sectionsEClass, SECTIONS__ABSTRACTIONS);
-    createEAttribute(sectionsEClass, SECTIONS__COMPOSITIONS);
-    createEAttribute(sectionsEClass, SECTIONS__RESTRICTIONS);
+    dclAbstractionsEClass = createEClass(DCL_ABSTRACTIONS);
+    createEReference(dclAbstractionsEClass, DCL_ABSTRACTIONS__MANAGING);
+    createEAttribute(dclAbstractionsEClass, DCL_ABSTRACTIONS__NAME);
 
-    abstractionsEClass = createEClass(ABSTRACTIONS);
-    createEAttribute(abstractionsEClass, ABSTRACTIONS__NAME);
+    dclManagingEClass = createEClass(DCL_MANAGING);
+    createEAttribute(dclManagingEClass, DCL_MANAGING__NAME);
+
+    dclManagedEClass = createEClass(DCL_MANAGED);
+
+    dclControlLoopManagerEClass = createEClass(DCL_CONTROL_LOOP_MANAGER);
+
+    dclControlLoopEClass = createEClass(DCL_CONTROL_LOOP);
+
+    dclMonitorEClass = createEClass(DCL_MONITOR);
+
+    dclAnalyzerEClass = createEClass(DCL_ANALYZER);
+
+    dclPlannerEClass = createEClass(DCL_PLANNER);
+
+    dclExecutorEClass = createEClass(DCL_EXECUTOR);
+
+    dclKnowledgeEClass = createEClass(DCL_KNOWLEDGE);
+
+    dclSensorEClass = createEClass(DCL_SENSOR);
+
+    dclEffectorEClass = createEClass(DCL_EFFECTOR);
+
+    dclProbeEClass = createEClass(DCL_PROBE);
+
+    dclGaugeEClass = createEClass(DCL_GAUGE);
+
+    dclReferenceInputEClass = createEClass(DCL_REFERENCE_INPUT);
+
+    dclMeasuredOutputEClass = createEClass(DCL_MEASURED_OUTPUT);
   }
 
   /**
@@ -259,18 +528,59 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    dclManagedEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclControlLoopManagerEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclControlLoopEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclMonitorEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclAnalyzerEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclPlannerEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclExecutorEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclKnowledgeEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclSensorEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclEffectorEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclProbeEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclGaugeEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclReferenceInputEClass.getESuperTypes().add(this.getDCLAbstractions());
+    dclMeasuredOutputEClass.getESuperTypes().add(this.getDCLAbstractions());
 
     // Initialize classes and features; add operations and parameters
     initEClass(architectureDefinitionEClass, ArchitectureDefinition.class, "ArchitectureDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getArchitectureDefinition_Section(), this.getSections(), null, "section", null, 0, -1, ArchitectureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArchitectureDefinition_Abstractions(), this.getDCLAbstractions(), null, "abstractions", null, 0, -1, ArchitectureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sectionsEClass, Sections.class, "Sections", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSections_Abstractions(), this.getAbstractions(), null, "abstractions", null, 0, 1, Sections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSections_Compositions(), ecorePackage.getEString(), "compositions", null, 0, 1, Sections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSections_Restrictions(), ecorePackage.getEString(), "restrictions", null, 0, 1, Sections.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dclAbstractionsEClass, DCLAbstractions.class, "DCLAbstractions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDCLAbstractions_Managing(), this.getDCLManaging(), null, "managing", null, 0, -1, DCLAbstractions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDCLAbstractions_Name(), ecorePackage.getEString(), "name", null, 0, -1, DCLAbstractions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(abstractionsEClass, Abstractions.class, "Abstractions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAbstractions_Name(), ecorePackage.getEString(), "name", null, 0, -1, Abstractions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dclManagingEClass, DCLManaging.class, "DCLManaging", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDCLManaging_Name(), ecorePackage.getEString(), "name", null, 0, -1, DCLManaging.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dclManagedEClass, DCLManaged.class, "DCLManaged", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclControlLoopManagerEClass, DCLControlLoopManager.class, "DCLControlLoopManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclControlLoopEClass, DCLControlLoop.class, "DCLControlLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclMonitorEClass, DCLMonitor.class, "DCLMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclAnalyzerEClass, DCLAnalyzer.class, "DCLAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclPlannerEClass, DCLPlanner.class, "DCLPlanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclExecutorEClass, DCLExecutor.class, "DCLExecutor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclKnowledgeEClass, DCLKnowledge.class, "DCLKnowledge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclSensorEClass, DCLSensor.class, "DCLSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclEffectorEClass, DCLEffector.class, "DCLEffector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclProbeEClass, DCLProbe.class, "DCLProbe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclGaugeEClass, DCLGauge.class, "DCLGauge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclReferenceInputEClass, DCLReferenceInput.class, "DCLReferenceInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(dclMeasuredOutputEClass, DCLMeasuredOutput.class, "DCLMeasuredOutput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

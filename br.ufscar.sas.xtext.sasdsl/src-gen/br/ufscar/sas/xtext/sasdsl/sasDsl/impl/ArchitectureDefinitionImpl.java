@@ -4,8 +4,8 @@
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLAbstractions;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Sections;
 
 import java.util.Collection;
 
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getSection <em>Section</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getAbstractions <em>Abstractions</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container implements ArchitectureDefinition
 {
   /**
-   * The cached value of the '{@link #getSection() <em>Section</em>}' containment reference list.
+   * The cached value of the '{@link #getAbstractions() <em>Abstractions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSection()
+   * @see #getAbstractions()
    * @generated
    * @ordered
    */
-  protected EList<Sections> section;
+  protected EList<DCLAbstractions> abstractions;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +72,13 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Sections> getSection()
+  public EList<DCLAbstractions> getAbstractions()
   {
-    if (section == null)
+    if (abstractions == null)
     {
-      section = new EObjectContainmentEList<Sections>(Sections.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__SECTION);
+      abstractions = new EObjectContainmentEList<DCLAbstractions>(DCLAbstractions.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS);
     }
-    return section;
+    return abstractions;
   }
 
   /**
@@ -91,8 +91,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
-        return ((InternalEList<?>)getSection()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
+        return ((InternalEList<?>)getAbstractions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
-        return getSection();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
+        return getAbstractions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
-        getSection().clear();
-        getSection().addAll((Collection<? extends Sections>)newValue);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
+        getAbstractions().clear();
+        getAbstractions().addAll((Collection<? extends DCLAbstractions>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
-        getSection().clear();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
+        getAbstractions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +159,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__SECTION:
-        return section != null && !section.isEmpty();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
+        return abstractions != null && !abstractions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

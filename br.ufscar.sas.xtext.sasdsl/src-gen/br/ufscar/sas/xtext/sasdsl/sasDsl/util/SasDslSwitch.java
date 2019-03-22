@@ -80,17 +80,129 @@ public class SasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SasDslPackage.SECTIONS:
+      case SasDslPackage.DCL_ABSTRACTIONS:
       {
-        Sections sections = (Sections)theEObject;
-        T result = caseSections(sections);
+        DCLAbstractions dclAbstractions = (DCLAbstractions)theEObject;
+        T result = caseDCLAbstractions(dclAbstractions);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SasDslPackage.ABSTRACTIONS:
+      case SasDslPackage.DCL_MANAGING:
       {
-        Abstractions abstractions = (Abstractions)theEObject;
-        T result = caseAbstractions(abstractions);
+        DCLManaging dclManaging = (DCLManaging)theEObject;
+        T result = caseDCLManaging(dclManaging);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_MANAGED:
+      {
+        DCLManaged dclManaged = (DCLManaged)theEObject;
+        T result = caseDCLManaged(dclManaged);
+        if (result == null) result = caseDCLAbstractions(dclManaged);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_CONTROL_LOOP_MANAGER:
+      {
+        DCLControlLoopManager dclControlLoopManager = (DCLControlLoopManager)theEObject;
+        T result = caseDCLControlLoopManager(dclControlLoopManager);
+        if (result == null) result = caseDCLAbstractions(dclControlLoopManager);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_CONTROL_LOOP:
+      {
+        DCLControlLoop dclControlLoop = (DCLControlLoop)theEObject;
+        T result = caseDCLControlLoop(dclControlLoop);
+        if (result == null) result = caseDCLAbstractions(dclControlLoop);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_MONITOR:
+      {
+        DCLMonitor dclMonitor = (DCLMonitor)theEObject;
+        T result = caseDCLMonitor(dclMonitor);
+        if (result == null) result = caseDCLAbstractions(dclMonitor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_ANALYZER:
+      {
+        DCLAnalyzer dclAnalyzer = (DCLAnalyzer)theEObject;
+        T result = caseDCLAnalyzer(dclAnalyzer);
+        if (result == null) result = caseDCLAbstractions(dclAnalyzer);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_PLANNER:
+      {
+        DCLPlanner dclPlanner = (DCLPlanner)theEObject;
+        T result = caseDCLPlanner(dclPlanner);
+        if (result == null) result = caseDCLAbstractions(dclPlanner);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_EXECUTOR:
+      {
+        DCLExecutor dclExecutor = (DCLExecutor)theEObject;
+        T result = caseDCLExecutor(dclExecutor);
+        if (result == null) result = caseDCLAbstractions(dclExecutor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_KNOWLEDGE:
+      {
+        DCLKnowledge dclKnowledge = (DCLKnowledge)theEObject;
+        T result = caseDCLKnowledge(dclKnowledge);
+        if (result == null) result = caseDCLAbstractions(dclKnowledge);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_SENSOR:
+      {
+        DCLSensor dclSensor = (DCLSensor)theEObject;
+        T result = caseDCLSensor(dclSensor);
+        if (result == null) result = caseDCLAbstractions(dclSensor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_EFFECTOR:
+      {
+        DCLEffector dclEffector = (DCLEffector)theEObject;
+        T result = caseDCLEffector(dclEffector);
+        if (result == null) result = caseDCLAbstractions(dclEffector);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_PROBE:
+      {
+        DCLProbe dclProbe = (DCLProbe)theEObject;
+        T result = caseDCLProbe(dclProbe);
+        if (result == null) result = caseDCLAbstractions(dclProbe);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_GAUGE:
+      {
+        DCLGauge dclGauge = (DCLGauge)theEObject;
+        T result = caseDCLGauge(dclGauge);
+        if (result == null) result = caseDCLAbstractions(dclGauge);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_REFERENCE_INPUT:
+      {
+        DCLReferenceInput dclReferenceInput = (DCLReferenceInput)theEObject;
+        T result = caseDCLReferenceInput(dclReferenceInput);
+        if (result == null) result = caseDCLAbstractions(dclReferenceInput);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DCL_MEASURED_OUTPUT:
+      {
+        DCLMeasuredOutput dclMeasuredOutput = (DCLMeasuredOutput)theEObject;
+        T result = caseDCLMeasuredOutput(dclMeasuredOutput);
+        if (result == null) result = caseDCLAbstractions(dclMeasuredOutput);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,33 +227,257 @@ public class SasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Sections</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>DCL Abstractions</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sections</em>'.
+   * @return the result of interpreting the object as an instance of '<em>DCL Abstractions</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSections(Sections object)
+  public T caseDCLAbstractions(DCLAbstractions object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstractions</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>DCL Managing</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstractions</em>'.
+   * @return the result of interpreting the object as an instance of '<em>DCL Managing</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAbstractions(Abstractions object)
+  public T caseDCLManaging(DCLManaging object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Managed</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Managed</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLManaged(DCLManaged object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Control Loop Manager</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Control Loop Manager</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLControlLoopManager(DCLControlLoopManager object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Control Loop</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Control Loop</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLControlLoop(DCLControlLoop object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Monitor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Monitor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLMonitor(DCLMonitor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Analyzer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Analyzer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLAnalyzer(DCLAnalyzer object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Planner</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Planner</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLPlanner(DCLPlanner object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Executor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Executor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLExecutor(DCLExecutor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Knowledge</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Knowledge</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLKnowledge(DCLKnowledge object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Sensor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Sensor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLSensor(DCLSensor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Effector</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Effector</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLEffector(DCLEffector object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Probe</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Probe</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLProbe(DCLProbe object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Gauge</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Gauge</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLGauge(DCLGauge object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Reference Input</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Reference Input</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLReferenceInput(DCLReferenceInput object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DCL Measured Output</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DCL Measured Output</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDCLMeasuredOutput(DCLMeasuredOutput object)
   {
     return null;
   }
