@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?><target name="sas">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?><target includeMode="feature" name="sas">
 	<locations>
-		<location path="/home/dsanmartins/eclipse-workspace/PhdComputationalSupport/br.ufscar.sas.target/bundles" type="Directory"/>
+		<location path="C:\Users\daniel\eclipse-workspace\PhdComputationalSupport\br.ufscar.sas.target\bundles" type="Directory"/>
 	</locations>
+	<environment>
+		<os>win32</os>
+		<arch>x86_64</arch>
+		<ws>win32</ws>
+	</environment>
 </target>

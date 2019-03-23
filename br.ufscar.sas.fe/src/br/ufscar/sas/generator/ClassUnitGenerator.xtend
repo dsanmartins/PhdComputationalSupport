@@ -29,35 +29,34 @@ class ClassUnitGenerator {
 	def generateClassUnit(ClassUnit classUnit, IFileSystemAccess fsa) {
 
 		fsa.generateFile(classUnit.name + ".java", '''
-
-				public class Â«classUnit.nameÂ»{
+				public class «classUnit.name»{
 				
 				
-				Â«FOR storableUnit: classUnit.codeElementÂ»
-				   Â«IF storableUnit instanceof StorableUnitÂ»
-				   		private Â«storableUnit.type.nameÂ» Â«storableUnit.nameÂ»;
-				   Â«ENDIFÂ»
-				Â«ENDFORÂ»
+				«FOR storableUnit: classUnit.codeElement»
+				   «IF storableUnit instanceof StorableUnit»
+				   		private «storableUnit.type.name» «storableUnit.name»;
+				   «ENDIF»
+				«ENDFOR»
 				
-				Â«FOR methodUnit: classUnit.codeElementÂ»
-				Â«IF methodUnit instanceof MethodUnitÂ»
-				Â«IF methodUnit.kind.getName.equals("method")Â»
-					Â«FOR signature: methodUnit.codeElementÂ»
-					Â«IF signature instanceof SignatureÂ»
-							Â«methodUnit.exportÂ» Â«FOR parameterUnit : signature.parameterUnitÂ»Â«IF parameterUnit.kind.getName.equals("return")Â» Â«parameterUnit.type.nameÂ»  Â«ENDIFÂ»Â«ENDFORÂ»Â«methodUnit.nameÂ»(Â«createMethodParameters(signature)Â»)
-					Â«ENDIFÂ»
-					Â«ENDFORÂ»
-					Â«FOR blockUnit: methodUnit.codeElementÂ»
-					Â«IF blockUnit instanceof BlockUnitÂ»
+				«FOR methodUnit: classUnit.codeElement»
+				«IF methodUnit instanceof MethodUnit»
+				«IF methodUnit.kind.getName.equals("method")»
+					«FOR signature: methodUnit.codeElement»
+					«IF signature instanceof Signature»
+							«methodUnit.export» «FOR parameterUnit : signature.parameterUnit»«IF parameterUnit.kind.getName.equals("return")» «parameterUnit.type.name»  «ENDIF»«ENDFOR»«methodUnit.name»(«createMethodParameters(signature)»)
+					«ENDIF»
+					«ENDFOR»
+					«FOR blockUnit: methodUnit.codeElement»
+					«IF blockUnit instanceof BlockUnit»
 					{
-						Â«blockUnit(blockUnit)Â»
+						«blockUnit(blockUnit)»
 					}
-					Â«ENDIFÂ»
-					Â«ENDFORÂ»
+					«ENDIF»
+					«ENDFOR»
 					
-				Â«ENDIFÂ»
-				Â«ENDIFÂ»
-				Â«ENDFORÂ»
+				«ENDIF»
+				«ENDIF»
+				«ENDFOR»
 				}
 			''')
 	}
