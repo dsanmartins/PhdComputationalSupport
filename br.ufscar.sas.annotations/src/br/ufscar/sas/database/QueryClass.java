@@ -65,7 +65,7 @@ public class QueryClass {
 	{
 		SqliteDb mydb = new SqliteDb(dbDriver,url);
 		mydb.executeStmt("insert into abstractions(id,annotation) values ('1','Managed');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('2','Gauge');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('2','Probe');");
 		mydb.executeStmt("insert into abstractions(id,annotation) values ('3','Managing');");
 		mydb.executeStmt("insert into abstractions(id,annotation) values ('4','Control Loop');");
 		mydb.executeStmt("insert into abstractions(id,annotation) values ('5','Sensor');");

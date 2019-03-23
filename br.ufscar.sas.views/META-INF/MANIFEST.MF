@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Mainview
-Bundle-SymbolicName: br.ufscar.SaS.views;singleton:=true
+Bundle-SymbolicName: br.ufscar.sas.views;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: br.ufscar.sas.views.Activator
 Require-Bundle: org.eclipse.ui,

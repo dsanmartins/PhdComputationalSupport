@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: m2m
-Bundle-SymbolicName: br.ufscar.SaS.m2m
+Bundle-SymbolicName: br.ufscar.sas.m2m
 Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

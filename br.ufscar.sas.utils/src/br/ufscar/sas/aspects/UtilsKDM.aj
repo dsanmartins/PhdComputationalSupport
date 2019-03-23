@@ -36,12 +36,7 @@ public aspect UtilsKDM {
 		
 		System.out.println("************* START ADDING NAMESPACES *************");
 		AddNamespaces an = new AddNamespaces();
-		try {
-			an.parser(path + file);
-		} catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		try {an.parser(path + file);} catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {e.printStackTrace();}
 		System.out.println("************* STOP ADDING NAMESPACES *************");
 		//System.out.println("************* START ADDING RETURN TO KDM *************");
 		//GenerateReturn gr = new GenerateReturn();
@@ -57,17 +52,14 @@ public aspect UtilsKDM {
 		try {addAbsTag.updateMethodWithAbstraction(path,file,dbName);} catch (Exception e1) {e1.printStackTrace();}
 		try {addAbsTag.updateVariableMethodWithAbstraction(path,file,dbName);} catch (Exception e1) {e1.printStackTrace();}
 		System.out.println("************* END ADD ABSTRACTION CODE ELEMENT *************");
-		
 		System.out.println("************* START EDITING SOURCE REGION *************");
 		SourceRegion sourceRegion = new SourceRegion();
 		sourceRegion.statementsByLine(new File(path));
 		System.out.println("************* END EDITING SOURCE REGION *************");
-		
 		System.out.println("************* START GENERATE STRUCTURE *************");
 		GenerateStructure generateStructure = new GenerateStructure();
 		generateStructure.createModel(new File(path),file,dbName);
 		System.out.println("************* END GENERATE STRUCTURE *************");
-		
 		System.out.println("************* START GENERATE STRUCTURE ELEMENTS *************");
 		try {generateStructure.discoverRelationShip(new File(path));} catch (Exception e) {e.printStackTrace();}
 		generateStructure.annotationPackage(new File(path));

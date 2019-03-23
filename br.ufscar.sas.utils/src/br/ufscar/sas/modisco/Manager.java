@@ -238,49 +238,13 @@ public class Manager   {
 			return false;
 	}
 
-	public void createLineSto(String className, String fieldName, String attributeName, int attributeValue) throws SQLException, QueryException {
-		String query = PropertyFileManager.getQuery("insertAttrLineStoU");
-		QueryProcessor proc = new QueryProcessor(query, context);
-		proc.bind("className", className);
-		proc.bind("fieldName", fieldName);
-		proc.bind("attributeName", attributeName);
-		proc.bind("attributeValue", attributeValue);
+	public void createLine(String predicate) throws SQLException, QueryException {
+		String query = PropertyFileManager.getQuery("query-3");
+		QueryProcessor proc = new QueryProcessor(query + predicate, context);
 		proc.value();
 		proc.close();
 	}
 
-	public void createLineMU(String className, String methodName, String attributeName, int attributeValue) throws SQLException, QueryException {
-		String query = PropertyFileManager.getQuery("insertAttrLineMU");
-		QueryProcessor proc = new QueryProcessor(query, context);
-		proc.bind("className", className);
-		proc.bind("methodName", methodName);
-		proc.bind("attributeName", attributeName);
-		proc.bind("attributeValue", String.valueOf(attributeValue));
-		proc.value();
-		proc.close();
-	}
-
-	public void createLineClass(String className, String attributeName, int attributeValue) throws SQLException, QueryException {
-		String query = PropertyFileManager.getQuery("insertAttrLineClass");
-		QueryProcessor proc = new QueryProcessor(query, context);
-		proc.bind("className", className);
-		proc.bind("attributeName", attributeName);
-		proc.bind("attributeValue", String.valueOf(attributeValue));
-		proc.value();
-		proc.close();
-	}
-
-	public void createLineVariable(String className, String methodName, String variable, String attributeName, int attributeValue) throws SQLException, QueryException {
-		String query = PropertyFileManager.getQuery("insertAttrLineVariable");
-		QueryProcessor proc = new QueryProcessor(query, context);
-		proc.bind("className", className);
-		proc.bind("methodName", methodName);
-		proc.bind("variable", variable.split("\\s+")[1]);
-		proc.bind("attributeName", attributeName);
-		proc.bind("attributeValue", String.valueOf(attributeValue));
-		proc.value();
-		proc.close();
-	}
 
 	/*
 	 * Esse método transforma os paths obtidos pela xquery em nomes de pacotes, classes e métodos dinâmicamente.

@@ -15,7 +15,6 @@ import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
-import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 
 import br.ufscar.sas.modisco.Manager;
 
@@ -33,6 +32,7 @@ public class SourceRegion {
 			{ 
 				//Get Class Name
 				String token[] = path.split("\\/"); 
+				String packageName = token[token.length-2];
 				String className = token[token.length-1].split("\\.")[0];
 
 				//Get Fields of a class
@@ -44,12 +44,13 @@ public class SourceRegion {
 					NodeList<VariableDeclarator> nl = listFd.get(i).getVariables();
 					for (int j = 0; j< nl.size(); j++)
 					{
-						String fieldName = nl.get(j).toString();
+						String fieldName = nl.get(j).getNameAsString().toString();
 						int startLine = listFd.get(i).getBegin().get().line;
 						int endLine = listFd.get(i).getEnd().get().line;
 						this.lineNumbersGenerator(1,projectDir.getPath() + "/", 
 								projectDir.getName() +"_KDM" + ".xmi", 
 								projectDir.getName() + "_KDM", 
+								packageName,
 								className,
 								fieldName, 
 								startLine, 
@@ -69,30 +70,32 @@ public class SourceRegion {
 					this.lineNumbersGenerator(2,projectDir.getPath() + "/", 
 							projectDir.getName() +"_KDM" + ".xmi", 
 							projectDir.getName() + "_KDM", 
+							packageName,
 							className,
 							methodName, 
 							startLine, 
 							endLine); 
-					
-					
+
+
 					VariableVisitor vv = new VariableVisitor();
-					List<VariableDeclarationExpr> listVD = vv.getVariableExpr(listMd.get(i));
+					List<VariableDeclarator> listVD = vv.getVariableExpr(listMd.get(i));
 					for (int j=0; j< listVD.size(); j++)
 					{
-						String variable = listVD.get(j).toString();
+						String variable = listVD.get(j).getNameAsString().toString();
 						startLine = listVD.get(j).getBegin().get().line;
 						endLine = listVD.get(j).getEnd().get().line;
-										
+
 						this.lineNumbersGenerator(4,projectDir.getPath() + "/", 
 								projectDir.getName() +"_KDM" + ".xmi", 
 								projectDir.getName() + "_KDM", 
+								packageName,
 								className,
 								listMd.get(i).getName() + "|" + variable, 
 								startLine, 
 								endLine); 
 					}
 				}
-				
+
 				ClassVisitor cv = new ClassVisitor();
 				List<ClassOrInterfaceDeclaration> listCID = cv.getClassesOrInterfaces(cu);
 				for (int i=0; i< listCID.size(); i++)
@@ -100,17 +103,18 @@ public class SourceRegion {
 					String classOrInterfaceName = listCID.get(i).getName().toString();
 					int startLine = listCID.get(i).getBegin().get().line;
 					int endLine = listCID.get(i).getEnd().get().line;
-					
+
 					this.lineNumbersGenerator(3,projectDir.getPath() + "/", 
 							projectDir.getName() +"_KDM" + ".xmi", 
 							projectDir.getName() + "_KDM", 
+							packageName,
 							classOrInterfaceName,
 							"", 
 							startLine, 
 							endLine); 
-					
+
 				}
-				
+
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -119,7 +123,7 @@ public class SourceRegion {
 
 	}
 
-	public void lineNumbersGenerator(int op, String path, String file, String dbName, String className, String elementName, int startLine , int endLine) {
+	public void lineNumbersGenerator(int op, String path, String file, String dbName, String packageName, String className, String elementName, int startLine , int endLine) {
 
 		Manager baseXManager=null;
 
@@ -138,10 +142,16 @@ public class SourceRegion {
 
 		if (op == 2)
 		{
-			
 			//EndLine
 			try {
-				baseXManager.createLineMU(className, elementName, "endLine", endLine);
+
+				String query = "for $a in//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']"
+						+ "//codeElement[@xsi:type='code:Package' and @name='" + packageName + "']"
+						+ "//codeElement[@xsi:type='code:ClassUnit' and @name='" + className + "']" 
+						+ "//codeElement[@xsi:type='code:MethodUnit' and @name='" + elementName + "']/source/region" 
+						+ " return if (not($a/boolean(@endLine))) then insert node (attribute { 'endLine' } {'" + endLine + "'}) as last into $a else ()";
+
+				baseXManager.createLine(query);
 			} catch (QueryException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -149,10 +159,17 @@ public class SourceRegion {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
+
 			//StartLine
 			try {
-				baseXManager.createLineMU(className, elementName, "startLine", startLine);
+
+				String query = "for $a in//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']"
+						+ "//codeElement[@xsi:type='code:Package' and @name='" + packageName + "']"
+						+ "//codeElement[@xsi:type='code:ClassUnit' and @name='" + className + "']" 
+						+ "//codeElement[@xsi:type='code:MethodUnit' and @name='" + elementName + "']/source/region" 
+						+ " return if (not($a/boolean(@startLine))) then insert node (attribute { 'startLine' } {'" + startLine + "'}) as last into $a else ()";
+
+				baseXManager.createLine(query);
 			} catch (QueryException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -160,16 +177,22 @@ public class SourceRegion {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
+
 		}
 		else
 		{
 			if (op == 1)
 			{
-				
+
 				//EndLine
 				try {
-					baseXManager.createLineSto(className, elementName, "endLine", endLine);
+
+					String query = "for $a in//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']"
+							+ "//codeElement[@xsi:type='code:Package' and @name='" + packageName + "']"
+							+ "//codeElement[@xsi:type='code:ClassUnit' and @name='" + className + "']"  
+							+ "//codeElement[@xsi:type='code:StorableUnit' and @name='" + elementName + "']/source/region" 
+							+ " return if (not($a/boolean(@endLine))) then insert node (attribute { 'endLine' } {'" + endLine + "'}) as last into $a else ()";
+					baseXManager.createLine(query);
 				} catch (QueryException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -177,10 +200,19 @@ public class SourceRegion {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+
+
+
 				//StartLine
 				try {
-					baseXManager.createLineSto(className, elementName, "startLine", startLine);
+
+					String query = "for $a in//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']"
+							+ "//codeElement[@xsi:type='code:Package' and @name='" + packageName + "']"
+							+ "//codeElement[@xsi:type='code:ClassUnit' and @name='" + className + "']"  
+							+ "//codeElement[@xsi:type='code:StorableUnit' and @name='" + elementName + "']/source/region" 
+							+ " return if (not($a/boolean(@startLine))) then insert node (attribute { 'startLine' } {'" + startLine + "'}) as last into $a else ()";
+
+					baseXManager.createLine(query);
 				} catch (QueryException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -195,7 +227,13 @@ public class SourceRegion {
 				{
 					//EndLine
 					try {
-						baseXManager.createLineClass(className, "endLine", endLine);
+
+						String query = "for $a in//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']"
+								+ "//codeElement[@xsi:type='code:Package' and @name='" + packageName + "']"
+								+ "//codeElement[@xsi:type='code:ClassUnit' and @name='" + className + "']/source/region"  
+								+ " return if (not($a/boolean(@endLine))) then insert node (attribute { 'endLine' } {'" + endLine + "'}) as last into $a else ()";
+
+						baseXManager.createLine(query);
 					} catch (QueryException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -203,10 +241,16 @@ public class SourceRegion {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					
+
 					//StartLine
 					try {
-						baseXManager.createLineClass(className, "startLine", startLine);
+
+						String query = "for $a in//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']"
+								+ "//codeElement[@xsi:type='code:Package' and @name='" + packageName + "']"
+								+ "//codeElement[@xsi:type='code:ClassUnit' and @name='" + className + "']/source/region"  
+								+ " return if (not($a/boolean(@startLine))) then insert node (attribute { 'startLine' } {'" + startLine + "'}) as last into $a else ()";
+
+						baseXManager.createLine(query);
 					} catch (QueryException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -221,7 +265,15 @@ public class SourceRegion {
 					{
 						//EndLine
 						try {
-							baseXManager.createLineVariable(className, elementName.split("\\|")[0], elementName.split("\\|")[1], "endLine", endLine);
+
+							String query = "for $a in//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']"
+									+ "//codeElement[@xsi:type='code:Package' and @name='" + packageName + "']"
+									+ "//codeElement[@xsi:type='code:ClassUnit' and @name='" + className + "']"  
+									+ "//codeElement[@xsi:type='code:MethodUnit' and @name='" + elementName.split("\\|")[0] + "']" 
+									+ "//codeElement[@xsi:type='code:StorableUnit' and @name='" + elementName.split("\\|")[1] + "']/source/region"  
+									+ " return if (not($a/boolean(@endLine))) then insert node (attribute { 'endLine' } {'" + endLine + "'}) as last into $a else ()";
+
+							baseXManager.createLine(query);
 						} catch (QueryException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -229,10 +281,18 @@ public class SourceRegion {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						
+
 						//StartLine
 						try {
-							baseXManager.createLineVariable(className, elementName.split("\\|")[0], elementName.split("\\|")[1], "startLine", startLine);
+
+							String query = "for $a in//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']"
+									+ "//codeElement[@xsi:type='code:Package' and @name='" + packageName + "']"
+									+ "//codeElement[@xsi:type='code:ClassUnit' and @name='" + className + "']"  
+									+ "//codeElement[@xsi:type='code:MethodUnit' and @name='" + elementName.split("\\|")[0] + "']" 
+									+ "//codeElement[@xsi:type='code:StorableUnit' and @name='" + elementName.split("\\|")[1] + "']/source/region"  
+									+ " return if (not($a/boolean(@startLine))) then insert node (attribute { 'startLine' } {'" + startLine + "'}) as last into $a else ()";
+
+							baseXManager.createLine(query);
 						} catch (QueryException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();

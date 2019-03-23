@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Re
-Bundle-SymbolicName: br.ufscar.SaS.re
+Bundle-SymbolicName: br.ufscar.sas.re
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: br.ufscar.sas.re.Activator
 Bundle-Vendor: DanielSM
