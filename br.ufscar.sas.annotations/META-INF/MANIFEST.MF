@@ -5,7 +5,7 @@ Bundle-SymbolicName: br.ufscar.SaS.annotations
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: br.ufscar.sas.annotations.Activator
 Require-Bundle: org.eclipse.core.runtime,
- org.xerial.sqlite-jdbc;bundle-version="3.23.1"
+ org.xerial.sqlite-jdbc
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: br.ufscar.SaS.annotations
 Bundle-ActivationPolicy: lazy
