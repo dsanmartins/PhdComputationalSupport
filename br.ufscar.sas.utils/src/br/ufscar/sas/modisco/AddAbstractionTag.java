@@ -43,10 +43,10 @@ public class AddAbstractionTag {
 				String path = "";
 				for (int i=0; i< package__.length; i++)
 					path = path + codeElement.replaceFirst("XXXX", package__[i]);
-				
+
 				String query = " let $a:=//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']" + path + "/attribute[@tag='abstraction'] " +
-								"return replace value of node $a/@value with '" + abstraction + "'";
-				
+						"return replace value of node $a/@value with '" + abstraction + "'";
+
 				Manager baseXManager=null;
 				try
 				{
@@ -76,37 +76,41 @@ public class AddAbstractionTag {
 			String abstraction = line.split(Pattern.quote("|"))[3];
 			package_ = package_.replaceAll(class_, "").replaceAll("\\/", ".");
 			package_ = package_.substring(0, package_.length() -1);
-			
+
+			String path = "";
+			String codeElement = "/codeElement[@xsi:type='code:Package' and @name='XXXX']"; 
 			if (package_.contains("."))
 			{
 				String package__[] = package_.split(Pattern.quote(".")); 
-				String codeElement = "/codeElement[@xsi:type='code:Package' and @name='XXXX']"; 
-				String path = "";
 				for (int i=0; i< package__.length; i++)
 					path = path + codeElement.replaceFirst("XXXX", package__[i]);
-				
-				String query = " let $a:=//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']" + path + 
-								"/codeElement[@xsi:type='code:ClassUnit' and @name='"+ class_ + "']" +"/attribute[@tag='abstraction'] " +
-								"return replace value of node $a/@value with '" + abstraction + "'";
-				
-				Manager baseXManager=null;
-				try
-				{
-					baseXManager = new Manager(path_, file, dbName);
-					baseXManager.openDB();
-					baseXManager.addAbstraction(query);
-					baseXManager.exportDB();
-					baseXManager.closeDB();
-				}
-				catch (Exception ex)
-				{
-					ex.printStackTrace();
-				}
-				path = "";
+			}	
+			else
+				path = codeElement.replaceFirst("XXXX", package_);
+
+
+			String query = " let $a:=//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']" + path + 
+					"/codeElement[@xsi:type='code:ClassUnit' and @name='"+ class_ + "']" +"/attribute[@tag='abstraction'] " +
+					"return replace value of node $a/@value with '" + abstraction + "'";
+
+			Manager baseXManager=null;
+			try
+			{
+				baseXManager = new Manager(path_, file, dbName);
+				baseXManager.openDB();
+				baseXManager.addAbstraction(query);
+				baseXManager.exportDB();
+				baseXManager.closeDB();
 			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			path = "";
+
 		}
 	}
-	
+
 	public void updateFieldWithAbstraction(String path_, String file, String dbName) throws Exception {
 
 		queryClass = new QueryClass(MainView.getDatabaseUrl());
@@ -119,36 +123,39 @@ public class AddAbstractionTag {
 			String abstraction = line.split(Pattern.quote("|"))[4];
 			package_ = package_.replaceAll(class_, "").replaceAll("\\/", ".");
 			package_ = package_.substring(0, package_.length() -1);
-			
+
+			String path = "";
+			String codeElement = "/codeElement[@xsi:type='code:Package' and @name='XXXX']"; 
 			if (package_.contains("."))
 			{
 				String package__[] = package_.split(Pattern.quote(".")); 
-				String codeElement = "/codeElement[@xsi:type='code:Package' and @name='XXXX']"; 
-				String path = "";
 				for (int i=0; i< package__.length; i++)
 					path = path + codeElement.replaceFirst("XXXX", package__[i]);
-				
-				String query = " let $a:=//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']" + path + 
-								"/codeElement[@xsi:type='code:ClassUnit' and @name='"+ class_ + "']" + 
-								"/codeElement[@xsi:type='code:StorableUnit' and @name='"+ field + "']" + 
-								"/attribute[@tag='abstraction'] " +
-								"return replace value of node $a/@value with '" + abstraction + "'";
-				
-				Manager baseXManager=null;
-				try
-				{
-					baseXManager = new Manager(path_, file, dbName);
-					baseXManager.openDB();
-					baseXManager.addAbstraction(query);
-					baseXManager.exportDB();
-					baseXManager.closeDB();
-				}
-				catch (Exception ex)
-				{
-					ex.printStackTrace();
-				}
-				path = "";
+			}	
+			else
+				path = codeElement.replaceFirst("XXXX", package_);
+
+			String query = " let $a:=//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']" + path + 
+					"/codeElement[@xsi:type='code:ClassUnit' and @name='"+ class_ + "']" + 
+					"/codeElement[@xsi:type='code:StorableUnit' and @name='"+ field + "']" + 
+					"/attribute[@tag='abstraction'] " +
+					"return replace value of node $a/@value with '" + abstraction + "'";
+
+			Manager baseXManager=null;
+			try
+			{
+				baseXManager = new Manager(path_, file, dbName);
+				baseXManager.openDB();
+				baseXManager.addAbstraction(query);
+				baseXManager.exportDB();
+				baseXManager.closeDB();
 			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			path = "";
+
 		}
 	}
 
@@ -164,38 +171,39 @@ public class AddAbstractionTag {
 			String abstraction = line.split(Pattern.quote("|"))[4];
 			package_ = package_.replaceAll(class_, "").replaceAll("\\/", ".");
 			package_ = package_.substring(0, package_.length() -1);
-			
+
+			String path = "";
+			String codeElement = "/codeElement[@xsi:type='code:Package' and @name='XXXX']"; 
 			if (package_.contains("."))
 			{
 				String package__[] = package_.split(Pattern.quote(".")); 
-				String codeElement = "/codeElement[@xsi:type='code:Package' and @name='XXXX']"; 
-				String path = "";
 				for (int i=0; i< package__.length; i++)
 					path = path + codeElement.replaceFirst("XXXX", package__[i]);
-				
-				String query = " let $a:=//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']" + path + 
-						"/codeElement[@xsi:type='code:ClassUnit' and @name='"+ class_ + "']" + 
-						"/codeElement[@xsi:type='code:MethodUnit' and @name='"+ method + "']" + 
-						"/attribute[@tag='abstraction'] " +
-						"return replace value of node $a/@value with '" + abstraction + "'";
-				
-				Manager baseXManager=null;
-				try
-				{
-					baseXManager = new Manager(path_, file, dbName);
-					baseXManager.openDB();
-					baseXManager.addAbstraction(query);
-					baseXManager.exportDB();
-					baseXManager.closeDB();
-				}
-				catch (Exception ex)
-				{
-					ex.printStackTrace();
-				}
-				path = "";
-			}
-		}
+			}	
+			else
+				path = codeElement.replaceFirst("XXXX", package_);
 
+			String query = " let $a:=//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']" + path + 
+					"/codeElement[@xsi:type='code:ClassUnit' and @name='"+ class_ + "']" + 
+					"/codeElement[@xsi:type='code:MethodUnit' and @name='"+ method + "']" + 
+					"/attribute[@tag='abstraction'] " +
+					"return replace value of node $a/@value with '" + abstraction + "'";
+
+			Manager baseXManager=null;
+			try
+			{
+				baseXManager = new Manager(path_, file, dbName);
+				baseXManager.openDB();
+				baseXManager.addAbstraction(query);
+				baseXManager.exportDB();
+				baseXManager.closeDB();
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			path = "";
+		}
 	}
 
 	public void updateVariableMethodWithAbstraction(String path_, String file, String dbName) throws Exception {
@@ -211,38 +219,40 @@ public class AddAbstractionTag {
 			String abstraction = line.split(Pattern.quote("|"))[5];
 			package_ = package_.replaceAll(class_, "").replaceAll("\\/", ".");
 			package_ = package_.substring(0, package_.length() -1);
-			
+
+			String path = "";
+			String codeElement = "/codeElement[@xsi:type='code:Package' and @name='XXXX']"; 
 			if (package_.contains("."))
 			{
 				String package__[] = package_.split(Pattern.quote(".")); 
-				String codeElement = "/codeElement[@xsi:type='code:Package' and @name='XXXX']"; 
-				String path = "";
 				for (int i=0; i< package__.length; i++)
 					path = path + codeElement.replaceFirst("XXXX", package__[i]);
-				
-				String query = " let $a:=//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']" + path + 
-						"/codeElement[@xsi:type='code:ClassUnit' and @name='"+ class_ + "']" + 
-						"/codeElement[@xsi:type='code:MethodUnit' and @name='"+ method + "']" + 
-						"//codeElement[@xsi:type='code:StorableUnit' and @name='"+ variable + "']" + 
-						"/attribute[@tag='abstraction'] " +
-						"return replace value of node $a/@value with '" + abstraction + "'";
-				
-				Manager baseXManager=null;
-				try
-				{
-					baseXManager = new Manager(path_, file, dbName);
-					baseXManager.openDB();
-					baseXManager.addAbstraction(query);
-					baseXManager.exportDB();
-					baseXManager.closeDB();
-				}
-				catch (Exception ex)
-				{
-					ex.printStackTrace();
-				}
-				path = "";
-			}
-		}
+			}	
+			else
+				path = codeElement.replaceFirst("XXXX", package_);
 
+
+			String query = " let $a:=//kdm:Segment/model[@xsi:type='code:CodeModel' and @name != 'externals']" + path + 
+					"/codeElement[@xsi:type='code:ClassUnit' and @name='"+ class_ + "']" + 
+					"/codeElement[@xsi:type='code:MethodUnit' and @name='"+ method + "']" + 
+					"//codeElement[@xsi:type='code:StorableUnit' and @name='"+ variable + "']" + 
+					"/attribute[@tag='abstraction'] " +
+					"return replace value of node $a/@value with '" + abstraction + "'";
+
+			Manager baseXManager=null;
+			try
+			{
+				baseXManager = new Manager(path_, file, dbName);
+				baseXManager.openDB();
+				baseXManager.addAbstraction(query);
+				baseXManager.exportDB();
+				baseXManager.closeDB();
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			path = "";
+		}
 	}
 }

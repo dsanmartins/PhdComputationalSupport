@@ -923,10 +923,10 @@ public class MainView extends ViewPart implements IPartListener2 {
 		for (int i = 0; i < listMd.size(); i++) {
 			String methodName = listMd.get(i).getName().toString();
 			VariableVisitor vv = new VariableVisitor();
-			List<VariableDeclarationExpr> listVD = vv.getVariableExpr(listMd.get(i));
+			List<VariableDeclarator> listVD = vv.getVariableExpr(listMd.get(i));
 			for (int j = 0; j < listVD.size(); j++) {
-				String variable = listVD.get(j).toString();
-				str = str + "|" + variable.split("\\s+")[1];
+				String variable = listVD.get(j).getNameAsString().toString();
+				str = str + "|" + variable;
 			}
 			methodAndVariables.add(methodName + str);
 			str = "";
