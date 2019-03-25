@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="windows-1252"?>
 <?eclipse version="3.0"?>
 <plugin>
 	<extension
@@ -58,20 +58,20 @@
 			<and>
 				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
 				<with variable="activeEditor">
-					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="br.ufscar.sas.xtext.sasdsl.SasDsl"
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+						value="br.ufscar.sas.xtext.sasdsl.SasDsl" 
 						forcePluginActivation="true"/>
-				</with>
+				</with>		
 			</and>
 		</definition>
 		<definition id="br.ufscar.sas.xtext.sasdsl.SasDsl.XtextEditor.opened">
 			<and>
 				<reference definitionId="isXtextEditorActive"/>
 				<with variable="activeEditor">
-					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName"
-						value="br.ufscar.sas.xtext.sasdsl.SasDsl"
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+						value="br.ufscar.sas.xtext.sasdsl.SasDsl" 
 						forcePluginActivation="true"/>
-				</with>
+				</with>		
 			</and>
 		</definition>
 	</extension>
@@ -154,7 +154,7 @@
 		</menuContribution>
 		<!-- copy qualified name -->
 		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
-			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName" 
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
 					<reference definitionId="br.ufscar.sas.xtext.sasdsl.SasDsl.Editor.opened" />
@@ -170,7 +170,7 @@
 			</command>
 		</menuContribution>
 		<menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
-			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName" 
 				style="push" tooltip="Copy Qualified Name">
 				<visibleWhen checkEnabled="false">
 					<and>
@@ -203,15 +203,6 @@
 				</reference>
 			</activeWhen>
 		</handler>
-	</extension>
-	<extension point="org.eclipse.core.contenttype.contentTypes">
-		<content-type
-			base-type="org.eclipse.core.runtime.text"
-			file-extensions="sas"
-			id="br.ufscar.sas.xtext.sasdsl.SasDsl.contenttype"
-			name="SasDsl File"
-			priority="normal">
-		</content-type>
 	</extension>
 	<!-- adding resource factories -->
 	<extension
@@ -397,18 +388,12 @@
 			class="br.ufscar.sas.xtext.sasdsl.ui.SasDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="sas">
 		</viewer>
-		<contentTypeBinding
-			contentTypeId="br.ufscar.sas.xtext.sasdsl.SasDsl.contenttype"
-			contentViewerId="br.ufscar.sas.xtext.sasdsl.SasDsl.compare.contentViewers" />
 	</extension>
 	<extension point="org.eclipse.compare.contentMergeViewers">
 		<viewer id="br.ufscar.sas.xtext.sasdsl.SasDsl.compare.contentMergeViewers"
 			class="br.ufscar.sas.xtext.sasdsl.ui.SasDslExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
 			extensions="sas" label="SasDsl Compare">
 		</viewer>
-		<contentTypeBinding
-			contentTypeId="br.ufscar.sas.xtext.sasdsl.SasDsl.contenttype"
-			contentMergeViewerId="br.ufscar.sas.xtext.sasdsl.SasDsl.compare.contentMergeViewers" />
 	</extension>
 	<extension point="org.eclipse.ui.editors.documentProviders">
 		<provider id="br.ufscar.sas.xtext.sasdsl.SasDsl.editors.documentProviders"
