@@ -5,6 +5,7 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstractions;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLCompositions;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getAbstractions <em>Abstractions</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getCompositions <em>Compositions</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getDslRestrictions <em>Dsl Restrictions</em>}</li>
  * </ul>
  *
@@ -47,6 +49,16 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
    * @ordered
    */
   protected EList<DSLAbstractions> abstractions;
+
+  /**
+   * The cached value of the '{@link #getCompositions() <em>Compositions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCompositions()
+   * @generated
+   * @ordered
+   */
+  protected EList<DSLCompositions> compositions;
 
   /**
    * The cached value of the '{@link #getDslRestrictions() <em>Dsl Restrictions</em>}' containment reference list.
@@ -98,6 +110,20 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<DSLCompositions> getCompositions()
+  {
+    if (compositions == null)
+    {
+      compositions = new EObjectContainmentEList<DSLCompositions>(DSLCompositions.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS);
+    }
+    return compositions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<DSLRestrictions> getDslRestrictions()
   {
     if (dslRestrictions == null)
@@ -119,6 +145,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
     {
       case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
         return ((InternalEList<?>)getAbstractions()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
+        return ((InternalEList<?>)getCompositions()).basicRemove(otherEnd, msgs);
       case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
         return ((InternalEList<?>)getDslRestrictions()).basicRemove(otherEnd, msgs);
     }
@@ -137,6 +165,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
     {
       case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
         return getAbstractions();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
+        return getCompositions();
       case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
         return getDslRestrictions();
     }
@@ -157,6 +187,10 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
       case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
         getAbstractions().clear();
         getAbstractions().addAll((Collection<? extends DSLAbstractions>)newValue);
+        return;
+      case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
+        getCompositions().clear();
+        getCompositions().addAll((Collection<? extends DSLCompositions>)newValue);
         return;
       case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
         getDslRestrictions().clear();
@@ -179,6 +213,9 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
       case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
         getAbstractions().clear();
         return;
+      case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
+        getCompositions().clear();
+        return;
       case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
         getDslRestrictions().clear();
         return;
@@ -198,6 +235,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
     {
       case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
         return abstractions != null && !abstractions.isEmpty();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
+        return compositions != null && !compositions.isEmpty();
       case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
         return dslRestrictions != null && !dslRestrictions.isEmpty();
     }

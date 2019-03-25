@@ -71,8 +71,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_MANAGED: return createDSLManaged();
       case SasDslPackage.DSL_CONTROL_LOOP_MANAGER: return createDSLControlLoopManager();
       case SasDslPackage.DSL_CONTROL_LOOP: return createDSLControlLoop();
-      case SasDslPackage.DSL_CONTAINRER_FOR_CL: return createDSLContainrerForCL();
-      case SasDslPackage.DSL_CONTAINER_FOR_MAPE: return createDSLContainerForMAPE();
       case SasDslPackage.DSL_MONITOR: return createDSLMonitor();
       case SasDslPackage.DSL_ANALYZER: return createDSLAnalyzer();
       case SasDslPackage.DSL_PLANNER: return createDSLPlanner();
@@ -84,7 +82,9 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_GAUGE: return createDSLGauge();
       case SasDslPackage.DSL_REFERENCE_INPUT: return createDSLReferenceInput();
       case SasDslPackage.DSL_MEASURED_OUTPUT: return createDSLMeasuredOutput();
+      case SasDslPackage.DSL_COMPOSITIONS: return createDSLCompositions();
       case SasDslPackage.DSL_RESTRICTIONS: return createDSLRestrictions();
+      case SasDslPackage.MUST_BE_IN: return createMustBeIn();
       case SasDslPackage.ONLY: return createOnly();
       case SasDslPackage.CAN: return createCan();
       case SasDslPackage.CANNOT: return createCannot();
@@ -162,28 +162,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
   {
     DSLControlLoopImpl dslControlLoop = new DSLControlLoopImpl();
     return dslControlLoop;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLContainrerForCL createDSLContainrerForCL()
-  {
-    DSLContainrerForCLImpl dslContainrerForCL = new DSLContainrerForCLImpl();
-    return dslContainrerForCL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLContainerForMAPE createDSLContainerForMAPE()
-  {
-    DSLContainerForMAPEImpl dslContainerForMAPE = new DSLContainerForMAPEImpl();
-    return dslContainerForMAPE;
   }
 
   /**
@@ -312,10 +290,32 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public DSLCompositions createDSLCompositions()
+  {
+    DSLCompositionsImpl dslCompositions = new DSLCompositionsImpl();
+    return dslCompositions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DSLRestrictions createDSLRestrictions()
   {
     DSLRestrictionsImpl dslRestrictions = new DSLRestrictionsImpl();
     return dslRestrictions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MustBeIn createMustBeIn()
+  {
+    MustBeInImpl mustBeIn = new MustBeInImpl();
+    return mustBeIn;
   }
 
   /**

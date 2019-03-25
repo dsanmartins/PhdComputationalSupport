@@ -30,17 +30,22 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cAbstractionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cAbstractionsDSLAbstractionsParserRuleCall_2_0 = (RuleCall)cAbstractionsAssignment_2.eContents().get(0);
-		private final Keyword cRestrictionsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cCompositionsKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cDslRestrictionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDslRestrictionsDSLRestrictionsParserRuleCall_5_0 = (RuleCall)cDslRestrictionsAssignment_5.eContents().get(0);
+		private final Assignment cCompositionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cCompositionsDSLCompositionsParserRuleCall_5_0 = (RuleCall)cCompositionsAssignment_5.eContents().get(0);
+		private final Keyword cRestrictionsKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cDslRestrictionsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cDslRestrictionsDSLRestrictionsParserRuleCall_8_0 = (RuleCall)cDslRestrictionsAssignment_8.eContents().get(0);
 		
 		//ArchitectureDefinition:
 		//	'Abstractions' ':' abstractions+=DSLAbstractions+
-		//	'Restrictions' ':' dslRestrictions+=DSLRestrictions*;
+		//	'Compositions' ':' compositions+=DSLCompositions* 'Restrictions' ':' dslRestrictions+=DSLRestrictions*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Abstractions' ':' abstractions+=DSLAbstractions+ 'Restrictions' ':' dslRestrictions+=DSLRestrictions*
+		//'Abstractions' ':' abstractions+=DSLAbstractions+ 'Compositions' ':' compositions+=DSLCompositions* 'Restrictions' ':'
+		//dslRestrictions+=DSLRestrictions*
 		public Group getGroup() { return cGroup; }
 		
 		//'Abstractions'
@@ -55,17 +60,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//DSLAbstractions
 		public RuleCall getAbstractionsDSLAbstractionsParserRuleCall_2_0() { return cAbstractionsDSLAbstractionsParserRuleCall_2_0; }
 		
-		//'Restrictions'
-		public Keyword getRestrictionsKeyword_3() { return cRestrictionsKeyword_3; }
+		//'Compositions'
+		public Keyword getCompositionsKeyword_3() { return cCompositionsKeyword_3; }
 		
 		//':'
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 		
+		//compositions+=DSLCompositions*
+		public Assignment getCompositionsAssignment_5() { return cCompositionsAssignment_5; }
+		
+		//DSLCompositions
+		public RuleCall getCompositionsDSLCompositionsParserRuleCall_5_0() { return cCompositionsDSLCompositionsParserRuleCall_5_0; }
+		
+		//'Restrictions'
+		public Keyword getRestrictionsKeyword_6() { return cRestrictionsKeyword_6; }
+		
+		//':'
+		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
+		
 		//dslRestrictions+=DSLRestrictions*
-		public Assignment getDslRestrictionsAssignment_5() { return cDslRestrictionsAssignment_5; }
+		public Assignment getDslRestrictionsAssignment_8() { return cDslRestrictionsAssignment_8; }
 		
 		//DSLRestrictions
-		public RuleCall getDslRestrictionsDSLRestrictionsParserRuleCall_5_0() { return cDslRestrictionsDSLRestrictionsParserRuleCall_5_0; }
+		public RuleCall getDslRestrictionsDSLRestrictionsParserRuleCall_8_0() { return cDslRestrictionsDSLRestrictionsParserRuleCall_8_0; }
 	}
 	public class DSLAbstractionsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLAbstractions");
@@ -146,18 +163,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cManagingKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSubSystemAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSubSystemDSLManagingCrossReference_2_1_0 = (CrossReference)cSubSystemAssignment_2_1.eContents().get(0);
-		private final RuleCall cSubSystemDSLManagingIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSubSystemDSLManagingCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLManaging:
-		//	'Managing' name=ID ('in' subSystem=[DSLManaging])? ';';
+		//	'Managing' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Managing' name=ID ('in' subSystem=[DSLManaging])? ';'
+		//'Managing' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Managing'
@@ -169,23 +181,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' subSystem=[DSLManaging])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//subSystem=[DSLManaging]
-		public Assignment getSubSystemAssignment_2_1() { return cSubSystemAssignment_2_1; }
-		
-		//[DSLManaging]
-		public CrossReference getSubSystemDSLManagingCrossReference_2_1_0() { return cSubSystemDSLManagingCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getSubSystemDSLManagingIDTerminalRuleCall_2_1_0_1() { return cSubSystemDSLManagingIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLManagedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLManaged");
@@ -193,18 +190,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cManagedKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSubSystemAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSubSystemDSLManagedCrossReference_2_1_0 = (CrossReference)cSubSystemAssignment_2_1.eContents().get(0);
-		private final RuleCall cSubSystemDSLManagedIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSubSystemDSLManagedCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLManaged:
-		//	'Managed' name=ID ('in' subSystem=[DSLManaged])? ';';
+		//	'Managed' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Managed' name=ID ('in' subSystem=[DSLManaged])? ';'
+		//'Managed' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Managed'
@@ -216,23 +208,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' subSystem=[DSLManaged])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//subSystem=[DSLManaged]
-		public Assignment getSubSystemAssignment_2_1() { return cSubSystemAssignment_2_1; }
-		
-		//[DSLManaged]
-		public CrossReference getSubSystemDSLManagedCrossReference_2_1_0() { return cSubSystemDSLManagedCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getSubSystemDSLManagedIDTerminalRuleCall_2_1_0_1() { return cSubSystemDSLManagedIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLControlLoopManagerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLControlLoopManager");
@@ -242,18 +219,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cTypeOfKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final RuleCall cDSLTypeCLMParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cInKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cManagingAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cManagingDSLManagingCrossReference_4_1_0 = (CrossReference)cManagingAssignment_4_1.eContents().get(0);
-		private final RuleCall cManagingDSLManagingIDTerminalRuleCall_4_1_0_1 = (RuleCall)cManagingDSLManagingCrossReference_4_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//DSLControlLoopManager:
-		//	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('in' managing=[DSLManaging])? ';';
+		//	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('in' managing=[DSLManaging])? ';'
+		//'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'ControlLoopManager'
@@ -271,23 +243,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//DSLTypeCLM
 		public RuleCall getDSLTypeCLMParserRuleCall_3() { return cDSLTypeCLMParserRuleCall_3; }
 		
-		//('in' managing=[DSLManaging])?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'in'
-		public Keyword getInKeyword_4_0() { return cInKeyword_4_0; }
-		
-		//managing=[DSLManaging]
-		public Assignment getManagingAssignment_4_1() { return cManagingAssignment_4_1; }
-		
-		//[DSLManaging]
-		public CrossReference getManagingDSLManagingCrossReference_4_1_0() { return cManagingDSLManagingCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getManagingDSLManagingIDTerminalRuleCall_4_1_0_1() { return cManagingDSLManagingIDTerminalRuleCall_4_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 	public class DSLTypeCLMElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLTypeCLM");
@@ -318,18 +275,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cControlLoopKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSubSystemAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSubSystemDSLContainrerForCLCrossReference_2_1_0 = (CrossReference)cSubSystemAssignment_2_1.eContents().get(0);
-		private final RuleCall cSubSystemDSLContainrerForCLIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSubSystemDSLContainrerForCLCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLControlLoop:
-		//	'ControlLoop' name=ID ('in' subSystem=[DSLContainrerForCL])? ';';
+		//	'ControlLoop' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ControlLoop' name=ID ('in' subSystem=[DSLContainrerForCL])? ';'
+		//'ControlLoop' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'ControlLoop'
@@ -341,61 +293,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' subSystem=[DSLContainrerForCL])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//subSystem=[DSLContainrerForCL]
-		public Assignment getSubSystemAssignment_2_1() { return cSubSystemAssignment_2_1; }
-		
-		//[DSLContainrerForCL]
-		public CrossReference getSubSystemDSLContainrerForCLCrossReference_2_1_0() { return cSubSystemDSLContainrerForCLCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getSubSystemDSLContainrerForCLIDTerminalRuleCall_2_1_0_1() { return cSubSystemDSLContainrerForCLIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
-	}
-	public class DSLContainrerForCLElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLContainrerForCL");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDSLControlLoopManagerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDSLManagingParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//DSLContainrerForCL:
-		//	DSLControlLoopManager | DSLManaging;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//DSLControlLoopManager | DSLManaging
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//DSLControlLoopManager
-		public RuleCall getDSLControlLoopManagerParserRuleCall_0() { return cDSLControlLoopManagerParserRuleCall_0; }
-		
-		//DSLManaging
-		public RuleCall getDSLManagingParserRuleCall_1() { return cDSLManagingParserRuleCall_1; }
-	}
-	public class DSLContainerForMAPEElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLContainerForMAPE");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cDSLManagingParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cDSLControlLoopParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//DSLContainerForMAPE:
-		//	DSLManaging | DSLControlLoop;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//DSLManaging | DSLControlLoop
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//DSLManaging
-		public RuleCall getDSLManagingParserRuleCall_0() { return cDSLManagingParserRuleCall_0; }
-		
-		//DSLControlLoop
-		public RuleCall getDSLControlLoopParserRuleCall_1() { return cDSLControlLoopParserRuleCall_1; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLMonitorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLMonitor");
@@ -403,18 +302,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMonitorKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSubSystemAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSubSystemDSLContainerForMAPECrossReference_2_1_0 = (CrossReference)cSubSystemAssignment_2_1.eContents().get(0);
-		private final RuleCall cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSubSystemDSLContainerForMAPECrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLMonitor:
-		//	'Monitor' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+		//	'Monitor' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Monitor' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+		//'Monitor' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Monitor'
@@ -426,23 +320,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' subSystem=[DSLContainerForMAPE])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//subSystem=[DSLContainerForMAPE]
-		public Assignment getSubSystemAssignment_2_1() { return cSubSystemAssignment_2_1; }
-		
-		//[DSLContainerForMAPE]
-		public CrossReference getSubSystemDSLContainerForMAPECrossReference_2_1_0() { return cSubSystemDSLContainerForMAPECrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1() { return cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLAnalyzerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLAnalyzer");
@@ -450,18 +329,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAnalyzerKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSubSystemAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSubSystemDSLContainerForMAPECrossReference_2_1_0 = (CrossReference)cSubSystemAssignment_2_1.eContents().get(0);
-		private final RuleCall cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSubSystemDSLContainerForMAPECrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLAnalyzer:
-		//	'Analyzer' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+		//	'Analyzer' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Analyzer' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+		//'Analyzer' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Analyzer'
@@ -473,23 +347,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' subSystem=[DSLContainerForMAPE])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//subSystem=[DSLContainerForMAPE]
-		public Assignment getSubSystemAssignment_2_1() { return cSubSystemAssignment_2_1; }
-		
-		//[DSLContainerForMAPE]
-		public CrossReference getSubSystemDSLContainerForMAPECrossReference_2_1_0() { return cSubSystemDSLContainerForMAPECrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1() { return cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLPlannerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLPlanner");
@@ -497,18 +356,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPlannerKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSubSystemAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSubSystemDSLContainerForMAPECrossReference_2_1_0 = (CrossReference)cSubSystemAssignment_2_1.eContents().get(0);
-		private final RuleCall cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSubSystemDSLContainerForMAPECrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLPlanner:
-		//	'Planner' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+		//	'Planner' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Planner' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+		//'Planner' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Planner'
@@ -520,23 +374,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' subSystem=[DSLContainerForMAPE])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//subSystem=[DSLContainerForMAPE]
-		public Assignment getSubSystemAssignment_2_1() { return cSubSystemAssignment_2_1; }
-		
-		//[DSLContainerForMAPE]
-		public CrossReference getSubSystemDSLContainerForMAPECrossReference_2_1_0() { return cSubSystemDSLContainerForMAPECrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1() { return cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLExecutorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLExecutor");
@@ -544,18 +383,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cExecutorKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSubSystemAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSubSystemDSLContainerForMAPECrossReference_2_1_0 = (CrossReference)cSubSystemAssignment_2_1.eContents().get(0);
-		private final RuleCall cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSubSystemDSLContainerForMAPECrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLExecutor:
-		//	'Executor' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+		//	'Executor' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Executor' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+		//'Executor' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Executor'
@@ -567,23 +401,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' subSystem=[DSLContainerForMAPE])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//subSystem=[DSLContainerForMAPE]
-		public Assignment getSubSystemAssignment_2_1() { return cSubSystemAssignment_2_1; }
-		
-		//[DSLContainerForMAPE]
-		public CrossReference getSubSystemDSLContainerForMAPECrossReference_2_1_0() { return cSubSystemDSLContainerForMAPECrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1() { return cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLKnowledgeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLKnowledge");
@@ -591,18 +410,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cKnowledgeKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSubSystemAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSubSystemDSLContainerForMAPECrossReference_2_1_0 = (CrossReference)cSubSystemAssignment_2_1.eContents().get(0);
-		private final RuleCall cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1 = (RuleCall)cSubSystemDSLContainerForMAPECrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLKnowledge:
-		//	'Knowledge' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+		//	'Knowledge' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Knowledge' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+		//'Knowledge' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Knowledge'
@@ -614,23 +428,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' subSystem=[DSLContainerForMAPE])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//subSystem=[DSLContainerForMAPE]
-		public Assignment getSubSystemAssignment_2_1() { return cSubSystemAssignment_2_1; }
-		
-		//[DSLContainerForMAPE]
-		public CrossReference getSubSystemDSLContainerForMAPECrossReference_2_1_0() { return cSubSystemDSLContainerForMAPECrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1() { return cSubSystemDSLContainerForMAPEIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLSensorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLSensor");
@@ -638,18 +437,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSensorKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cMonitorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cMonitorDSLMonitorCrossReference_2_1_0 = (CrossReference)cMonitorAssignment_2_1.eContents().get(0);
-		private final RuleCall cMonitorDSLMonitorIDTerminalRuleCall_2_1_0_1 = (RuleCall)cMonitorDSLMonitorCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLSensor:
-		//	'Sensor' name=ID ('in' monitor=[DSLMonitor])? ';';
+		//	'Sensor' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Sensor' name=ID ('in' monitor=[DSLMonitor])? ';'
+		//'Sensor' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Sensor'
@@ -661,23 +455,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' monitor=[DSLMonitor])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//monitor=[DSLMonitor]
-		public Assignment getMonitorAssignment_2_1() { return cMonitorAssignment_2_1; }
-		
-		//[DSLMonitor]
-		public CrossReference getMonitorDSLMonitorCrossReference_2_1_0() { return cMonitorDSLMonitorCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getMonitorDSLMonitorIDTerminalRuleCall_2_1_0_1() { return cMonitorDSLMonitorIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLEffectorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLEffector");
@@ -685,18 +464,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEffectorKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cExecutorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cExecutorDSLExecutorCrossReference_2_1_0 = (CrossReference)cExecutorAssignment_2_1.eContents().get(0);
-		private final RuleCall cExecutorDSLExecutorIDTerminalRuleCall_2_1_0_1 = (RuleCall)cExecutorDSLExecutorCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLEffector:
-		//	'Effector' name=ID ('in' executor=[DSLExecutor])? ';';
+		//	'Effector' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Effector' name=ID ('in' executor=[DSLExecutor])? ';'
+		//'Effector' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Effector'
@@ -708,23 +482,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' executor=[DSLExecutor])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//executor=[DSLExecutor]
-		public Assignment getExecutorAssignment_2_1() { return cExecutorAssignment_2_1; }
-		
-		//[DSLExecutor]
-		public CrossReference getExecutorDSLExecutorCrossReference_2_1_0() { return cExecutorDSLExecutorCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getExecutorDSLExecutorIDTerminalRuleCall_2_1_0_1() { return cExecutorDSLExecutorIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLProbeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLProbe");
@@ -732,18 +491,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cProbeKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cManagedAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cManagedDSLManagedCrossReference_2_1_0 = (CrossReference)cManagedAssignment_2_1.eContents().get(0);
-		private final RuleCall cManagedDSLManagedIDTerminalRuleCall_2_1_0_1 = (RuleCall)cManagedDSLManagedCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLProbe:
-		//	'Probe' name=ID ('in' managed=[DSLManaged])? ';';
+		//	'Probe' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Probe' name=ID ('in' managed=[DSLManaged])? ';'
+		//'Probe' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Probe'
@@ -755,23 +509,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' managed=[DSLManaged])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//managed=[DSLManaged]
-		public Assignment getManagedAssignment_2_1() { return cManagedAssignment_2_1; }
-		
-		//[DSLManaged]
-		public CrossReference getManagedDSLManagedCrossReference_2_1_0() { return cManagedDSLManagedCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getManagedDSLManagedIDTerminalRuleCall_2_1_0_1() { return cManagedDSLManagedIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLGaugeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLGauge");
@@ -779,18 +518,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cGaugeKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cManagedAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cManagedDSLManagedCrossReference_2_1_0 = (CrossReference)cManagedAssignment_2_1.eContents().get(0);
-		private final RuleCall cManagedDSLManagedIDTerminalRuleCall_2_1_0_1 = (RuleCall)cManagedDSLManagedCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLGauge:
-		//	'Gauge' name=ID ('in' managed=[DSLManaged])? ';';
+		//	'Gauge' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Gauge' name=ID ('in' managed=[DSLManaged])? ';'
+		//'Gauge' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Gauge'
@@ -802,23 +536,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' managed=[DSLManaged])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//managed=[DSLManaged]
-		public Assignment getManagedAssignment_2_1() { return cManagedAssignment_2_1; }
-		
-		//[DSLManaged]
-		public CrossReference getManagedDSLManagedCrossReference_2_1_0() { return cManagedDSLManagedCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getManagedDSLManagedIDTerminalRuleCall_2_1_0_1() { return cManagedDSLManagedIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLReferenceInputElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLReferenceInput");
@@ -826,18 +545,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReferenceInputKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cKwnoledgeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cKwnoledgeDSLKnowledgeCrossReference_2_1_0 = (CrossReference)cKwnoledgeAssignment_2_1.eContents().get(0);
-		private final RuleCall cKwnoledgeDSLKnowledgeIDTerminalRuleCall_2_1_0_1 = (RuleCall)cKwnoledgeDSLKnowledgeCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLReferenceInput:
-		//	'ReferenceInput' name=ID ('in' kwnoledge=[DSLKnowledge])? ';';
+		//	'ReferenceInput' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ReferenceInput' name=ID ('in' kwnoledge=[DSLKnowledge])? ';'
+		//'ReferenceInput' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'ReferenceInput'
@@ -849,23 +563,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' kwnoledge=[DSLKnowledge])?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
-		
-		//kwnoledge=[DSLKnowledge]
-		public Assignment getKwnoledgeAssignment_2_1() { return cKwnoledgeAssignment_2_1; }
-		
-		//[DSLKnowledge]
-		public CrossReference getKwnoledgeDSLKnowledgeCrossReference_2_1_0() { return cKwnoledgeDSLKnowledgeCrossReference_2_1_0; }
-		
-		//ID
-		public RuleCall getKwnoledgeDSLKnowledgeIDTerminalRuleCall_2_1_0_1() { return cKwnoledgeDSLKnowledgeIDTerminalRuleCall_2_1_0_1; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLMeasuredOutputElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLMeasuredOutput");
@@ -873,18 +572,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMeasuredOutputKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cInKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cManagedAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cManagedDSLManagedCrossReference_2_1_0 = (CrossReference)cManagedAssignment_2_1.eContents().get(0);
-		private final RuleCall cManagedDSLManagedIDTerminalRuleCall_2_1_0_1 = (RuleCall)cManagedDSLManagedCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLMeasuredOutput:
-		//	'MeasuredOutput' name=ID ('in' managed=[DSLManaged])? ';';
+		//	'MeasuredOutput' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'MeasuredOutput' name=ID ('in' managed=[DSLManaged])? ';'
+		//'MeasuredOutput' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'MeasuredOutput'
@@ -896,20 +590,52 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('in' managed=[DSLManaged])?
-		public Group getGroup_2() { return cGroup_2; }
+		//';'
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
+	}
+	public class DSLCompositionsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLCompositions");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSensorAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cSensorDSLAbstractionsCrossReference_0_0 = (CrossReference)cSensorAssignment_0.eContents().get(0);
+		private final RuleCall cSensorDSLAbstractionsIDTerminalRuleCall_0_0_1 = (RuleCall)cSensorDSLAbstractionsCrossReference_0_0.eContents().get(1);
+		private final Assignment cMustBeInAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMustBeInMustBeInParserRuleCall_1_0 = (RuleCall)cMustBeInAssignment_1.eContents().get(0);
+		private final Assignment cMonitorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cMonitorDSLAbstractionsCrossReference_2_0 = (CrossReference)cMonitorAssignment_2.eContents().get(0);
+		private final RuleCall cMonitorDSLAbstractionsIDTerminalRuleCall_2_0_1 = (RuleCall)cMonitorDSLAbstractionsCrossReference_2_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//'in'
-		public Keyword getInKeyword_2_0() { return cInKeyword_2_0; }
+		//DSLCompositions:
+		//	sensor=[DSLAbstractions] mustBeIn=MustBeIn monitor=[DSLAbstractions] ';';
+		@Override public ParserRule getRule() { return rule; }
 		
-		//managed=[DSLManaged]
-		public Assignment getManagedAssignment_2_1() { return cManagedAssignment_2_1; }
+		//sensor=[DSLAbstractions] mustBeIn=MustBeIn monitor=[DSLAbstractions] ';'
+		public Group getGroup() { return cGroup; }
 		
-		//[DSLManaged]
-		public CrossReference getManagedDSLManagedCrossReference_2_1_0() { return cManagedDSLManagedCrossReference_2_1_0; }
+		//sensor=[DSLAbstractions]
+		public Assignment getSensorAssignment_0() { return cSensorAssignment_0; }
+		
+		//[DSLAbstractions]
+		public CrossReference getSensorDSLAbstractionsCrossReference_0_0() { return cSensorDSLAbstractionsCrossReference_0_0; }
 		
 		//ID
-		public RuleCall getManagedDSLManagedIDTerminalRuleCall_2_1_0_1() { return cManagedDSLManagedIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getSensorDSLAbstractionsIDTerminalRuleCall_0_0_1() { return cSensorDSLAbstractionsIDTerminalRuleCall_0_0_1; }
+		
+		//mustBeIn=MustBeIn
+		public Assignment getMustBeInAssignment_1() { return cMustBeInAssignment_1; }
+		
+		//MustBeIn
+		public RuleCall getMustBeInMustBeInParserRuleCall_1_0() { return cMustBeInMustBeInParserRuleCall_1_0; }
+		
+		//monitor=[DSLAbstractions]
+		public Assignment getMonitorAssignment_2() { return cMonitorAssignment_2; }
+		
+		//[DSLAbstractions]
+		public CrossReference getMonitorDSLAbstractionsCrossReference_2_0() { return cMonitorDSLAbstractionsCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getMonitorDSLAbstractionsIDTerminalRuleCall_2_0_1() { return cMonitorDSLAbstractionsIDTerminalRuleCall_2_0_1; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -1187,6 +913,21 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//';'
 		public Keyword getSemicolonKeyword_4_4() { return cSemicolonKeyword_4_4; }
 	}
+	public class MustBeInElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.MustBeIn");
+		private final Assignment cMustBeInAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cMustBeInMustBeInKeyword_0 = (Keyword)cMustBeInAssignment.eContents().get(0);
+		
+		//MustBeIn:
+		//	mustBeIn='must-be-in';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//mustBeIn='must-be-in'
+		public Assignment getMustBeInAssignment() { return cMustBeInAssignment; }
+		
+		//'must-be-in'
+		public Keyword getMustBeInMustBeInKeyword_0() { return cMustBeInMustBeInKeyword_0; }
+	}
 	public class OnlyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.Only");
 		private final Assignment cOnlyAssignment = (Assignment)rule.eContents().get(1);
@@ -1360,8 +1101,6 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final DSLControlLoopManagerElements pDSLControlLoopManager;
 	private final DSLTypeCLMElements pDSLTypeCLM;
 	private final DSLControlLoopElements pDSLControlLoop;
-	private final DSLContainrerForCLElements pDSLContainrerForCL;
-	private final DSLContainerForMAPEElements pDSLContainerForMAPE;
 	private final DSLMonitorElements pDSLMonitor;
 	private final DSLAnalyzerElements pDSLAnalyzer;
 	private final DSLPlannerElements pDSLPlanner;
@@ -1373,7 +1112,9 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final DSLGaugeElements pDSLGauge;
 	private final DSLReferenceInputElements pDSLReferenceInput;
 	private final DSLMeasuredOutputElements pDSLMeasuredOutput;
+	private final DSLCompositionsElements pDSLCompositions;
 	private final DSLRestrictionsElements pDSLRestrictions;
+	private final MustBeInElements pMustBeIn;
 	private final OnlyElements pOnly;
 	private final CanElements pCan;
 	private final CannotElements pCannot;
@@ -1399,8 +1140,6 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDSLControlLoopManager = new DSLControlLoopManagerElements();
 		this.pDSLTypeCLM = new DSLTypeCLMElements();
 		this.pDSLControlLoop = new DSLControlLoopElements();
-		this.pDSLContainrerForCL = new DSLContainrerForCLElements();
-		this.pDSLContainerForMAPE = new DSLContainerForMAPEElements();
 		this.pDSLMonitor = new DSLMonitorElements();
 		this.pDSLAnalyzer = new DSLAnalyzerElements();
 		this.pDSLPlanner = new DSLPlannerElements();
@@ -1412,7 +1151,9 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDSLGauge = new DSLGaugeElements();
 		this.pDSLReferenceInput = new DSLReferenceInputElements();
 		this.pDSLMeasuredOutput = new DSLMeasuredOutputElements();
+		this.pDSLCompositions = new DSLCompositionsElements();
 		this.pDSLRestrictions = new DSLRestrictionsElements();
+		this.pMustBeIn = new MustBeInElements();
 		this.pOnly = new OnlyElements();
 		this.pCan = new CanElements();
 		this.pCannot = new CannotElements();
@@ -1452,7 +1193,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//ArchitectureDefinition:
 	//	'Abstractions' ':' abstractions+=DSLAbstractions+
-	//	'Restrictions' ':' dslRestrictions+=DSLRestrictions*;
+	//	'Compositions' ':' compositions+=DSLCompositions* 'Restrictions' ':' dslRestrictions+=DSLRestrictions*;
 	public ArchitectureDefinitionElements getArchitectureDefinitionAccess() {
 		return pArchitectureDefinition;
 	}
@@ -1473,7 +1214,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLManaging:
-	//	'Managing' name=ID ('in' subSystem=[DSLManaging])? ';';
+	//	'Managing' name=ID ';';
 	public DSLManagingElements getDSLManagingAccess() {
 		return pDSLManaging;
 	}
@@ -1483,7 +1224,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLManaged:
-	//	'Managed' name=ID ('in' subSystem=[DSLManaged])? ';';
+	//	'Managed' name=ID ';';
 	public DSLManagedElements getDSLManagedAccess() {
 		return pDSLManaged;
 	}
@@ -1493,7 +1234,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLControlLoopManager:
-	//	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('in' managing=[DSLManaging])? ';';
+	//	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ';';
 	public DSLControlLoopManagerElements getDSLControlLoopManagerAccess() {
 		return pDSLControlLoopManager;
 	}
@@ -1513,7 +1254,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLControlLoop:
-	//	'ControlLoop' name=ID ('in' subSystem=[DSLContainrerForCL])? ';';
+	//	'ControlLoop' name=ID ';';
 	public DSLControlLoopElements getDSLControlLoopAccess() {
 		return pDSLControlLoop;
 	}
@@ -1522,28 +1263,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getDSLControlLoopAccess().getRule();
 	}
 	
-	//DSLContainrerForCL:
-	//	DSLControlLoopManager | DSLManaging;
-	public DSLContainrerForCLElements getDSLContainrerForCLAccess() {
-		return pDSLContainrerForCL;
-	}
-	
-	public ParserRule getDSLContainrerForCLRule() {
-		return getDSLContainrerForCLAccess().getRule();
-	}
-	
-	//DSLContainerForMAPE:
-	//	DSLManaging | DSLControlLoop;
-	public DSLContainerForMAPEElements getDSLContainerForMAPEAccess() {
-		return pDSLContainerForMAPE;
-	}
-	
-	public ParserRule getDSLContainerForMAPERule() {
-		return getDSLContainerForMAPEAccess().getRule();
-	}
-	
 	//DSLMonitor:
-	//	'Monitor' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+	//	'Monitor' name=ID ';';
 	public DSLMonitorElements getDSLMonitorAccess() {
 		return pDSLMonitor;
 	}
@@ -1553,7 +1274,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLAnalyzer:
-	//	'Analyzer' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+	//	'Analyzer' name=ID ';';
 	public DSLAnalyzerElements getDSLAnalyzerAccess() {
 		return pDSLAnalyzer;
 	}
@@ -1563,7 +1284,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLPlanner:
-	//	'Planner' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+	//	'Planner' name=ID ';';
 	public DSLPlannerElements getDSLPlannerAccess() {
 		return pDSLPlanner;
 	}
@@ -1573,7 +1294,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLExecutor:
-	//	'Executor' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+	//	'Executor' name=ID ';';
 	public DSLExecutorElements getDSLExecutorAccess() {
 		return pDSLExecutor;
 	}
@@ -1583,7 +1304,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLKnowledge:
-	//	'Knowledge' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';';
+	//	'Knowledge' name=ID ';';
 	public DSLKnowledgeElements getDSLKnowledgeAccess() {
 		return pDSLKnowledge;
 	}
@@ -1593,7 +1314,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLSensor:
-	//	'Sensor' name=ID ('in' monitor=[DSLMonitor])? ';';
+	//	'Sensor' name=ID ';';
 	public DSLSensorElements getDSLSensorAccess() {
 		return pDSLSensor;
 	}
@@ -1603,7 +1324,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLEffector:
-	//	'Effector' name=ID ('in' executor=[DSLExecutor])? ';';
+	//	'Effector' name=ID ';';
 	public DSLEffectorElements getDSLEffectorAccess() {
 		return pDSLEffector;
 	}
@@ -1613,7 +1334,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLProbe:
-	//	'Probe' name=ID ('in' managed=[DSLManaged])? ';';
+	//	'Probe' name=ID ';';
 	public DSLProbeElements getDSLProbeAccess() {
 		return pDSLProbe;
 	}
@@ -1623,7 +1344,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLGauge:
-	//	'Gauge' name=ID ('in' managed=[DSLManaged])? ';';
+	//	'Gauge' name=ID ';';
 	public DSLGaugeElements getDSLGaugeAccess() {
 		return pDSLGauge;
 	}
@@ -1633,7 +1354,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLReferenceInput:
-	//	'ReferenceInput' name=ID ('in' kwnoledge=[DSLKnowledge])? ';';
+	//	'ReferenceInput' name=ID ';';
 	public DSLReferenceInputElements getDSLReferenceInputAccess() {
 		return pDSLReferenceInput;
 	}
@@ -1643,13 +1364,23 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLMeasuredOutput:
-	//	'MeasuredOutput' name=ID ('in' managed=[DSLManaged])? ';';
+	//	'MeasuredOutput' name=ID ';';
 	public DSLMeasuredOutputElements getDSLMeasuredOutputAccess() {
 		return pDSLMeasuredOutput;
 	}
 	
 	public ParserRule getDSLMeasuredOutputRule() {
 		return getDSLMeasuredOutputAccess().getRule();
+	}
+	
+	//DSLCompositions:
+	//	sensor=[DSLAbstractions] mustBeIn=MustBeIn monitor=[DSLAbstractions] ';';
+	public DSLCompositionsElements getDSLCompositionsAccess() {
+		return pDSLCompositions;
+	}
+	
+	public ParserRule getDSLCompositionsRule() {
+		return getDSLCompositionsAccess().getRule();
 	}
 	
 	//DSLRestrictions:
@@ -1663,6 +1394,16 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getDSLRestrictionsRule() {
 		return getDSLRestrictionsAccess().getRule();
+	}
+	
+	//MustBeIn:
+	//	mustBeIn='must-be-in';
+	public MustBeInElements getMustBeInAccess() {
+		return pMustBeIn;
+	}
+	
+	public ParserRule getMustBeInRule() {
+		return getMustBeInAccess().getRule();
 	}
 	
 	//Only:

@@ -106,16 +106,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
         return createDSLControlLoopAdapter();
       }
       @Override
-      public Adapter caseDSLContainrerForCL(DSLContainrerForCL object)
-      {
-        return createDSLContainrerForCLAdapter();
-      }
-      @Override
-      public Adapter caseDSLContainerForMAPE(DSLContainerForMAPE object)
-      {
-        return createDSLContainerForMAPEAdapter();
-      }
-      @Override
       public Adapter caseDSLMonitor(DSLMonitor object)
       {
         return createDSLMonitorAdapter();
@@ -171,9 +161,19 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
         return createDSLMeasuredOutputAdapter();
       }
       @Override
+      public Adapter caseDSLCompositions(DSLCompositions object)
+      {
+        return createDSLCompositionsAdapter();
+      }
+      @Override
       public Adapter caseDSLRestrictions(DSLRestrictions object)
       {
         return createDSLRestrictionsAdapter();
+      }
+      @Override
+      public Adapter caseMustBeIn(MustBeIn object)
+      {
+        return createMustBeInAdapter();
       }
       @Override
       public Adapter caseOnly(Only object)
@@ -323,36 +323,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDSLControlLoopAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLContainrerForCL <em>DSL Containrer For CL</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLContainrerForCL
-   * @generated
-   */
-  public Adapter createDSLContainrerForCLAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLContainerForMAPE <em>DSL Container For MAPE</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLContainerForMAPE
-   * @generated
-   */
-  public Adapter createDSLContainerForMAPEAdapter()
   {
     return null;
   }
@@ -523,6 +493,21 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLCompositions <em>DSL Compositions</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLCompositions
+   * @generated
+   */
+  public Adapter createDSLCompositionsAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions <em>DSL Restrictions</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -533,6 +518,21 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDSLRestrictionsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.MustBeIn <em>Must Be In</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.MustBeIn
+   * @generated
+   */
+  public Adapter createMustBeInAdapter()
   {
     return null;
   }

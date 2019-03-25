@@ -9,12 +9,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * A representation of the model object '<em><b>DSL Reference Input</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInput#getKwnoledge <em>Kwnoledge</em>}</li>
- * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLReferenceInput()
  * @model
@@ -22,30 +16,4 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  */
 public interface DSLReferenceInput extends DSLAbstractions
 {
-  /**
-   * Returns the value of the '<em><b>Kwnoledge</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Kwnoledge</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Kwnoledge</em>' reference.
-   * @see #setKwnoledge(DSLKnowledge)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLReferenceInput_Kwnoledge()
-   * @model
-   * @generated
-   */
-  DSLKnowledge getKwnoledge();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInput#getKwnoledge <em>Kwnoledge</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Kwnoledge</em>' reference.
-   * @see #getKwnoledge()
-   * @generated
-   */
-  void setKwnoledge(DSLKnowledge value);
-
 } // DSLReferenceInput

@@ -3,8 +3,9 @@ grammar br.ufscar.sas.xtext.sasdsl.SasDsl with org.eclipse.xtext.common.Terminal
 generate sasDsl "http://www.ufscar.br/sas/xtext/sasdsl/SasDsl"
 
 ArchitectureDefinition:
-	'Abstractions' ':' 	abstractions += DSLAbstractions+  
-	'Restrictions' ':'  (dslRestrictions += DSLRestrictions*)
+	'Abstractions' ':'  abstractions += DSLAbstractions+  
+	'Compositions' ':' (compositions += DSLCompositions*)
+	'Restrictions' ':' (dslRestrictions += DSLRestrictions*)
 	
 	;
 	
@@ -14,19 +15,26 @@ DSLAbstractions:
 	DSLEffector | DSLProbe | DSLGauge | DSLReferenceInput | DSLMeasuredOutput 
 ;	
 
+
+DSLAbstractionsCompositions:
+	
+	'hola'
+	
+;
+
 DSLManaging:
 	
-	'Managing' name=ID ('in' subSystem=[DSLManaging])? ';'
+	'Managing' name=ID ';'
 ;
 
 DSLManaged:
 	
-	'Managed' name=ID ('in' subSystem=[DSLManaged])? ';'
+	'Managed' name=ID  ';'
 ;
 
 DSLControlLoopManager:
 	
-	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('in' managing=[DSLManaging])? ';'
+	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ';'
 ;
 
 DSLTypeCLM:
@@ -37,76 +45,73 @@ DSLTypeCLM:
 
 DSLControlLoop:
 	
-	'ControlLoop' name=ID ('in' subSystem=[DSLContainrerForCL])? ';'
+	'ControlLoop' name=ID  ';'
 ;
 
-
-DSLContainrerForCL:
-	
-	DSLControlLoopManager | DSLManaging
-	
-;
-
-DSLContainerForMAPE:
-	
-	DSLManaging | DSLControlLoop 
-	
-;
 
 DSLMonitor:
 	
-	'Monitor'  name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+	'Monitor'  name=ID  ';'
 ;
 
 DSLAnalyzer:
 	
-	'Analyzer' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+	'Analyzer' name=ID  ';'
 ;
 
 DSLPlanner: 
 	
-	'Planner' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+	'Planner' name=ID ';'
 ;
 
 DSLExecutor: 
 	
-	'Executor' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+	'Executor' name=ID ';'
 ;
 
 DSLKnowledge: 
 	
-	'Knowledge' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+	'Knowledge' name=ID ';'
 ;
 
 DSLSensor: 
 	
-	'Sensor' name=ID ('in' monitor=[DSLMonitor])? ';'
+	'Sensor' name=ID  ';'
 ;
 
 DSLEffector: 
 	
-	'Effector' name=ID ('in' executor=[DSLExecutor])? ';'
+	'Effector' name=ID ';'
 ;
   
 DSLProbe:
 	
-	'Probe' name=ID ('in' managed=[DSLManaged])? ';'
+	'Probe' name=ID  ';'
 ;  
 
 DSLGauge: 
 	
-	'Gauge' name=ID ('in' managed=[DSLManaged])? ';'
+	'Gauge' name=ID ';'
 ;
 
 DSLReferenceInput:
 	
-	'ReferenceInput'  name=ID ('in' kwnoledge=[DSLKnowledge])? ';'
+	'ReferenceInput'  name=ID ';'
 ;
 
 DSLMeasuredOutput:
 	
-	'MeasuredOutput' name=ID ('in' managed=[DSLManaged])? ';'
+	'MeasuredOutput' name=ID ';'
 ;
+
+
+DSLCompositions:
+	
+	sensor=[DSLAbstractions] mustBeIn=MustBeIn monitor=[DSLAbstractions] ';' 
+
+;
+
+
 
 DSLRestrictions:
 	
@@ -115,6 +120,11 @@ DSLRestrictions:
 	(t=[DSLAbstractions] can=Can elementType=ElementType type = [DSLAbstractions] ';') |
 	(t=[DSLAbstractions] can=Can elementType=ElementType only2=Only2 type = [DSLAbstractions] ';') |
 	(t=[DSLAbstractions] must=Must entityType=EntityType type = [DSLAbstractions] ';')
+;
+
+MustBeIn:
+	
+	mustBeIn = 'must-be-in'
 ;
 	
 Only:

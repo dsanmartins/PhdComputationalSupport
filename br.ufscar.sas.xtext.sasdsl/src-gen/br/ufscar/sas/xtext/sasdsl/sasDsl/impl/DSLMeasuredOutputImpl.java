@@ -3,42 +3,20 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaged;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOutput;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>DSL Measured Output</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLMeasuredOutputImpl#getManaged <em>Managed</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class DSLMeasuredOutputImpl extends DSLAbstractionsImpl implements DSLMeasuredOutput
 {
-  /**
-   * The cached value of the '{@link #getManaged() <em>Managed</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getManaged()
-   * @generated
-   * @ordered
-   */
-  protected DSLManaged managed;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,116 +36,6 @@ public class DSLMeasuredOutputImpl extends DSLAbstractionsImpl implements DSLMea
   protected EClass eStaticClass()
   {
     return SasDslPackage.Literals.DSL_MEASURED_OUTPUT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLManaged getManaged()
-  {
-    if (managed != null && managed.eIsProxy())
-    {
-      InternalEObject oldManaged = (InternalEObject)managed;
-      managed = (DSLManaged)eResolveProxy(oldManaged);
-      if (managed != oldManaged)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_MEASURED_OUTPUT__MANAGED, oldManaged, managed));
-      }
-    }
-    return managed;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLManaged basicGetManaged()
-  {
-    return managed;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setManaged(DSLManaged newManaged)
-  {
-    DSLManaged oldManaged = managed;
-    managed = newManaged;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_MEASURED_OUTPUT__MANAGED, oldManaged, managed));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_MEASURED_OUTPUT__MANAGED:
-        if (resolve) return getManaged();
-        return basicGetManaged();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_MEASURED_OUTPUT__MANAGED:
-        setManaged((DSLManaged)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_MEASURED_OUTPUT__MANAGED:
-        setManaged((DSLManaged)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_MEASURED_OUTPUT__MANAGED:
-        return managed != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //DSLMeasuredOutputImpl

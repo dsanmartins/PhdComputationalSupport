@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getAbstractions <em>Abstractions</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getCompositions <em>Compositions</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getDslRestrictions <em>Dsl Restrictions</em>}</li>
  * </ul>
  *
@@ -41,6 +42,22 @@ public interface ArchitectureDefinition extends EObject
    * @generated
    */
   EList<DSLAbstractions> getAbstractions();
+
+  /**
+   * Returns the value of the '<em><b>Compositions</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLCompositions}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Compositions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Compositions</em>' containment reference list.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getArchitectureDefinition_Compositions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<DSLCompositions> getCompositions();
 
   /**
    * Returns the value of the '<em><b>Dsl Restrictions</b></em>' containment reference list.

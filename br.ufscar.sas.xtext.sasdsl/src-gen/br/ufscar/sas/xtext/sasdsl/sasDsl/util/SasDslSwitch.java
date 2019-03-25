@@ -92,8 +92,6 @@ public class SasDslSwitch<T> extends Switch<T>
         DSLManaging dslManaging = (DSLManaging)theEObject;
         T result = caseDSLManaging(dslManaging);
         if (result == null) result = caseDSLAbstractions(dslManaging);
-        if (result == null) result = caseDSLContainrerForCL(dslManaging);
-        if (result == null) result = caseDSLContainerForMAPE(dslManaging);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -110,7 +108,6 @@ public class SasDslSwitch<T> extends Switch<T>
         DSLControlLoopManager dslControlLoopManager = (DSLControlLoopManager)theEObject;
         T result = caseDSLControlLoopManager(dslControlLoopManager);
         if (result == null) result = caseDSLAbstractions(dslControlLoopManager);
-        if (result == null) result = caseDSLContainrerForCL(dslControlLoopManager);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -119,21 +116,6 @@ public class SasDslSwitch<T> extends Switch<T>
         DSLControlLoop dslControlLoop = (DSLControlLoop)theEObject;
         T result = caseDSLControlLoop(dslControlLoop);
         if (result == null) result = caseDSLAbstractions(dslControlLoop);
-        if (result == null) result = caseDSLContainerForMAPE(dslControlLoop);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.DSL_CONTAINRER_FOR_CL:
-      {
-        DSLContainrerForCL dslContainrerForCL = (DSLContainrerForCL)theEObject;
-        T result = caseDSLContainrerForCL(dslContainrerForCL);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.DSL_CONTAINER_FOR_MAPE:
-      {
-        DSLContainerForMAPE dslContainerForMAPE = (DSLContainerForMAPE)theEObject;
-        T result = caseDSLContainerForMAPE(dslContainerForMAPE);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -225,10 +207,24 @@ public class SasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SasDslPackage.DSL_COMPOSITIONS:
+      {
+        DSLCompositions dslCompositions = (DSLCompositions)theEObject;
+        T result = caseDSLCompositions(dslCompositions);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SasDslPackage.DSL_RESTRICTIONS:
       {
         DSLRestrictions dslRestrictions = (DSLRestrictions)theEObject;
         T result = caseDSLRestrictions(dslRestrictions);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.MUST_BE_IN:
+      {
+        MustBeIn mustBeIn = (MustBeIn)theEObject;
+        T result = caseMustBeIn(mustBeIn);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -386,38 +382,6 @@ public class SasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDSLControlLoop(DSLControlLoop object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>DSL Containrer For CL</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>DSL Containrer For CL</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDSLContainrerForCL(DSLContainrerForCL object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>DSL Container For MAPE</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>DSL Container For MAPE</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDSLContainerForMAPE(DSLContainerForMAPE object)
   {
     return null;
   }
@@ -599,6 +563,22 @@ public class SasDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>DSL Compositions</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DSL Compositions</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDSLCompositions(DSLCompositions object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>DSL Restrictions</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -610,6 +590,22 @@ public class SasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDSLRestrictions(DSLRestrictions object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Must Be In</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Must Be In</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMustBeIn(MustBeIn object)
   {
     return null;
   }

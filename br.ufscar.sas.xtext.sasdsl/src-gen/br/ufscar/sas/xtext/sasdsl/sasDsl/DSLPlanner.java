@@ -9,12 +9,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * A representation of the model object '<em><b>DSL Planner</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner#getSubSystem <em>Sub System</em>}</li>
- * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLPlanner()
  * @model
@@ -22,30 +16,4 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  */
 public interface DSLPlanner extends DSLAbstractions
 {
-  /**
-   * Returns the value of the '<em><b>Sub System</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Sub System</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Sub System</em>' reference.
-   * @see #setSubSystem(DSLContainerForMAPE)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLPlanner_SubSystem()
-   * @model
-   * @generated
-   */
-  DSLContainerForMAPE getSubSystem();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner#getSubSystem <em>Sub System</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Sub System</em>' reference.
-   * @see #getSubSystem()
-   * @generated
-   */
-  void setSubSystem(DSLContainerForMAPE value);
-
 } // DSLPlanner

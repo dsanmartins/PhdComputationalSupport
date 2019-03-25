@@ -9,12 +9,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * A representation of the model object '<em><b>DSL Effector</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector#getExecutor <em>Executor</em>}</li>
- * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLEffector()
  * @model
@@ -22,30 +16,4 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  */
 public interface DSLEffector extends DSLAbstractions
 {
-  /**
-   * Returns the value of the '<em><b>Executor</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Executor</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Executor</em>' reference.
-   * @see #setExecutor(DSLExecutor)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLEffector_Executor()
-   * @model
-   * @generated
-   */
-  DSLExecutor getExecutor();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector#getExecutor <em>Executor</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Executor</em>' reference.
-   * @see #getExecutor()
-   * @generated
-   */
-  void setExecutor(DSLExecutor value);
-
 } // DSLEffector

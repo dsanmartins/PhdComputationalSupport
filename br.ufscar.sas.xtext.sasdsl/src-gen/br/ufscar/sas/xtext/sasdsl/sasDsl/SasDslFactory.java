@@ -78,24 +78,6 @@ public interface SasDslFactory extends EFactory
   DSLControlLoop createDSLControlLoop();
 
   /**
-   * Returns a new object of class '<em>DSL Containrer For CL</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Containrer For CL</em>'.
-   * @generated
-   */
-  DSLContainrerForCL createDSLContainrerForCL();
-
-  /**
-   * Returns a new object of class '<em>DSL Container For MAPE</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Container For MAPE</em>'.
-   * @generated
-   */
-  DSLContainerForMAPE createDSLContainerForMAPE();
-
-  /**
    * Returns a new object of class '<em>DSL Monitor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -195,6 +177,15 @@ public interface SasDslFactory extends EFactory
   DSLMeasuredOutput createDSLMeasuredOutput();
 
   /**
+   * Returns a new object of class '<em>DSL Compositions</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Compositions</em>'.
+   * @generated
+   */
+  DSLCompositions createDSLCompositions();
+
+  /**
    * Returns a new object of class '<em>DSL Restrictions</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -202,6 +193,15 @@ public interface SasDslFactory extends EFactory
    * @generated
    */
   DSLRestrictions createDSLRestrictions();
+
+  /**
+   * Returns a new object of class '<em>Must Be In</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Must Be In</em>'.
+   * @generated
+   */
+  MustBeIn createMustBeIn();
 
   /**
    * Returns a new object of class '<em>Only</em>'.

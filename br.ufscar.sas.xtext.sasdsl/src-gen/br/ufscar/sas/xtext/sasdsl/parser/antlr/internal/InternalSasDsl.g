@@ -103,9 +103,9 @@ ruleArchitectureDefinition returns [EObject current=null]
 				}
 			)
 		)+
-		otherlv_3='Restrictions'
+		otherlv_3='Compositions'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getArchitectureDefinitionAccess().getRestrictionsKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getArchitectureDefinitionAccess().getCompositionsKeyword_3());
 		}
 		otherlv_4=':'
 		{
@@ -114,9 +114,36 @@ ruleArchitectureDefinition returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getArchitectureDefinitionAccess().getDslRestrictionsDSLRestrictionsParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getArchitectureDefinitionAccess().getCompositionsDSLCompositionsParserRuleCall_5_0());
 				}
-				lv_dslRestrictions_5_0=ruleDSLRestrictions
+				lv_compositions_5_0=ruleDSLCompositions
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getArchitectureDefinitionRule());
+					}
+					add(
+						$current,
+						"compositions",
+						lv_compositions_5_0,
+						"br.ufscar.sas.xtext.sasdsl.SasDsl.DSLCompositions");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_6='Restrictions'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getArchitectureDefinitionAccess().getRestrictionsKeyword_6());
+		}
+		otherlv_7=':'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getArchitectureDefinitionAccess().getColonKeyword_7());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getArchitectureDefinitionAccess().getDslRestrictionsDSLRestrictionsParserRuleCall_8_0());
+				}
+				lv_dslRestrictions_8_0=ruleDSLRestrictions
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getArchitectureDefinitionRule());
@@ -124,7 +151,7 @@ ruleArchitectureDefinition returns [EObject current=null]
 					add(
 						$current,
 						"dslRestrictions",
-						lv_dslRestrictions_5_0,
+						lv_dslRestrictions_8_0,
 						"br.ufscar.sas.xtext.sasdsl.SasDsl.DSLRestrictions");
 					afterParserOrEnumRuleCall();
 				}
@@ -324,28 +351,9 @@ ruleDSLManaging returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLManagingAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLManagingRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLManagingAccess().getSubSystemDSLManagingCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLManagingAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLManagingAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -388,28 +396,9 @@ ruleDSLManaged returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLManagedAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLManagedRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLManagedAccess().getSubSystemDSLManagedCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLManagedAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLManagedAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -463,28 +452,9 @@ ruleDSLControlLoopManager returns [EObject current=null]
 		{
 			afterParserOrEnumRuleCall();
 		}
-		(
-			otherlv_4='in'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getDSLControlLoopManagerAccess().getInKeyword_4_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLControlLoopManagerRule());
-						}
-					}
-					otherlv_5=RULE_ID
-					{
-						newLeafNode(otherlv_5, grammarAccess.getDSLControlLoopManagerAccess().getManagingDSLManagingCrossReference_4_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_6=';'
+		otherlv_4=';'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDSLControlLoopManagerAccess().getSemicolonKeyword_5());
+			newLeafNode(otherlv_4, grammarAccess.getDSLControlLoopManagerAccess().getSemicolonKeyword_4());
 		}
 	)
 ;
@@ -563,28 +533,9 @@ ruleDSLControlLoop returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLControlLoopAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLControlLoopRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLControlLoopAccess().getSubSystemDSLContainrerForCLCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLControlLoopAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLControlLoopAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -627,28 +578,9 @@ ruleDSLMonitor returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLMonitorAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLMonitorRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLMonitorAccess().getSubSystemDSLContainerForMAPECrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLMonitorAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLMonitorAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -691,28 +623,9 @@ ruleDSLAnalyzer returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLAnalyzerAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLAnalyzerRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLAnalyzerAccess().getSubSystemDSLContainerForMAPECrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLAnalyzerAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLAnalyzerAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -755,28 +668,9 @@ ruleDSLPlanner returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLPlannerAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLPlannerRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLPlannerAccess().getSubSystemDSLContainerForMAPECrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLPlannerAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLPlannerAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -819,28 +713,9 @@ ruleDSLExecutor returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLExecutorAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLExecutorRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLExecutorAccess().getSubSystemDSLContainerForMAPECrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLExecutorAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLExecutorAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -883,28 +758,9 @@ ruleDSLKnowledge returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLKnowledgeAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLKnowledgeRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLKnowledgeAccess().getSubSystemDSLContainerForMAPECrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLKnowledgeAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLKnowledgeAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -947,28 +803,9 @@ ruleDSLSensor returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLSensorAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLSensorRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLSensorAccess().getMonitorDSLMonitorCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLSensorAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLSensorAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -1011,28 +848,9 @@ ruleDSLEffector returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLEffectorAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLEffectorRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLEffectorAccess().getExecutorDSLExecutorCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLEffectorAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLEffectorAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -1075,28 +893,9 @@ ruleDSLProbe returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLProbeAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLProbeRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLProbeAccess().getManagedDSLManagedCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLProbeAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLProbeAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -1139,28 +938,9 @@ ruleDSLGauge returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLGaugeAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLGaugeRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLGaugeAccess().getManagedDSLManagedCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLGaugeAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLGaugeAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -1203,28 +983,9 @@ ruleDSLReferenceInput returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLReferenceInputAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLReferenceInputRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLReferenceInputAccess().getKwnoledgeDSLKnowledgeCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLReferenceInputAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLReferenceInputAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -1267,28 +1028,77 @@ ruleDSLMeasuredOutput returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='in'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLMeasuredOutputAccess().getInKeyword_2_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLMeasuredOutputRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDSLMeasuredOutputAccess().getManagedDSLManagedCrossReference_2_1_0());
-					}
-				)
-			)
-		)?
-		otherlv_4=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getDSLMeasuredOutputAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLMeasuredOutputAccess().getSemicolonKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleDSLCompositions
+entryRuleDSLCompositions returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDSLCompositionsRule()); }
+	iv_ruleDSLCompositions=ruleDSLCompositions
+	{ $current=$iv_ruleDSLCompositions.current; }
+	EOF;
+
+// Rule DSLCompositions
+ruleDSLCompositions returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDSLCompositionsRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getDSLCompositionsAccess().getSensorDSLAbstractionsCrossReference_0_0());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDSLCompositionsAccess().getMustBeInMustBeInParserRuleCall_1_0());
+				}
+				lv_mustBeIn_1_0=ruleMustBeIn
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDSLCompositionsRule());
+					}
+					set(
+						$current,
+						"mustBeIn",
+						lv_mustBeIn_1_0,
+						"br.ufscar.sas.xtext.sasdsl.SasDsl.MustBeIn");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDSLCompositionsRule());
+					}
+				}
+				otherlv_2=RULE_ID
+				{
+					newLeafNode(otherlv_2, grammarAccess.getDSLCompositionsAccess().getMonitorDSLAbstractionsCrossReference_2_0());
+				}
+			)
+		)
+		otherlv_3=';'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDSLCompositionsAccess().getSemicolonKeyword_3());
 		}
 	)
 ;
@@ -1699,6 +1509,37 @@ ruleDSLRestrictions returns [EObject current=null]
 			otherlv_26=';'
 			{
 				newLeafNode(otherlv_26, grammarAccess.getDSLRestrictionsAccess().getSemicolonKeyword_4_4());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleMustBeIn
+entryRuleMustBeIn returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMustBeInRule()); }
+	iv_ruleMustBeIn=ruleMustBeIn
+	{ $current=$iv_ruleMustBeIn.current; }
+	EOF;
+
+// Rule MustBeIn
+ruleMustBeIn returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_mustBeIn_0_0='must-be-in'
+			{
+				newLeafNode(lv_mustBeIn_0_0, grammarAccess.getMustBeInAccess().getMustBeInMustBeInKeyword_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getMustBeInRule());
+				}
+				setWithLastConsumed($current, "mustBeIn", lv_mustBeIn_0_0, "must-be-in");
 			}
 		)
 	)

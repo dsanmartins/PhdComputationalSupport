@@ -9,12 +9,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * A representation of the model object '<em><b>DSL Measured Output</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOutput#getManaged <em>Managed</em>}</li>
- * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLMeasuredOutput()
  * @model
@@ -22,30 +16,4 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  */
 public interface DSLMeasuredOutput extends DSLAbstractions
 {
-  /**
-   * Returns the value of the '<em><b>Managed</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Managed</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Managed</em>' reference.
-   * @see #setManaged(DSLManaged)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLMeasuredOutput_Managed()
-   * @model
-   * @generated
-   */
-  DSLManaged getManaged();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOutput#getManaged <em>Managed</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Managed</em>' reference.
-   * @see #getManaged()
-   * @generated
-   */
-  void setManaged(DSLManaged value);
-
 } // DSLMeasuredOutput
