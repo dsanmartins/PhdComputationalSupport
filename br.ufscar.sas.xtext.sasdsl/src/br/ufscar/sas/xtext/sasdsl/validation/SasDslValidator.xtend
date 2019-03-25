@@ -3,11 +3,6 @@
  */
 package br.ufscar.sas.xtext.sasdsl.validation
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLAbstractions
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLManaging
-import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage
-import org.eclipse.xtext.validation.Check
-
 /**
  * This class contains custom validation rules. 
  *
@@ -27,22 +22,5 @@ class SasDslValidator extends AbstractSasDslValidator {
 //	}
 	
 		
-	@Check
-	def checkNonDuplicateAbstractions(DCLAbstractions abstractions) {
-		
-		val names = newHashSet
-	    for (g : abstractions.eContents) {
-	    	if (g instanceof DCLManaging)
-	    	{
-				val managing = g as DCLManaging	
-				var listName = managing.name
-				for (var i =0; i < listName.length; i++)
-				{
-					if(!names.add(listName.get(i)))
-	           			error("There are duplicate names: "+ managing.name, g,  SasDslPackage.Literals.DCL_MANAGING__NAME)
-				}	
-	    	}
-	    }
-	}
 	
 }

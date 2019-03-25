@@ -3,91 +3,143 @@ grammar br.ufscar.sas.xtext.sasdsl.SasDsl with org.eclipse.xtext.common.Terminal
 generate sasDsl "http://www.ufscar.br/sas/xtext/sasdsl/SasDsl"
 
 ArchitectureDefinition:
-	'Abstractions' '{' 	abstractions += DCLAbstractions+ '}' 
-	'Compositions' '{' 	'}'
-	'Restrictions' '{' '}' 
+	'Abstractions' ':' 	abstractions += DSLAbstractions+  
+	'Restrictions' ':'  (dslRestrictions += DSLRestrictions*)
 	
 	;
 	
-
-DCLAbstractions:
+DSLAbstractions:
 	
-	managing+=DCLManaging | DCLManaged | DCLControlLoopManager | DCLControlLoop | DCLMonitor | DCLAnalyzer | DCLPlanner | DCLExecutor | DCLKnowledge |DCLSensor | 
-	DCLEffector | DCLProbe | DCLGauge | DCLReferenceInput | DCLMeasuredOutput
+	DSLManaging | DSLManaged | DSLControlLoopManager | DSLControlLoop | DSLMonitor | DSLAnalyzer | DSLPlanner | DSLExecutor | DSLKnowledge | DSLSensor | 
+	DSLEffector | DSLProbe | DSLGauge | DSLReferenceInput | DSLMeasuredOutput 
 ;	
+
+DSLManaging:
 	
-	
-DCLManaging:
-	
-	'Managing' (name+=ID (',' name+=ID)* ';')+
+	'Managing' name=ID ('in' subSystem=[DSLManaging])? ';'
 ;
 
-DCLManaged:
+DSLManaged:
 	
-	'Managed' (name+=ID (',' name+=ID)* ';')+
+	'Managed' name=ID ('in' subSystem=[DSLManaged])? ';'
 ;
 
-DCLControlLoopManager:
+DSLControlLoopManager:
 	
-	'ControlLoopManager' (name+=ID (',' name+=ID)* ';')+
+	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('in' managing=[DSLManaging])? ';'
 ;
 
-DCLControlLoop:
+DSLTypeCLM:
 	
-	'ControlLoop' (name+=ID (',' name+=ID)* ';')+
+	'Synchronized'| 'Coordinated' | 'Independent'
+	
 ;
 
-DCLMonitor:
+DSLControlLoop:
 	
-	'Monitor' (name+=ID (',' name+=ID)* ';')+
+	'ControlLoop' name=ID ('in' subSystem=[DSLContainrerForCL])? ';'
 ;
 
-DCLAnalyzer:
+
+DSLContainrerForCL:
 	
-	'Analyzer' (name+=ID (',' name+=ID)* ';')+
+	DSLControlLoopManager | DSLManaging
+	
 ;
 
-DCLPlanner: 
+DSLContainerForMAPE:
 	
-	'Planner' (name+=ID (',' name+=ID)* ';')+
+	DSLManaging | DSLControlLoop 
+	
 ;
 
-DCLExecutor: 
+DSLMonitor:
 	
-	'Executor' (name+=ID (',' name+=ID)* ';')+
+	'Monitor'  name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
 ;
 
-DCLKnowledge: 
+DSLAnalyzer:
 	
-	'Knowledge' (name+=ID (',' name+=ID)* ';')+
+	'Analyzer' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
 ;
 
-DCLSensor: 
+DSLPlanner: 
 	
-	'Sensor' (name+=ID (',' name+=ID)* ';')+
+	'Planner' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
 ;
 
-DCLEffector: 
+DSLExecutor: 
 	
-	'Effector' (name+=ID (',' name+=ID)* ';')+
+	'Executor' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+;
+
+DSLKnowledge: 
+	
+	'Knowledge' name=ID ('in' subSystem=[DSLContainerForMAPE])? ';'
+;
+
+DSLSensor: 
+	
+	'Sensor' name=ID ('in' monitor=[DSLMonitor])? ';'
+;
+
+DSLEffector: 
+	
+	'Effector' name=ID ('in' executor=[DSLExecutor])? ';'
 ;
   
-DCLProbe:
+DSLProbe:
 	
-	'Probe' (name+=ID (',' name+=ID)* ';')+
+	'Probe' name=ID ('in' managed=[DSLManaged])? ';'
 ;  
 
-DCLGauge: 
+DSLGauge: 
 	
-	'Gauge' (name+=ID (',' name+=ID)* ';')+
+	'Gauge' name=ID ('in' managed=[DSLManaged])? ';'
 ;
 
-DCLReferenceInput:
+DSLReferenceInput:
 	
-	'ReferenceInput' (name+=ID (',' name+=ID)* ';')+
+	'ReferenceInput'  name=ID ('in' kwnoledge=[DSLKnowledge])? ';'
 ;
 
-DCLMeasuredOutput:
+DSLMeasuredOutput:
 	
-	'MeauserdOutput' (name+=ID (',' name+=ID)* ';')+
+	'MeasuredOutput' name=ID ('in' managed=[DSLManaged])? ';'
 ;
+
+DSLRestrictions:
+	
+	(only=Only t=[DSLAbstractions] can=Can elementType=ElementType type = [DSLAbstractions] ';') | 
+	(t=[DSLAbstractions] cannot=Cannot elementType=ElementType type = [DSLAbstractions] ';') |
+	(t=[DSLAbstractions] can=Can elementType=ElementType type = [DSLAbstractions] ';') |
+	(t=[DSLAbstractions] can=Can elementType=ElementType only2=Only2 type = [DSLAbstractions] ';') |
+	(t=[DSLAbstractions] must=Must entityType=EntityType type = [DSLAbstractions] ';')
+;
+	
+Only:
+	only='only'
+;
+ 
+Can:
+	can='can-'
+;
+ 
+Cannot:
+	cannot='cannot-'
+;
+
+Only2:
+	only2='-only'
+;	
+
+Must:
+	must='must-'
+;
+
+ElementType: BasicType | EntityType;
+   
+BasicType: typeName= ('access' | 'declare' | 'handle' | 'create' | 'depend');
+ 
+EntityType: entity=('extend' | 'implement' | 'derive' | 'throw' | 'useannotation');
+
