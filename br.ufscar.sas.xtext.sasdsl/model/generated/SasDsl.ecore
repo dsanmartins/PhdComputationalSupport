@@ -4,43 +4,25 @@
     nsPrefix="sasDsl">
   <eClassifiers xsi:type="ecore:EClass" name="ArchitectureDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="abstractions" upperBound="-1"
-        eType="#//DSLAbstractions" containment="true"/>
+        eType="#//DSLAbstraction" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compositions" upperBound="-1"
-        eType="#//DSLCompositions" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dslRestrictions" upperBound="-1"
-        eType="#//DSLRestrictions" containment="true"/>
+        eType="#//DSLComposition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restrictions" upperBound="-1"
+        eType="#//DSLRestriction" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLAbstractions">
+  <eClassifiers xsi:type="ecore:EClass" name="DSLAbstraction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLManaging" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLManaged" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLControlLoopManager" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLControlLoop" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLMonitor" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLAnalyzer" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLPlanner" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLExecutor" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLKnowledge" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLSensor" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLEffector" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLProbe" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLGauge" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLReferenceInput" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLMeasuredOutput" eSuperTypes="#//DSLAbstractions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLCompositions">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//DSLAbstractions"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mustBeIn" eType="#//MustBeIn"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="monitor" eType="#//DSLAbstractions"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLRestrictions">
+  <eClassifiers xsi:type="ecore:EClass" name="DSLComposition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLRestriction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="only" eType="#//Only" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLAbstractions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLAbstraction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="can" eType="#//Can" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elementType" eType="#//ElementType"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//DSLAbstractions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//DSLAbstraction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cannot" eType="#//Cannot"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="only2" eType="#//Only2"
@@ -49,9 +31,89 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="entityType" eType="#//EntityType"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MustBeIn">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mustBeIn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLSensorBelongsTo" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//DSLSensor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="monitor" eType="#//DSLMonitor"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLReferenceInputBelongsTo" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//DSLReferenceInput"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="knowledge" eType="#//DSLKnowledge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLEffectorBelongsTo" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effector" eType="#//DSLEffector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executor" eType="#//DSLExecutor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLMonitorBelongsTo1" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="monitor" eType="#//DSLMonitor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cl" eType="#//DSLControlLoop"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLMonitorBelongsTo2" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="monitor" eType="#//DSLMonitor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managing" eType="#//DSLManaging"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLAnalyzerBelongsTo1" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analyzer" eType="#//DSLAnalyzer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cl" eType="#//DSLControlLoop"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLAnalyzerBelongsTo2" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="analyzer" eType="#//DSLAnalyzer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managing" eType="#//DSLManaging"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLPlannerBelongsTo1" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="planner" eType="#//DSLPlanner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cl" eType="#//DSLControlLoop"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLPlannerBelongsTo2" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="planner" eType="#//DSLPlanner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managing" eType="#//DSLManaging"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLExecutorBelongsTo1" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executor" eType="#//DSLExecutor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cl" eType="#//DSLControlLoop"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLExecutorBelongsTo2" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executor" eType="#//DSLExecutor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managing" eType="#//DSLManaging"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLClBelongsTo1" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cl" eType="#//DSLControlLoop"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clm" eType="#//DSLControlLoopManager"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLClBelongsTo2" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cl" eType="#//DSLControlLoop"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managing" eType="#//DSLManaging"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLClmBelongsTo" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cl" eType="#//DSLControlLoopManager"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managing" eType="#//DSLManaging"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLMeasuredOuputBelongsTo" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="measured" eType="#//DSLMeasuredOutput"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managed" eType="#//DSLManaged"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLGaugeBelongsTo" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gauge" eType="#//DSLGauge"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managed" eType="#//DSLManaged"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLProbeBelongsTo" eSuperTypes="#//DSLComposition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probe" eType="#//DSLProbe"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managed" eType="#//DSLManaged"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLManaging" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLManaged" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLControlLoopManager" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLControlLoop" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLMonitor" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLAnalyzer" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLPlanner" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLExecutor" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLKnowledge" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLSensor" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLEffector" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLProbe" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLGauge" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLReferenceInput" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLMeasuredOutput" eSuperTypes="#//DSLAbstraction"/>
   <eClassifiers xsi:type="ecore:EClass" name="Only">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="only" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

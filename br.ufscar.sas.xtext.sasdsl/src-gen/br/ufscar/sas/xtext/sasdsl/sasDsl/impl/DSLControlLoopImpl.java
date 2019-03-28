@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLControlLoopImpl extends DSLAbstractionsImpl implements DSLControlLoop
+public class DSLControlLoopImpl extends DSLAbstractionImpl implements DSLControlLoop
 {
   /**
    * <!-- begin-user-doc -->

@@ -3,30 +3,37 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstractions;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DSL Abstractions</b></em>'.
+ * An implementation of the model object '<em><b>DSL Abstraction</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLAbstractionsImpl#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLAbstractionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLAbstractionImpl#getInterface <em>Interface</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DSLAbstractionsImpl extends MinimalEObjectImpl.Container implements DSLAbstractions
+public class DSLAbstractionImpl extends MinimalEObjectImpl.Container implements DSLAbstraction
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -49,11 +56,21 @@ public class DSLAbstractionsImpl extends MinimalEObjectImpl.Container implements
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getInterface() <em>Interface</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInterface()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> interface_;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DSLAbstractionsImpl()
+  protected DSLAbstractionImpl()
   {
     super();
   }
@@ -66,7 +83,7 @@ public class DSLAbstractionsImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.DSL_ABSTRACTIONS;
+    return SasDslPackage.Literals.DSL_ABSTRACTION;
   }
 
   /**
@@ -89,7 +106,21 @@ public class DSLAbstractionsImpl extends MinimalEObjectImpl.Container implements
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_ABSTRACTIONS__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_ABSTRACTION__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getInterface()
+  {
+    if (interface_ == null)
+    {
+      interface_ = new EDataTypeEList<String>(String.class, this, SasDslPackage.DSL_ABSTRACTION__INTERFACE);
+    }
+    return interface_;
   }
 
   /**
@@ -102,8 +133,10 @@ public class DSLAbstractionsImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_ABSTRACTIONS__NAME:
+      case SasDslPackage.DSL_ABSTRACTION__NAME:
         return getName();
+      case SasDslPackage.DSL_ABSTRACTION__INTERFACE:
+        return getInterface();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -113,13 +146,18 @@ public class DSLAbstractionsImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_ABSTRACTIONS__NAME:
+      case SasDslPackage.DSL_ABSTRACTION__NAME:
         setName((String)newValue);
+        return;
+      case SasDslPackage.DSL_ABSTRACTION__INTERFACE:
+        getInterface().clear();
+        getInterface().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +173,11 @@ public class DSLAbstractionsImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_ABSTRACTIONS__NAME:
+      case SasDslPackage.DSL_ABSTRACTION__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case SasDslPackage.DSL_ABSTRACTION__INTERFACE:
+        getInterface().clear();
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +193,10 @@ public class DSLAbstractionsImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_ABSTRACTIONS__NAME:
+      case SasDslPackage.DSL_ABSTRACTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SasDslPackage.DSL_ABSTRACTION__INTERFACE:
+        return interface_ != null && !interface_.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +214,10 @@ public class DSLAbstractionsImpl extends MinimalEObjectImpl.Container implements
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", interface: ");
+    result.append(interface_);
     result.append(')');
     return result.toString();
   }
 
-} //DSLAbstractionsImpl
+} //DSLAbstractionImpl

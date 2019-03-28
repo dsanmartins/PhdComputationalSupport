@@ -14,6 +14,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * @model
  * @generated
  */
-public interface DSLEffector extends DSLAbstractions
+public interface DSLEffector extends DSLAbstraction
 {
 } // DSLEffector

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLProbeImpl extends DSLAbstractionsImpl implements DSLProbe
+public class DSLProbeImpl extends DSLAbstractionImpl implements DSLProbe
 {
   /**
    * <!-- begin-user-doc -->

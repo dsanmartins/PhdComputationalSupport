@@ -33,13 +33,184 @@ public interface SasDslFactory extends EFactory
   ArchitectureDefinition createArchitectureDefinition();
 
   /**
-   * Returns a new object of class '<em>DSL Abstractions</em>'.
+   * Returns a new object of class '<em>DSL Abstraction</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Abstractions</em>'.
+   * @return a new object of class '<em>DSL Abstraction</em>'.
    * @generated
    */
-  DSLAbstractions createDSLAbstractions();
+  DSLAbstraction createDSLAbstraction();
+
+  /**
+   * Returns a new object of class '<em>DSL Composition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Composition</em>'.
+   * @generated
+   */
+  DSLComposition createDSLComposition();
+
+  /**
+   * Returns a new object of class '<em>DSL Restriction</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Restriction</em>'.
+   * @generated
+   */
+  DSLRestriction createDSLRestriction();
+
+  /**
+   * Returns a new object of class '<em>DSL Sensor Belongs To</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Sensor Belongs To</em>'.
+   * @generated
+   */
+  DSLSensorBelongsTo createDSLSensorBelongsTo();
+
+  /**
+   * Returns a new object of class '<em>DSL Reference Input Belongs To</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Reference Input Belongs To</em>'.
+   * @generated
+   */
+  DSLReferenceInputBelongsTo createDSLReferenceInputBelongsTo();
+
+  /**
+   * Returns a new object of class '<em>DSL Effector Belongs To</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Effector Belongs To</em>'.
+   * @generated
+   */
+  DSLEffectorBelongsTo createDSLEffectorBelongsTo();
+
+  /**
+   * Returns a new object of class '<em>DSL Monitor Belongs To1</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Monitor Belongs To1</em>'.
+   * @generated
+   */
+  DSLMonitorBelongsTo1 createDSLMonitorBelongsTo1();
+
+  /**
+   * Returns a new object of class '<em>DSL Monitor Belongs To2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Monitor Belongs To2</em>'.
+   * @generated
+   */
+  DSLMonitorBelongsTo2 createDSLMonitorBelongsTo2();
+
+  /**
+   * Returns a new object of class '<em>DSL Analyzer Belongs To1</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Analyzer Belongs To1</em>'.
+   * @generated
+   */
+  DSLAnalyzerBelongsTo1 createDSLAnalyzerBelongsTo1();
+
+  /**
+   * Returns a new object of class '<em>DSL Analyzer Belongs To2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Analyzer Belongs To2</em>'.
+   * @generated
+   */
+  DSLAnalyzerBelongsTo2 createDSLAnalyzerBelongsTo2();
+
+  /**
+   * Returns a new object of class '<em>DSL Planner Belongs To1</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Planner Belongs To1</em>'.
+   * @generated
+   */
+  DSLPlannerBelongsTo1 createDSLPlannerBelongsTo1();
+
+  /**
+   * Returns a new object of class '<em>DSL Planner Belongs To2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Planner Belongs To2</em>'.
+   * @generated
+   */
+  DSLPlannerBelongsTo2 createDSLPlannerBelongsTo2();
+
+  /**
+   * Returns a new object of class '<em>DSL Executor Belongs To1</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Executor Belongs To1</em>'.
+   * @generated
+   */
+  DSLExecutorBelongsTo1 createDSLExecutorBelongsTo1();
+
+  /**
+   * Returns a new object of class '<em>DSL Executor Belongs To2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Executor Belongs To2</em>'.
+   * @generated
+   */
+  DSLExecutorBelongsTo2 createDSLExecutorBelongsTo2();
+
+  /**
+   * Returns a new object of class '<em>DSL Cl Belongs To1</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Cl Belongs To1</em>'.
+   * @generated
+   */
+  DSLClBelongsTo1 createDSLClBelongsTo1();
+
+  /**
+   * Returns a new object of class '<em>DSL Cl Belongs To2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Cl Belongs To2</em>'.
+   * @generated
+   */
+  DSLClBelongsTo2 createDSLClBelongsTo2();
+
+  /**
+   * Returns a new object of class '<em>DSL Clm Belongs To</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Clm Belongs To</em>'.
+   * @generated
+   */
+  DSLClmBelongsTo createDSLClmBelongsTo();
+
+  /**
+   * Returns a new object of class '<em>DSL Measured Ouput Belongs To</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Measured Ouput Belongs To</em>'.
+   * @generated
+   */
+  DSLMeasuredOuputBelongsTo createDSLMeasuredOuputBelongsTo();
+
+  /**
+   * Returns a new object of class '<em>DSL Gauge Belongs To</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Gauge Belongs To</em>'.
+   * @generated
+   */
+  DSLGaugeBelongsTo createDSLGaugeBelongsTo();
+
+  /**
+   * Returns a new object of class '<em>DSL Probe Belongs To</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Probe Belongs To</em>'.
+   * @generated
+   */
+  DSLProbeBelongsTo createDSLProbeBelongsTo();
 
   /**
    * Returns a new object of class '<em>DSL Managing</em>'.
@@ -175,33 +346,6 @@ public interface SasDslFactory extends EFactory
    * @generated
    */
   DSLMeasuredOutput createDSLMeasuredOutput();
-
-  /**
-   * Returns a new object of class '<em>DSL Compositions</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Compositions</em>'.
-   * @generated
-   */
-  DSLCompositions createDSLCompositions();
-
-  /**
-   * Returns a new object of class '<em>DSL Restrictions</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restrictions</em>'.
-   * @generated
-   */
-  DSLRestrictions createDSLRestrictions();
-
-  /**
-   * Returns a new object of class '<em>Must Be In</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Must Be In</em>'.
-   * @generated
-   */
-  MustBeIn createMustBeIn();
 
   /**
    * Returns a new object of class '<em>Only</em>'.

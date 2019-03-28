@@ -9,10 +9,91 @@
     <genClasses ecoreClass="SasDsl.ecore#//ArchitectureDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//ArchitectureDefinition/abstractions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//ArchitectureDefinition/compositions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//ArchitectureDefinition/dslRestrictions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//ArchitectureDefinition/restrictions"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLAbstractions">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLAbstractions/name"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLAbstraction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLAbstraction/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLAbstraction/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLComposition"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLRestriction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/only"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/t"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/can"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/elementType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/cannot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/only2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/must"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/entityType"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLSensorBelongsTo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLSensorBelongsTo/sensor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLSensorBelongsTo/monitor"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLReferenceInputBelongsTo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLReferenceInputBelongsTo/reference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLReferenceInputBelongsTo/knowledge"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLEffectorBelongsTo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLEffectorBelongsTo/effector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLEffectorBelongsTo/executor"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLMonitorBelongsTo1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMonitorBelongsTo1/monitor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMonitorBelongsTo1/cl"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLMonitorBelongsTo2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMonitorBelongsTo2/monitor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMonitorBelongsTo2/managing"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLAnalyzerBelongsTo1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLAnalyzerBelongsTo1/analyzer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLAnalyzerBelongsTo1/cl"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLAnalyzerBelongsTo2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLAnalyzerBelongsTo2/analyzer"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLAnalyzerBelongsTo2/managing"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLPlannerBelongsTo1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLPlannerBelongsTo1/planner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLPlannerBelongsTo1/cl"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLPlannerBelongsTo2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLPlannerBelongsTo2/planner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLPlannerBelongsTo2/managing"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLExecutorBelongsTo1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLExecutorBelongsTo1/executor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLExecutorBelongsTo1/cl"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLExecutorBelongsTo2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLExecutorBelongsTo2/executor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLExecutorBelongsTo2/managing"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLClBelongsTo1">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLClBelongsTo1/cl"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLClBelongsTo1/clm"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLClBelongsTo2">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLClBelongsTo2/cl"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLClBelongsTo2/managing"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLClmBelongsTo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLClmBelongsTo/cl"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLClmBelongsTo/managing"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLMeasuredOuputBelongsTo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMeasuredOuputBelongsTo/measured"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMeasuredOuputBelongsTo/managed"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLGaugeBelongsTo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLGaugeBelongsTo/gauge"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLGaugeBelongsTo/managed"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLProbeBelongsTo">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLProbeBelongsTo/probe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLProbeBelongsTo/managed"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLManaging"/>
     <genClasses ecoreClass="SasDsl.ecore#//DSLManaged"/>
@@ -29,25 +110,6 @@
     <genClasses ecoreClass="SasDsl.ecore#//DSLGauge"/>
     <genClasses ecoreClass="SasDsl.ecore#//DSLReferenceInput"/>
     <genClasses ecoreClass="SasDsl.ecore#//DSLMeasuredOutput"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLCompositions">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLCompositions/sensor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLCompositions/mustBeIn"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLCompositions/monitor"/>
-    </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLRestrictions">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictions/only"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictions/t"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictions/can"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictions/elementType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictions/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictions/cannot"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictions/only2"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictions/must"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictions/entityType"/>
-    </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//MustBeIn">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//MustBeIn/mustBeIn"/>
-    </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//Only">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Only/only"/>
     </genClasses>

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLEffectorImpl extends DSLAbstractionsImpl implements DSLEffector
+public class DSLEffectorImpl extends DSLAbstractionImpl implements DSLEffector
 {
   /**
    * <!-- begin-user-doc -->

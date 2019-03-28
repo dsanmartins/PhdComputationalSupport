@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLKnowledgeImpl extends DSLAbstractionsImpl implements DSLKnowledge
+public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
 {
   /**
    * <!-- begin-user-doc -->

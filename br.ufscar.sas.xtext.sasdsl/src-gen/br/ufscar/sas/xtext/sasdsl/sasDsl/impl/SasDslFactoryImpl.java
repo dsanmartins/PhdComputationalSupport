@@ -66,7 +66,26 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
     switch (eClass.getClassifierID())
     {
       case SasDslPackage.ARCHITECTURE_DEFINITION: return createArchitectureDefinition();
-      case SasDslPackage.DSL_ABSTRACTIONS: return createDSLAbstractions();
+      case SasDslPackage.DSL_ABSTRACTION: return createDSLAbstraction();
+      case SasDslPackage.DSL_COMPOSITION: return createDSLComposition();
+      case SasDslPackage.DSL_RESTRICTION: return createDSLRestriction();
+      case SasDslPackage.DSL_SENSOR_BELONGS_TO: return createDSLSensorBelongsTo();
+      case SasDslPackage.DSL_REFERENCE_INPUT_BELONGS_TO: return createDSLReferenceInputBelongsTo();
+      case SasDslPackage.DSL_EFFECTOR_BELONGS_TO: return createDSLEffectorBelongsTo();
+      case SasDslPackage.DSL_MONITOR_BELONGS_TO1: return createDSLMonitorBelongsTo1();
+      case SasDslPackage.DSL_MONITOR_BELONGS_TO2: return createDSLMonitorBelongsTo2();
+      case SasDslPackage.DSL_ANALYZER_BELONGS_TO1: return createDSLAnalyzerBelongsTo1();
+      case SasDslPackage.DSL_ANALYZER_BELONGS_TO2: return createDSLAnalyzerBelongsTo2();
+      case SasDslPackage.DSL_PLANNER_BELONGS_TO1: return createDSLPlannerBelongsTo1();
+      case SasDslPackage.DSL_PLANNER_BELONGS_TO2: return createDSLPlannerBelongsTo2();
+      case SasDslPackage.DSL_EXECUTOR_BELONGS_TO1: return createDSLExecutorBelongsTo1();
+      case SasDslPackage.DSL_EXECUTOR_BELONGS_TO2: return createDSLExecutorBelongsTo2();
+      case SasDslPackage.DSL_CL_BELONGS_TO1: return createDSLClBelongsTo1();
+      case SasDslPackage.DSL_CL_BELONGS_TO2: return createDSLClBelongsTo2();
+      case SasDslPackage.DSL_CLM_BELONGS_TO: return createDSLClmBelongsTo();
+      case SasDslPackage.DSL_MEASURED_OUPUT_BELONGS_TO: return createDSLMeasuredOuputBelongsTo();
+      case SasDslPackage.DSL_GAUGE_BELONGS_TO: return createDSLGaugeBelongsTo();
+      case SasDslPackage.DSL_PROBE_BELONGS_TO: return createDSLProbeBelongsTo();
       case SasDslPackage.DSL_MANAGING: return createDSLManaging();
       case SasDslPackage.DSL_MANAGED: return createDSLManaged();
       case SasDslPackage.DSL_CONTROL_LOOP_MANAGER: return createDSLControlLoopManager();
@@ -82,9 +101,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_GAUGE: return createDSLGauge();
       case SasDslPackage.DSL_REFERENCE_INPUT: return createDSLReferenceInput();
       case SasDslPackage.DSL_MEASURED_OUTPUT: return createDSLMeasuredOutput();
-      case SasDslPackage.DSL_COMPOSITIONS: return createDSLCompositions();
-      case SasDslPackage.DSL_RESTRICTIONS: return createDSLRestrictions();
-      case SasDslPackage.MUST_BE_IN: return createMustBeIn();
       case SasDslPackage.ONLY: return createOnly();
       case SasDslPackage.CAN: return createCan();
       case SasDslPackage.CANNOT: return createCannot();
@@ -114,10 +130,219 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLAbstractions createDSLAbstractions()
+  public DSLAbstraction createDSLAbstraction()
   {
-    DSLAbstractionsImpl dslAbstractions = new DSLAbstractionsImpl();
-    return dslAbstractions;
+    DSLAbstractionImpl dslAbstraction = new DSLAbstractionImpl();
+    return dslAbstraction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLComposition createDSLComposition()
+  {
+    DSLCompositionImpl dslComposition = new DSLCompositionImpl();
+    return dslComposition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLRestriction createDSLRestriction()
+  {
+    DSLRestrictionImpl dslRestriction = new DSLRestrictionImpl();
+    return dslRestriction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLSensorBelongsTo createDSLSensorBelongsTo()
+  {
+    DSLSensorBelongsToImpl dslSensorBelongsTo = new DSLSensorBelongsToImpl();
+    return dslSensorBelongsTo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLReferenceInputBelongsTo createDSLReferenceInputBelongsTo()
+  {
+    DSLReferenceInputBelongsToImpl dslReferenceInputBelongsTo = new DSLReferenceInputBelongsToImpl();
+    return dslReferenceInputBelongsTo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLEffectorBelongsTo createDSLEffectorBelongsTo()
+  {
+    DSLEffectorBelongsToImpl dslEffectorBelongsTo = new DSLEffectorBelongsToImpl();
+    return dslEffectorBelongsTo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLMonitorBelongsTo1 createDSLMonitorBelongsTo1()
+  {
+    DSLMonitorBelongsTo1Impl dslMonitorBelongsTo1 = new DSLMonitorBelongsTo1Impl();
+    return dslMonitorBelongsTo1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLMonitorBelongsTo2 createDSLMonitorBelongsTo2()
+  {
+    DSLMonitorBelongsTo2Impl dslMonitorBelongsTo2 = new DSLMonitorBelongsTo2Impl();
+    return dslMonitorBelongsTo2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLAnalyzerBelongsTo1 createDSLAnalyzerBelongsTo1()
+  {
+    DSLAnalyzerBelongsTo1Impl dslAnalyzerBelongsTo1 = new DSLAnalyzerBelongsTo1Impl();
+    return dslAnalyzerBelongsTo1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLAnalyzerBelongsTo2 createDSLAnalyzerBelongsTo2()
+  {
+    DSLAnalyzerBelongsTo2Impl dslAnalyzerBelongsTo2 = new DSLAnalyzerBelongsTo2Impl();
+    return dslAnalyzerBelongsTo2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLPlannerBelongsTo1 createDSLPlannerBelongsTo1()
+  {
+    DSLPlannerBelongsTo1Impl dslPlannerBelongsTo1 = new DSLPlannerBelongsTo1Impl();
+    return dslPlannerBelongsTo1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLPlannerBelongsTo2 createDSLPlannerBelongsTo2()
+  {
+    DSLPlannerBelongsTo2Impl dslPlannerBelongsTo2 = new DSLPlannerBelongsTo2Impl();
+    return dslPlannerBelongsTo2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLExecutorBelongsTo1 createDSLExecutorBelongsTo1()
+  {
+    DSLExecutorBelongsTo1Impl dslExecutorBelongsTo1 = new DSLExecutorBelongsTo1Impl();
+    return dslExecutorBelongsTo1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLExecutorBelongsTo2 createDSLExecutorBelongsTo2()
+  {
+    DSLExecutorBelongsTo2Impl dslExecutorBelongsTo2 = new DSLExecutorBelongsTo2Impl();
+    return dslExecutorBelongsTo2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLClBelongsTo1 createDSLClBelongsTo1()
+  {
+    DSLClBelongsTo1Impl dslClBelongsTo1 = new DSLClBelongsTo1Impl();
+    return dslClBelongsTo1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLClBelongsTo2 createDSLClBelongsTo2()
+  {
+    DSLClBelongsTo2Impl dslClBelongsTo2 = new DSLClBelongsTo2Impl();
+    return dslClBelongsTo2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLClmBelongsTo createDSLClmBelongsTo()
+  {
+    DSLClmBelongsToImpl dslClmBelongsTo = new DSLClmBelongsToImpl();
+    return dslClmBelongsTo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLMeasuredOuputBelongsTo createDSLMeasuredOuputBelongsTo()
+  {
+    DSLMeasuredOuputBelongsToImpl dslMeasuredOuputBelongsTo = new DSLMeasuredOuputBelongsToImpl();
+    return dslMeasuredOuputBelongsTo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLGaugeBelongsTo createDSLGaugeBelongsTo()
+  {
+    DSLGaugeBelongsToImpl dslGaugeBelongsTo = new DSLGaugeBelongsToImpl();
+    return dslGaugeBelongsTo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLProbeBelongsTo createDSLProbeBelongsTo()
+  {
+    DSLProbeBelongsToImpl dslProbeBelongsTo = new DSLProbeBelongsToImpl();
+    return dslProbeBelongsTo;
   }
 
   /**
@@ -283,39 +508,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
   {
     DSLMeasuredOutputImpl dslMeasuredOutput = new DSLMeasuredOutputImpl();
     return dslMeasuredOutput;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLCompositions createDSLCompositions()
-  {
-    DSLCompositionsImpl dslCompositions = new DSLCompositionsImpl();
-    return dslCompositions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLRestrictions createDSLRestrictions()
-  {
-    DSLRestrictionsImpl dslRestrictions = new DSLRestrictionsImpl();
-    return dslRestrictions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MustBeIn createMustBeIn()
-  {
-    MustBeInImpl mustBeIn = new MustBeInImpl();
-    return mustBeIn;
   }
 
   /**

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLExecutorImpl extends DSLAbstractionsImpl implements DSLExecutor
+public class DSLExecutorImpl extends DSLAbstractionImpl implements DSLExecutor
 {
   /**
    * <!-- begin-user-doc -->

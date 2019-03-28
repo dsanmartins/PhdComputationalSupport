@@ -14,6 +14,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * @model
  * @generated
  */
-public interface DSLManaged extends DSLAbstractions
+public interface DSLManaged extends DSLAbstraction
 {
 } // DSLManaged

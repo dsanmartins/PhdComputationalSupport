@@ -14,6 +14,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * @model
  * @generated
  */
-public interface DSLReferenceInput extends DSLAbstractions
+public interface DSLReferenceInput extends DSLAbstraction
 {
 } // DSLReferenceInput

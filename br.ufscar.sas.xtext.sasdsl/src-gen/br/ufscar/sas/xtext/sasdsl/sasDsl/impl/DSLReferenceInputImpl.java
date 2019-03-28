@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLReferenceInputImpl extends DSLAbstractionsImpl implements DSLReferenceInput
+public class DSLReferenceInputImpl extends DSLAbstractionImpl implements DSLReferenceInput
 {
   /**
    * <!-- begin-user-doc -->

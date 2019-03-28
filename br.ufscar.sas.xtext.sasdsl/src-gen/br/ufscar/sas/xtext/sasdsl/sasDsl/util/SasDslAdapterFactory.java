@@ -81,9 +81,104 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
         return createArchitectureDefinitionAdapter();
       }
       @Override
-      public Adapter caseDSLAbstractions(DSLAbstractions object)
+      public Adapter caseDSLAbstraction(DSLAbstraction object)
       {
-        return createDSLAbstractionsAdapter();
+        return createDSLAbstractionAdapter();
+      }
+      @Override
+      public Adapter caseDSLComposition(DSLComposition object)
+      {
+        return createDSLCompositionAdapter();
+      }
+      @Override
+      public Adapter caseDSLRestriction(DSLRestriction object)
+      {
+        return createDSLRestrictionAdapter();
+      }
+      @Override
+      public Adapter caseDSLSensorBelongsTo(DSLSensorBelongsTo object)
+      {
+        return createDSLSensorBelongsToAdapter();
+      }
+      @Override
+      public Adapter caseDSLReferenceInputBelongsTo(DSLReferenceInputBelongsTo object)
+      {
+        return createDSLReferenceInputBelongsToAdapter();
+      }
+      @Override
+      public Adapter caseDSLEffectorBelongsTo(DSLEffectorBelongsTo object)
+      {
+        return createDSLEffectorBelongsToAdapter();
+      }
+      @Override
+      public Adapter caseDSLMonitorBelongsTo1(DSLMonitorBelongsTo1 object)
+      {
+        return createDSLMonitorBelongsTo1Adapter();
+      }
+      @Override
+      public Adapter caseDSLMonitorBelongsTo2(DSLMonitorBelongsTo2 object)
+      {
+        return createDSLMonitorBelongsTo2Adapter();
+      }
+      @Override
+      public Adapter caseDSLAnalyzerBelongsTo1(DSLAnalyzerBelongsTo1 object)
+      {
+        return createDSLAnalyzerBelongsTo1Adapter();
+      }
+      @Override
+      public Adapter caseDSLAnalyzerBelongsTo2(DSLAnalyzerBelongsTo2 object)
+      {
+        return createDSLAnalyzerBelongsTo2Adapter();
+      }
+      @Override
+      public Adapter caseDSLPlannerBelongsTo1(DSLPlannerBelongsTo1 object)
+      {
+        return createDSLPlannerBelongsTo1Adapter();
+      }
+      @Override
+      public Adapter caseDSLPlannerBelongsTo2(DSLPlannerBelongsTo2 object)
+      {
+        return createDSLPlannerBelongsTo2Adapter();
+      }
+      @Override
+      public Adapter caseDSLExecutorBelongsTo1(DSLExecutorBelongsTo1 object)
+      {
+        return createDSLExecutorBelongsTo1Adapter();
+      }
+      @Override
+      public Adapter caseDSLExecutorBelongsTo2(DSLExecutorBelongsTo2 object)
+      {
+        return createDSLExecutorBelongsTo2Adapter();
+      }
+      @Override
+      public Adapter caseDSLClBelongsTo1(DSLClBelongsTo1 object)
+      {
+        return createDSLClBelongsTo1Adapter();
+      }
+      @Override
+      public Adapter caseDSLClBelongsTo2(DSLClBelongsTo2 object)
+      {
+        return createDSLClBelongsTo2Adapter();
+      }
+      @Override
+      public Adapter caseDSLClmBelongsTo(DSLClmBelongsTo object)
+      {
+        return createDSLClmBelongsToAdapter();
+      }
+      @Override
+      public Adapter caseDSLMeasuredOuputBelongsTo(DSLMeasuredOuputBelongsTo object)
+      {
+        return createDSLMeasuredOuputBelongsToAdapter();
+      }
+      @Override
+      public Adapter caseDSLGaugeBelongsTo(DSLGaugeBelongsTo object)
+      {
+        return createDSLGaugeBelongsToAdapter();
+      }
+      @Override
+      public Adapter caseDSLProbeBelongsTo(DSLProbeBelongsTo object)
+      {
+        return createDSLProbeBelongsToAdapter();
       }
       @Override
       public Adapter caseDSLManaging(DSLManaging object)
@@ -159,21 +254,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDSLMeasuredOutput(DSLMeasuredOutput object)
       {
         return createDSLMeasuredOutputAdapter();
-      }
-      @Override
-      public Adapter caseDSLCompositions(DSLCompositions object)
-      {
-        return createDSLCompositionsAdapter();
-      }
-      @Override
-      public Adapter caseDSLRestrictions(DSLRestrictions object)
-      {
-        return createDSLRestrictionsAdapter();
-      }
-      @Override
-      public Adapter caseMustBeIn(MustBeIn object)
-      {
-        return createMustBeInAdapter();
       }
       @Override
       public Adapter caseOnly(Only object)
@@ -253,16 +333,301 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstractions <em>DSL Abstractions</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction <em>DSL Abstraction</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstractions
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction
    * @generated
    */
-  public Adapter createDSLAbstractionsAdapter()
+  public Adapter createDSLAbstractionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLComposition <em>DSL Composition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLComposition
+   * @generated
+   */
+  public Adapter createDSLCompositionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction <em>DSL Restriction</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction
+   * @generated
+   */
+  public Adapter createDSLRestrictionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensorBelongsTo <em>DSL Sensor Belongs To</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensorBelongsTo
+   * @generated
+   */
+  public Adapter createDSLSensorBelongsToAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInputBelongsTo <em>DSL Reference Input Belongs To</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInputBelongsTo
+   * @generated
+   */
+  public Adapter createDSLReferenceInputBelongsToAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo <em>DSL Effector Belongs To</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo
+   * @generated
+   */
+  public Adapter createDSLEffectorBelongsToAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitorBelongsTo1 <em>DSL Monitor Belongs To1</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitorBelongsTo1
+   * @generated
+   */
+  public Adapter createDSLMonitorBelongsTo1Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitorBelongsTo2 <em>DSL Monitor Belongs To2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitorBelongsTo2
+   * @generated
+   */
+  public Adapter createDSLMonitorBelongsTo2Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzerBelongsTo1 <em>DSL Analyzer Belongs To1</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzerBelongsTo1
+   * @generated
+   */
+  public Adapter createDSLAnalyzerBelongsTo1Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzerBelongsTo2 <em>DSL Analyzer Belongs To2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzerBelongsTo2
+   * @generated
+   */
+  public Adapter createDSLAnalyzerBelongsTo2Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlannerBelongsTo1 <em>DSL Planner Belongs To1</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlannerBelongsTo1
+   * @generated
+   */
+  public Adapter createDSLPlannerBelongsTo1Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlannerBelongsTo2 <em>DSL Planner Belongs To2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlannerBelongsTo2
+   * @generated
+   */
+  public Adapter createDSLPlannerBelongsTo2Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutorBelongsTo1 <em>DSL Executor Belongs To1</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutorBelongsTo1
+   * @generated
+   */
+  public Adapter createDSLExecutorBelongsTo1Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutorBelongsTo2 <em>DSL Executor Belongs To2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutorBelongsTo2
+   * @generated
+   */
+  public Adapter createDSLExecutorBelongsTo2Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLClBelongsTo1 <em>DSL Cl Belongs To1</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLClBelongsTo1
+   * @generated
+   */
+  public Adapter createDSLClBelongsTo1Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLClBelongsTo2 <em>DSL Cl Belongs To2</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLClBelongsTo2
+   * @generated
+   */
+  public Adapter createDSLClBelongsTo2Adapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLClmBelongsTo <em>DSL Clm Belongs To</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLClmBelongsTo
+   * @generated
+   */
+  public Adapter createDSLClmBelongsToAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOuputBelongsTo <em>DSL Measured Ouput Belongs To</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOuputBelongsTo
+   * @generated
+   */
+  public Adapter createDSLMeasuredOuputBelongsToAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGaugeBelongsTo <em>DSL Gauge Belongs To</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGaugeBelongsTo
+   * @generated
+   */
+  public Adapter createDSLGaugeBelongsToAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbeBelongsTo <em>DSL Probe Belongs To</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbeBelongsTo
+   * @generated
+   */
+  public Adapter createDSLProbeBelongsToAdapter()
   {
     return null;
   }
@@ -488,51 +853,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDSLMeasuredOutputAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLCompositions <em>DSL Compositions</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLCompositions
-   * @generated
-   */
-  public Adapter createDSLCompositionsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions <em>DSL Restrictions</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions
-   * @generated
-   */
-  public Adapter createDSLRestrictionsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.MustBeIn <em>Must Be In</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.MustBeIn
-   * @generated
-   */
-  public Adapter createMustBeInAdapter()
   {
     return null;
   }

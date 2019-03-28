@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLPlannerImpl extends DSLAbstractionsImpl implements DSLPlanner
+public class DSLPlannerImpl extends DSLAbstractionImpl implements DSLPlanner
 {
   /**
    * <!-- begin-user-doc -->

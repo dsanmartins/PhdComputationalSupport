@@ -14,6 +14,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * @model
  * @generated
  */
-public interface DSLKnowledge extends DSLAbstractions
+public interface DSLKnowledge extends DSLAbstraction
 {
 } // DSLKnowledge

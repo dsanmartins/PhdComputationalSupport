@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLAnalyzerImpl extends DSLAbstractionsImpl implements DSLAnalyzer
+public class DSLAnalyzerImpl extends DSLAbstractionImpl implements DSLAnalyzer
 {
   /**
    * <!-- begin-user-doc -->

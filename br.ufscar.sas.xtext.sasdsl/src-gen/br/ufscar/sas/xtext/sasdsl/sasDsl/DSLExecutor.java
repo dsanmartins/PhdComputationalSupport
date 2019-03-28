@@ -14,6 +14,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * @model
  * @generated
  */
-public interface DSLExecutor extends DSLAbstractions
+public interface DSLExecutor extends DSLAbstraction
 {
 } // DSLExecutor

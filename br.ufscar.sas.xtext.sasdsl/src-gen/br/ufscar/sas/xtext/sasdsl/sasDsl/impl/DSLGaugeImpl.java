@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLGaugeImpl extends DSLAbstractionsImpl implements DSLGauge
+public class DSLGaugeImpl extends DSLAbstractionImpl implements DSLGauge
 {
   /**
    * <!-- begin-user-doc -->

@@ -7,29 +7,29 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>DSL Restrictions</b></em>'.
+ * A representation of the model object '<em><b>DSL Restriction</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getOnly <em>Only</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getT <em>T</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getCan <em>Can</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getElementType <em>Element Type</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getType <em>Type</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getCannot <em>Cannot</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getOnly2 <em>Only2</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getMust <em>Must</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getEntityType <em>Entity Type</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getOnly <em>Only</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getT <em>T</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getCan <em>Can</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getElementType <em>Element Type</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getType <em>Type</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getCannot <em>Cannot</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getOnly2 <em>Only2</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getMust <em>Must</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getEntityType <em>Entity Type</em>}</li>
  * </ul>
  *
- * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions()
+ * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction()
  * @model
  * @generated
  */
-public interface DSLRestrictions extends EObject
+public interface DSLRestriction extends EObject
 {
   /**
    * Returns the value of the '<em><b>Only</b></em>' containment reference.
@@ -41,14 +41,14 @@ public interface DSLRestrictions extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Only</em>' containment reference.
    * @see #setOnly(Only)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions_Only()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction_Only()
    * @model containment="true"
    * @generated
    */
   Only getOnly();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getOnly <em>Only</em>}' containment reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getOnly <em>Only</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Only</em>' containment reference.
@@ -66,22 +66,22 @@ public interface DSLRestrictions extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>T</em>' reference.
-   * @see #setT(DSLAbstractions)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions_T()
+   * @see #setT(DSLAbstraction)
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction_T()
    * @model
    * @generated
    */
-  DSLAbstractions getT();
+  DSLAbstraction getT();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getT <em>T</em>}' reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getT <em>T</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>T</em>' reference.
    * @see #getT()
    * @generated
    */
-  void setT(DSLAbstractions value);
+  void setT(DSLAbstraction value);
 
   /**
    * Returns the value of the '<em><b>Can</b></em>' containment reference.
@@ -93,14 +93,14 @@ public interface DSLRestrictions extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Can</em>' containment reference.
    * @see #setCan(Can)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions_Can()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction_Can()
    * @model containment="true"
    * @generated
    */
   Can getCan();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getCan <em>Can</em>}' containment reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getCan <em>Can</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Can</em>' containment reference.
@@ -119,14 +119,14 @@ public interface DSLRestrictions extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Element Type</em>' containment reference.
    * @see #setElementType(ElementType)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions_ElementType()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction_ElementType()
    * @model containment="true"
    * @generated
    */
   ElementType getElementType();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getElementType <em>Element Type</em>}' containment reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getElementType <em>Element Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Element Type</em>' containment reference.
@@ -144,22 +144,22 @@ public interface DSLRestrictions extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(DSLAbstractions)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions_Type()
+   * @see #setType(DSLAbstraction)
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction_Type()
    * @model
    * @generated
    */
-  DSLAbstractions getType();
+  DSLAbstraction getType();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getType <em>Type</em>}' reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getType <em>Type</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' reference.
    * @see #getType()
    * @generated
    */
-  void setType(DSLAbstractions value);
+  void setType(DSLAbstraction value);
 
   /**
    * Returns the value of the '<em><b>Cannot</b></em>' containment reference.
@@ -171,14 +171,14 @@ public interface DSLRestrictions extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Cannot</em>' containment reference.
    * @see #setCannot(Cannot)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions_Cannot()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction_Cannot()
    * @model containment="true"
    * @generated
    */
   Cannot getCannot();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getCannot <em>Cannot</em>}' containment reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getCannot <em>Cannot</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Cannot</em>' containment reference.
@@ -197,14 +197,14 @@ public interface DSLRestrictions extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Only2</em>' containment reference.
    * @see #setOnly2(Only2)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions_Only2()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction_Only2()
    * @model containment="true"
    * @generated
    */
   Only2 getOnly2();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getOnly2 <em>Only2</em>}' containment reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getOnly2 <em>Only2</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Only2</em>' containment reference.
@@ -223,14 +223,14 @@ public interface DSLRestrictions extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Must</em>' containment reference.
    * @see #setMust(Must)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions_Must()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction_Must()
    * @model containment="true"
    * @generated
    */
   Must getMust();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getMust <em>Must</em>}' containment reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getMust <em>Must</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Must</em>' containment reference.
@@ -249,14 +249,14 @@ public interface DSLRestrictions extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Entity Type</em>' containment reference.
    * @see #setEntityType(EntityType)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestrictions_EntityType()
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRestriction_EntityType()
    * @model containment="true"
    * @generated
    */
   EntityType getEntityType();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions#getEntityType <em>Entity Type</em>}' containment reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction#getEntityType <em>Entity Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Entity Type</em>' containment reference.
@@ -265,4 +265,4 @@ public interface DSLRestrictions extends EObject
    */
   void setEntityType(EntityType value);
 
-} // DSLRestrictions
+} // DSLRestriction

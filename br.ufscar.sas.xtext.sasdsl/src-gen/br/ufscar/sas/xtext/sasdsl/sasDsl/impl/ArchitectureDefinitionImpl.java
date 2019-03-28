@@ -4,9 +4,9 @@
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstractions;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLCompositions;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLComposition;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import java.util.Collection;
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getAbstractions <em>Abstractions</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getCompositions <em>Compositions</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getDslRestrictions <em>Dsl Restrictions</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getRestrictions <em>Restrictions</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,7 +48,7 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
    * @generated
    * @ordered
    */
-  protected EList<DSLAbstractions> abstractions;
+  protected EList<DSLAbstraction> abstractions;
 
   /**
    * The cached value of the '{@link #getCompositions() <em>Compositions</em>}' containment reference list.
@@ -58,17 +58,17 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
    * @generated
    * @ordered
    */
-  protected EList<DSLCompositions> compositions;
+  protected EList<DSLComposition> compositions;
 
   /**
-   * The cached value of the '{@link #getDslRestrictions() <em>Dsl Restrictions</em>}' containment reference list.
+   * The cached value of the '{@link #getRestrictions() <em>Restrictions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDslRestrictions()
+   * @see #getRestrictions()
    * @generated
    * @ordered
    */
-  protected EList<DSLRestrictions> dslRestrictions;
+  protected EList<DSLRestriction> restrictions;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,11 +96,11 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DSLAbstractions> getAbstractions()
+  public EList<DSLAbstraction> getAbstractions()
   {
     if (abstractions == null)
     {
-      abstractions = new EObjectContainmentEList<DSLAbstractions>(DSLAbstractions.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS);
+      abstractions = new EObjectContainmentEList<DSLAbstraction>(DSLAbstraction.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS);
     }
     return abstractions;
   }
@@ -110,11 +110,11 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DSLCompositions> getCompositions()
+  public EList<DSLComposition> getCompositions()
   {
     if (compositions == null)
     {
-      compositions = new EObjectContainmentEList<DSLCompositions>(DSLCompositions.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS);
+      compositions = new EObjectContainmentEList<DSLComposition>(DSLComposition.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS);
     }
     return compositions;
   }
@@ -124,13 +124,13 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DSLRestrictions> getDslRestrictions()
+  public EList<DSLRestriction> getRestrictions()
   {
-    if (dslRestrictions == null)
+    if (restrictions == null)
     {
-      dslRestrictions = new EObjectContainmentEList<DSLRestrictions>(DSLRestrictions.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS);
+      restrictions = new EObjectContainmentEList<DSLRestriction>(DSLRestriction.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__RESTRICTIONS);
     }
-    return dslRestrictions;
+    return restrictions;
   }
 
   /**
@@ -147,8 +147,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
         return ((InternalEList<?>)getAbstractions()).basicRemove(otherEnd, msgs);
       case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
         return ((InternalEList<?>)getCompositions()).basicRemove(otherEnd, msgs);
-      case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
-        return ((InternalEList<?>)getDslRestrictions()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RESTRICTIONS:
+        return ((InternalEList<?>)getRestrictions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -167,8 +167,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
         return getAbstractions();
       case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
         return getCompositions();
-      case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
-        return getDslRestrictions();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RESTRICTIONS:
+        return getRestrictions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -186,15 +186,15 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
     {
       case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
         getAbstractions().clear();
-        getAbstractions().addAll((Collection<? extends DSLAbstractions>)newValue);
+        getAbstractions().addAll((Collection<? extends DSLAbstraction>)newValue);
         return;
       case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
         getCompositions().clear();
-        getCompositions().addAll((Collection<? extends DSLCompositions>)newValue);
+        getCompositions().addAll((Collection<? extends DSLComposition>)newValue);
         return;
-      case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
-        getDslRestrictions().clear();
-        getDslRestrictions().addAll((Collection<? extends DSLRestrictions>)newValue);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RESTRICTIONS:
+        getRestrictions().clear();
+        getRestrictions().addAll((Collection<? extends DSLRestriction>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -216,8 +216,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
       case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
         getCompositions().clear();
         return;
-      case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
-        getDslRestrictions().clear();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RESTRICTIONS:
+        getRestrictions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -237,8 +237,8 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
         return abstractions != null && !abstractions.isEmpty();
       case SasDslPackage.ARCHITECTURE_DEFINITION__COMPOSITIONS:
         return compositions != null && !compositions.isEmpty();
-      case SasDslPackage.ARCHITECTURE_DEFINITION__DSL_RESTRICTIONS:
-        return dslRestrictions != null && !dslRestrictions.isEmpty();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RESTRICTIONS:
+        return restrictions != null && !restrictions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

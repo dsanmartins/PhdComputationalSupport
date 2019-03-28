@@ -5,8 +5,8 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.Can;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.Cannot;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstractions;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ElementType;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.EntityType;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.Must;
@@ -25,26 +25,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>DSL Restrictions</b></em>'.
+ * An implementation of the model object '<em><b>DSL Restriction</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionsImpl#getOnly <em>Only</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionsImpl#getT <em>T</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionsImpl#getCan <em>Can</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionsImpl#getElementType <em>Element Type</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionsImpl#getType <em>Type</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionsImpl#getCannot <em>Cannot</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionsImpl#getOnly2 <em>Only2</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionsImpl#getMust <em>Must</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionsImpl#getEntityType <em>Entity Type</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionImpl#getOnly <em>Only</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionImpl#getT <em>T</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionImpl#getCan <em>Can</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionImpl#getElementType <em>Element Type</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionImpl#getCannot <em>Cannot</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionImpl#getOnly2 <em>Only2</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionImpl#getMust <em>Must</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRestrictionImpl#getEntityType <em>Entity Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements DSLRestrictions
+public class DSLRestrictionImpl extends MinimalEObjectImpl.Container implements DSLRestriction
 {
   /**
    * The cached value of the '{@link #getOnly() <em>Only</em>}' containment reference.
@@ -64,7 +64,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected DSLAbstractions t;
+  protected DSLAbstraction t;
 
   /**
    * The cached value of the '{@link #getCan() <em>Can</em>}' containment reference.
@@ -94,7 +94,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected DSLAbstractions type;
+  protected DSLAbstraction type;
 
   /**
    * The cached value of the '{@link #getCannot() <em>Cannot</em>}' containment reference.
@@ -141,7 +141,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DSLRestrictionsImpl()
+  protected DSLRestrictionImpl()
   {
     super();
   }
@@ -154,7 +154,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.DSL_RESTRICTIONS;
+    return SasDslPackage.Literals.DSL_RESTRICTION;
   }
 
   /**
@@ -178,7 +178,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     only = newOnly;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__ONLY, oldOnly, newOnly);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__ONLY, oldOnly, newOnly);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -195,14 +195,14 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     {
       NotificationChain msgs = null;
       if (only != null)
-        msgs = ((InternalEObject)only).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__ONLY, null, msgs);
+        msgs = ((InternalEObject)only).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__ONLY, null, msgs);
       if (newOnly != null)
-        msgs = ((InternalEObject)newOnly).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__ONLY, null, msgs);
+        msgs = ((InternalEObject)newOnly).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__ONLY, null, msgs);
       msgs = basicSetOnly(newOnly, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__ONLY, newOnly, newOnly));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__ONLY, newOnly, newOnly));
   }
 
   /**
@@ -210,16 +210,16 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLAbstractions getT()
+  public DSLAbstraction getT()
   {
     if (t != null && t.eIsProxy())
     {
       InternalEObject oldT = (InternalEObject)t;
-      t = (DSLAbstractions)eResolveProxy(oldT);
+      t = (DSLAbstraction)eResolveProxy(oldT);
       if (t != oldT)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RESTRICTIONS__T, oldT, t));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RESTRICTION__T, oldT, t));
       }
     }
     return t;
@@ -230,7 +230,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLAbstractions basicGetT()
+  public DSLAbstraction basicGetT()
   {
     return t;
   }
@@ -240,12 +240,12 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setT(DSLAbstractions newT)
+  public void setT(DSLAbstraction newT)
   {
-    DSLAbstractions oldT = t;
+    DSLAbstraction oldT = t;
     t = newT;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__T, oldT, t));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__T, oldT, t));
   }
 
   /**
@@ -269,7 +269,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     can = newCan;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__CAN, oldCan, newCan);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__CAN, oldCan, newCan);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -286,14 +286,14 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     {
       NotificationChain msgs = null;
       if (can != null)
-        msgs = ((InternalEObject)can).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__CAN, null, msgs);
+        msgs = ((InternalEObject)can).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__CAN, null, msgs);
       if (newCan != null)
-        msgs = ((InternalEObject)newCan).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__CAN, null, msgs);
+        msgs = ((InternalEObject)newCan).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__CAN, null, msgs);
       msgs = basicSetCan(newCan, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__CAN, newCan, newCan));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__CAN, newCan, newCan));
   }
 
   /**
@@ -317,7 +317,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     elementType = newElementType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__ELEMENT_TYPE, oldElementType, newElementType);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__ELEMENT_TYPE, oldElementType, newElementType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -334,14 +334,14 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     {
       NotificationChain msgs = null;
       if (elementType != null)
-        msgs = ((InternalEObject)elementType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__ELEMENT_TYPE, null, msgs);
+        msgs = ((InternalEObject)elementType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__ELEMENT_TYPE, null, msgs);
       if (newElementType != null)
-        msgs = ((InternalEObject)newElementType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__ELEMENT_TYPE, null, msgs);
+        msgs = ((InternalEObject)newElementType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__ELEMENT_TYPE, null, msgs);
       msgs = basicSetElementType(newElementType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__ELEMENT_TYPE, newElementType, newElementType));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__ELEMENT_TYPE, newElementType, newElementType));
   }
 
   /**
@@ -349,16 +349,16 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLAbstractions getType()
+  public DSLAbstraction getType()
   {
     if (type != null && type.eIsProxy())
     {
       InternalEObject oldType = (InternalEObject)type;
-      type = (DSLAbstractions)eResolveProxy(oldType);
+      type = (DSLAbstraction)eResolveProxy(oldType);
       if (type != oldType)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RESTRICTIONS__TYPE, oldType, type));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RESTRICTION__TYPE, oldType, type));
       }
     }
     return type;
@@ -369,7 +369,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLAbstractions basicGetType()
+  public DSLAbstraction basicGetType()
   {
     return type;
   }
@@ -379,12 +379,12 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(DSLAbstractions newType)
+  public void setType(DSLAbstraction newType)
   {
-    DSLAbstractions oldType = type;
+    DSLAbstraction oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__TYPE, oldType, type));
   }
 
   /**
@@ -408,7 +408,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     cannot = newCannot;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__CANNOT, oldCannot, newCannot);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__CANNOT, oldCannot, newCannot);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -425,14 +425,14 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     {
       NotificationChain msgs = null;
       if (cannot != null)
-        msgs = ((InternalEObject)cannot).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__CANNOT, null, msgs);
+        msgs = ((InternalEObject)cannot).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__CANNOT, null, msgs);
       if (newCannot != null)
-        msgs = ((InternalEObject)newCannot).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__CANNOT, null, msgs);
+        msgs = ((InternalEObject)newCannot).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__CANNOT, null, msgs);
       msgs = basicSetCannot(newCannot, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__CANNOT, newCannot, newCannot));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__CANNOT, newCannot, newCannot));
   }
 
   /**
@@ -456,7 +456,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     only2 = newOnly2;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__ONLY2, oldOnly2, newOnly2);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__ONLY2, oldOnly2, newOnly2);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -473,14 +473,14 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     {
       NotificationChain msgs = null;
       if (only2 != null)
-        msgs = ((InternalEObject)only2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__ONLY2, null, msgs);
+        msgs = ((InternalEObject)only2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__ONLY2, null, msgs);
       if (newOnly2 != null)
-        msgs = ((InternalEObject)newOnly2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__ONLY2, null, msgs);
+        msgs = ((InternalEObject)newOnly2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__ONLY2, null, msgs);
       msgs = basicSetOnly2(newOnly2, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__ONLY2, newOnly2, newOnly2));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__ONLY2, newOnly2, newOnly2));
   }
 
   /**
@@ -504,7 +504,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     must = newMust;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__MUST, oldMust, newMust);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__MUST, oldMust, newMust);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -521,14 +521,14 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     {
       NotificationChain msgs = null;
       if (must != null)
-        msgs = ((InternalEObject)must).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__MUST, null, msgs);
+        msgs = ((InternalEObject)must).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__MUST, null, msgs);
       if (newMust != null)
-        msgs = ((InternalEObject)newMust).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__MUST, null, msgs);
+        msgs = ((InternalEObject)newMust).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__MUST, null, msgs);
       msgs = basicSetMust(newMust, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__MUST, newMust, newMust));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__MUST, newMust, newMust));
   }
 
   /**
@@ -552,7 +552,7 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     entityType = newEntityType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__ENTITY_TYPE, oldEntityType, newEntityType);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__ENTITY_TYPE, oldEntityType, newEntityType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -569,14 +569,14 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
     {
       NotificationChain msgs = null;
       if (entityType != null)
-        msgs = ((InternalEObject)entityType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__ENTITY_TYPE, null, msgs);
+        msgs = ((InternalEObject)entityType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__ENTITY_TYPE, null, msgs);
       if (newEntityType != null)
-        msgs = ((InternalEObject)newEntityType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTIONS__ENTITY_TYPE, null, msgs);
+        msgs = ((InternalEObject)newEntityType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SasDslPackage.DSL_RESTRICTION__ENTITY_TYPE, null, msgs);
       msgs = basicSetEntityType(newEntityType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTIONS__ENTITY_TYPE, newEntityType, newEntityType));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RESTRICTION__ENTITY_TYPE, newEntityType, newEntityType));
   }
 
   /**
@@ -589,19 +589,19 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY:
+      case SasDslPackage.DSL_RESTRICTION__ONLY:
         return basicSetOnly(null, msgs);
-      case SasDslPackage.DSL_RESTRICTIONS__CAN:
+      case SasDslPackage.DSL_RESTRICTION__CAN:
         return basicSetCan(null, msgs);
-      case SasDslPackage.DSL_RESTRICTIONS__ELEMENT_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ELEMENT_TYPE:
         return basicSetElementType(null, msgs);
-      case SasDslPackage.DSL_RESTRICTIONS__CANNOT:
+      case SasDslPackage.DSL_RESTRICTION__CANNOT:
         return basicSetCannot(null, msgs);
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY2:
+      case SasDslPackage.DSL_RESTRICTION__ONLY2:
         return basicSetOnly2(null, msgs);
-      case SasDslPackage.DSL_RESTRICTIONS__MUST:
+      case SasDslPackage.DSL_RESTRICTION__MUST:
         return basicSetMust(null, msgs);
-      case SasDslPackage.DSL_RESTRICTIONS__ENTITY_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ENTITY_TYPE:
         return basicSetEntityType(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -617,25 +617,25 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY:
+      case SasDslPackage.DSL_RESTRICTION__ONLY:
         return getOnly();
-      case SasDslPackage.DSL_RESTRICTIONS__T:
+      case SasDslPackage.DSL_RESTRICTION__T:
         if (resolve) return getT();
         return basicGetT();
-      case SasDslPackage.DSL_RESTRICTIONS__CAN:
+      case SasDslPackage.DSL_RESTRICTION__CAN:
         return getCan();
-      case SasDslPackage.DSL_RESTRICTIONS__ELEMENT_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ELEMENT_TYPE:
         return getElementType();
-      case SasDslPackage.DSL_RESTRICTIONS__TYPE:
+      case SasDslPackage.DSL_RESTRICTION__TYPE:
         if (resolve) return getType();
         return basicGetType();
-      case SasDslPackage.DSL_RESTRICTIONS__CANNOT:
+      case SasDslPackage.DSL_RESTRICTION__CANNOT:
         return getCannot();
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY2:
+      case SasDslPackage.DSL_RESTRICTION__ONLY2:
         return getOnly2();
-      case SasDslPackage.DSL_RESTRICTIONS__MUST:
+      case SasDslPackage.DSL_RESTRICTION__MUST:
         return getMust();
-      case SasDslPackage.DSL_RESTRICTIONS__ENTITY_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ENTITY_TYPE:
         return getEntityType();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -651,31 +651,31 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY:
+      case SasDslPackage.DSL_RESTRICTION__ONLY:
         setOnly((Only)newValue);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__T:
-        setT((DSLAbstractions)newValue);
+      case SasDslPackage.DSL_RESTRICTION__T:
+        setT((DSLAbstraction)newValue);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__CAN:
+      case SasDslPackage.DSL_RESTRICTION__CAN:
         setCan((Can)newValue);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__ELEMENT_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ELEMENT_TYPE:
         setElementType((ElementType)newValue);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__TYPE:
-        setType((DSLAbstractions)newValue);
+      case SasDslPackage.DSL_RESTRICTION__TYPE:
+        setType((DSLAbstraction)newValue);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__CANNOT:
+      case SasDslPackage.DSL_RESTRICTION__CANNOT:
         setCannot((Cannot)newValue);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY2:
+      case SasDslPackage.DSL_RESTRICTION__ONLY2:
         setOnly2((Only2)newValue);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__MUST:
+      case SasDslPackage.DSL_RESTRICTION__MUST:
         setMust((Must)newValue);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__ENTITY_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ENTITY_TYPE:
         setEntityType((EntityType)newValue);
         return;
     }
@@ -692,31 +692,31 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY:
+      case SasDslPackage.DSL_RESTRICTION__ONLY:
         setOnly((Only)null);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__T:
-        setT((DSLAbstractions)null);
+      case SasDslPackage.DSL_RESTRICTION__T:
+        setT((DSLAbstraction)null);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__CAN:
+      case SasDslPackage.DSL_RESTRICTION__CAN:
         setCan((Can)null);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__ELEMENT_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ELEMENT_TYPE:
         setElementType((ElementType)null);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__TYPE:
-        setType((DSLAbstractions)null);
+      case SasDslPackage.DSL_RESTRICTION__TYPE:
+        setType((DSLAbstraction)null);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__CANNOT:
+      case SasDslPackage.DSL_RESTRICTION__CANNOT:
         setCannot((Cannot)null);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY2:
+      case SasDslPackage.DSL_RESTRICTION__ONLY2:
         setOnly2((Only2)null);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__MUST:
+      case SasDslPackage.DSL_RESTRICTION__MUST:
         setMust((Must)null);
         return;
-      case SasDslPackage.DSL_RESTRICTIONS__ENTITY_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ENTITY_TYPE:
         setEntityType((EntityType)null);
         return;
     }
@@ -733,26 +733,26 @@ public class DSLRestrictionsImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY:
+      case SasDslPackage.DSL_RESTRICTION__ONLY:
         return only != null;
-      case SasDslPackage.DSL_RESTRICTIONS__T:
+      case SasDslPackage.DSL_RESTRICTION__T:
         return t != null;
-      case SasDslPackage.DSL_RESTRICTIONS__CAN:
+      case SasDslPackage.DSL_RESTRICTION__CAN:
         return can != null;
-      case SasDslPackage.DSL_RESTRICTIONS__ELEMENT_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ELEMENT_TYPE:
         return elementType != null;
-      case SasDslPackage.DSL_RESTRICTIONS__TYPE:
+      case SasDslPackage.DSL_RESTRICTION__TYPE:
         return type != null;
-      case SasDslPackage.DSL_RESTRICTIONS__CANNOT:
+      case SasDslPackage.DSL_RESTRICTION__CANNOT:
         return cannot != null;
-      case SasDslPackage.DSL_RESTRICTIONS__ONLY2:
+      case SasDslPackage.DSL_RESTRICTION__ONLY2:
         return only2 != null;
-      case SasDslPackage.DSL_RESTRICTIONS__MUST:
+      case SasDslPackage.DSL_RESTRICTION__MUST:
         return must != null;
-      case SasDslPackage.DSL_RESTRICTIONS__ENTITY_TYPE:
+      case SasDslPackage.DSL_RESTRICTION__ENTITY_TYPE:
         return entityType != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //DSLRestrictionsImpl
+} //DSLRestrictionImpl

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getAbstractions <em>Abstractions</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getCompositions <em>Compositions</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getDslRestrictions <em>Dsl Restrictions</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition#getRestrictions <em>Restrictions</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getArchitectureDefinition()
@@ -29,7 +29,7 @@ public interface ArchitectureDefinition extends EObject
 {
   /**
    * Returns the value of the '<em><b>Abstractions</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstractions}.
+   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Abstractions</em>' containment reference list isn't clear,
@@ -41,11 +41,11 @@ public interface ArchitectureDefinition extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<DSLAbstractions> getAbstractions();
+  EList<DSLAbstraction> getAbstractions();
 
   /**
    * Returns the value of the '<em><b>Compositions</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLCompositions}.
+   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLComposition}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Compositions</em>' containment reference list isn't clear,
@@ -57,22 +57,22 @@ public interface ArchitectureDefinition extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<DSLCompositions> getCompositions();
+  EList<DSLComposition> getCompositions();
 
   /**
-   * Returns the value of the '<em><b>Dsl Restrictions</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictions}.
+   * Returns the value of the '<em><b>Restrictions</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Dsl Restrictions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Restrictions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Dsl Restrictions</em>' containment reference list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getArchitectureDefinition_DslRestrictions()
+   * @return the value of the '<em>Restrictions</em>' containment reference list.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getArchitectureDefinition_Restrictions()
    * @model containment="true"
    * @generated
    */
-  EList<DSLRestrictions> getDslRestrictions();
+  EList<DSLRestriction> getRestrictions();
 
 } // ArchitectureDefinition

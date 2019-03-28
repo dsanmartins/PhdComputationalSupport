@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLMeasuredOutputImpl extends DSLAbstractionsImpl implements DSLMeasuredOutput
+public class DSLMeasuredOutputImpl extends DSLAbstractionImpl implements DSLMeasuredOutput
 {
   /**
    * <!-- begin-user-doc -->

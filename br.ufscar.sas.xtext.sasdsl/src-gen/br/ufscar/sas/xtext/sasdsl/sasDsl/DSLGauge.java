@@ -14,6 +14,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * @model
  * @generated
  */
-public interface DSLGauge extends DSLAbstractions
+public interface DSLGauge extends DSLAbstraction
 {
 } // DSLGauge

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLSensorImpl extends DSLAbstractionsImpl implements DSLSensor
+public class DSLSensorImpl extends DSLAbstractionImpl implements DSLSensor
 {
   /**
    * <!-- begin-user-doc -->

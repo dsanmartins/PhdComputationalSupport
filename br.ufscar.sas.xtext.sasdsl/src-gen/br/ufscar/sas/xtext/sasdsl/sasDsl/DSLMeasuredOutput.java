@@ -14,6 +14,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * @model
  * @generated
  */
-public interface DSLMeasuredOutput extends DSLAbstractions
+public interface DSLMeasuredOutput extends DSLAbstraction
 {
 } // DSLMeasuredOutput

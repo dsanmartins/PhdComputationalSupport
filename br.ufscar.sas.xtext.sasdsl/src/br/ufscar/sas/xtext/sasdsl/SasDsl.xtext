@@ -3,23 +3,130 @@ grammar br.ufscar.sas.xtext.sasdsl.SasDsl with org.eclipse.xtext.common.Terminal
 generate sasDsl "http://www.ufscar.br/sas/xtext/sasdsl/SasDsl"
 
 ArchitectureDefinition:
-	'Abstractions' ':'  abstractions += DSLAbstractions+  
-	'Compositions' ':' (compositions += DSLCompositions*)
-	'Restrictions' ':' (dslRestrictions += DSLRestrictions*)
+	'Abstractions' '{' abstractions += DSLAbstraction+ '}'  
+	'Compositions' '{' compositions += DSLComposition* '}'  
+	'Restrictions' '{' restrictions += DSLRestriction* '}'  
+;
 	
-	;
+DSLAbstraction:
 	
-DSLAbstractions:
-	
-	DSLManaging | DSLManaged | DSLControlLoopManager | DSLControlLoop | DSLMonitor | DSLAnalyzer | DSLPlanner | DSLExecutor | DSLKnowledge | DSLSensor | 
+	DSLManaging | DSLManaged | DSLControlLoopManager | DSLControlLoop | 
+	DSLMonitor | DSLAnalyzer | DSLPlanner | DSLExecutor | DSLKnowledge | DSLSensor | 
 	DSLEffector | DSLProbe | DSLGauge | DSLReferenceInput | DSLMeasuredOutput 
 ;	
 
+DSLComposition:
+	
+	DSLSensorBelongsTo | DSLReferenceInputBelongsTo | DSLEffectorBelongsTo | DSLMonitorBelongsTo1 | DSLMonitorBelongsTo2 | DSLAnalyzerBelongsTo1 |
+	DSLAnalyzerBelongsTo2 | DSLPlannerBelongsTo1 | DSLPlannerBelongsTo2 | DSLExecutorBelongsTo1 | DSLExecutorBelongsTo2 | DSLClBelongsTo1 |
+	DSLClBelongsTo2 | DSLClmBelongsTo | DSLMeasuredOuputBelongsTo | DSLGaugeBelongsTo | DSLProbeBelongsTo
+;
 
-DSLAbstractionsCompositions:
+DSLRestriction:
 	
-	'hola'
+	(only=Only t=[DSLAbstraction] can=Can elementType=ElementType type = [DSLAbstraction] ';') | 
+	(t=[DSLAbstraction] cannot=Cannot elementType=ElementType type = [DSLAbstraction] ';') |
+	(t=[DSLAbstraction] can=Can elementType=ElementType type = [DSLAbstraction] ';') |
+	(t=[DSLAbstraction] can=Can elementType=ElementType only2=Only2 type = [DSLAbstraction] ';') |
+	(t=[DSLAbstraction] must=Must entityType=EntityType type = [DSLAbstraction] ';')
+;
+
+DSLSensorBelongsTo:
 	
+	'sensor' sensor=[DSLSensor] 'must-be-in-monitor' monitor=[DSLMonitor] ';'
+;
+
+DSLReferenceInputBelongsTo:
+
+	'reference-input' reference=[DSLReferenceInput] 'must-be-in-knowledge' knowledge=[DSLKnowledge] ';'
+;
+
+
+DSLEffectorBelongsTo:
+	
+	'effector' effector=[DSLEffector] 'must-be-in-executor' executor=[DSLExecutor] ';'
+	
+;
+
+DSLMonitorBelongsTo1:
+	
+	'monitor' monitor=[DSLMonitor] 'must-be-in-control-loop' cl=[DSLControlLoop] ';'
+	
+;
+
+DSLMonitorBelongsTo2:
+	
+	'monitor' monitor=[DSLMonitor] 'must-be-in-managing' managing=[DSLManaging] ';'
+	
+;
+
+DSLAnalyzerBelongsTo1:
+	
+	'analyzer' analyzer=[DSLAnalyzer] 'must-be-in-control-loop' cl=[DSLControlLoop] ';'
+	
+;
+
+DSLAnalyzerBelongsTo2:
+	
+	'analyzer' analyzer=[DSLAnalyzer] 'must-be-in-managing' managing=[DSLManaging] ';'
+	
+;
+
+DSLPlannerBelongsTo1:
+	
+	'planner' planner=[DSLPlanner] 'must-be-in-control-loop' cl=[DSLControlLoop] ';'
+	
+;
+
+DSLPlannerBelongsTo2:
+	
+	'planner' planner=[DSLPlanner] 'must-be-in-managing' managing=[DSLManaging] ';'
+	
+;
+
+DSLExecutorBelongsTo1:
+	
+	'executor' executor=[DSLExecutor] 'must-be-in-control-loop' cl=[DSLControlLoop] ';'
+	
+;
+
+DSLExecutorBelongsTo2:
+	
+	'executor' executor=[DSLExecutor] 'must-be-in-managing' managing=[DSLManaging] ';'
+	
+;
+
+DSLClBelongsTo1:
+	
+	'control-loop' cl=[DSLControlLoop] 'must-be-in-control-loop-manager' clm=[DSLControlLoopManager] ';'
+	
+;
+
+DSLClBelongsTo2:
+	
+	'control-loop' cl=[DSLControlLoop] 'must-be-in-managing' managing=[DSLManaging] ';'
+	
+;
+
+DSLClmBelongsTo:
+	
+	'control-loop-manager' cl=[DSLControlLoopManager] 'must-be-in-managing' managing=[DSLManaging] ';'
+	
+;
+
+DSLMeasuredOuputBelongsTo:
+	
+	'measured-output' measured=[DSLMeasuredOutput] 'must-be-in-managed' managed=[DSLManaged] ';'
+;
+
+DSLGaugeBelongsTo:
+	
+	'gauge' gauge=[DSLGauge] 'must-be-in-managed' managed=[DSLManaged] ';'
+;
+
+DSLProbeBelongsTo:
+	
+	'probe' probe=[DSLProbe] 'must-be-in-managed' managed=[DSLManaged] ';'
 ;
 
 DSLManaging:
@@ -34,7 +141,7 @@ DSLManaged:
 
 DSLControlLoopManager:
 	
-	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ';'
+	'ControlLoopManager' name=ID  'typeOf' DSLTypeCLM ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 DSLTypeCLM:
@@ -45,87 +152,65 @@ DSLTypeCLM:
 
 DSLControlLoop:
 	
-	'ControlLoop' name=ID  ';'
+	'ControlLoop' name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 
 DSLMonitor:
 	
-	'Monitor'  name=ID  ';'
+	'Monitor'  name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 DSLAnalyzer:
 	
-	'Analyzer' name=ID  ';'
+	'Analyzer' name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 DSLPlanner: 
 	
-	'Planner' name=ID ';'
+	'Planner' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 DSLExecutor: 
 	
-	'Executor' name=ID ';'
+	'Executor' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 DSLKnowledge: 
 	
-	'Knowledge' name=ID ';'
+	'Knowledge' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 DSLSensor: 
 	
-	'Sensor' name=ID  ';'
+	'Sensor' name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 DSLEffector: 
 	
-	'Effector' name=ID ';'
+	'Effector' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
   
 DSLProbe:
 	
-	'Probe' name=ID  ';'
+	'Probe' name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;  
 
 DSLGauge: 
 	
-	'Gauge' name=ID ';'
+	'Gauge' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 DSLReferenceInput:
 	
-	'ReferenceInput'  name=ID ';'
+	'ReferenceInput'  name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
 DSLMeasuredOutput:
 	
-	'MeasuredOutput' name=ID ';'
+	'MeasuredOutput' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
 ;
 
-
-DSLCompositions:
-	
-	sensor=[DSLAbstractions] mustBeIn=MustBeIn monitor=[DSLAbstractions] ';' 
-
-;
-
-
-
-DSLRestrictions:
-	
-	(only=Only t=[DSLAbstractions] can=Can elementType=ElementType type = [DSLAbstractions] ';') | 
-	(t=[DSLAbstractions] cannot=Cannot elementType=ElementType type = [DSLAbstractions] ';') |
-	(t=[DSLAbstractions] can=Can elementType=ElementType type = [DSLAbstractions] ';') |
-	(t=[DSLAbstractions] can=Can elementType=ElementType only2=Only2 type = [DSLAbstractions] ';') |
-	(t=[DSLAbstractions] must=Must entityType=EntityType type = [DSLAbstractions] ';')
-;
-
-MustBeIn:
-	
-	mustBeIn = 'must-be-in'
-;
 	
 Only:
 	only='only'
@@ -152,4 +237,4 @@ ElementType: BasicType | EntityType;
 BasicType: typeName= ('access' | 'declare' | 'handle' | 'create' | 'depend');
  
 EntityType: entity=('extend' | 'implement' | 'derive' | 'throw' | 'useannotation');
-
+ 

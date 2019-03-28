@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DSLManagedImpl extends DSLAbstractionsImpl implements DSLManaged
+public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
 {
   /**
    * <!-- begin-user-doc -->
