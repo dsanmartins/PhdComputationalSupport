@@ -24,11 +24,8 @@ DSLComposition:
 
 DSLRestriction:
 	
-	(only=Only t=[DSLAbstraction] can=Can elementType=ElementType type = [DSLAbstraction] ';') | 
-	(t=[DSLAbstraction] cannot=Cannot elementType=ElementType type = [DSLAbstraction] ';') |
-	(t=[DSLAbstraction] can=Can elementType=ElementType type = [DSLAbstraction] ';') |
-	(t=[DSLAbstraction] can=Can elementType=ElementType only2=Only2 type = [DSLAbstraction] ';') |
-	(t=[DSLAbstraction] must=Must entityType=EntityType type = [DSLAbstraction] ';')
+	(t=[DSLAbstraction] mustNot=Mustnot elementType=accessType type = [DSLAbstraction] ';') |
+	(t=[DSLAbstraction] must=Must entityType=accessType type = [DSLAbstraction] ';')
 ;
 
 DSLSensorBelongsTo:
@@ -212,29 +209,15 @@ DSLMeasuredOutput:
 ;
 
 	
-Only:
-	only='only'
+Mustnot:
+	mustnot='must-not-'
 ;
- 
-Can:
-	can='can-'
-;
- 
-Cannot:
-	cannot='cannot-'
-;
-
-Only2:
-	only2='-only'
-;	
 
 Must:
 	must='must-'
 ;
 
-ElementType: BasicType | EntityType;
-   
-BasicType: typeName= ('access' | 'declare' | 'handle' | 'create' | 'depend');
+  
+accessType: typeName= 'access';
  
-EntityType: entity=('extend' | 'implement' | 'derive' | 'throw' | 'useannotation');
  

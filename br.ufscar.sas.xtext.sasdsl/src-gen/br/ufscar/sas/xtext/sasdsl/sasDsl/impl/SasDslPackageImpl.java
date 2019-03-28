@@ -501,16 +501,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDSLAbstraction_Interface()
-  {
-    return (EAttribute)dslAbstractionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDSLComposition()
   {
     return dslCompositionEClass;
@@ -1161,9 +1151,29 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLControlLoopManager_Interface()
+  {
+    return (EAttribute)dslControlLoopManagerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLControlLoop()
   {
     return dslControlLoopEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDSLControlLoop_Interface()
+  {
+    return (EAttribute)dslControlLoopEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1181,9 +1191,29 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLMonitor_Interface()
+  {
+    return (EAttribute)dslMonitorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLAnalyzer()
   {
     return dslAnalyzerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDSLAnalyzer_Interface()
+  {
+    return (EAttribute)dslAnalyzerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1201,9 +1231,29 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLPlanner_Interface()
+  {
+    return (EAttribute)dslPlannerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLExecutor()
   {
     return dslExecutorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDSLExecutor_Interface()
+  {
+    return (EAttribute)dslExecutorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1221,9 +1271,29 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLKnowledge_Interface()
+  {
+    return (EAttribute)dslKnowledgeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLSensor()
   {
     return dslSensorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDSLSensor_Interface()
+  {
+    return (EAttribute)dslSensorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1241,9 +1311,29 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLEffector_Interface()
+  {
+    return (EAttribute)dslEffectorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLProbe()
   {
     return dslProbeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDSLProbe_Interface()
+  {
+    return (EAttribute)dslProbeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1261,6 +1351,16 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLGauge_Interface()
+  {
+    return (EAttribute)dslGaugeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLReferenceInput()
   {
     return dslReferenceInputEClass;
@@ -1271,9 +1371,29 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLReferenceInput_Interface()
+  {
+    return (EAttribute)dslReferenceInputEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLMeasuredOutput()
   {
     return dslMeasuredOutputEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDSLMeasuredOutput_Interface()
+  {
+    return (EAttribute)dslMeasuredOutputEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1463,7 +1583,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     dslAbstractionEClass = createEClass(DSL_ABSTRACTION);
     createEAttribute(dslAbstractionEClass, DSL_ABSTRACTION__NAME);
-    createEAttribute(dslAbstractionEClass, DSL_ABSTRACTION__INTERFACE);
 
     dslCompositionEClass = createEClass(DSL_COMPOSITION);
 
@@ -1551,30 +1670,43 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     dslManagedEClass = createEClass(DSL_MANAGED);
 
     dslControlLoopManagerEClass = createEClass(DSL_CONTROL_LOOP_MANAGER);
+    createEAttribute(dslControlLoopManagerEClass, DSL_CONTROL_LOOP_MANAGER__INTERFACE);
 
     dslControlLoopEClass = createEClass(DSL_CONTROL_LOOP);
+    createEAttribute(dslControlLoopEClass, DSL_CONTROL_LOOP__INTERFACE);
 
     dslMonitorEClass = createEClass(DSL_MONITOR);
+    createEAttribute(dslMonitorEClass, DSL_MONITOR__INTERFACE);
 
     dslAnalyzerEClass = createEClass(DSL_ANALYZER);
+    createEAttribute(dslAnalyzerEClass, DSL_ANALYZER__INTERFACE);
 
     dslPlannerEClass = createEClass(DSL_PLANNER);
+    createEAttribute(dslPlannerEClass, DSL_PLANNER__INTERFACE);
 
     dslExecutorEClass = createEClass(DSL_EXECUTOR);
+    createEAttribute(dslExecutorEClass, DSL_EXECUTOR__INTERFACE);
 
     dslKnowledgeEClass = createEClass(DSL_KNOWLEDGE);
+    createEAttribute(dslKnowledgeEClass, DSL_KNOWLEDGE__INTERFACE);
 
     dslSensorEClass = createEClass(DSL_SENSOR);
+    createEAttribute(dslSensorEClass, DSL_SENSOR__INTERFACE);
 
     dslEffectorEClass = createEClass(DSL_EFFECTOR);
+    createEAttribute(dslEffectorEClass, DSL_EFFECTOR__INTERFACE);
 
     dslProbeEClass = createEClass(DSL_PROBE);
+    createEAttribute(dslProbeEClass, DSL_PROBE__INTERFACE);
 
     dslGaugeEClass = createEClass(DSL_GAUGE);
+    createEAttribute(dslGaugeEClass, DSL_GAUGE__INTERFACE);
 
     dslReferenceInputEClass = createEClass(DSL_REFERENCE_INPUT);
+    createEAttribute(dslReferenceInputEClass, DSL_REFERENCE_INPUT__INTERFACE);
 
     dslMeasuredOutputEClass = createEClass(DSL_MEASURED_OUTPUT);
+    createEAttribute(dslMeasuredOutputEClass, DSL_MEASURED_OUTPUT__INTERFACE);
 
     onlyEClass = createEClass(ONLY);
     createEAttribute(onlyEClass, ONLY__ONLY);
@@ -1672,7 +1804,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     initEClass(dslAbstractionEClass, DSLAbstraction.class, "DSLAbstraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDSLAbstraction_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDSLAbstraction_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslCompositionEClass, DSLComposition.class, "DSLComposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1760,30 +1891,43 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     initEClass(dslManagedEClass, DSLManaged.class, "DSLManaged", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(dslControlLoopManagerEClass, DSLControlLoopManager.class, "DSLControlLoopManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLControlLoopManager_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLControlLoopManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslControlLoopEClass, DSLControlLoop.class, "DSLControlLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLControlLoop_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLControlLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslMonitorEClass, DSLMonitor.class, "DSLMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLMonitor_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslAnalyzerEClass, DSLAnalyzer.class, "DSLAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLAnalyzer_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslPlannerEClass, DSLPlanner.class, "DSLPlanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLPlanner_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslExecutorEClass, DSLExecutor.class, "DSLExecutor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLExecutor_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslKnowledgeEClass, DSLKnowledge.class, "DSLKnowledge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLKnowledge_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslSensorEClass, DSLSensor.class, "DSLSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLSensor_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslEffectorEClass, DSLEffector.class, "DSLEffector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLEffector_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslProbeEClass, DSLProbe.class, "DSLProbe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLProbe_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLProbe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslGaugeEClass, DSLGauge.class, "DSLGauge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLGauge_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLGauge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslReferenceInputEClass, DSLReferenceInput.class, "DSLReferenceInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLReferenceInput_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLReferenceInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslMeasuredOutputEClass, DSLMeasuredOutput.class, "DSLMeasuredOutput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLMeasuredOutput_Interface(), ecorePackage.getEString(), "interface", null, 0, -1, DSLMeasuredOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(onlyEClass, Only.class, "Only", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOnly_Only(), ecorePackage.getEString(), "only", null, 0, 1, Only.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

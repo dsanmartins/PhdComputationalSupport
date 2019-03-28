@@ -1333,21 +1333,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cManagingKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceIDTerminalRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceIDTerminalRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLManaging:
-		//	'Managing' name=ID ('with-interface' interface+=ID (',' interface+=ID)*)? ';';
+		//	'Managing' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Managing' name=ID ('with-interface' interface+=ID (',' interface+=ID)*)? ';'
+		//'Managing' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Managing'
@@ -1359,32 +1351,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=ID (',' interface+=ID)*)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'with-interface'
-		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
-		
-		//interface+=ID
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
-		
-		//ID
-		public RuleCall getInterfaceIDTerminalRuleCall_2_1_0() { return cInterfaceIDTerminalRuleCall_2_1_0; }
-		
-		//(',' interface+=ID)*
-		public Group getGroup_2_2() { return cGroup_2_2; }
-		
-		//','
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
-		
-		//interface+=ID
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
-		
-		//ID
-		public RuleCall getInterfaceIDTerminalRuleCall_2_2_1_0() { return cInterfaceIDTerminalRuleCall_2_2_1_0; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLManagedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLManaged");
@@ -1392,21 +1360,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cManagedKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceIDTerminalRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceIDTerminalRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLManaged:
-		//	'Managed' name=ID ('with-interface' interface+=ID (',' interface+=ID)*)? ';';
+		//	'Managed' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Managed' name=ID ('with-interface' interface+=ID (',' interface+=ID)*)? ';'
+		//'Managed' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Managed'
@@ -1418,32 +1378,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=ID (',' interface+=ID)*)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'with-interface'
-		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
-		
-		//interface+=ID
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
-		
-		//ID
-		public RuleCall getInterfaceIDTerminalRuleCall_2_1_0() { return cInterfaceIDTerminalRuleCall_2_1_0; }
-		
-		//(',' interface+=ID)*
-		public Group getGroup_2_2() { return cGroup_2_2; }
-		
-		//','
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
-		
-		//interface+=ID
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
-		
-		//ID
-		public RuleCall getInterfaceIDTerminalRuleCall_2_2_1_0() { return cInterfaceIDTerminalRuleCall_2_2_1_0; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLControlLoopManagerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLControlLoopManager");
@@ -2758,7 +2694,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLManaging:
-	//	'Managing' name=ID ('with-interface' interface+=ID (',' interface+=ID)*)? ';';
+	//	'Managing' name=ID ';';
 	public DSLManagingElements getDSLManagingAccess() {
 		return pDSLManaging;
 	}
@@ -2768,7 +2704,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLManaged:
-	//	'Managed' name=ID ('with-interface' interface+=ID (',' interface+=ID)*)? ';';
+	//	'Managed' name=ID ';';
 	public DSLManagedElements getDSLManagedAccess() {
 		return pDSLManaged;
 	}

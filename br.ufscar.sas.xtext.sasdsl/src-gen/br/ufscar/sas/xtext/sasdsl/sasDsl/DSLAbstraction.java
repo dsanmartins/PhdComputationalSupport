@@ -3,8 +3,6 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction#getName <em>Name</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction#getInterface <em>Interface</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLAbstraction()
@@ -51,21 +48,5 @@ public interface DSLAbstraction extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Interface</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Interface</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Interface</em>' attribute list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLAbstraction_Interface()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getInterface();
 
 } // DSLAbstraction

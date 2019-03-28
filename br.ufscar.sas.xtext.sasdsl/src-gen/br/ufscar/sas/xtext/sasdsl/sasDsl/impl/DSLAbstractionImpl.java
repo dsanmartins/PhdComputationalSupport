@@ -6,18 +6,12 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +22,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLAbstractionImpl#getName <em>Name</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLAbstractionImpl#getInterface <em>Interface</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,16 +47,6 @@ public class DSLAbstractionImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInterface()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> interface_;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,20 +97,6 @@ public class DSLAbstractionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getInterface()
-  {
-    if (interface_ == null)
-    {
-      interface_ = new EDataTypeEList<String>(String.class, this, SasDslPackage.DSL_ABSTRACTION__INTERFACE);
-    }
-    return interface_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -135,8 +104,6 @@ public class DSLAbstractionImpl extends MinimalEObjectImpl.Container implements 
     {
       case SasDslPackage.DSL_ABSTRACTION__NAME:
         return getName();
-      case SasDslPackage.DSL_ABSTRACTION__INTERFACE:
-        return getInterface();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -146,7 +113,6 @@ public class DSLAbstractionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -154,10 +120,6 @@ public class DSLAbstractionImpl extends MinimalEObjectImpl.Container implements 
     {
       case SasDslPackage.DSL_ABSTRACTION__NAME:
         setName((String)newValue);
-        return;
-      case SasDslPackage.DSL_ABSTRACTION__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -176,9 +138,6 @@ public class DSLAbstractionImpl extends MinimalEObjectImpl.Container implements 
       case SasDslPackage.DSL_ABSTRACTION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case SasDslPackage.DSL_ABSTRACTION__INTERFACE:
-        getInterface().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -195,8 +154,6 @@ public class DSLAbstractionImpl extends MinimalEObjectImpl.Container implements 
     {
       case SasDslPackage.DSL_ABSTRACTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case SasDslPackage.DSL_ABSTRACTION__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -214,8 +171,6 @@ public class DSLAbstractionImpl extends MinimalEObjectImpl.Container implements 
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", interface: ");
-    result.append(interface_);
     result.append(')');
     return result.toString();
   }

@@ -66,11 +66,7 @@ public class SasDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDSLGaugeBelongsToAccess().getGroup(), "rule__DSLGaugeBelongsTo__Group__0");
 					put(grammarAccess.getDSLProbeBelongsToAccess().getGroup(), "rule__DSLProbeBelongsTo__Group__0");
 					put(grammarAccess.getDSLManagingAccess().getGroup(), "rule__DSLManaging__Group__0");
-					put(grammarAccess.getDSLManagingAccess().getGroup_2(), "rule__DSLManaging__Group_2__0");
-					put(grammarAccess.getDSLManagingAccess().getGroup_2_2(), "rule__DSLManaging__Group_2_2__0");
 					put(grammarAccess.getDSLManagedAccess().getGroup(), "rule__DSLManaged__Group__0");
-					put(grammarAccess.getDSLManagedAccess().getGroup_2(), "rule__DSLManaged__Group_2__0");
-					put(grammarAccess.getDSLManagedAccess().getGroup_2_2(), "rule__DSLManaged__Group_2_2__0");
 					put(grammarAccess.getDSLControlLoopManagerAccess().getGroup(), "rule__DSLControlLoopManager__Group__0");
 					put(grammarAccess.getDSLControlLoopManagerAccess().getGroup_4(), "rule__DSLControlLoopManager__Group_4__0");
 					put(grammarAccess.getDSLControlLoopManagerAccess().getGroup_4_2(), "rule__DSLControlLoopManager__Group_4_2__0");
@@ -170,11 +166,7 @@ public class SasDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDSLProbeBelongsToAccess().getProbeAssignment_1(), "rule__DSLProbeBelongsTo__ProbeAssignment_1");
 					put(grammarAccess.getDSLProbeBelongsToAccess().getManagedAssignment_3(), "rule__DSLProbeBelongsTo__ManagedAssignment_3");
 					put(grammarAccess.getDSLManagingAccess().getNameAssignment_1(), "rule__DSLManaging__NameAssignment_1");
-					put(grammarAccess.getDSLManagingAccess().getInterfaceAssignment_2_1(), "rule__DSLManaging__InterfaceAssignment_2_1");
-					put(grammarAccess.getDSLManagingAccess().getInterfaceAssignment_2_2_1(), "rule__DSLManaging__InterfaceAssignment_2_2_1");
 					put(grammarAccess.getDSLManagedAccess().getNameAssignment_1(), "rule__DSLManaged__NameAssignment_1");
-					put(grammarAccess.getDSLManagedAccess().getInterfaceAssignment_2_1(), "rule__DSLManaged__InterfaceAssignment_2_1");
-					put(grammarAccess.getDSLManagedAccess().getInterfaceAssignment_2_2_1(), "rule__DSLManaged__InterfaceAssignment_2_2_1");
 					put(grammarAccess.getDSLControlLoopManagerAccess().getNameAssignment_1(), "rule__DSLControlLoopManager__NameAssignment_1");
 					put(grammarAccess.getDSLControlLoopManagerAccess().getInterfaceAssignment_4_1(), "rule__DSLControlLoopManager__InterfaceAssignment_4_1");
 					put(grammarAccess.getDSLControlLoopManagerAccess().getInterfaceAssignment_4_2_1(), "rule__DSLControlLoopManager__InterfaceAssignment_4_2_1");

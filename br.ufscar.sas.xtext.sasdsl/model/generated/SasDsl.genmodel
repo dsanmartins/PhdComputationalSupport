@@ -13,7 +13,6 @@
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLAbstraction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLAbstraction/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLAbstraction/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLComposition"/>
     <genClasses ecoreClass="SasDsl.ecore#//DSLRestriction">
@@ -97,19 +96,45 @@
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLManaging"/>
     <genClasses ecoreClass="SasDsl.ecore#//DSLManaged"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLControlLoopManager"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLControlLoop"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLMonitor"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLAnalyzer"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLPlanner"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLExecutor"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLKnowledge"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLSensor"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLEffector"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLProbe"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLGauge"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLReferenceInput"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLMeasuredOutput"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLControlLoopManager">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLControlLoopManager/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLControlLoop">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLControlLoop/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLMonitor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLMonitor/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLAnalyzer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLAnalyzer/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLPlanner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLPlanner/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLExecutor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLExecutor/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLKnowledge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLKnowledge/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLSensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLSensor/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLEffector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLEffector/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLProbe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLProbe/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLGauge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLGauge/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLReferenceInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLReferenceInput/interface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLMeasuredOutput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLMeasuredOutput/interface"/>
+    </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//Only">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Only/only"/>
     </genClasses>

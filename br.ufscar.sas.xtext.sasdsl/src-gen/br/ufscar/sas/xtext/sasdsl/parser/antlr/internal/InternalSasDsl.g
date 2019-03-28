@@ -1914,57 +1914,9 @@ ruleDSLManaging returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='with-interface'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLManagingAccess().getWithInterfaceKeyword_2_0());
-			}
-			(
-				(
-					lv_interface_3_0=RULE_ID
-					{
-						newLeafNode(lv_interface_3_0, grammarAccess.getDSLManagingAccess().getInterfaceIDTerminalRuleCall_2_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLManagingRule());
-						}
-						addWithLastConsumed(
-							$current,
-							"interface",
-							lv_interface_3_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
-			)
-			(
-				otherlv_4=','
-				{
-					newLeafNode(otherlv_4, grammarAccess.getDSLManagingAccess().getCommaKeyword_2_2_0());
-				}
-				(
-					(
-						lv_interface_5_0=RULE_ID
-						{
-							newLeafNode(lv_interface_5_0, grammarAccess.getDSLManagingAccess().getInterfaceIDTerminalRuleCall_2_2_1_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getDSLManagingRule());
-							}
-							addWithLastConsumed(
-								$current,
-								"interface",
-								lv_interface_5_0,
-								"org.eclipse.xtext.common.Terminals.ID");
-						}
-					)
-				)
-			)*
-		)?
-		otherlv_6=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDSLManagingAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLManagingAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
@@ -2007,57 +1959,9 @@ ruleDSLManaged returns [EObject current=null]
 				}
 			)
 		)
-		(
-			otherlv_2='with-interface'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDSLManagedAccess().getWithInterfaceKeyword_2_0());
-			}
-			(
-				(
-					lv_interface_3_0=RULE_ID
-					{
-						newLeafNode(lv_interface_3_0, grammarAccess.getDSLManagedAccess().getInterfaceIDTerminalRuleCall_2_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDSLManagedRule());
-						}
-						addWithLastConsumed(
-							$current,
-							"interface",
-							lv_interface_3_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
-			)
-			(
-				otherlv_4=','
-				{
-					newLeafNode(otherlv_4, grammarAccess.getDSLManagedAccess().getCommaKeyword_2_2_0());
-				}
-				(
-					(
-						lv_interface_5_0=RULE_ID
-						{
-							newLeafNode(lv_interface_5_0, grammarAccess.getDSLManagedAccess().getInterfaceIDTerminalRuleCall_2_2_1_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getDSLManagedRule());
-							}
-							addWithLastConsumed(
-								$current,
-								"interface",
-								lv_interface_5_0,
-								"org.eclipse.xtext.common.Terminals.ID");
-						}
-					)
-				)
-			)*
-		)?
-		otherlv_6=';'
+		otherlv_2=';'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDSLManagedAccess().getSemicolonKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getDSLManagedAccess().getSemicolonKeyword_2());
 		}
 	)
 ;
