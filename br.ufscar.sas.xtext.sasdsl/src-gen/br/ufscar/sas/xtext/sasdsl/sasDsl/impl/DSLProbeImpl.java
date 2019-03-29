@@ -4,15 +4,20 @@
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.ProbeInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +27,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLProbeImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLProbeImpl#getProbeinterfaces <em>Probeinterfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,14 +35,14 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class DSLProbeImpl extends DSLAbstractionImpl implements DSLProbe
 {
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' attribute list.
+   * The cached value of the '{@link #getProbeinterfaces() <em>Probeinterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInterface()
+   * @see #getProbeinterfaces()
    * @generated
    * @ordered
    */
-  protected EList<String> interface_;
+  protected EList<ProbeInterface> probeinterfaces;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,13 +70,29 @@ public class DSLProbeImpl extends DSLAbstractionImpl implements DSLProbe
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getInterface()
+  public EList<ProbeInterface> getProbeinterfaces()
   {
-    if (interface_ == null)
+    if (probeinterfaces == null)
     {
-      interface_ = new EDataTypeEList<String>(String.class, this, SasDslPackage.DSL_PROBE__INTERFACE);
+      probeinterfaces = new EObjectContainmentEList<ProbeInterface>(ProbeInterface.class, this, SasDslPackage.DSL_PROBE__PROBEINTERFACES);
     }
-    return interface_;
+    return probeinterfaces;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SasDslPackage.DSL_PROBE__PROBEINTERFACES:
+        return ((InternalEList<?>)getProbeinterfaces()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -84,8 +105,8 @@ public class DSLProbeImpl extends DSLAbstractionImpl implements DSLProbe
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_PROBE__INTERFACE:
-        return getInterface();
+      case SasDslPackage.DSL_PROBE__PROBEINTERFACES:
+        return getProbeinterfaces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -101,9 +122,9 @@ public class DSLProbeImpl extends DSLAbstractionImpl implements DSLProbe
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_PROBE__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends String>)newValue);
+      case SasDslPackage.DSL_PROBE__PROBEINTERFACES:
+        getProbeinterfaces().clear();
+        getProbeinterfaces().addAll((Collection<? extends ProbeInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -119,8 +140,8 @@ public class DSLProbeImpl extends DSLAbstractionImpl implements DSLProbe
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_PROBE__INTERFACE:
-        getInterface().clear();
+      case SasDslPackage.DSL_PROBE__PROBEINTERFACES:
+        getProbeinterfaces().clear();
         return;
     }
     super.eUnset(featureID);
@@ -136,27 +157,10 @@ public class DSLProbeImpl extends DSLAbstractionImpl implements DSLProbe
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_PROBE__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
+      case SasDslPackage.DSL_PROBE__PROBEINTERFACES:
+        return probeinterfaces != null && !probeinterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (interface: ");
-    result.append(interface_);
-    result.append(')');
-    return result.toString();
   }
 
 } //DSLProbeImpl

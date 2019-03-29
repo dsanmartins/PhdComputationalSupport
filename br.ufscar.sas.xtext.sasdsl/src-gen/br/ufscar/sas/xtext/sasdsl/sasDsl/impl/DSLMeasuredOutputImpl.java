@@ -4,15 +4,20 @@
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOutput;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.MeasuredOutputInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,14 +35,14 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class DSLMeasuredOutputImpl extends DSLAbstractionImpl implements DSLMeasuredOutput
 {
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' attribute list.
+   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getInterface()
    * @generated
    * @ordered
    */
-  protected EList<String> interface_;
+  protected EList<MeasuredOutputInterface> interface_;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,13 +70,29 @@ public class DSLMeasuredOutputImpl extends DSLAbstractionImpl implements DSLMeas
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getInterface()
+  public EList<MeasuredOutputInterface> getInterface()
   {
     if (interface_ == null)
     {
-      interface_ = new EDataTypeEList<String>(String.class, this, SasDslPackage.DSL_MEASURED_OUTPUT__INTERFACE);
+      interface_ = new EObjectContainmentEList<MeasuredOutputInterface>(MeasuredOutputInterface.class, this, SasDslPackage.DSL_MEASURED_OUTPUT__INTERFACE);
     }
     return interface_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SasDslPackage.DSL_MEASURED_OUTPUT__INTERFACE:
+        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -103,7 +124,7 @@ public class DSLMeasuredOutputImpl extends DSLAbstractionImpl implements DSLMeas
     {
       case SasDslPackage.DSL_MEASURED_OUTPUT__INTERFACE:
         getInterface().clear();
-        getInterface().addAll((Collection<? extends String>)newValue);
+        getInterface().addAll((Collection<? extends MeasuredOutputInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,23 +161,6 @@ public class DSLMeasuredOutputImpl extends DSLAbstractionImpl implements DSLMeas
         return interface_ != null && !interface_.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (interface: ");
-    result.append(interface_);
-    result.append(')');
-    return result.toString();
   }
 
 } //DSLMeasuredOutputImpl

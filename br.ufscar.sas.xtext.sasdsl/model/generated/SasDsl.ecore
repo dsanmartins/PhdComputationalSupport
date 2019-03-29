@@ -15,19 +15,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLComposition"/>
   <eClassifiers xsi:type="ecore:EClass" name="DSLRestriction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="only" eType="#//Only" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLAbstraction"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="can" eType="#//Can" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elementType" eType="#//ElementType"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//DSLAbstraction"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cannot" eType="#//Cannot"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="only2" eType="#//Only2"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="must" eType="#//Must" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entityType" eType="#//EntityType"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probeinterface" eType="#//ProbeInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLSensorBelongsTo" eSuperTypes="#//DSLComposition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//DSLSensor"/>
@@ -98,79 +89,103 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="managed" eType="#//DSLManaged"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLManaging" eSuperTypes="#//DSLAbstraction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLManaged" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLManaged" eSuperTypes="#//DSLAbstraction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//ManagedInterface" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLControlLoopManager" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//ControlLoopManagerInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLControlLoop" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//ControlLoopInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLMonitor" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//MonitorInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLAnalyzer" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//AnalyzerInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLPlanner" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//PlannerInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLExecutor" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//ExecutorInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLKnowledge" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//KnowledgeInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLSensor" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//SensorInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLEffector" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//EffectorInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLProbe" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probeinterfaces" upperBound="-1"
+        eType="#//ProbeInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLGauge" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//GaugeInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLReferenceInput" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//ReferenceInputInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLMeasuredOutput" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+        eType="#//MeasuredOutputInterface" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Only">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="only" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MeasuredOutputInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Can">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="can" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GaugeInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Cannot">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cannot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EffectorInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Only2">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="only2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProbeInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Must">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="must" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SensorInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ElementType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BasicType" eSuperTypes="#//ElementType">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MonitorInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EntityType" eSuperTypes="#//ElementType">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AnalyzerInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlannerInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutorInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KnowledgeInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlLoopInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlLoopManagerInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceInputInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ManagedInterface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

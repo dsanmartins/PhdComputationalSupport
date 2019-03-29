@@ -348,76 +348,130 @@ public interface SasDslFactory extends EFactory
   DSLMeasuredOutput createDSLMeasuredOutput();
 
   /**
-   * Returns a new object of class '<em>Only</em>'.
+   * Returns a new object of class '<em>Measured Output Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Only</em>'.
+   * @return a new object of class '<em>Measured Output Interface</em>'.
    * @generated
    */
-  Only createOnly();
+  MeasuredOutputInterface createMeasuredOutputInterface();
 
   /**
-   * Returns a new object of class '<em>Can</em>'.
+   * Returns a new object of class '<em>Gauge Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Can</em>'.
+   * @return a new object of class '<em>Gauge Interface</em>'.
    * @generated
    */
-  Can createCan();
+  GaugeInterface createGaugeInterface();
 
   /**
-   * Returns a new object of class '<em>Cannot</em>'.
+   * Returns a new object of class '<em>Effector Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Cannot</em>'.
+   * @return a new object of class '<em>Effector Interface</em>'.
    * @generated
    */
-  Cannot createCannot();
+  EffectorInterface createEffectorInterface();
 
   /**
-   * Returns a new object of class '<em>Only2</em>'.
+   * Returns a new object of class '<em>Probe Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Only2</em>'.
+   * @return a new object of class '<em>Probe Interface</em>'.
    * @generated
    */
-  Only2 createOnly2();
+  ProbeInterface createProbeInterface();
 
   /**
-   * Returns a new object of class '<em>Must</em>'.
+   * Returns a new object of class '<em>Sensor Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Must</em>'.
+   * @return a new object of class '<em>Sensor Interface</em>'.
    * @generated
    */
-  Must createMust();
+  SensorInterface createSensorInterface();
 
   /**
-   * Returns a new object of class '<em>Element Type</em>'.
+   * Returns a new object of class '<em>Monitor Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Element Type</em>'.
+   * @return a new object of class '<em>Monitor Interface</em>'.
    * @generated
    */
-  ElementType createElementType();
+  MonitorInterface createMonitorInterface();
 
   /**
-   * Returns a new object of class '<em>Basic Type</em>'.
+   * Returns a new object of class '<em>Analyzer Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Basic Type</em>'.
+   * @return a new object of class '<em>Analyzer Interface</em>'.
    * @generated
    */
-  BasicType createBasicType();
+  AnalyzerInterface createAnalyzerInterface();
 
   /**
-   * Returns a new object of class '<em>Entity Type</em>'.
+   * Returns a new object of class '<em>Planner Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Entity Type</em>'.
+   * @return a new object of class '<em>Planner Interface</em>'.
    * @generated
    */
-  EntityType createEntityType();
+  PlannerInterface createPlannerInterface();
+
+  /**
+   * Returns a new object of class '<em>Executor Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Executor Interface</em>'.
+   * @generated
+   */
+  ExecutorInterface createExecutorInterface();
+
+  /**
+   * Returns a new object of class '<em>Knowledge Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Knowledge Interface</em>'.
+   * @generated
+   */
+  KnowledgeInterface createKnowledgeInterface();
+
+  /**
+   * Returns a new object of class '<em>Control Loop Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Control Loop Interface</em>'.
+   * @generated
+   */
+  ControlLoopInterface createControlLoopInterface();
+
+  /**
+   * Returns a new object of class '<em>Control Loop Manager Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Control Loop Manager Interface</em>'.
+   * @generated
+   */
+  ControlLoopManagerInterface createControlLoopManagerInterface();
+
+  /**
+   * Returns a new object of class '<em>Reference Input Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reference Input Interface</em>'.
+   * @generated
+   */
+  ReferenceInputInterface createReferenceInputInterface();
+
+  /**
+   * Returns a new object of class '<em>Managed Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Managed Interface</em>'.
+   * @generated
+   */
+  ManagedInterface createManagedInterface();
 
   /**
    * Returns the package supported by this factory.

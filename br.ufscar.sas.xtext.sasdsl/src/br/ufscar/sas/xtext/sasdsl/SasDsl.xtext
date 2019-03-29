@@ -24,9 +24,34 @@ DSLComposition:
 
 DSLRestriction:
 	
-	(t=[DSLAbstraction] mustNot=Mustnot elementType=accessType type = [DSLAbstraction] ';') |
-	(t=[DSLAbstraction] must=Must entityType=accessType type = [DSLAbstraction] ';')
+	('sensor' t=[DSLSensor] 'must-not-access-probe' type = [DSLProbe] ';') |
+	('sensor' t=[DSLSensor] 'must-access-probe' type = [DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';') |
+	
+	('analyzer' t=[DSLAnalyzer] 'must-not-access-monitor' type = [DSLMonitor] ';') |
+	('analyzer' t=[DSLAnalyzer] 'must-access-monitor' type = [DSLMonitor] 'through-interface' interface=[MonitorInterface] ';') |
+	
+	('analyzer' t=[DSLAnalyzer] 'must-not-access-planner' type = [DSLPlanner] ';') |
+	('analyzer' t=[DSLAnalyzer] 'must-access-planner' type = [DSLPlanner] 'through-interface' interface=[PlannerInterface] ';') |
+	
+	('analyzer' t=[DSLAnalyzer] 'must-not-access-executor' type = [DSLExecutor] ';') |
+	('analyzer' t=[DSLAnalyzer] 'must-access-executor' type = [DSLExecutor] 'through-interface' interface=[ExecutorInterface] ';') |
+	
+	('planner' t=[DSLPlanner] 'must-not-access-executor' type = [DSLExecutor] ';') |
+	('planner' t=[DSLPlanner] 'must-access-executor' type = [DSLExecutor] 'through-interface' interface=[ExecutorInterface] ';') |
+	
+	('analyzer' t=[DSLAnalyzer] 'must-not-access-knowledge' type = [DSLKnowledge] ';') |
+	('analyzer' t=[DSLAnalyzer] 'must-access-knowledge' type = [DSLKnowledge] 'through-interface' interface=[KnowledgeInterface] ';') |
+	
+	('planner' t=[DSLPlanner] 'must-not-access-knowledge' type = [DSLKnowledge] ';') |
+	('planner' t=[DSLPlanner] 'must-access-knowledge' type = [DSLKnowledge] 'through-interface' interface=[KnowledgeInterface] ';') |
+	
+	('effector' t=[DSLEffector] 'must-not-access-gauge' type = [DSLGauge] ';') |
+	('effector' t=[DSLEffector] 'must-access-gauge' type = [DSLGauge] 'through-interface' interface=[GaugeInterface] ';') |
+	
+	('managing' t=[DSLManaging] 'must-not-access-managed' type = [DSLManaged] ';') |
+	('managing' t=[DSLManaging] 'must-access-managed' type = [DSLManaged] 'through-interface' interface=[ManagedInterface] ';') 
 ;
+
 
 DSLSensorBelongsTo:
 	
@@ -133,12 +158,12 @@ DSLManaging:
 
 DSLManaged:
 	
-	'Managed' name=ID  ';'
+	'Managed' name=ID   ('with-interface' interface+=ManagedInterface (',' interface+=ManagedInterface)* )? ';'
 ;
 
 DSLControlLoopManager:
 	
-	'ControlLoopManager' name=ID  'typeOf' DSLTypeCLM ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'ControlLoopManager' name=ID  'typeOf' DSLTypeCLM ('with-interface' interface+=ControlLoopManagerInterface (',' interface+=ControlLoopManagerInterface)* )? ';'
 ;
 
 DSLTypeCLM:
@@ -149,75 +174,134 @@ DSLTypeCLM:
 
 DSLControlLoop:
 	
-	'ControlLoop' name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'ControlLoop' name=ID  ('with-interface' interface+=ControlLoopInterface (',' interface+=ControlLoopInterface)* )? ';'
 ;
 
 
 DSLMonitor:
 	
-	'Monitor'  name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'Monitor'  name=ID  ('with-interface' interface+=MonitorInterface (',' interface+=MonitorInterface)* )? ';'
 ;
 
 DSLAnalyzer:
 	
-	'Analyzer' name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'Analyzer' name=ID  ('with-interface' interface+=AnalyzerInterface (',' interface+=AnalyzerInterface)* )? ';'
 ;
 
 DSLPlanner: 
 	
-	'Planner' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'Planner' name=ID ('with-interface' interface+=PlannerInterface (',' interface+=PlannerInterface)* )? ';'
 ;
 
 DSLExecutor: 
 	
-	'Executor' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'Executor' name=ID ('with-interface' interface+=ExecutorInterface (',' interface+=ExecutorInterface)* )? ';'
 ;
 
 DSLKnowledge: 
 	
-	'Knowledge' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'Knowledge' name=ID ('with-interface' interface+=KnowledgeInterface (',' interface+=KnowledgeInterface)* )? ';'
 ;
 
 DSLSensor: 
 	
-	'Sensor' name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'Sensor' name=ID  ('with-interface' interface+=SensorInterface (',' interface+=SensorInterface)* )? ';'
 ;
 
 DSLEffector: 
 	
-	'Effector' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'Effector' name=ID ('with-interface' interface+=EffectorInterface (',' interface+=EffectorInterface)* )? ';'
 ;
   
 DSLProbe:
 	
-	'Probe' name=ID  ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'Probe' name=ID  ('with-interface' probeinterfaces+=ProbeInterface ("," probeinterfaces+=ProbeInterface)*)? ';'
 ;  
 
 DSLGauge: 
 	
-	'Gauge' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'Gauge' name=ID ('with-interface' interface+=GaugeInterface (',' interface+=GaugeInterface)* )? ';'
 ;
 
 DSLReferenceInput:
 	
-	'ReferenceInput'  name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'ReferenceInput'  name=ID ('with-interface' interface+=ReferenceInputInterface (',' interface+=ReferenceInputInterface)* )? ';'
 ;
 
 DSLMeasuredOutput:
 	
-	'MeasuredOutput' name=ID ('with-interface' interface+=ID (',' interface+=ID)* )? ';'
+	'MeasuredOutput' name=ID ('with-interface' interface+=MeasuredOutputInterface (',' interface+=MeasuredOutputInterface)* )? ';'
 ;
 
+MeasuredOutputInterface:
 	
-Mustnot:
-	mustnot='must-not-'
+	name=ID
 ;
 
-Must:
-	must='must-'
+GaugeInterface :
+	
+	name=ID
 ;
 
-  
-accessType: typeName= 'access';
- 
- 
+EffectorInterface :
+	
+	name=ID
+;
+
+ProbeInterface :
+	
+ 	name+=ID
+;
+
+SensorInterface :
+	
+	name=ID
+;
+
+MonitorInterface :
+	
+	name=ID
+;
+
+AnalyzerInterface :
+	
+	name=ID
+;
+
+PlannerInterface :
+	
+	name=ID
+;
+
+
+ExecutorInterface :
+	
+	name=ID
+;
+
+
+KnowledgeInterface :
+	
+	name=ID
+;
+
+ControlLoopInterface :
+	
+	name=ID
+;
+
+ControlLoopManagerInterface :
+	
+	name=ID
+;
+
+ReferenceInputInterface :
+	
+	name=ID
+;
+
+ManagedInterface:
+	
+	name=ID
+;
+

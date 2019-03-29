@@ -3,7 +3,15 @@
  */
 package br.ufscar.sas.xtext.sasdsl.scoping;
 
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 import br.ufscar.sas.xtext.sasdsl.scoping.AbstractSasDslScopeProvider;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 
 /**
  * This class contains custom scoping description.
@@ -13,4 +21,20 @@ import br.ufscar.sas.xtext.sasdsl.scoping.AbstractSasDslScopeProvider;
  */
 @SuppressWarnings("all")
 public class SasDslScopeProvider extends AbstractSasDslScopeProvider {
+  @Override
+  public IScope getScope(final EObject context, final EReference reference) {
+    IScope _xblockexpression = null;
+    {
+      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION__PROBEINTERFACE)) {
+        if ((context instanceof DSLRestriction)) {
+          DSLAbstraction _type = ((DSLRestriction)context).getType();
+          final DSLProbe probe = ((DSLProbe) _type);
+          System.out.println(probe.getProbeinterfaces());
+          return Scopes.scopeFor(probe.getProbeinterfaces());
+        }
+      }
+      _xblockexpression = super.getScope(context, reference);
+    }
+    return _xblockexpression;
+  }
 }

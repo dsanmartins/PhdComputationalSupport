@@ -101,14 +101,20 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_GAUGE: return createDSLGauge();
       case SasDslPackage.DSL_REFERENCE_INPUT: return createDSLReferenceInput();
       case SasDslPackage.DSL_MEASURED_OUTPUT: return createDSLMeasuredOutput();
-      case SasDslPackage.ONLY: return createOnly();
-      case SasDslPackage.CAN: return createCan();
-      case SasDslPackage.CANNOT: return createCannot();
-      case SasDslPackage.ONLY2: return createOnly2();
-      case SasDslPackage.MUST: return createMust();
-      case SasDslPackage.ELEMENT_TYPE: return createElementType();
-      case SasDslPackage.BASIC_TYPE: return createBasicType();
-      case SasDslPackage.ENTITY_TYPE: return createEntityType();
+      case SasDslPackage.MEASURED_OUTPUT_INTERFACE: return createMeasuredOutputInterface();
+      case SasDslPackage.GAUGE_INTERFACE: return createGaugeInterface();
+      case SasDslPackage.EFFECTOR_INTERFACE: return createEffectorInterface();
+      case SasDslPackage.PROBE_INTERFACE: return createProbeInterface();
+      case SasDslPackage.SENSOR_INTERFACE: return createSensorInterface();
+      case SasDslPackage.MONITOR_INTERFACE: return createMonitorInterface();
+      case SasDslPackage.ANALYZER_INTERFACE: return createAnalyzerInterface();
+      case SasDslPackage.PLANNER_INTERFACE: return createPlannerInterface();
+      case SasDslPackage.EXECUTOR_INTERFACE: return createExecutorInterface();
+      case SasDslPackage.KNOWLEDGE_INTERFACE: return createKnowledgeInterface();
+      case SasDslPackage.CONTROL_LOOP_INTERFACE: return createControlLoopInterface();
+      case SasDslPackage.CONTROL_LOOP_MANAGER_INTERFACE: return createControlLoopManagerInterface();
+      case SasDslPackage.REFERENCE_INPUT_INTERFACE: return createReferenceInputInterface();
+      case SasDslPackage.MANAGED_INTERFACE: return createManagedInterface();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -515,10 +521,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Only createOnly()
+  public MeasuredOutputInterface createMeasuredOutputInterface()
   {
-    OnlyImpl only = new OnlyImpl();
-    return only;
+    MeasuredOutputInterfaceImpl measuredOutputInterface = new MeasuredOutputInterfaceImpl();
+    return measuredOutputInterface;
   }
 
   /**
@@ -526,10 +532,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Can createCan()
+  public GaugeInterface createGaugeInterface()
   {
-    CanImpl can = new CanImpl();
-    return can;
+    GaugeInterfaceImpl gaugeInterface = new GaugeInterfaceImpl();
+    return gaugeInterface;
   }
 
   /**
@@ -537,10 +543,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Cannot createCannot()
+  public EffectorInterface createEffectorInterface()
   {
-    CannotImpl cannot = new CannotImpl();
-    return cannot;
+    EffectorInterfaceImpl effectorInterface = new EffectorInterfaceImpl();
+    return effectorInterface;
   }
 
   /**
@@ -548,10 +554,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Only2 createOnly2()
+  public ProbeInterface createProbeInterface()
   {
-    Only2Impl only2 = new Only2Impl();
-    return only2;
+    ProbeInterfaceImpl probeInterface = new ProbeInterfaceImpl();
+    return probeInterface;
   }
 
   /**
@@ -559,10 +565,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Must createMust()
+  public SensorInterface createSensorInterface()
   {
-    MustImpl must = new MustImpl();
-    return must;
+    SensorInterfaceImpl sensorInterface = new SensorInterfaceImpl();
+    return sensorInterface;
   }
 
   /**
@@ -570,10 +576,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ElementType createElementType()
+  public MonitorInterface createMonitorInterface()
   {
-    ElementTypeImpl elementType = new ElementTypeImpl();
-    return elementType;
+    MonitorInterfaceImpl monitorInterface = new MonitorInterfaceImpl();
+    return monitorInterface;
   }
 
   /**
@@ -581,10 +587,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public BasicType createBasicType()
+  public AnalyzerInterface createAnalyzerInterface()
   {
-    BasicTypeImpl basicType = new BasicTypeImpl();
-    return basicType;
+    AnalyzerInterfaceImpl analyzerInterface = new AnalyzerInterfaceImpl();
+    return analyzerInterface;
   }
 
   /**
@@ -592,10 +598,76 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public EntityType createEntityType()
+  public PlannerInterface createPlannerInterface()
   {
-    EntityTypeImpl entityType = new EntityTypeImpl();
-    return entityType;
+    PlannerInterfaceImpl plannerInterface = new PlannerInterfaceImpl();
+    return plannerInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExecutorInterface createExecutorInterface()
+  {
+    ExecutorInterfaceImpl executorInterface = new ExecutorInterfaceImpl();
+    return executorInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public KnowledgeInterface createKnowledgeInterface()
+  {
+    KnowledgeInterfaceImpl knowledgeInterface = new KnowledgeInterfaceImpl();
+    return knowledgeInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ControlLoopInterface createControlLoopInterface()
+  {
+    ControlLoopInterfaceImpl controlLoopInterface = new ControlLoopInterfaceImpl();
+    return controlLoopInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ControlLoopManagerInterface createControlLoopManagerInterface()
+  {
+    ControlLoopManagerInterfaceImpl controlLoopManagerInterface = new ControlLoopManagerInterfaceImpl();
+    return controlLoopManagerInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReferenceInputInterface createReferenceInputInterface()
+  {
+    ReferenceInputInterfaceImpl referenceInputInterface = new ReferenceInputInterfaceImpl();
+    return referenceInputInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ManagedInterface createManagedInterface()
+  {
+    ManagedInterfaceImpl managedInterface = new ManagedInterfaceImpl();
+    return managedInterface;
   }
 
   /**

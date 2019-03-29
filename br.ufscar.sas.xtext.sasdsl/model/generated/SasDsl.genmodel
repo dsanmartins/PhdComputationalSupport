@@ -16,15 +16,10 @@
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLComposition"/>
     <genClasses ecoreClass="SasDsl.ecore#//DSLRestriction">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/only"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/t"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/can"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/elementType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/cannot"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/only2"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/must"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/entityType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/probeinterface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLSensorBelongsTo">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLSensorBelongsTo/sensor"/>
@@ -95,67 +90,89 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLProbeBelongsTo/managed"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLManaging"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLManaged"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLManaged">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLManaged/interface"/>
+    </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLControlLoopManager">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLControlLoopManager/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLControlLoopManager/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLControlLoop">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLControlLoop/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLControlLoop/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLMonitor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLMonitor/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMonitor/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLAnalyzer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLAnalyzer/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLAnalyzer/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLPlanner">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLPlanner/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLPlanner/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLExecutor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLExecutor/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLExecutor/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLKnowledge">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLKnowledge/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLKnowledge/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLSensor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLSensor/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLSensor/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLEffector">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLEffector/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLEffector/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLProbe">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLProbe/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLProbe/probeinterfaces"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLGauge">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLGauge/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLGauge/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLReferenceInput">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLReferenceInput/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLReferenceInput/interface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLMeasuredOutput">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLMeasuredOutput/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMeasuredOutput/interface"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//Only">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Only/only"/>
+    <genClasses ecoreClass="SasDsl.ecore#//MeasuredOutputInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//MeasuredOutputInterface/name"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//Can">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Can/can"/>
+    <genClasses ecoreClass="SasDsl.ecore#//GaugeInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//GaugeInterface/name"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//Cannot">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Cannot/cannot"/>
+    <genClasses ecoreClass="SasDsl.ecore#//EffectorInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//EffectorInterface/name"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//Only2">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Only2/only2"/>
+    <genClasses ecoreClass="SasDsl.ecore#//ProbeInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//ProbeInterface/name"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//Must">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//Must/must"/>
+    <genClasses ecoreClass="SasDsl.ecore#//SensorInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//SensorInterface/name"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//ElementType"/>
-    <genClasses ecoreClass="SasDsl.ecore#//BasicType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//BasicType/typeName"/>
+    <genClasses ecoreClass="SasDsl.ecore#//MonitorInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//MonitorInterface/name"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//EntityType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//EntityType/entity"/>
+    <genClasses ecoreClass="SasDsl.ecore#//AnalyzerInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//AnalyzerInterface/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//PlannerInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//PlannerInterface/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//ExecutorInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//ExecutorInterface/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//KnowledgeInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//KnowledgeInterface/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//ControlLoopInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//ControlLoopInterface/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//ControlLoopManagerInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//ControlLoopManagerInterface/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//ReferenceInputInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//ReferenceInputInterface/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//ManagedInterface">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//ManagedInterface/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

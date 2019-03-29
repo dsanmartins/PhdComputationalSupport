@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe#getProbeinterfaces <em>Probeinterfaces</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLProbe()
@@ -24,19 +24,19 @@ import org.eclipse.emf.common.util.EList;
 public interface DSLProbe extends DSLAbstraction
 {
   /**
-   * Returns the value of the '<em><b>Interface</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Probeinterfaces</b></em>' containment reference list.
+   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.ProbeInterface}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Interface</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Probeinterfaces</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Interface</em>' attribute list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLProbe_Interface()
-   * @model unique="false"
+   * @return the value of the '<em>Probeinterfaces</em>' containment reference list.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLProbe_Probeinterfaces()
+   * @model containment="true"
    * @generated
    */
-  EList<String> getInterface();
+  EList<ProbeInterface> getProbeinterfaces();
 
 } // DSLProbe

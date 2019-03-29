@@ -256,44 +256,74 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
         return createDSLMeasuredOutputAdapter();
       }
       @Override
-      public Adapter caseOnly(Only object)
+      public Adapter caseMeasuredOutputInterface(MeasuredOutputInterface object)
       {
-        return createOnlyAdapter();
+        return createMeasuredOutputInterfaceAdapter();
       }
       @Override
-      public Adapter caseCan(Can object)
+      public Adapter caseGaugeInterface(GaugeInterface object)
       {
-        return createCanAdapter();
+        return createGaugeInterfaceAdapter();
       }
       @Override
-      public Adapter caseCannot(Cannot object)
+      public Adapter caseEffectorInterface(EffectorInterface object)
       {
-        return createCannotAdapter();
+        return createEffectorInterfaceAdapter();
       }
       @Override
-      public Adapter caseOnly2(Only2 object)
+      public Adapter caseProbeInterface(ProbeInterface object)
       {
-        return createOnly2Adapter();
+        return createProbeInterfaceAdapter();
       }
       @Override
-      public Adapter caseMust(Must object)
+      public Adapter caseSensorInterface(SensorInterface object)
       {
-        return createMustAdapter();
+        return createSensorInterfaceAdapter();
       }
       @Override
-      public Adapter caseElementType(ElementType object)
+      public Adapter caseMonitorInterface(MonitorInterface object)
       {
-        return createElementTypeAdapter();
+        return createMonitorInterfaceAdapter();
       }
       @Override
-      public Adapter caseBasicType(BasicType object)
+      public Adapter caseAnalyzerInterface(AnalyzerInterface object)
       {
-        return createBasicTypeAdapter();
+        return createAnalyzerInterfaceAdapter();
       }
       @Override
-      public Adapter caseEntityType(EntityType object)
+      public Adapter casePlannerInterface(PlannerInterface object)
       {
-        return createEntityTypeAdapter();
+        return createPlannerInterfaceAdapter();
+      }
+      @Override
+      public Adapter caseExecutorInterface(ExecutorInterface object)
+      {
+        return createExecutorInterfaceAdapter();
+      }
+      @Override
+      public Adapter caseKnowledgeInterface(KnowledgeInterface object)
+      {
+        return createKnowledgeInterfaceAdapter();
+      }
+      @Override
+      public Adapter caseControlLoopInterface(ControlLoopInterface object)
+      {
+        return createControlLoopInterfaceAdapter();
+      }
+      @Override
+      public Adapter caseControlLoopManagerInterface(ControlLoopManagerInterface object)
+      {
+        return createControlLoopManagerInterfaceAdapter();
+      }
+      @Override
+      public Adapter caseReferenceInputInterface(ReferenceInputInterface object)
+      {
+        return createReferenceInputInterfaceAdapter();
+      }
+      @Override
+      public Adapter caseManagedInterface(ManagedInterface object)
+      {
+        return createManagedInterfaceAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -858,121 +888,211 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Only <em>Only</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.MeasuredOutputInterface <em>Measured Output Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Only
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.MeasuredOutputInterface
    * @generated
    */
-  public Adapter createOnlyAdapter()
+  public Adapter createMeasuredOutputInterfaceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Can <em>Can</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.GaugeInterface <em>Gauge Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Can
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.GaugeInterface
    * @generated
    */
-  public Adapter createCanAdapter()
+  public Adapter createGaugeInterfaceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Cannot <em>Cannot</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface <em>Effector Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Cannot
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface
    * @generated
    */
-  public Adapter createCannotAdapter()
+  public Adapter createEffectorInterfaceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Only2 <em>Only2</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ProbeInterface <em>Probe Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Only2
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ProbeInterface
    * @generated
    */
-  public Adapter createOnly2Adapter()
+  public Adapter createProbeInterfaceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.Must <em>Must</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.SensorInterface <em>Sensor Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.Must
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SensorInterface
    * @generated
    */
-  public Adapter createMustAdapter()
+  public Adapter createSensorInterfaceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ElementType <em>Element Type</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.MonitorInterface <em>Monitor Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ElementType
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.MonitorInterface
    * @generated
    */
-  public Adapter createElementTypeAdapter()
+  public Adapter createMonitorInterfaceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.BasicType <em>Basic Type</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.AnalyzerInterface <em>Analyzer Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.BasicType
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.AnalyzerInterface
    * @generated
    */
-  public Adapter createBasicTypeAdapter()
+  public Adapter createAnalyzerInterfaceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.EntityType <em>Entity Type</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.PlannerInterface <em>Planner Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.EntityType
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.PlannerInterface
    * @generated
    */
-  public Adapter createEntityTypeAdapter()
+  public Adapter createPlannerInterfaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ExecutorInterface <em>Executor Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ExecutorInterface
+   * @generated
+   */
+  public Adapter createExecutorInterfaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.KnowledgeInterface <em>Knowledge Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.KnowledgeInterface
+   * @generated
+   */
+  public Adapter createKnowledgeInterfaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ControlLoopInterface <em>Control Loop Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ControlLoopInterface
+   * @generated
+   */
+  public Adapter createControlLoopInterfaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ControlLoopManagerInterface <em>Control Loop Manager Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ControlLoopManagerInterface
+   * @generated
+   */
+  public Adapter createControlLoopManagerInterfaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ReferenceInputInterface <em>Reference Input Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ReferenceInputInterface
+   * @generated
+   */
+  public Adapter createReferenceInputInterfaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ManagedInterface <em>Managed Interface</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ManagedInterface
+   * @generated
+   */
+  public Adapter createManagedInterfaceAdapter()
   {
     return null;
   }

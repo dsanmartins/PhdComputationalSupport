@@ -3,6 +3,12 @@
  */
 package br.ufscar.sas.xtext.sasdsl.scoping
 
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction
+import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.Scopes
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +17,17 @@ package br.ufscar.sas.xtext.sasdsl.scoping
  * on how and when to use it.
  */
 class SasDslScopeProvider extends AbstractSasDslScopeProvider {
+
+	override getScope(EObject context, EReference reference) {
+        if (reference === SasDslPackage.Literals.DSL_RESTRICTION__PROBEINTERFACE) {
+            if (context instanceof DSLRestriction) {
+                val probe = context.type as DSLProbe   
+                System.out.println(probe.probeinterfaces)
+                return Scopes.scopeFor(probe.probeinterfaces)
+            }
+        }
+        super.getScope(context, reference)
+    }
+
 
 }
