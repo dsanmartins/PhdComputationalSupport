@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLPlannerImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLPlannerImpl#getPlannerinterfaces <em>Plannerinterfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DSLPlannerImpl extends DSLAbstractionImpl implements DSLPlanner
 {
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
+   * The cached value of the '{@link #getPlannerinterfaces() <em>Plannerinterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInterface()
+   * @see #getPlannerinterfaces()
    * @generated
    * @ordered
    */
-  protected EList<PlannerInterface> interface_;
+  protected EList<PlannerInterface> plannerinterfaces;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +70,13 @@ public class DSLPlannerImpl extends DSLAbstractionImpl implements DSLPlanner
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PlannerInterface> getInterface()
+  public EList<PlannerInterface> getPlannerinterfaces()
   {
-    if (interface_ == null)
+    if (plannerinterfaces == null)
     {
-      interface_ = new EObjectContainmentEList<PlannerInterface>(PlannerInterface.class, this, SasDslPackage.DSL_PLANNER__INTERFACE);
+      plannerinterfaces = new EObjectContainmentEList<PlannerInterface>(PlannerInterface.class, this, SasDslPackage.DSL_PLANNER__PLANNERINTERFACES);
     }
-    return interface_;
+    return plannerinterfaces;
   }
 
   /**
@@ -89,8 +89,8 @@ public class DSLPlannerImpl extends DSLAbstractionImpl implements DSLPlanner
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_PLANNER__INTERFACE:
-        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_PLANNER__PLANNERINTERFACES:
+        return ((InternalEList<?>)getPlannerinterfaces()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +105,8 @@ public class DSLPlannerImpl extends DSLAbstractionImpl implements DSLPlanner
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_PLANNER__INTERFACE:
-        return getInterface();
+      case SasDslPackage.DSL_PLANNER__PLANNERINTERFACES:
+        return getPlannerinterfaces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +122,9 @@ public class DSLPlannerImpl extends DSLAbstractionImpl implements DSLPlanner
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_PLANNER__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends PlannerInterface>)newValue);
+      case SasDslPackage.DSL_PLANNER__PLANNERINTERFACES:
+        getPlannerinterfaces().clear();
+        getPlannerinterfaces().addAll((Collection<? extends PlannerInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +140,8 @@ public class DSLPlannerImpl extends DSLAbstractionImpl implements DSLPlanner
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_PLANNER__INTERFACE:
-        getInterface().clear();
+      case SasDslPackage.DSL_PLANNER__PLANNERINTERFACES:
+        getPlannerinterfaces().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +157,8 @@ public class DSLPlannerImpl extends DSLAbstractionImpl implements DSLPlanner
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_PLANNER__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
+      case SasDslPackage.DSL_PLANNER__PLANNERINTERFACES:
+        return plannerinterfaces != null && !plannerinterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
   }

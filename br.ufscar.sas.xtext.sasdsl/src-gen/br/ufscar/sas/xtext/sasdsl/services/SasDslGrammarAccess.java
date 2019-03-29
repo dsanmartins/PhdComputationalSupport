@@ -258,15 +258,56 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class DSLRestrictionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLRestriction");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDSLRestrictionProbeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDSLRestrictionMonitorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDSLRestrictionPlannerParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDSLRestrictionExecutorParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cDSLRestrictionKnowledgeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cDSLRestrictionGaugeParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cDSLRestrictionManagedParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		
+		//DSLRestriction:
+		//	DSLRestrictionProbe | DSLRestrictionMonitor | DSLRestrictionPlanner | DSLRestrictionExecutor | DSLRestrictionKnowledge
+		//	| DSLRestrictionGauge | DSLRestrictionManaged;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DSLRestrictionProbe | DSLRestrictionMonitor | DSLRestrictionPlanner | DSLRestrictionExecutor | DSLRestrictionKnowledge |
+		//DSLRestrictionGauge | DSLRestrictionManaged
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//DSLRestrictionProbe
+		public RuleCall getDSLRestrictionProbeParserRuleCall_0() { return cDSLRestrictionProbeParserRuleCall_0; }
+		
+		//DSLRestrictionMonitor
+		public RuleCall getDSLRestrictionMonitorParserRuleCall_1() { return cDSLRestrictionMonitorParserRuleCall_1; }
+		
+		//DSLRestrictionPlanner
+		public RuleCall getDSLRestrictionPlannerParserRuleCall_2() { return cDSLRestrictionPlannerParserRuleCall_2; }
+		
+		//DSLRestrictionExecutor
+		public RuleCall getDSLRestrictionExecutorParserRuleCall_3() { return cDSLRestrictionExecutorParserRuleCall_3; }
+		
+		//DSLRestrictionKnowledge
+		public RuleCall getDSLRestrictionKnowledgeParserRuleCall_4() { return cDSLRestrictionKnowledgeParserRuleCall_4; }
+		
+		//DSLRestrictionGauge
+		public RuleCall getDSLRestrictionGaugeParserRuleCall_5() { return cDSLRestrictionGaugeParserRuleCall_5; }
+		
+		//DSLRestrictionManaged
+		public RuleCall getDSLRestrictionManagedParserRuleCall_6() { return cDSLRestrictionManagedParserRuleCall_6; }
+	}
+	public class DSLRestrictionProbeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLRestrictionProbe");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Keyword cSensorKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
 		private final Assignment cTAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final CrossReference cTDSLSensorCrossReference_0_1_0 = (CrossReference)cTAssignment_0_1.eContents().get(0);
 		private final RuleCall cTDSLSensorIDTerminalRuleCall_0_1_0_1 = (RuleCall)cTDSLSensorCrossReference_0_1_0.eContents().get(1);
 		private final Keyword cMustNotAccessProbeKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cTypeAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final CrossReference cTypeDSLProbeCrossReference_0_3_0 = (CrossReference)cTypeAssignment_0_3.eContents().get(0);
-		private final RuleCall cTypeDSLProbeIDTerminalRuleCall_0_3_0_1 = (RuleCall)cTypeDSLProbeCrossReference_0_3_0.eContents().get(1);
+		private final Assignment cProbeAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final CrossReference cProbeDSLProbeCrossReference_0_3_0 = (CrossReference)cProbeAssignment_0_3.eContents().get(0);
+		private final RuleCall cProbeDSLProbeIDTerminalRuleCall_0_3_0_1 = (RuleCall)cProbeDSLProbeCrossReference_0_3_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cSensorKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
@@ -274,247 +315,25 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cTDSLSensorCrossReference_1_1_0 = (CrossReference)cTAssignment_1_1.eContents().get(0);
 		private final RuleCall cTDSLSensorIDTerminalRuleCall_1_1_0_1 = (RuleCall)cTDSLSensorCrossReference_1_1_0.eContents().get(1);
 		private final Keyword cMustAccessProbeKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Assignment cTypeAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
-		private final CrossReference cTypeDSLProbeCrossReference_1_3_0 = (CrossReference)cTypeAssignment_1_3.eContents().get(0);
-		private final RuleCall cTypeDSLProbeIDTerminalRuleCall_1_3_0_1 = (RuleCall)cTypeDSLProbeCrossReference_1_3_0.eContents().get(1);
+		private final Assignment cProbeAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final CrossReference cProbeDSLProbeCrossReference_1_3_0 = (CrossReference)cProbeAssignment_1_3.eContents().get(0);
+		private final RuleCall cProbeDSLProbeIDTerminalRuleCall_1_3_0_1 = (RuleCall)cProbeDSLProbeCrossReference_1_3_0.eContents().get(1);
 		private final Keyword cThroughInterfaceKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		private final Assignment cProbeinterfaceAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
 		private final CrossReference cProbeinterfaceProbeInterfaceCrossReference_1_5_0 = (CrossReference)cProbeinterfaceAssignment_1_5.eContents().get(0);
 		private final RuleCall cProbeinterfaceProbeInterfaceIDTerminalRuleCall_1_5_0_1 = (RuleCall)cProbeinterfaceProbeInterfaceCrossReference_1_5_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cAnalyzerKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cTAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cTDSLAnalyzerCrossReference_2_1_0 = (CrossReference)cTAssignment_2_1.eContents().get(0);
-		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_2_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cMustNotAccessMonitorKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
-		private final Assignment cTypeAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
-		private final CrossReference cTypeDSLMonitorCrossReference_2_3_0 = (CrossReference)cTypeAssignment_2_3.eContents().get(0);
-		private final RuleCall cTypeDSLMonitorIDTerminalRuleCall_2_3_0_1 = (RuleCall)cTypeDSLMonitorCrossReference_2_3_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cAnalyzerKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cTAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cTDSLAnalyzerCrossReference_3_1_0 = (CrossReference)cTAssignment_3_1.eContents().get(0);
-		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_3_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_3_1_0.eContents().get(1);
-		private final Keyword cMustAccessMonitorKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cTypeAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
-		private final CrossReference cTypeDSLMonitorCrossReference_3_3_0 = (CrossReference)cTypeAssignment_3_3.eContents().get(0);
-		private final RuleCall cTypeDSLMonitorIDTerminalRuleCall_3_3_0_1 = (RuleCall)cTypeDSLMonitorCrossReference_3_3_0.eContents().get(1);
-		private final Keyword cThroughInterfaceKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
-		private final Assignment cInterfaceAssignment_3_5 = (Assignment)cGroup_3.eContents().get(5);
-		private final CrossReference cInterfaceMonitorInterfaceCrossReference_3_5_0 = (CrossReference)cInterfaceAssignment_3_5.eContents().get(0);
-		private final RuleCall cInterfaceMonitorInterfaceIDTerminalRuleCall_3_5_0_1 = (RuleCall)cInterfaceMonitorInterfaceCrossReference_3_5_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_3_6 = (Keyword)cGroup_3.eContents().get(6);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cAnalyzerKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cTAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cTDSLAnalyzerCrossReference_4_1_0 = (CrossReference)cTAssignment_4_1.eContents().get(0);
-		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_4_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_4_1_0.eContents().get(1);
-		private final Keyword cMustNotAccessPlannerKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Assignment cTypeAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
-		private final CrossReference cTypeDSLPlannerCrossReference_4_3_0 = (CrossReference)cTypeAssignment_4_3.eContents().get(0);
-		private final RuleCall cTypeDSLPlannerIDTerminalRuleCall_4_3_0_1 = (RuleCall)cTypeDSLPlannerCrossReference_4_3_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cAnalyzerKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cTAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final CrossReference cTDSLAnalyzerCrossReference_5_1_0 = (CrossReference)cTAssignment_5_1.eContents().get(0);
-		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_5_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_5_1_0.eContents().get(1);
-		private final Keyword cMustAccessPlannerKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
-		private final Assignment cTypeAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
-		private final CrossReference cTypeDSLPlannerCrossReference_5_3_0 = (CrossReference)cTypeAssignment_5_3.eContents().get(0);
-		private final RuleCall cTypeDSLPlannerIDTerminalRuleCall_5_3_0_1 = (RuleCall)cTypeDSLPlannerCrossReference_5_3_0.eContents().get(1);
-		private final Keyword cThroughInterfaceKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
-		private final Assignment cInterfaceAssignment_5_5 = (Assignment)cGroup_5.eContents().get(5);
-		private final CrossReference cInterfacePlannerInterfaceCrossReference_5_5_0 = (CrossReference)cInterfaceAssignment_5_5.eContents().get(0);
-		private final RuleCall cInterfacePlannerInterfaceIDTerminalRuleCall_5_5_0_1 = (RuleCall)cInterfacePlannerInterfaceCrossReference_5_5_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_5_6 = (Keyword)cGroup_5.eContents().get(6);
-		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Keyword cAnalyzerKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cTAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cTDSLAnalyzerCrossReference_6_1_0 = (CrossReference)cTAssignment_6_1.eContents().get(0);
-		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_6_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_6_1_0.eContents().get(1);
-		private final Keyword cMustNotAccessExecutorKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Assignment cTypeAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
-		private final CrossReference cTypeDSLExecutorCrossReference_6_3_0 = (CrossReference)cTypeAssignment_6_3.eContents().get(0);
-		private final RuleCall cTypeDSLExecutorIDTerminalRuleCall_6_3_0_1 = (RuleCall)cTypeDSLExecutorCrossReference_6_3_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
-		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
-		private final Keyword cAnalyzerKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cTAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final CrossReference cTDSLAnalyzerCrossReference_7_1_0 = (CrossReference)cTAssignment_7_1.eContents().get(0);
-		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_7_1_0.eContents().get(1);
-		private final Keyword cMustAccessExecutorKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
-		private final Assignment cTypeAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
-		private final CrossReference cTypeDSLExecutorCrossReference_7_3_0 = (CrossReference)cTypeAssignment_7_3.eContents().get(0);
-		private final RuleCall cTypeDSLExecutorIDTerminalRuleCall_7_3_0_1 = (RuleCall)cTypeDSLExecutorCrossReference_7_3_0.eContents().get(1);
-		private final Keyword cThroughInterfaceKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
-		private final Assignment cInterfaceAssignment_7_5 = (Assignment)cGroup_7.eContents().get(5);
-		private final CrossReference cInterfaceExecutorInterfaceCrossReference_7_5_0 = (CrossReference)cInterfaceAssignment_7_5.eContents().get(0);
-		private final RuleCall cInterfaceExecutorInterfaceIDTerminalRuleCall_7_5_0_1 = (RuleCall)cInterfaceExecutorInterfaceCrossReference_7_5_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_7_6 = (Keyword)cGroup_7.eContents().get(6);
-		private final Group cGroup_8 = (Group)cAlternatives.eContents().get(8);
-		private final Keyword cPlannerKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cTAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final CrossReference cTDSLPlannerCrossReference_8_1_0 = (CrossReference)cTAssignment_8_1.eContents().get(0);
-		private final RuleCall cTDSLPlannerIDTerminalRuleCall_8_1_0_1 = (RuleCall)cTDSLPlannerCrossReference_8_1_0.eContents().get(1);
-		private final Keyword cMustNotAccessExecutorKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
-		private final Assignment cTypeAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
-		private final CrossReference cTypeDSLExecutorCrossReference_8_3_0 = (CrossReference)cTypeAssignment_8_3.eContents().get(0);
-		private final RuleCall cTypeDSLExecutorIDTerminalRuleCall_8_3_0_1 = (RuleCall)cTypeDSLExecutorCrossReference_8_3_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
-		private final Group cGroup_9 = (Group)cAlternatives.eContents().get(9);
-		private final Keyword cPlannerKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cTAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final CrossReference cTDSLPlannerCrossReference_9_1_0 = (CrossReference)cTAssignment_9_1.eContents().get(0);
-		private final RuleCall cTDSLPlannerIDTerminalRuleCall_9_1_0_1 = (RuleCall)cTDSLPlannerCrossReference_9_1_0.eContents().get(1);
-		private final Keyword cMustAccessExecutorKeyword_9_2 = (Keyword)cGroup_9.eContents().get(2);
-		private final Assignment cTypeAssignment_9_3 = (Assignment)cGroup_9.eContents().get(3);
-		private final CrossReference cTypeDSLExecutorCrossReference_9_3_0 = (CrossReference)cTypeAssignment_9_3.eContents().get(0);
-		private final RuleCall cTypeDSLExecutorIDTerminalRuleCall_9_3_0_1 = (RuleCall)cTypeDSLExecutorCrossReference_9_3_0.eContents().get(1);
-		private final Keyword cThroughInterfaceKeyword_9_4 = (Keyword)cGroup_9.eContents().get(4);
-		private final Assignment cInterfaceAssignment_9_5 = (Assignment)cGroup_9.eContents().get(5);
-		private final CrossReference cInterfaceExecutorInterfaceCrossReference_9_5_0 = (CrossReference)cInterfaceAssignment_9_5.eContents().get(0);
-		private final RuleCall cInterfaceExecutorInterfaceIDTerminalRuleCall_9_5_0_1 = (RuleCall)cInterfaceExecutorInterfaceCrossReference_9_5_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_9_6 = (Keyword)cGroup_9.eContents().get(6);
-		private final Group cGroup_10 = (Group)cAlternatives.eContents().get(10);
-		private final Keyword cAnalyzerKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cTAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final CrossReference cTDSLAnalyzerCrossReference_10_1_0 = (CrossReference)cTAssignment_10_1.eContents().get(0);
-		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_10_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_10_1_0.eContents().get(1);
-		private final Keyword cMustNotAccessKnowledgeKeyword_10_2 = (Keyword)cGroup_10.eContents().get(2);
-		private final Assignment cTypeAssignment_10_3 = (Assignment)cGroup_10.eContents().get(3);
-		private final CrossReference cTypeDSLKnowledgeCrossReference_10_3_0 = (CrossReference)cTypeAssignment_10_3.eContents().get(0);
-		private final RuleCall cTypeDSLKnowledgeIDTerminalRuleCall_10_3_0_1 = (RuleCall)cTypeDSLKnowledgeCrossReference_10_3_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_10_4 = (Keyword)cGroup_10.eContents().get(4);
-		private final Group cGroup_11 = (Group)cAlternatives.eContents().get(11);
-		private final Keyword cAnalyzerKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Assignment cTAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final CrossReference cTDSLAnalyzerCrossReference_11_1_0 = (CrossReference)cTAssignment_11_1.eContents().get(0);
-		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_11_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_11_1_0.eContents().get(1);
-		private final Keyword cMustAccessKnowledgeKeyword_11_2 = (Keyword)cGroup_11.eContents().get(2);
-		private final Assignment cTypeAssignment_11_3 = (Assignment)cGroup_11.eContents().get(3);
-		private final CrossReference cTypeDSLKnowledgeCrossReference_11_3_0 = (CrossReference)cTypeAssignment_11_3.eContents().get(0);
-		private final RuleCall cTypeDSLKnowledgeIDTerminalRuleCall_11_3_0_1 = (RuleCall)cTypeDSLKnowledgeCrossReference_11_3_0.eContents().get(1);
-		private final Keyword cThroughInterfaceKeyword_11_4 = (Keyword)cGroup_11.eContents().get(4);
-		private final Assignment cInterfaceAssignment_11_5 = (Assignment)cGroup_11.eContents().get(5);
-		private final CrossReference cInterfaceKnowledgeInterfaceCrossReference_11_5_0 = (CrossReference)cInterfaceAssignment_11_5.eContents().get(0);
-		private final RuleCall cInterfaceKnowledgeInterfaceIDTerminalRuleCall_11_5_0_1 = (RuleCall)cInterfaceKnowledgeInterfaceCrossReference_11_5_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_11_6 = (Keyword)cGroup_11.eContents().get(6);
-		private final Group cGroup_12 = (Group)cAlternatives.eContents().get(12);
-		private final Keyword cPlannerKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Assignment cTAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
-		private final CrossReference cTDSLPlannerCrossReference_12_1_0 = (CrossReference)cTAssignment_12_1.eContents().get(0);
-		private final RuleCall cTDSLPlannerIDTerminalRuleCall_12_1_0_1 = (RuleCall)cTDSLPlannerCrossReference_12_1_0.eContents().get(1);
-		private final Keyword cMustNotAccessKnowledgeKeyword_12_2 = (Keyword)cGroup_12.eContents().get(2);
-		private final Assignment cTypeAssignment_12_3 = (Assignment)cGroup_12.eContents().get(3);
-		private final CrossReference cTypeDSLKnowledgeCrossReference_12_3_0 = (CrossReference)cTypeAssignment_12_3.eContents().get(0);
-		private final RuleCall cTypeDSLKnowledgeIDTerminalRuleCall_12_3_0_1 = (RuleCall)cTypeDSLKnowledgeCrossReference_12_3_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_12_4 = (Keyword)cGroup_12.eContents().get(4);
-		private final Group cGroup_13 = (Group)cAlternatives.eContents().get(13);
-		private final Keyword cPlannerKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
-		private final Assignment cTAssignment_13_1 = (Assignment)cGroup_13.eContents().get(1);
-		private final CrossReference cTDSLPlannerCrossReference_13_1_0 = (CrossReference)cTAssignment_13_1.eContents().get(0);
-		private final RuleCall cTDSLPlannerIDTerminalRuleCall_13_1_0_1 = (RuleCall)cTDSLPlannerCrossReference_13_1_0.eContents().get(1);
-		private final Keyword cMustAccessKnowledgeKeyword_13_2 = (Keyword)cGroup_13.eContents().get(2);
-		private final Assignment cTypeAssignment_13_3 = (Assignment)cGroup_13.eContents().get(3);
-		private final CrossReference cTypeDSLKnowledgeCrossReference_13_3_0 = (CrossReference)cTypeAssignment_13_3.eContents().get(0);
-		private final RuleCall cTypeDSLKnowledgeIDTerminalRuleCall_13_3_0_1 = (RuleCall)cTypeDSLKnowledgeCrossReference_13_3_0.eContents().get(1);
-		private final Keyword cThroughInterfaceKeyword_13_4 = (Keyword)cGroup_13.eContents().get(4);
-		private final Assignment cInterfaceAssignment_13_5 = (Assignment)cGroup_13.eContents().get(5);
-		private final CrossReference cInterfaceKnowledgeInterfaceCrossReference_13_5_0 = (CrossReference)cInterfaceAssignment_13_5.eContents().get(0);
-		private final RuleCall cInterfaceKnowledgeInterfaceIDTerminalRuleCall_13_5_0_1 = (RuleCall)cInterfaceKnowledgeInterfaceCrossReference_13_5_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_13_6 = (Keyword)cGroup_13.eContents().get(6);
-		private final Group cGroup_14 = (Group)cAlternatives.eContents().get(14);
-		private final Keyword cEffectorKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
-		private final Assignment cTAssignment_14_1 = (Assignment)cGroup_14.eContents().get(1);
-		private final CrossReference cTDSLEffectorCrossReference_14_1_0 = (CrossReference)cTAssignment_14_1.eContents().get(0);
-		private final RuleCall cTDSLEffectorIDTerminalRuleCall_14_1_0_1 = (RuleCall)cTDSLEffectorCrossReference_14_1_0.eContents().get(1);
-		private final Keyword cMustNotAccessGaugeKeyword_14_2 = (Keyword)cGroup_14.eContents().get(2);
-		private final Assignment cTypeAssignment_14_3 = (Assignment)cGroup_14.eContents().get(3);
-		private final CrossReference cTypeDSLGaugeCrossReference_14_3_0 = (CrossReference)cTypeAssignment_14_3.eContents().get(0);
-		private final RuleCall cTypeDSLGaugeIDTerminalRuleCall_14_3_0_1 = (RuleCall)cTypeDSLGaugeCrossReference_14_3_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_14_4 = (Keyword)cGroup_14.eContents().get(4);
-		private final Group cGroup_15 = (Group)cAlternatives.eContents().get(15);
-		private final Keyword cEffectorKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
-		private final Assignment cTAssignment_15_1 = (Assignment)cGroup_15.eContents().get(1);
-		private final CrossReference cTDSLEffectorCrossReference_15_1_0 = (CrossReference)cTAssignment_15_1.eContents().get(0);
-		private final RuleCall cTDSLEffectorIDTerminalRuleCall_15_1_0_1 = (RuleCall)cTDSLEffectorCrossReference_15_1_0.eContents().get(1);
-		private final Keyword cMustAccessGaugeKeyword_15_2 = (Keyword)cGroup_15.eContents().get(2);
-		private final Assignment cTypeAssignment_15_3 = (Assignment)cGroup_15.eContents().get(3);
-		private final CrossReference cTypeDSLGaugeCrossReference_15_3_0 = (CrossReference)cTypeAssignment_15_3.eContents().get(0);
-		private final RuleCall cTypeDSLGaugeIDTerminalRuleCall_15_3_0_1 = (RuleCall)cTypeDSLGaugeCrossReference_15_3_0.eContents().get(1);
-		private final Keyword cThroughInterfaceKeyword_15_4 = (Keyword)cGroup_15.eContents().get(4);
-		private final Assignment cInterfaceAssignment_15_5 = (Assignment)cGroup_15.eContents().get(5);
-		private final CrossReference cInterfaceGaugeInterfaceCrossReference_15_5_0 = (CrossReference)cInterfaceAssignment_15_5.eContents().get(0);
-		private final RuleCall cInterfaceGaugeInterfaceIDTerminalRuleCall_15_5_0_1 = (RuleCall)cInterfaceGaugeInterfaceCrossReference_15_5_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_15_6 = (Keyword)cGroup_15.eContents().get(6);
-		private final Group cGroup_16 = (Group)cAlternatives.eContents().get(16);
-		private final Keyword cManagingKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
-		private final Assignment cTAssignment_16_1 = (Assignment)cGroup_16.eContents().get(1);
-		private final CrossReference cTDSLManagingCrossReference_16_1_0 = (CrossReference)cTAssignment_16_1.eContents().get(0);
-		private final RuleCall cTDSLManagingIDTerminalRuleCall_16_1_0_1 = (RuleCall)cTDSLManagingCrossReference_16_1_0.eContents().get(1);
-		private final Keyword cMustNotAccessManagedKeyword_16_2 = (Keyword)cGroup_16.eContents().get(2);
-		private final Assignment cTypeAssignment_16_3 = (Assignment)cGroup_16.eContents().get(3);
-		private final CrossReference cTypeDSLManagedCrossReference_16_3_0 = (CrossReference)cTypeAssignment_16_3.eContents().get(0);
-		private final RuleCall cTypeDSLManagedIDTerminalRuleCall_16_3_0_1 = (RuleCall)cTypeDSLManagedCrossReference_16_3_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_16_4 = (Keyword)cGroup_16.eContents().get(4);
-		private final Group cGroup_17 = (Group)cAlternatives.eContents().get(17);
-		private final Keyword cManagingKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
-		private final Assignment cTAssignment_17_1 = (Assignment)cGroup_17.eContents().get(1);
-		private final CrossReference cTDSLManagingCrossReference_17_1_0 = (CrossReference)cTAssignment_17_1.eContents().get(0);
-		private final RuleCall cTDSLManagingIDTerminalRuleCall_17_1_0_1 = (RuleCall)cTDSLManagingCrossReference_17_1_0.eContents().get(1);
-		private final Keyword cMustAccessManagedKeyword_17_2 = (Keyword)cGroup_17.eContents().get(2);
-		private final Assignment cTypeAssignment_17_3 = (Assignment)cGroup_17.eContents().get(3);
-		private final CrossReference cTypeDSLManagedCrossReference_17_3_0 = (CrossReference)cTypeAssignment_17_3.eContents().get(0);
-		private final RuleCall cTypeDSLManagedIDTerminalRuleCall_17_3_0_1 = (RuleCall)cTypeDSLManagedCrossReference_17_3_0.eContents().get(1);
-		private final Keyword cThroughInterfaceKeyword_17_4 = (Keyword)cGroup_17.eContents().get(4);
-		private final Assignment cInterfaceAssignment_17_5 = (Assignment)cGroup_17.eContents().get(5);
-		private final CrossReference cInterfaceManagedInterfaceCrossReference_17_5_0 = (CrossReference)cInterfaceAssignment_17_5.eContents().get(0);
-		private final RuleCall cInterfaceManagedInterfaceIDTerminalRuleCall_17_5_0_1 = (RuleCall)cInterfaceManagedInterfaceCrossReference_17_5_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_17_6 = (Keyword)cGroup_17.eContents().get(6);
 		
-		//DSLRestriction:
-		//	'sensor' t=[DSLSensor] 'must-not-access-probe' type=[DSLProbe] ';' | 'sensor' t=[DSLSensor] 'must-access-probe'
-		//	type=[DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';' | 'analyzer' t=[DSLAnalyzer]
-		//	'must-not-access-monitor' type=[DSLMonitor] ';' | 'analyzer' t=[DSLAnalyzer] 'must-access-monitor' type=[DSLMonitor]
-		//	'through-interface' interface=[MonitorInterface] ';' | 'analyzer' t=[DSLAnalyzer] 'must-not-access-planner'
-		//	type=[DSLPlanner] ';' | 'analyzer' t=[DSLAnalyzer] 'must-access-planner' type=[DSLPlanner] 'through-interface'
-		//	interface=[PlannerInterface] ';' | 'analyzer' t=[DSLAnalyzer] 'must-not-access-executor' type=[DSLExecutor] ';' |
-		//	'analyzer' t=[DSLAnalyzer] 'must-access-executor' type=[DSLExecutor] 'through-interface' interface=[ExecutorInterface]
-		//	';' | 'planner' t=[DSLPlanner] 'must-not-access-executor' type=[DSLExecutor] ';' | 'planner' t=[DSLPlanner]
-		//	'must-access-executor' type=[DSLExecutor] 'through-interface' interface=[ExecutorInterface] ';' | 'analyzer'
-		//	t=[DSLAnalyzer] 'must-not-access-knowledge' type=[DSLKnowledge] ';' | 'analyzer' t=[DSLAnalyzer]
-		//	'must-access-knowledge' type=[DSLKnowledge] 'through-interface' interface=[KnowledgeInterface] ';' | 'planner'
-		//	t=[DSLPlanner] 'must-not-access-knowledge' type=[DSLKnowledge] ';' | 'planner' t=[DSLPlanner] 'must-access-knowledge'
-		//	type=[DSLKnowledge] 'through-interface' interface=[KnowledgeInterface] ';' | 'effector' t=[DSLEffector]
-		//	'must-not-access-gauge' type=[DSLGauge] ';' | 'effector' t=[DSLEffector] 'must-access-gauge' type=[DSLGauge]
-		//	'through-interface' interface=[GaugeInterface] ';' | 'managing' t=[DSLManaging] 'must-not-access-managed'
-		//	type=[DSLManaged] ';' | 'managing' t=[DSLManaging] 'must-access-managed' type=[DSLManaged] 'through-interface'
-		//	interface=[ManagedInterface] ';';
+		//DSLRestrictionProbe:
+		//	'sensor' t=[DSLSensor] 'must-not-access-probe' probe=[DSLProbe] ';' | 'sensor' t=[DSLSensor] 'must-access-probe'
+		//	probe=[DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'sensor' t=[DSLSensor] 'must-not-access-probe' type=[DSLProbe] ';' | 'sensor' t=[DSLSensor] 'must-access-probe'
-		//type=[DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';' | 'analyzer' t=[DSLAnalyzer]
-		//'must-not-access-monitor' type=[DSLMonitor] ';' | 'analyzer' t=[DSLAnalyzer] 'must-access-monitor' type=[DSLMonitor]
-		//'through-interface' interface=[MonitorInterface] ';' | 'analyzer' t=[DSLAnalyzer] 'must-not-access-planner'
-		//type=[DSLPlanner] ';' | 'analyzer' t=[DSLAnalyzer] 'must-access-planner' type=[DSLPlanner] 'through-interface'
-		//interface=[PlannerInterface] ';' | 'analyzer' t=[DSLAnalyzer] 'must-not-access-executor' type=[DSLExecutor] ';' |
-		//'analyzer' t=[DSLAnalyzer] 'must-access-executor' type=[DSLExecutor] 'through-interface' interface=[ExecutorInterface]
-		//';' | 'planner' t=[DSLPlanner] 'must-not-access-executor' type=[DSLExecutor] ';' | 'planner' t=[DSLPlanner]
-		//'must-access-executor' type=[DSLExecutor] 'through-interface' interface=[ExecutorInterface] ';' | 'analyzer'
-		//t=[DSLAnalyzer] 'must-not-access-knowledge' type=[DSLKnowledge] ';' | 'analyzer' t=[DSLAnalyzer]
-		//'must-access-knowledge' type=[DSLKnowledge] 'through-interface' interface=[KnowledgeInterface] ';' | 'planner'
-		//t=[DSLPlanner] 'must-not-access-knowledge' type=[DSLKnowledge] ';' | 'planner' t=[DSLPlanner] 'must-access-knowledge'
-		//type=[DSLKnowledge] 'through-interface' interface=[KnowledgeInterface] ';' | 'effector' t=[DSLEffector]
-		//'must-not-access-gauge' type=[DSLGauge] ';' | 'effector' t=[DSLEffector] 'must-access-gauge' type=[DSLGauge]
-		//'through-interface' interface=[GaugeInterface] ';' | 'managing' t=[DSLManaging] 'must-not-access-managed'
-		//type=[DSLManaged] ';' | 'managing' t=[DSLManaging] 'must-access-managed' type=[DSLManaged] 'through-interface'
-		//interface=[ManagedInterface] ';'
+		//'sensor' t=[DSLSensor] 'must-not-access-probe' probe=[DSLProbe] ';' | 'sensor' t=[DSLSensor] 'must-access-probe'
+		//probe=[DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'sensor' t=[DSLSensor] 'must-not-access-probe' type=[DSLProbe] ';'
+		//'sensor' t=[DSLSensor] 'must-not-access-probe' probe=[DSLProbe] ';'
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//'sensor'
@@ -532,19 +351,19 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'must-not-access-probe'
 		public Keyword getMustNotAccessProbeKeyword_0_2() { return cMustNotAccessProbeKeyword_0_2; }
 		
-		//type=[DSLProbe]
-		public Assignment getTypeAssignment_0_3() { return cTypeAssignment_0_3; }
+		//probe=[DSLProbe]
+		public Assignment getProbeAssignment_0_3() { return cProbeAssignment_0_3; }
 		
 		//[DSLProbe]
-		public CrossReference getTypeDSLProbeCrossReference_0_3_0() { return cTypeDSLProbeCrossReference_0_3_0; }
+		public CrossReference getProbeDSLProbeCrossReference_0_3_0() { return cProbeDSLProbeCrossReference_0_3_0; }
 		
 		//ID
-		public RuleCall getTypeDSLProbeIDTerminalRuleCall_0_3_0_1() { return cTypeDSLProbeIDTerminalRuleCall_0_3_0_1; }
+		public RuleCall getProbeDSLProbeIDTerminalRuleCall_0_3_0_1() { return cProbeDSLProbeIDTerminalRuleCall_0_3_0_1; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_0_4() { return cSemicolonKeyword_0_4; }
 		
-		//'sensor' t=[DSLSensor] 'must-access-probe' type=[DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';'
+		//'sensor' t=[DSLSensor] 'must-access-probe' probe=[DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';'
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'sensor'
@@ -562,14 +381,14 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'must-access-probe'
 		public Keyword getMustAccessProbeKeyword_1_2() { return cMustAccessProbeKeyword_1_2; }
 		
-		//type=[DSLProbe]
-		public Assignment getTypeAssignment_1_3() { return cTypeAssignment_1_3; }
+		//probe=[DSLProbe]
+		public Assignment getProbeAssignment_1_3() { return cProbeAssignment_1_3; }
 		
 		//[DSLProbe]
-		public CrossReference getTypeDSLProbeCrossReference_1_3_0() { return cTypeDSLProbeCrossReference_1_3_0; }
+		public CrossReference getProbeDSLProbeCrossReference_1_3_0() { return cProbeDSLProbeCrossReference_1_3_0; }
 		
 		//ID
-		public RuleCall getTypeDSLProbeIDTerminalRuleCall_1_3_0_1() { return cTypeDSLProbeIDTerminalRuleCall_1_3_0_1; }
+		public RuleCall getProbeDSLProbeIDTerminalRuleCall_1_3_0_1() { return cProbeDSLProbeIDTerminalRuleCall_1_3_0_1; }
 		
 		//'through-interface'
 		public Keyword getThroughInterfaceKeyword_1_4() { return cThroughInterfaceKeyword_1_4; }
@@ -585,585 +404,766 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//';'
 		public Keyword getSemicolonKeyword_1_6() { return cSemicolonKeyword_1_6; }
+	}
+	public class DSLRestrictionMonitorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLRestrictionMonitor");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cAnalyzerKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cTAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cTDSLAnalyzerCrossReference_0_1_0 = (CrossReference)cTAssignment_0_1.eContents().get(0);
+		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_0_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_0_1_0.eContents().get(1);
+		private final Keyword cMustNotAccessMonitorKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cMonitorAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final CrossReference cMonitorDSLMonitorCrossReference_0_3_0 = (CrossReference)cMonitorAssignment_0_3.eContents().get(0);
+		private final RuleCall cMonitorDSLMonitorIDTerminalRuleCall_0_3_0_1 = (RuleCall)cMonitorDSLMonitorCrossReference_0_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cAnalyzerKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cTAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cTDSLAnalyzerCrossReference_1_1_0 = (CrossReference)cTAssignment_1_1.eContents().get(0);
+		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_1_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cMustAccessMonitorKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cMonitorAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final CrossReference cMonitorDSLMonitorCrossReference_1_3_0 = (CrossReference)cMonitorAssignment_1_3.eContents().get(0);
+		private final RuleCall cMonitorDSLMonitorIDTerminalRuleCall_1_3_0_1 = (RuleCall)cMonitorDSLMonitorCrossReference_1_3_0.eContents().get(1);
+		private final Keyword cThroughInterfaceKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cMonitorinterfaceAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final CrossReference cMonitorinterfaceMonitorInterfaceCrossReference_1_5_0 = (CrossReference)cMonitorinterfaceAssignment_1_5.eContents().get(0);
+		private final RuleCall cMonitorinterfaceMonitorInterfaceIDTerminalRuleCall_1_5_0_1 = (RuleCall)cMonitorinterfaceMonitorInterfaceCrossReference_1_5_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
 		
-		//'analyzer' t=[DSLAnalyzer] 'must-not-access-monitor' type=[DSLMonitor] ';'
-		public Group getGroup_2() { return cGroup_2; }
+		//DSLRestrictionMonitor:
+		//	'analyzer' t=[DSLAnalyzer] 'must-not-access-monitor' monitor=[DSLMonitor] ';' | 'analyzer' t=[DSLAnalyzer]
+		//	'must-access-monitor' monitor=[DSLMonitor] 'through-interface' monitorinterface=[MonitorInterface] ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-not-access-monitor' monitor=[DSLMonitor] ';' | 'analyzer' t=[DSLAnalyzer]
+		//'must-access-monitor' monitor=[DSLMonitor] 'through-interface' monitorinterface=[MonitorInterface] ';'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-not-access-monitor' monitor=[DSLMonitor] ';'
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//'analyzer'
-		public Keyword getAnalyzerKeyword_2_0() { return cAnalyzerKeyword_2_0; }
+		public Keyword getAnalyzerKeyword_0_0() { return cAnalyzerKeyword_0_0; }
 		
 		//t=[DSLAnalyzer]
-		public Assignment getTAssignment_2_1() { return cTAssignment_2_1; }
+		public Assignment getTAssignment_0_1() { return cTAssignment_0_1; }
 		
 		//[DSLAnalyzer]
-		public CrossReference getTDSLAnalyzerCrossReference_2_1_0() { return cTDSLAnalyzerCrossReference_2_1_0; }
+		public CrossReference getTDSLAnalyzerCrossReference_0_1_0() { return cTDSLAnalyzerCrossReference_0_1_0; }
 		
 		//ID
-		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_2_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_0_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_0_1_0_1; }
 		
 		//'must-not-access-monitor'
-		public Keyword getMustNotAccessMonitorKeyword_2_2() { return cMustNotAccessMonitorKeyword_2_2; }
+		public Keyword getMustNotAccessMonitorKeyword_0_2() { return cMustNotAccessMonitorKeyword_0_2; }
 		
-		//type=[DSLMonitor]
-		public Assignment getTypeAssignment_2_3() { return cTypeAssignment_2_3; }
+		//monitor=[DSLMonitor]
+		public Assignment getMonitorAssignment_0_3() { return cMonitorAssignment_0_3; }
 		
 		//[DSLMonitor]
-		public CrossReference getTypeDSLMonitorCrossReference_2_3_0() { return cTypeDSLMonitorCrossReference_2_3_0; }
+		public CrossReference getMonitorDSLMonitorCrossReference_0_3_0() { return cMonitorDSLMonitorCrossReference_0_3_0; }
 		
 		//ID
-		public RuleCall getTypeDSLMonitorIDTerminalRuleCall_2_3_0_1() { return cTypeDSLMonitorIDTerminalRuleCall_2_3_0_1; }
+		public RuleCall getMonitorDSLMonitorIDTerminalRuleCall_0_3_0_1() { return cMonitorDSLMonitorIDTerminalRuleCall_0_3_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_0_4() { return cSemicolonKeyword_0_4; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-access-monitor' monitor=[DSLMonitor] 'through-interface'
+		//monitorinterface=[MonitorInterface] ';'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'analyzer'
+		public Keyword getAnalyzerKeyword_1_0() { return cAnalyzerKeyword_1_0; }
+		
+		//t=[DSLAnalyzer]
+		public Assignment getTAssignment_1_1() { return cTAssignment_1_1; }
+		
+		//[DSLAnalyzer]
+		public CrossReference getTDSLAnalyzerCrossReference_1_1_0() { return cTDSLAnalyzerCrossReference_1_1_0; }
+		
+		//ID
+		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_1_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_1_1_0_1; }
+		
+		//'must-access-monitor'
+		public Keyword getMustAccessMonitorKeyword_1_2() { return cMustAccessMonitorKeyword_1_2; }
+		
+		//monitor=[DSLMonitor]
+		public Assignment getMonitorAssignment_1_3() { return cMonitorAssignment_1_3; }
+		
+		//[DSLMonitor]
+		public CrossReference getMonitorDSLMonitorCrossReference_1_3_0() { return cMonitorDSLMonitorCrossReference_1_3_0; }
+		
+		//ID
+		public RuleCall getMonitorDSLMonitorIDTerminalRuleCall_1_3_0_1() { return cMonitorDSLMonitorIDTerminalRuleCall_1_3_0_1; }
+		
+		//'through-interface'
+		public Keyword getThroughInterfaceKeyword_1_4() { return cThroughInterfaceKeyword_1_4; }
+		
+		//monitorinterface=[MonitorInterface]
+		public Assignment getMonitorinterfaceAssignment_1_5() { return cMonitorinterfaceAssignment_1_5; }
+		
+		//[MonitorInterface]
+		public CrossReference getMonitorinterfaceMonitorInterfaceCrossReference_1_5_0() { return cMonitorinterfaceMonitorInterfaceCrossReference_1_5_0; }
+		
+		//ID
+		public RuleCall getMonitorinterfaceMonitorInterfaceIDTerminalRuleCall_1_5_0_1() { return cMonitorinterfaceMonitorInterfaceIDTerminalRuleCall_1_5_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_1_6() { return cSemicolonKeyword_1_6; }
+	}
+	public class DSLRestrictionPlannerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLRestrictionPlanner");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cAnalyzerKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cTAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cTDSLAnalyzerCrossReference_0_1_0 = (CrossReference)cTAssignment_0_1.eContents().get(0);
+		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_0_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_0_1_0.eContents().get(1);
+		private final Keyword cMustNotAccessPlannerKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cPlannerAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final CrossReference cPlannerDSLPlannerCrossReference_0_3_0 = (CrossReference)cPlannerAssignment_0_3.eContents().get(0);
+		private final RuleCall cPlannerDSLPlannerIDTerminalRuleCall_0_3_0_1 = (RuleCall)cPlannerDSLPlannerCrossReference_0_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cAnalyzerKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cTAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cTDSLAnalyzerCrossReference_1_1_0 = (CrossReference)cTAssignment_1_1.eContents().get(0);
+		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_1_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cMustAccessPlannerKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cPlannerAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final CrossReference cPlannerDSLPlannerCrossReference_1_3_0 = (CrossReference)cPlannerAssignment_1_3.eContents().get(0);
+		private final RuleCall cPlannerDSLPlannerIDTerminalRuleCall_1_3_0_1 = (RuleCall)cPlannerDSLPlannerCrossReference_1_3_0.eContents().get(1);
+		private final Keyword cThroughInterfaceKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cPlannerinterfaceAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final CrossReference cPlannerinterfacePlannerInterfaceCrossReference_1_5_0 = (CrossReference)cPlannerinterfaceAssignment_1_5.eContents().get(0);
+		private final RuleCall cPlannerinterfacePlannerInterfaceIDTerminalRuleCall_1_5_0_1 = (RuleCall)cPlannerinterfacePlannerInterfaceCrossReference_1_5_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
+		
+		//DSLRestrictionPlanner:
+		//	'analyzer' t=[DSLAnalyzer] 'must-not-access-planner' planner=[DSLPlanner] ';' | 'analyzer' t=[DSLAnalyzer]
+		//	'must-access-planner' planner=[DSLPlanner] 'through-interface' plannerinterface=[PlannerInterface] ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-not-access-planner' planner=[DSLPlanner] ';' | 'analyzer' t=[DSLAnalyzer]
+		//'must-access-planner' planner=[DSLPlanner] 'through-interface' plannerinterface=[PlannerInterface] ';'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-not-access-planner' planner=[DSLPlanner] ';'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'analyzer'
+		public Keyword getAnalyzerKeyword_0_0() { return cAnalyzerKeyword_0_0; }
+		
+		//t=[DSLAnalyzer]
+		public Assignment getTAssignment_0_1() { return cTAssignment_0_1; }
+		
+		//[DSLAnalyzer]
+		public CrossReference getTDSLAnalyzerCrossReference_0_1_0() { return cTDSLAnalyzerCrossReference_0_1_0; }
+		
+		//ID
+		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_0_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_0_1_0_1; }
+		
+		//'must-not-access-planner'
+		public Keyword getMustNotAccessPlannerKeyword_0_2() { return cMustNotAccessPlannerKeyword_0_2; }
+		
+		//planner=[DSLPlanner]
+		public Assignment getPlannerAssignment_0_3() { return cPlannerAssignment_0_3; }
+		
+		//[DSLPlanner]
+		public CrossReference getPlannerDSLPlannerCrossReference_0_3_0() { return cPlannerDSLPlannerCrossReference_0_3_0; }
+		
+		//ID
+		public RuleCall getPlannerDSLPlannerIDTerminalRuleCall_0_3_0_1() { return cPlannerDSLPlannerIDTerminalRuleCall_0_3_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_0_4() { return cSemicolonKeyword_0_4; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-access-planner' planner=[DSLPlanner] 'through-interface'
+		//plannerinterface=[PlannerInterface] ';'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'analyzer'
+		public Keyword getAnalyzerKeyword_1_0() { return cAnalyzerKeyword_1_0; }
+		
+		//t=[DSLAnalyzer]
+		public Assignment getTAssignment_1_1() { return cTAssignment_1_1; }
+		
+		//[DSLAnalyzer]
+		public CrossReference getTDSLAnalyzerCrossReference_1_1_0() { return cTDSLAnalyzerCrossReference_1_1_0; }
+		
+		//ID
+		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_1_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_1_1_0_1; }
+		
+		//'must-access-planner'
+		public Keyword getMustAccessPlannerKeyword_1_2() { return cMustAccessPlannerKeyword_1_2; }
+		
+		//planner=[DSLPlanner]
+		public Assignment getPlannerAssignment_1_3() { return cPlannerAssignment_1_3; }
+		
+		//[DSLPlanner]
+		public CrossReference getPlannerDSLPlannerCrossReference_1_3_0() { return cPlannerDSLPlannerCrossReference_1_3_0; }
+		
+		//ID
+		public RuleCall getPlannerDSLPlannerIDTerminalRuleCall_1_3_0_1() { return cPlannerDSLPlannerIDTerminalRuleCall_1_3_0_1; }
+		
+		//'through-interface'
+		public Keyword getThroughInterfaceKeyword_1_4() { return cThroughInterfaceKeyword_1_4; }
+		
+		//plannerinterface=[PlannerInterface]
+		public Assignment getPlannerinterfaceAssignment_1_5() { return cPlannerinterfaceAssignment_1_5; }
+		
+		//[PlannerInterface]
+		public CrossReference getPlannerinterfacePlannerInterfaceCrossReference_1_5_0() { return cPlannerinterfacePlannerInterfaceCrossReference_1_5_0; }
+		
+		//ID
+		public RuleCall getPlannerinterfacePlannerInterfaceIDTerminalRuleCall_1_5_0_1() { return cPlannerinterfacePlannerInterfaceIDTerminalRuleCall_1_5_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_1_6() { return cSemicolonKeyword_1_6; }
+	}
+	public class DSLRestrictionExecutorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLRestrictionExecutor");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cAnalyzerKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cTAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cTDSLAnalyzerCrossReference_0_1_0 = (CrossReference)cTAssignment_0_1.eContents().get(0);
+		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_0_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_0_1_0.eContents().get(1);
+		private final Keyword cMustNotAccessExecutorKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cExecutorAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final CrossReference cExecutorDSLExecutorCrossReference_0_3_0 = (CrossReference)cExecutorAssignment_0_3.eContents().get(0);
+		private final RuleCall cExecutorDSLExecutorIDTerminalRuleCall_0_3_0_1 = (RuleCall)cExecutorDSLExecutorCrossReference_0_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cAnalyzerKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cTAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cTDSLAnalyzerCrossReference_1_1_0 = (CrossReference)cTAssignment_1_1.eContents().get(0);
+		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_1_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cMustAccessExecutorKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cExecutorAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final CrossReference cExecutorDSLExecutorCrossReference_1_3_0 = (CrossReference)cExecutorAssignment_1_3.eContents().get(0);
+		private final RuleCall cExecutorDSLExecutorIDTerminalRuleCall_1_3_0_1 = (RuleCall)cExecutorDSLExecutorCrossReference_1_3_0.eContents().get(1);
+		private final Keyword cThroughInterfaceKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cExecutorinterfaceAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final CrossReference cExecutorinterfaceExecutorInterfaceCrossReference_1_5_0 = (CrossReference)cExecutorinterfaceAssignment_1_5.eContents().get(0);
+		private final RuleCall cExecutorinterfaceExecutorInterfaceIDTerminalRuleCall_1_5_0_1 = (RuleCall)cExecutorinterfaceExecutorInterfaceCrossReference_1_5_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
+		
+		//DSLRestrictionExecutor:
+		//	'analyzer' t=[DSLAnalyzer] 'must-not-access-executor' executor=[DSLExecutor] ';' | 'analyzer' t=[DSLAnalyzer]
+		//	'must-access-executor' executor=[DSLExecutor] 'through-interface' executorinterface=[ExecutorInterface] ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-not-access-executor' executor=[DSLExecutor] ';' | 'analyzer' t=[DSLAnalyzer]
+		//'must-access-executor' executor=[DSLExecutor] 'through-interface' executorinterface=[ExecutorInterface] ';'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-not-access-executor' executor=[DSLExecutor] ';'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'analyzer'
+		public Keyword getAnalyzerKeyword_0_0() { return cAnalyzerKeyword_0_0; }
+		
+		//t=[DSLAnalyzer]
+		public Assignment getTAssignment_0_1() { return cTAssignment_0_1; }
+		
+		//[DSLAnalyzer]
+		public CrossReference getTDSLAnalyzerCrossReference_0_1_0() { return cTDSLAnalyzerCrossReference_0_1_0; }
+		
+		//ID
+		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_0_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_0_1_0_1; }
+		
+		//'must-not-access-executor'
+		public Keyword getMustNotAccessExecutorKeyword_0_2() { return cMustNotAccessExecutorKeyword_0_2; }
+		
+		//executor=[DSLExecutor]
+		public Assignment getExecutorAssignment_0_3() { return cExecutorAssignment_0_3; }
+		
+		//[DSLExecutor]
+		public CrossReference getExecutorDSLExecutorCrossReference_0_3_0() { return cExecutorDSLExecutorCrossReference_0_3_0; }
+		
+		//ID
+		public RuleCall getExecutorDSLExecutorIDTerminalRuleCall_0_3_0_1() { return cExecutorDSLExecutorIDTerminalRuleCall_0_3_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_0_4() { return cSemicolonKeyword_0_4; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-access-executor' executor=[DSLExecutor] 'through-interface'
+		//executorinterface=[ExecutorInterface] ';'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'analyzer'
+		public Keyword getAnalyzerKeyword_1_0() { return cAnalyzerKeyword_1_0; }
+		
+		//t=[DSLAnalyzer]
+		public Assignment getTAssignment_1_1() { return cTAssignment_1_1; }
+		
+		//[DSLAnalyzer]
+		public CrossReference getTDSLAnalyzerCrossReference_1_1_0() { return cTDSLAnalyzerCrossReference_1_1_0; }
+		
+		//ID
+		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_1_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_1_1_0_1; }
+		
+		//'must-access-executor'
+		public Keyword getMustAccessExecutorKeyword_1_2() { return cMustAccessExecutorKeyword_1_2; }
+		
+		//executor=[DSLExecutor]
+		public Assignment getExecutorAssignment_1_3() { return cExecutorAssignment_1_3; }
+		
+		//[DSLExecutor]
+		public CrossReference getExecutorDSLExecutorCrossReference_1_3_0() { return cExecutorDSLExecutorCrossReference_1_3_0; }
+		
+		//ID
+		public RuleCall getExecutorDSLExecutorIDTerminalRuleCall_1_3_0_1() { return cExecutorDSLExecutorIDTerminalRuleCall_1_3_0_1; }
+		
+		//'through-interface'
+		public Keyword getThroughInterfaceKeyword_1_4() { return cThroughInterfaceKeyword_1_4; }
+		
+		//executorinterface=[ExecutorInterface]
+		public Assignment getExecutorinterfaceAssignment_1_5() { return cExecutorinterfaceAssignment_1_5; }
+		
+		//[ExecutorInterface]
+		public CrossReference getExecutorinterfaceExecutorInterfaceCrossReference_1_5_0() { return cExecutorinterfaceExecutorInterfaceCrossReference_1_5_0; }
+		
+		//ID
+		public RuleCall getExecutorinterfaceExecutorInterfaceIDTerminalRuleCall_1_5_0_1() { return cExecutorinterfaceExecutorInterfaceIDTerminalRuleCall_1_5_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_1_6() { return cSemicolonKeyword_1_6; }
+	}
+	public class DSLRestrictionKnowledgeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLRestrictionKnowledge");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cAnalyzerKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cTAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cTDSLAnalyzerCrossReference_0_1_0 = (CrossReference)cTAssignment_0_1.eContents().get(0);
+		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_0_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_0_1_0.eContents().get(1);
+		private final Keyword cMustNotAccessKnowledgeKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cKnowledgeAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final CrossReference cKnowledgeDSLKnowledgeCrossReference_0_3_0 = (CrossReference)cKnowledgeAssignment_0_3.eContents().get(0);
+		private final RuleCall cKnowledgeDSLKnowledgeIDTerminalRuleCall_0_3_0_1 = (RuleCall)cKnowledgeDSLKnowledgeCrossReference_0_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cAnalyzerKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cTAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cTDSLAnalyzerCrossReference_1_1_0 = (CrossReference)cTAssignment_1_1.eContents().get(0);
+		private final RuleCall cTDSLAnalyzerIDTerminalRuleCall_1_1_0_1 = (RuleCall)cTDSLAnalyzerCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cMustAccessKnowledgeKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cKnowledgeAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final CrossReference cKnowledgeDSLKnowledgeCrossReference_1_3_0 = (CrossReference)cKnowledgeAssignment_1_3.eContents().get(0);
+		private final RuleCall cKnowledgeDSLKnowledgeIDTerminalRuleCall_1_3_0_1 = (RuleCall)cKnowledgeDSLKnowledgeCrossReference_1_3_0.eContents().get(1);
+		private final Keyword cThroughInterfaceKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cKnowledgeinterfaceAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final CrossReference cKnowledgeinterfaceKnowledgeInterfaceCrossReference_1_5_0 = (CrossReference)cKnowledgeinterfaceAssignment_1_5.eContents().get(0);
+		private final RuleCall cKnowledgeinterfaceKnowledgeInterfaceIDTerminalRuleCall_1_5_0_1 = (RuleCall)cKnowledgeinterfaceKnowledgeInterfaceCrossReference_1_5_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cPlannerKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cTAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cTDSLPlannerCrossReference_2_1_0 = (CrossReference)cTAssignment_2_1.eContents().get(0);
+		private final RuleCall cTDSLPlannerIDTerminalRuleCall_2_1_0_1 = (RuleCall)cTDSLPlannerCrossReference_2_1_0.eContents().get(1);
+		private final Keyword cMustNotAccessKnowledgeKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cKnowledgeAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final CrossReference cKnowledgeDSLKnowledgeCrossReference_2_3_0 = (CrossReference)cKnowledgeAssignment_2_3.eContents().get(0);
+		private final RuleCall cKnowledgeDSLKnowledgeIDTerminalRuleCall_2_3_0_1 = (RuleCall)cKnowledgeDSLKnowledgeCrossReference_2_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Keyword cPlannerKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cTAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cTDSLPlannerCrossReference_3_1_0 = (CrossReference)cTAssignment_3_1.eContents().get(0);
+		private final RuleCall cTDSLPlannerIDTerminalRuleCall_3_1_0_1 = (RuleCall)cTDSLPlannerCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cMustAccessKnowledgeKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cKnowledgeAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final CrossReference cKnowledgeDSLKnowledgeCrossReference_3_3_0 = (CrossReference)cKnowledgeAssignment_3_3.eContents().get(0);
+		private final RuleCall cKnowledgeDSLKnowledgeIDTerminalRuleCall_3_3_0_1 = (RuleCall)cKnowledgeDSLKnowledgeCrossReference_3_3_0.eContents().get(1);
+		private final Keyword cThroughInterfaceKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
+		private final Assignment cKnowledgeinterfaceAssignment_3_5 = (Assignment)cGroup_3.eContents().get(5);
+		private final CrossReference cKnowledgeinterfaceKnowledgeInterfaceCrossReference_3_5_0 = (CrossReference)cKnowledgeinterfaceAssignment_3_5.eContents().get(0);
+		private final RuleCall cKnowledgeinterfaceKnowledgeInterfaceIDTerminalRuleCall_3_5_0_1 = (RuleCall)cKnowledgeinterfaceKnowledgeInterfaceCrossReference_3_5_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_3_6 = (Keyword)cGroup_3.eContents().get(6);
+		
+		//DSLRestrictionKnowledge:
+		//	'analyzer' t=[DSLAnalyzer] 'must-not-access-knowledge' knowledge=[DSLKnowledge] ';' | 'analyzer' t=[DSLAnalyzer]
+		//	'must-access-knowledge' knowledge=[DSLKnowledge] 'through-interface' knowledgeinterface=[KnowledgeInterface] ';' |
+		//	'planner' t=[DSLPlanner] 'must-not-access-knowledge' knowledge=[DSLKnowledge] ';' | 'planner' t=[DSLPlanner]
+		//	'must-access-knowledge' knowledge=[DSLKnowledge] 'through-interface' knowledgeinterface=[KnowledgeInterface] ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-not-access-knowledge' knowledge=[DSLKnowledge] ';' | 'analyzer' t=[DSLAnalyzer]
+		//'must-access-knowledge' knowledge=[DSLKnowledge] 'through-interface' knowledgeinterface=[KnowledgeInterface] ';' |
+		//'planner' t=[DSLPlanner] 'must-not-access-knowledge' knowledge=[DSLKnowledge] ';' | 'planner' t=[DSLPlanner]
+		//'must-access-knowledge' knowledge=[DSLKnowledge] 'through-interface' knowledgeinterface=[KnowledgeInterface] ';'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-not-access-knowledge' knowledge=[DSLKnowledge] ';'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'analyzer'
+		public Keyword getAnalyzerKeyword_0_0() { return cAnalyzerKeyword_0_0; }
+		
+		//t=[DSLAnalyzer]
+		public Assignment getTAssignment_0_1() { return cTAssignment_0_1; }
+		
+		//[DSLAnalyzer]
+		public CrossReference getTDSLAnalyzerCrossReference_0_1_0() { return cTDSLAnalyzerCrossReference_0_1_0; }
+		
+		//ID
+		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_0_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_0_1_0_1; }
+		
+		//'must-not-access-knowledge'
+		public Keyword getMustNotAccessKnowledgeKeyword_0_2() { return cMustNotAccessKnowledgeKeyword_0_2; }
+		
+		//knowledge=[DSLKnowledge]
+		public Assignment getKnowledgeAssignment_0_3() { return cKnowledgeAssignment_0_3; }
+		
+		//[DSLKnowledge]
+		public CrossReference getKnowledgeDSLKnowledgeCrossReference_0_3_0() { return cKnowledgeDSLKnowledgeCrossReference_0_3_0; }
+		
+		//ID
+		public RuleCall getKnowledgeDSLKnowledgeIDTerminalRuleCall_0_3_0_1() { return cKnowledgeDSLKnowledgeIDTerminalRuleCall_0_3_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_0_4() { return cSemicolonKeyword_0_4; }
+		
+		//'analyzer' t=[DSLAnalyzer] 'must-access-knowledge' knowledge=[DSLKnowledge] 'through-interface'
+		//knowledgeinterface=[KnowledgeInterface] ';'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'analyzer'
+		public Keyword getAnalyzerKeyword_1_0() { return cAnalyzerKeyword_1_0; }
+		
+		//t=[DSLAnalyzer]
+		public Assignment getTAssignment_1_1() { return cTAssignment_1_1; }
+		
+		//[DSLAnalyzer]
+		public CrossReference getTDSLAnalyzerCrossReference_1_1_0() { return cTDSLAnalyzerCrossReference_1_1_0; }
+		
+		//ID
+		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_1_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_1_1_0_1; }
+		
+		//'must-access-knowledge'
+		public Keyword getMustAccessKnowledgeKeyword_1_2() { return cMustAccessKnowledgeKeyword_1_2; }
+		
+		//knowledge=[DSLKnowledge]
+		public Assignment getKnowledgeAssignment_1_3() { return cKnowledgeAssignment_1_3; }
+		
+		//[DSLKnowledge]
+		public CrossReference getKnowledgeDSLKnowledgeCrossReference_1_3_0() { return cKnowledgeDSLKnowledgeCrossReference_1_3_0; }
+		
+		//ID
+		public RuleCall getKnowledgeDSLKnowledgeIDTerminalRuleCall_1_3_0_1() { return cKnowledgeDSLKnowledgeIDTerminalRuleCall_1_3_0_1; }
+		
+		//'through-interface'
+		public Keyword getThroughInterfaceKeyword_1_4() { return cThroughInterfaceKeyword_1_4; }
+		
+		//knowledgeinterface=[KnowledgeInterface]
+		public Assignment getKnowledgeinterfaceAssignment_1_5() { return cKnowledgeinterfaceAssignment_1_5; }
+		
+		//[KnowledgeInterface]
+		public CrossReference getKnowledgeinterfaceKnowledgeInterfaceCrossReference_1_5_0() { return cKnowledgeinterfaceKnowledgeInterfaceCrossReference_1_5_0; }
+		
+		//ID
+		public RuleCall getKnowledgeinterfaceKnowledgeInterfaceIDTerminalRuleCall_1_5_0_1() { return cKnowledgeinterfaceKnowledgeInterfaceIDTerminalRuleCall_1_5_0_1; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_1_6() { return cSemicolonKeyword_1_6; }
+		
+		//'planner' t=[DSLPlanner] 'must-not-access-knowledge' knowledge=[DSLKnowledge] ';'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'planner'
+		public Keyword getPlannerKeyword_2_0() { return cPlannerKeyword_2_0; }
+		
+		//t=[DSLPlanner]
+		public Assignment getTAssignment_2_1() { return cTAssignment_2_1; }
+		
+		//[DSLPlanner]
+		public CrossReference getTDSLPlannerCrossReference_2_1_0() { return cTDSLPlannerCrossReference_2_1_0; }
+		
+		//ID
+		public RuleCall getTDSLPlannerIDTerminalRuleCall_2_1_0_1() { return cTDSLPlannerIDTerminalRuleCall_2_1_0_1; }
+		
+		//'must-not-access-knowledge'
+		public Keyword getMustNotAccessKnowledgeKeyword_2_2() { return cMustNotAccessKnowledgeKeyword_2_2; }
+		
+		//knowledge=[DSLKnowledge]
+		public Assignment getKnowledgeAssignment_2_3() { return cKnowledgeAssignment_2_3; }
+		
+		//[DSLKnowledge]
+		public CrossReference getKnowledgeDSLKnowledgeCrossReference_2_3_0() { return cKnowledgeDSLKnowledgeCrossReference_2_3_0; }
+		
+		//ID
+		public RuleCall getKnowledgeDSLKnowledgeIDTerminalRuleCall_2_3_0_1() { return cKnowledgeDSLKnowledgeIDTerminalRuleCall_2_3_0_1; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_2_4() { return cSemicolonKeyword_2_4; }
 		
-		//'analyzer' t=[DSLAnalyzer] 'must-access-monitor' type=[DSLMonitor] 'through-interface' interface=[MonitorInterface] ';'
+		//'planner' t=[DSLPlanner] 'must-access-knowledge' knowledge=[DSLKnowledge] 'through-interface'
+		//knowledgeinterface=[KnowledgeInterface] ';'
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'analyzer'
-		public Keyword getAnalyzerKeyword_3_0() { return cAnalyzerKeyword_3_0; }
+		//'planner'
+		public Keyword getPlannerKeyword_3_0() { return cPlannerKeyword_3_0; }
 		
-		//t=[DSLAnalyzer]
+		//t=[DSLPlanner]
 		public Assignment getTAssignment_3_1() { return cTAssignment_3_1; }
 		
-		//[DSLAnalyzer]
-		public CrossReference getTDSLAnalyzerCrossReference_3_1_0() { return cTDSLAnalyzerCrossReference_3_1_0; }
+		//[DSLPlanner]
+		public CrossReference getTDSLPlannerCrossReference_3_1_0() { return cTDSLPlannerCrossReference_3_1_0; }
 		
 		//ID
-		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_3_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_3_1_0_1; }
+		public RuleCall getTDSLPlannerIDTerminalRuleCall_3_1_0_1() { return cTDSLPlannerIDTerminalRuleCall_3_1_0_1; }
 		
-		//'must-access-monitor'
-		public Keyword getMustAccessMonitorKeyword_3_2() { return cMustAccessMonitorKeyword_3_2; }
+		//'must-access-knowledge'
+		public Keyword getMustAccessKnowledgeKeyword_3_2() { return cMustAccessKnowledgeKeyword_3_2; }
 		
-		//type=[DSLMonitor]
-		public Assignment getTypeAssignment_3_3() { return cTypeAssignment_3_3; }
+		//knowledge=[DSLKnowledge]
+		public Assignment getKnowledgeAssignment_3_3() { return cKnowledgeAssignment_3_3; }
 		
-		//[DSLMonitor]
-		public CrossReference getTypeDSLMonitorCrossReference_3_3_0() { return cTypeDSLMonitorCrossReference_3_3_0; }
+		//[DSLKnowledge]
+		public CrossReference getKnowledgeDSLKnowledgeCrossReference_3_3_0() { return cKnowledgeDSLKnowledgeCrossReference_3_3_0; }
 		
 		//ID
-		public RuleCall getTypeDSLMonitorIDTerminalRuleCall_3_3_0_1() { return cTypeDSLMonitorIDTerminalRuleCall_3_3_0_1; }
+		public RuleCall getKnowledgeDSLKnowledgeIDTerminalRuleCall_3_3_0_1() { return cKnowledgeDSLKnowledgeIDTerminalRuleCall_3_3_0_1; }
 		
 		//'through-interface'
 		public Keyword getThroughInterfaceKeyword_3_4() { return cThroughInterfaceKeyword_3_4; }
 		
-		//interface=[MonitorInterface]
-		public Assignment getInterfaceAssignment_3_5() { return cInterfaceAssignment_3_5; }
+		//knowledgeinterface=[KnowledgeInterface]
+		public Assignment getKnowledgeinterfaceAssignment_3_5() { return cKnowledgeinterfaceAssignment_3_5; }
 		
-		//[MonitorInterface]
-		public CrossReference getInterfaceMonitorInterfaceCrossReference_3_5_0() { return cInterfaceMonitorInterfaceCrossReference_3_5_0; }
+		//[KnowledgeInterface]
+		public CrossReference getKnowledgeinterfaceKnowledgeInterfaceCrossReference_3_5_0() { return cKnowledgeinterfaceKnowledgeInterfaceCrossReference_3_5_0; }
 		
 		//ID
-		public RuleCall getInterfaceMonitorInterfaceIDTerminalRuleCall_3_5_0_1() { return cInterfaceMonitorInterfaceIDTerminalRuleCall_3_5_0_1; }
+		public RuleCall getKnowledgeinterfaceKnowledgeInterfaceIDTerminalRuleCall_3_5_0_1() { return cKnowledgeinterfaceKnowledgeInterfaceIDTerminalRuleCall_3_5_0_1; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3_6() { return cSemicolonKeyword_3_6; }
-		
-		//'analyzer' t=[DSLAnalyzer] 'must-not-access-planner' type=[DSLPlanner] ';'
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'analyzer'
-		public Keyword getAnalyzerKeyword_4_0() { return cAnalyzerKeyword_4_0; }
-		
-		//t=[DSLAnalyzer]
-		public Assignment getTAssignment_4_1() { return cTAssignment_4_1; }
-		
-		//[DSLAnalyzer]
-		public CrossReference getTDSLAnalyzerCrossReference_4_1_0() { return cTDSLAnalyzerCrossReference_4_1_0; }
-		
-		//ID
-		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_4_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_4_1_0_1; }
-		
-		//'must-not-access-planner'
-		public Keyword getMustNotAccessPlannerKeyword_4_2() { return cMustNotAccessPlannerKeyword_4_2; }
-		
-		//type=[DSLPlanner]
-		public Assignment getTypeAssignment_4_3() { return cTypeAssignment_4_3; }
-		
-		//[DSLPlanner]
-		public CrossReference getTypeDSLPlannerCrossReference_4_3_0() { return cTypeDSLPlannerCrossReference_4_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLPlannerIDTerminalRuleCall_4_3_0_1() { return cTypeDSLPlannerIDTerminalRuleCall_4_3_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_4_4() { return cSemicolonKeyword_4_4; }
-		
-		//'analyzer' t=[DSLAnalyzer] 'must-access-planner' type=[DSLPlanner] 'through-interface' interface=[PlannerInterface] ';'
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'analyzer'
-		public Keyword getAnalyzerKeyword_5_0() { return cAnalyzerKeyword_5_0; }
-		
-		//t=[DSLAnalyzer]
-		public Assignment getTAssignment_5_1() { return cTAssignment_5_1; }
-		
-		//[DSLAnalyzer]
-		public CrossReference getTDSLAnalyzerCrossReference_5_1_0() { return cTDSLAnalyzerCrossReference_5_1_0; }
-		
-		//ID
-		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_5_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_5_1_0_1; }
-		
-		//'must-access-planner'
-		public Keyword getMustAccessPlannerKeyword_5_2() { return cMustAccessPlannerKeyword_5_2; }
-		
-		//type=[DSLPlanner]
-		public Assignment getTypeAssignment_5_3() { return cTypeAssignment_5_3; }
-		
-		//[DSLPlanner]
-		public CrossReference getTypeDSLPlannerCrossReference_5_3_0() { return cTypeDSLPlannerCrossReference_5_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLPlannerIDTerminalRuleCall_5_3_0_1() { return cTypeDSLPlannerIDTerminalRuleCall_5_3_0_1; }
-		
-		//'through-interface'
-		public Keyword getThroughInterfaceKeyword_5_4() { return cThroughInterfaceKeyword_5_4; }
-		
-		//interface=[PlannerInterface]
-		public Assignment getInterfaceAssignment_5_5() { return cInterfaceAssignment_5_5; }
-		
-		//[PlannerInterface]
-		public CrossReference getInterfacePlannerInterfaceCrossReference_5_5_0() { return cInterfacePlannerInterfaceCrossReference_5_5_0; }
-		
-		//ID
-		public RuleCall getInterfacePlannerInterfaceIDTerminalRuleCall_5_5_0_1() { return cInterfacePlannerInterfaceIDTerminalRuleCall_5_5_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_5_6() { return cSemicolonKeyword_5_6; }
-		
-		//'analyzer' t=[DSLAnalyzer] 'must-not-access-executor' type=[DSLExecutor] ';'
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'analyzer'
-		public Keyword getAnalyzerKeyword_6_0() { return cAnalyzerKeyword_6_0; }
-		
-		//t=[DSLAnalyzer]
-		public Assignment getTAssignment_6_1() { return cTAssignment_6_1; }
-		
-		//[DSLAnalyzer]
-		public CrossReference getTDSLAnalyzerCrossReference_6_1_0() { return cTDSLAnalyzerCrossReference_6_1_0; }
-		
-		//ID
-		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_6_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_6_1_0_1; }
-		
-		//'must-not-access-executor'
-		public Keyword getMustNotAccessExecutorKeyword_6_2() { return cMustNotAccessExecutorKeyword_6_2; }
-		
-		//type=[DSLExecutor]
-		public Assignment getTypeAssignment_6_3() { return cTypeAssignment_6_3; }
-		
-		//[DSLExecutor]
-		public CrossReference getTypeDSLExecutorCrossReference_6_3_0() { return cTypeDSLExecutorCrossReference_6_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLExecutorIDTerminalRuleCall_6_3_0_1() { return cTypeDSLExecutorIDTerminalRuleCall_6_3_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_6_4() { return cSemicolonKeyword_6_4; }
-		
-		//'analyzer' t=[DSLAnalyzer] 'must-access-executor' type=[DSLExecutor] 'through-interface' interface=[ExecutorInterface]
-		//';'
-		public Group getGroup_7() { return cGroup_7; }
-		
-		//'analyzer'
-		public Keyword getAnalyzerKeyword_7_0() { return cAnalyzerKeyword_7_0; }
-		
-		//t=[DSLAnalyzer]
-		public Assignment getTAssignment_7_1() { return cTAssignment_7_1; }
-		
-		//[DSLAnalyzer]
-		public CrossReference getTDSLAnalyzerCrossReference_7_1_0() { return cTDSLAnalyzerCrossReference_7_1_0; }
-		
-		//ID
-		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_7_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_7_1_0_1; }
-		
-		//'must-access-executor'
-		public Keyword getMustAccessExecutorKeyword_7_2() { return cMustAccessExecutorKeyword_7_2; }
-		
-		//type=[DSLExecutor]
-		public Assignment getTypeAssignment_7_3() { return cTypeAssignment_7_3; }
-		
-		//[DSLExecutor]
-		public CrossReference getTypeDSLExecutorCrossReference_7_3_0() { return cTypeDSLExecutorCrossReference_7_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLExecutorIDTerminalRuleCall_7_3_0_1() { return cTypeDSLExecutorIDTerminalRuleCall_7_3_0_1; }
-		
-		//'through-interface'
-		public Keyword getThroughInterfaceKeyword_7_4() { return cThroughInterfaceKeyword_7_4; }
-		
-		//interface=[ExecutorInterface]
-		public Assignment getInterfaceAssignment_7_5() { return cInterfaceAssignment_7_5; }
-		
-		//[ExecutorInterface]
-		public CrossReference getInterfaceExecutorInterfaceCrossReference_7_5_0() { return cInterfaceExecutorInterfaceCrossReference_7_5_0; }
-		
-		//ID
-		public RuleCall getInterfaceExecutorInterfaceIDTerminalRuleCall_7_5_0_1() { return cInterfaceExecutorInterfaceIDTerminalRuleCall_7_5_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_7_6() { return cSemicolonKeyword_7_6; }
-		
-		//'planner' t=[DSLPlanner] 'must-not-access-executor' type=[DSLExecutor] ';'
-		public Group getGroup_8() { return cGroup_8; }
-		
-		//'planner'
-		public Keyword getPlannerKeyword_8_0() { return cPlannerKeyword_8_0; }
-		
-		//t=[DSLPlanner]
-		public Assignment getTAssignment_8_1() { return cTAssignment_8_1; }
-		
-		//[DSLPlanner]
-		public CrossReference getTDSLPlannerCrossReference_8_1_0() { return cTDSLPlannerCrossReference_8_1_0; }
-		
-		//ID
-		public RuleCall getTDSLPlannerIDTerminalRuleCall_8_1_0_1() { return cTDSLPlannerIDTerminalRuleCall_8_1_0_1; }
-		
-		//'must-not-access-executor'
-		public Keyword getMustNotAccessExecutorKeyword_8_2() { return cMustNotAccessExecutorKeyword_8_2; }
-		
-		//type=[DSLExecutor]
-		public Assignment getTypeAssignment_8_3() { return cTypeAssignment_8_3; }
-		
-		//[DSLExecutor]
-		public CrossReference getTypeDSLExecutorCrossReference_8_3_0() { return cTypeDSLExecutorCrossReference_8_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLExecutorIDTerminalRuleCall_8_3_0_1() { return cTypeDSLExecutorIDTerminalRuleCall_8_3_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_8_4() { return cSemicolonKeyword_8_4; }
-		
-		//'planner' t=[DSLPlanner] 'must-access-executor' type=[DSLExecutor] 'through-interface' interface=[ExecutorInterface] ';'
-		public Group getGroup_9() { return cGroup_9; }
-		
-		//'planner'
-		public Keyword getPlannerKeyword_9_0() { return cPlannerKeyword_9_0; }
-		
-		//t=[DSLPlanner]
-		public Assignment getTAssignment_9_1() { return cTAssignment_9_1; }
-		
-		//[DSLPlanner]
-		public CrossReference getTDSLPlannerCrossReference_9_1_0() { return cTDSLPlannerCrossReference_9_1_0; }
-		
-		//ID
-		public RuleCall getTDSLPlannerIDTerminalRuleCall_9_1_0_1() { return cTDSLPlannerIDTerminalRuleCall_9_1_0_1; }
-		
-		//'must-access-executor'
-		public Keyword getMustAccessExecutorKeyword_9_2() { return cMustAccessExecutorKeyword_9_2; }
-		
-		//type=[DSLExecutor]
-		public Assignment getTypeAssignment_9_3() { return cTypeAssignment_9_3; }
-		
-		//[DSLExecutor]
-		public CrossReference getTypeDSLExecutorCrossReference_9_3_0() { return cTypeDSLExecutorCrossReference_9_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLExecutorIDTerminalRuleCall_9_3_0_1() { return cTypeDSLExecutorIDTerminalRuleCall_9_3_0_1; }
-		
-		//'through-interface'
-		public Keyword getThroughInterfaceKeyword_9_4() { return cThroughInterfaceKeyword_9_4; }
-		
-		//interface=[ExecutorInterface]
-		public Assignment getInterfaceAssignment_9_5() { return cInterfaceAssignment_9_5; }
-		
-		//[ExecutorInterface]
-		public CrossReference getInterfaceExecutorInterfaceCrossReference_9_5_0() { return cInterfaceExecutorInterfaceCrossReference_9_5_0; }
-		
-		//ID
-		public RuleCall getInterfaceExecutorInterfaceIDTerminalRuleCall_9_5_0_1() { return cInterfaceExecutorInterfaceIDTerminalRuleCall_9_5_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_9_6() { return cSemicolonKeyword_9_6; }
-		
-		//'analyzer' t=[DSLAnalyzer] 'must-not-access-knowledge' type=[DSLKnowledge] ';'
-		public Group getGroup_10() { return cGroup_10; }
-		
-		//'analyzer'
-		public Keyword getAnalyzerKeyword_10_0() { return cAnalyzerKeyword_10_0; }
-		
-		//t=[DSLAnalyzer]
-		public Assignment getTAssignment_10_1() { return cTAssignment_10_1; }
-		
-		//[DSLAnalyzer]
-		public CrossReference getTDSLAnalyzerCrossReference_10_1_0() { return cTDSLAnalyzerCrossReference_10_1_0; }
-		
-		//ID
-		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_10_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_10_1_0_1; }
-		
-		//'must-not-access-knowledge'
-		public Keyword getMustNotAccessKnowledgeKeyword_10_2() { return cMustNotAccessKnowledgeKeyword_10_2; }
-		
-		//type=[DSLKnowledge]
-		public Assignment getTypeAssignment_10_3() { return cTypeAssignment_10_3; }
-		
-		//[DSLKnowledge]
-		public CrossReference getTypeDSLKnowledgeCrossReference_10_3_0() { return cTypeDSLKnowledgeCrossReference_10_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLKnowledgeIDTerminalRuleCall_10_3_0_1() { return cTypeDSLKnowledgeIDTerminalRuleCall_10_3_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_10_4() { return cSemicolonKeyword_10_4; }
-		
-		//'analyzer' t=[DSLAnalyzer] 'must-access-knowledge' type=[DSLKnowledge] 'through-interface'
-		//interface=[KnowledgeInterface] ';'
-		public Group getGroup_11() { return cGroup_11; }
-		
-		//'analyzer'
-		public Keyword getAnalyzerKeyword_11_0() { return cAnalyzerKeyword_11_0; }
-		
-		//t=[DSLAnalyzer]
-		public Assignment getTAssignment_11_1() { return cTAssignment_11_1; }
-		
-		//[DSLAnalyzer]
-		public CrossReference getTDSLAnalyzerCrossReference_11_1_0() { return cTDSLAnalyzerCrossReference_11_1_0; }
-		
-		//ID
-		public RuleCall getTDSLAnalyzerIDTerminalRuleCall_11_1_0_1() { return cTDSLAnalyzerIDTerminalRuleCall_11_1_0_1; }
-		
-		//'must-access-knowledge'
-		public Keyword getMustAccessKnowledgeKeyword_11_2() { return cMustAccessKnowledgeKeyword_11_2; }
-		
-		//type=[DSLKnowledge]
-		public Assignment getTypeAssignment_11_3() { return cTypeAssignment_11_3; }
-		
-		//[DSLKnowledge]
-		public CrossReference getTypeDSLKnowledgeCrossReference_11_3_0() { return cTypeDSLKnowledgeCrossReference_11_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLKnowledgeIDTerminalRuleCall_11_3_0_1() { return cTypeDSLKnowledgeIDTerminalRuleCall_11_3_0_1; }
-		
-		//'through-interface'
-		public Keyword getThroughInterfaceKeyword_11_4() { return cThroughInterfaceKeyword_11_4; }
-		
-		//interface=[KnowledgeInterface]
-		public Assignment getInterfaceAssignment_11_5() { return cInterfaceAssignment_11_5; }
-		
-		//[KnowledgeInterface]
-		public CrossReference getInterfaceKnowledgeInterfaceCrossReference_11_5_0() { return cInterfaceKnowledgeInterfaceCrossReference_11_5_0; }
-		
-		//ID
-		public RuleCall getInterfaceKnowledgeInterfaceIDTerminalRuleCall_11_5_0_1() { return cInterfaceKnowledgeInterfaceIDTerminalRuleCall_11_5_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_11_6() { return cSemicolonKeyword_11_6; }
-		
-		//'planner' t=[DSLPlanner] 'must-not-access-knowledge' type=[DSLKnowledge] ';'
-		public Group getGroup_12() { return cGroup_12; }
-		
-		//'planner'
-		public Keyword getPlannerKeyword_12_0() { return cPlannerKeyword_12_0; }
-		
-		//t=[DSLPlanner]
-		public Assignment getTAssignment_12_1() { return cTAssignment_12_1; }
-		
-		//[DSLPlanner]
-		public CrossReference getTDSLPlannerCrossReference_12_1_0() { return cTDSLPlannerCrossReference_12_1_0; }
-		
-		//ID
-		public RuleCall getTDSLPlannerIDTerminalRuleCall_12_1_0_1() { return cTDSLPlannerIDTerminalRuleCall_12_1_0_1; }
-		
-		//'must-not-access-knowledge'
-		public Keyword getMustNotAccessKnowledgeKeyword_12_2() { return cMustNotAccessKnowledgeKeyword_12_2; }
-		
-		//type=[DSLKnowledge]
-		public Assignment getTypeAssignment_12_3() { return cTypeAssignment_12_3; }
-		
-		//[DSLKnowledge]
-		public CrossReference getTypeDSLKnowledgeCrossReference_12_3_0() { return cTypeDSLKnowledgeCrossReference_12_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLKnowledgeIDTerminalRuleCall_12_3_0_1() { return cTypeDSLKnowledgeIDTerminalRuleCall_12_3_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_12_4() { return cSemicolonKeyword_12_4; }
-		
-		//'planner' t=[DSLPlanner] 'must-access-knowledge' type=[DSLKnowledge] 'through-interface' interface=[KnowledgeInterface]
-		//';'
-		public Group getGroup_13() { return cGroup_13; }
-		
-		//'planner'
-		public Keyword getPlannerKeyword_13_0() { return cPlannerKeyword_13_0; }
-		
-		//t=[DSLPlanner]
-		public Assignment getTAssignment_13_1() { return cTAssignment_13_1; }
-		
-		//[DSLPlanner]
-		public CrossReference getTDSLPlannerCrossReference_13_1_0() { return cTDSLPlannerCrossReference_13_1_0; }
-		
-		//ID
-		public RuleCall getTDSLPlannerIDTerminalRuleCall_13_1_0_1() { return cTDSLPlannerIDTerminalRuleCall_13_1_0_1; }
-		
-		//'must-access-knowledge'
-		public Keyword getMustAccessKnowledgeKeyword_13_2() { return cMustAccessKnowledgeKeyword_13_2; }
-		
-		//type=[DSLKnowledge]
-		public Assignment getTypeAssignment_13_3() { return cTypeAssignment_13_3; }
-		
-		//[DSLKnowledge]
-		public CrossReference getTypeDSLKnowledgeCrossReference_13_3_0() { return cTypeDSLKnowledgeCrossReference_13_3_0; }
-		
-		//ID
-		public RuleCall getTypeDSLKnowledgeIDTerminalRuleCall_13_3_0_1() { return cTypeDSLKnowledgeIDTerminalRuleCall_13_3_0_1; }
-		
-		//'through-interface'
-		public Keyword getThroughInterfaceKeyword_13_4() { return cThroughInterfaceKeyword_13_4; }
-		
-		//interface=[KnowledgeInterface]
-		public Assignment getInterfaceAssignment_13_5() { return cInterfaceAssignment_13_5; }
-		
-		//[KnowledgeInterface]
-		public CrossReference getInterfaceKnowledgeInterfaceCrossReference_13_5_0() { return cInterfaceKnowledgeInterfaceCrossReference_13_5_0; }
-		
-		//ID
-		public RuleCall getInterfaceKnowledgeInterfaceIDTerminalRuleCall_13_5_0_1() { return cInterfaceKnowledgeInterfaceIDTerminalRuleCall_13_5_0_1; }
-		
-		//';'
-		public Keyword getSemicolonKeyword_13_6() { return cSemicolonKeyword_13_6; }
-		
-		//'effector' t=[DSLEffector] 'must-not-access-gauge' type=[DSLGauge] ';'
-		public Group getGroup_14() { return cGroup_14; }
+	}
+	public class DSLRestrictionGaugeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLRestrictionGauge");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cEffectorKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cTAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cTDSLEffectorCrossReference_0_1_0 = (CrossReference)cTAssignment_0_1.eContents().get(0);
+		private final RuleCall cTDSLEffectorIDTerminalRuleCall_0_1_0_1 = (RuleCall)cTDSLEffectorCrossReference_0_1_0.eContents().get(1);
+		private final Keyword cMustNotAccessGaugeKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cGaugeAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final CrossReference cGaugeDSLGaugeCrossReference_0_3_0 = (CrossReference)cGaugeAssignment_0_3.eContents().get(0);
+		private final RuleCall cGaugeDSLGaugeIDTerminalRuleCall_0_3_0_1 = (RuleCall)cGaugeDSLGaugeCrossReference_0_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cEffectorKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cTAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cTDSLEffectorCrossReference_1_1_0 = (CrossReference)cTAssignment_1_1.eContents().get(0);
+		private final RuleCall cTDSLEffectorIDTerminalRuleCall_1_1_0_1 = (RuleCall)cTDSLEffectorCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cMustAccessGaugeKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cGaugeAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final CrossReference cGaugeDSLGaugeCrossReference_1_3_0 = (CrossReference)cGaugeAssignment_1_3.eContents().get(0);
+		private final RuleCall cGaugeDSLGaugeIDTerminalRuleCall_1_3_0_1 = (RuleCall)cGaugeDSLGaugeCrossReference_1_3_0.eContents().get(1);
+		private final Keyword cThroughInterfaceKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cGaugeinterfaceAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final CrossReference cGaugeinterfaceGaugeInterfaceCrossReference_1_5_0 = (CrossReference)cGaugeinterfaceAssignment_1_5.eContents().get(0);
+		private final RuleCall cGaugeinterfaceGaugeInterfaceIDTerminalRuleCall_1_5_0_1 = (RuleCall)cGaugeinterfaceGaugeInterfaceCrossReference_1_5_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
+		
+		//DSLRestrictionGauge:
+		//	'effector' t=[DSLEffector] 'must-not-access-gauge' gauge=[DSLGauge] ';' | 'effector' t=[DSLEffector]
+		//	'must-access-gauge' gauge=[DSLGauge] 'through-interface' gaugeinterface=[GaugeInterface] ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'effector' t=[DSLEffector] 'must-not-access-gauge' gauge=[DSLGauge] ';' | 'effector' t=[DSLEffector] 'must-access-gauge'
+		//gauge=[DSLGauge] 'through-interface' gaugeinterface=[GaugeInterface] ';'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'effector' t=[DSLEffector] 'must-not-access-gauge' gauge=[DSLGauge] ';'
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//'effector'
-		public Keyword getEffectorKeyword_14_0() { return cEffectorKeyword_14_0; }
+		public Keyword getEffectorKeyword_0_0() { return cEffectorKeyword_0_0; }
 		
 		//t=[DSLEffector]
-		public Assignment getTAssignment_14_1() { return cTAssignment_14_1; }
+		public Assignment getTAssignment_0_1() { return cTAssignment_0_1; }
 		
 		//[DSLEffector]
-		public CrossReference getTDSLEffectorCrossReference_14_1_0() { return cTDSLEffectorCrossReference_14_1_0; }
+		public CrossReference getTDSLEffectorCrossReference_0_1_0() { return cTDSLEffectorCrossReference_0_1_0; }
 		
 		//ID
-		public RuleCall getTDSLEffectorIDTerminalRuleCall_14_1_0_1() { return cTDSLEffectorIDTerminalRuleCall_14_1_0_1; }
+		public RuleCall getTDSLEffectorIDTerminalRuleCall_0_1_0_1() { return cTDSLEffectorIDTerminalRuleCall_0_1_0_1; }
 		
 		//'must-not-access-gauge'
-		public Keyword getMustNotAccessGaugeKeyword_14_2() { return cMustNotAccessGaugeKeyword_14_2; }
+		public Keyword getMustNotAccessGaugeKeyword_0_2() { return cMustNotAccessGaugeKeyword_0_2; }
 		
-		//type=[DSLGauge]
-		public Assignment getTypeAssignment_14_3() { return cTypeAssignment_14_3; }
+		//gauge=[DSLGauge]
+		public Assignment getGaugeAssignment_0_3() { return cGaugeAssignment_0_3; }
 		
 		//[DSLGauge]
-		public CrossReference getTypeDSLGaugeCrossReference_14_3_0() { return cTypeDSLGaugeCrossReference_14_3_0; }
+		public CrossReference getGaugeDSLGaugeCrossReference_0_3_0() { return cGaugeDSLGaugeCrossReference_0_3_0; }
 		
 		//ID
-		public RuleCall getTypeDSLGaugeIDTerminalRuleCall_14_3_0_1() { return cTypeDSLGaugeIDTerminalRuleCall_14_3_0_1; }
+		public RuleCall getGaugeDSLGaugeIDTerminalRuleCall_0_3_0_1() { return cGaugeDSLGaugeIDTerminalRuleCall_0_3_0_1; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_14_4() { return cSemicolonKeyword_14_4; }
+		public Keyword getSemicolonKeyword_0_4() { return cSemicolonKeyword_0_4; }
 		
-		//'effector' t=[DSLEffector] 'must-access-gauge' type=[DSLGauge] 'through-interface' interface=[GaugeInterface] ';'
-		public Group getGroup_15() { return cGroup_15; }
+		//'effector' t=[DSLEffector] 'must-access-gauge' gauge=[DSLGauge] 'through-interface' gaugeinterface=[GaugeInterface] ';'
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//'effector'
-		public Keyword getEffectorKeyword_15_0() { return cEffectorKeyword_15_0; }
+		public Keyword getEffectorKeyword_1_0() { return cEffectorKeyword_1_0; }
 		
 		//t=[DSLEffector]
-		public Assignment getTAssignment_15_1() { return cTAssignment_15_1; }
+		public Assignment getTAssignment_1_1() { return cTAssignment_1_1; }
 		
 		//[DSLEffector]
-		public CrossReference getTDSLEffectorCrossReference_15_1_0() { return cTDSLEffectorCrossReference_15_1_0; }
+		public CrossReference getTDSLEffectorCrossReference_1_1_0() { return cTDSLEffectorCrossReference_1_1_0; }
 		
 		//ID
-		public RuleCall getTDSLEffectorIDTerminalRuleCall_15_1_0_1() { return cTDSLEffectorIDTerminalRuleCall_15_1_0_1; }
+		public RuleCall getTDSLEffectorIDTerminalRuleCall_1_1_0_1() { return cTDSLEffectorIDTerminalRuleCall_1_1_0_1; }
 		
 		//'must-access-gauge'
-		public Keyword getMustAccessGaugeKeyword_15_2() { return cMustAccessGaugeKeyword_15_2; }
+		public Keyword getMustAccessGaugeKeyword_1_2() { return cMustAccessGaugeKeyword_1_2; }
 		
-		//type=[DSLGauge]
-		public Assignment getTypeAssignment_15_3() { return cTypeAssignment_15_3; }
+		//gauge=[DSLGauge]
+		public Assignment getGaugeAssignment_1_3() { return cGaugeAssignment_1_3; }
 		
 		//[DSLGauge]
-		public CrossReference getTypeDSLGaugeCrossReference_15_3_0() { return cTypeDSLGaugeCrossReference_15_3_0; }
+		public CrossReference getGaugeDSLGaugeCrossReference_1_3_0() { return cGaugeDSLGaugeCrossReference_1_3_0; }
 		
 		//ID
-		public RuleCall getTypeDSLGaugeIDTerminalRuleCall_15_3_0_1() { return cTypeDSLGaugeIDTerminalRuleCall_15_3_0_1; }
+		public RuleCall getGaugeDSLGaugeIDTerminalRuleCall_1_3_0_1() { return cGaugeDSLGaugeIDTerminalRuleCall_1_3_0_1; }
 		
 		//'through-interface'
-		public Keyword getThroughInterfaceKeyword_15_4() { return cThroughInterfaceKeyword_15_4; }
+		public Keyword getThroughInterfaceKeyword_1_4() { return cThroughInterfaceKeyword_1_4; }
 		
-		//interface=[GaugeInterface]
-		public Assignment getInterfaceAssignment_15_5() { return cInterfaceAssignment_15_5; }
+		//gaugeinterface=[GaugeInterface]
+		public Assignment getGaugeinterfaceAssignment_1_5() { return cGaugeinterfaceAssignment_1_5; }
 		
 		//[GaugeInterface]
-		public CrossReference getInterfaceGaugeInterfaceCrossReference_15_5_0() { return cInterfaceGaugeInterfaceCrossReference_15_5_0; }
+		public CrossReference getGaugeinterfaceGaugeInterfaceCrossReference_1_5_0() { return cGaugeinterfaceGaugeInterfaceCrossReference_1_5_0; }
 		
 		//ID
-		public RuleCall getInterfaceGaugeInterfaceIDTerminalRuleCall_15_5_0_1() { return cInterfaceGaugeInterfaceIDTerminalRuleCall_15_5_0_1; }
+		public RuleCall getGaugeinterfaceGaugeInterfaceIDTerminalRuleCall_1_5_0_1() { return cGaugeinterfaceGaugeInterfaceIDTerminalRuleCall_1_5_0_1; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_15_6() { return cSemicolonKeyword_15_6; }
+		public Keyword getSemicolonKeyword_1_6() { return cSemicolonKeyword_1_6; }
+	}
+	public class DSLRestrictionManagedElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLRestrictionManaged");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cManagingKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cTAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final CrossReference cTDSLManagingCrossReference_0_1_0 = (CrossReference)cTAssignment_0_1.eContents().get(0);
+		private final RuleCall cTDSLManagingIDTerminalRuleCall_0_1_0_1 = (RuleCall)cTDSLManagingCrossReference_0_1_0.eContents().get(1);
+		private final Keyword cMustNotAccessManagedKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cManagedAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final CrossReference cManagedDSLManagedCrossReference_0_3_0 = (CrossReference)cManagedAssignment_0_3.eContents().get(0);
+		private final RuleCall cManagedDSLManagedIDTerminalRuleCall_0_3_0_1 = (RuleCall)cManagedDSLManagedCrossReference_0_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cManagingKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cTAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cTDSLManagingCrossReference_1_1_0 = (CrossReference)cTAssignment_1_1.eContents().get(0);
+		private final RuleCall cTDSLManagingIDTerminalRuleCall_1_1_0_1 = (RuleCall)cTDSLManagingCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cMustAccessManagedKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cManagedAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final CrossReference cManagedDSLManagedCrossReference_1_3_0 = (CrossReference)cManagedAssignment_1_3.eContents().get(0);
+		private final RuleCall cManagedDSLManagedIDTerminalRuleCall_1_3_0_1 = (RuleCall)cManagedDSLManagedCrossReference_1_3_0.eContents().get(1);
+		private final Keyword cThroughInterfaceKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cManagedinterfaceAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final CrossReference cManagedinterfaceManagedInterfaceCrossReference_1_5_0 = (CrossReference)cManagedinterfaceAssignment_1_5.eContents().get(0);
+		private final RuleCall cManagedinterfaceManagedInterfaceIDTerminalRuleCall_1_5_0_1 = (RuleCall)cManagedinterfaceManagedInterfaceCrossReference_1_5_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
 		
-		//'managing' t=[DSLManaging] 'must-not-access-managed' type=[DSLManaged] ';'
-		public Group getGroup_16() { return cGroup_16; }
+		//DSLRestrictionManaged:
+		//	'managing' t=[DSLManaging] 'must-not-access-managed' managed=[DSLManaged] ';' | 'managing' t=[DSLManaging]
+		//	'must-access-managed' managed=[DSLManaged] 'through-interface' managedinterface=[ManagedInterface] ';';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'managing' t=[DSLManaging] 'must-not-access-managed' managed=[DSLManaged] ';' | 'managing' t=[DSLManaging]
+		//'must-access-managed' managed=[DSLManaged] 'through-interface' managedinterface=[ManagedInterface] ';'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'managing' t=[DSLManaging] 'must-not-access-managed' managed=[DSLManaged] ';'
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//'managing'
-		public Keyword getManagingKeyword_16_0() { return cManagingKeyword_16_0; }
+		public Keyword getManagingKeyword_0_0() { return cManagingKeyword_0_0; }
 		
 		//t=[DSLManaging]
-		public Assignment getTAssignment_16_1() { return cTAssignment_16_1; }
+		public Assignment getTAssignment_0_1() { return cTAssignment_0_1; }
 		
 		//[DSLManaging]
-		public CrossReference getTDSLManagingCrossReference_16_1_0() { return cTDSLManagingCrossReference_16_1_0; }
+		public CrossReference getTDSLManagingCrossReference_0_1_0() { return cTDSLManagingCrossReference_0_1_0; }
 		
 		//ID
-		public RuleCall getTDSLManagingIDTerminalRuleCall_16_1_0_1() { return cTDSLManagingIDTerminalRuleCall_16_1_0_1; }
+		public RuleCall getTDSLManagingIDTerminalRuleCall_0_1_0_1() { return cTDSLManagingIDTerminalRuleCall_0_1_0_1; }
 		
 		//'must-not-access-managed'
-		public Keyword getMustNotAccessManagedKeyword_16_2() { return cMustNotAccessManagedKeyword_16_2; }
+		public Keyword getMustNotAccessManagedKeyword_0_2() { return cMustNotAccessManagedKeyword_0_2; }
 		
-		//type=[DSLManaged]
-		public Assignment getTypeAssignment_16_3() { return cTypeAssignment_16_3; }
+		//managed=[DSLManaged]
+		public Assignment getManagedAssignment_0_3() { return cManagedAssignment_0_3; }
 		
 		//[DSLManaged]
-		public CrossReference getTypeDSLManagedCrossReference_16_3_0() { return cTypeDSLManagedCrossReference_16_3_0; }
+		public CrossReference getManagedDSLManagedCrossReference_0_3_0() { return cManagedDSLManagedCrossReference_0_3_0; }
 		
 		//ID
-		public RuleCall getTypeDSLManagedIDTerminalRuleCall_16_3_0_1() { return cTypeDSLManagedIDTerminalRuleCall_16_3_0_1; }
+		public RuleCall getManagedDSLManagedIDTerminalRuleCall_0_3_0_1() { return cManagedDSLManagedIDTerminalRuleCall_0_3_0_1; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_16_4() { return cSemicolonKeyword_16_4; }
+		public Keyword getSemicolonKeyword_0_4() { return cSemicolonKeyword_0_4; }
 		
-		//'managing' t=[DSLManaging] 'must-access-managed' type=[DSLManaged] 'through-interface' interface=[ManagedInterface] ';'
-		public Group getGroup_17() { return cGroup_17; }
+		//'managing' t=[DSLManaging] 'must-access-managed' managed=[DSLManaged] 'through-interface'
+		//managedinterface=[ManagedInterface] ';'
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//'managing'
-		public Keyword getManagingKeyword_17_0() { return cManagingKeyword_17_0; }
+		public Keyword getManagingKeyword_1_0() { return cManagingKeyword_1_0; }
 		
 		//t=[DSLManaging]
-		public Assignment getTAssignment_17_1() { return cTAssignment_17_1; }
+		public Assignment getTAssignment_1_1() { return cTAssignment_1_1; }
 		
 		//[DSLManaging]
-		public CrossReference getTDSLManagingCrossReference_17_1_0() { return cTDSLManagingCrossReference_17_1_0; }
+		public CrossReference getTDSLManagingCrossReference_1_1_0() { return cTDSLManagingCrossReference_1_1_0; }
 		
 		//ID
-		public RuleCall getTDSLManagingIDTerminalRuleCall_17_1_0_1() { return cTDSLManagingIDTerminalRuleCall_17_1_0_1; }
+		public RuleCall getTDSLManagingIDTerminalRuleCall_1_1_0_1() { return cTDSLManagingIDTerminalRuleCall_1_1_0_1; }
 		
 		//'must-access-managed'
-		public Keyword getMustAccessManagedKeyword_17_2() { return cMustAccessManagedKeyword_17_2; }
+		public Keyword getMustAccessManagedKeyword_1_2() { return cMustAccessManagedKeyword_1_2; }
 		
-		//type=[DSLManaged]
-		public Assignment getTypeAssignment_17_3() { return cTypeAssignment_17_3; }
+		//managed=[DSLManaged]
+		public Assignment getManagedAssignment_1_3() { return cManagedAssignment_1_3; }
 		
 		//[DSLManaged]
-		public CrossReference getTypeDSLManagedCrossReference_17_3_0() { return cTypeDSLManagedCrossReference_17_3_0; }
+		public CrossReference getManagedDSLManagedCrossReference_1_3_0() { return cManagedDSLManagedCrossReference_1_3_0; }
 		
 		//ID
-		public RuleCall getTypeDSLManagedIDTerminalRuleCall_17_3_0_1() { return cTypeDSLManagedIDTerminalRuleCall_17_3_0_1; }
+		public RuleCall getManagedDSLManagedIDTerminalRuleCall_1_3_0_1() { return cManagedDSLManagedIDTerminalRuleCall_1_3_0_1; }
 		
 		//'through-interface'
-		public Keyword getThroughInterfaceKeyword_17_4() { return cThroughInterfaceKeyword_17_4; }
+		public Keyword getThroughInterfaceKeyword_1_4() { return cThroughInterfaceKeyword_1_4; }
 		
-		//interface=[ManagedInterface]
-		public Assignment getInterfaceAssignment_17_5() { return cInterfaceAssignment_17_5; }
+		//managedinterface=[ManagedInterface]
+		public Assignment getManagedinterfaceAssignment_1_5() { return cManagedinterfaceAssignment_1_5; }
 		
 		//[ManagedInterface]
-		public CrossReference getInterfaceManagedInterfaceCrossReference_17_5_0() { return cInterfaceManagedInterfaceCrossReference_17_5_0; }
+		public CrossReference getManagedinterfaceManagedInterfaceCrossReference_1_5_0() { return cManagedinterfaceManagedInterfaceCrossReference_1_5_0; }
 		
 		//ID
-		public RuleCall getInterfaceManagedInterfaceIDTerminalRuleCall_17_5_0_1() { return cInterfaceManagedInterfaceIDTerminalRuleCall_17_5_0_1; }
+		public RuleCall getManagedinterfaceManagedInterfaceIDTerminalRuleCall_1_5_0_1() { return cManagedinterfaceManagedInterfaceIDTerminalRuleCall_1_5_0_1; }
 		
 		//';'
-		public Keyword getSemicolonKeyword_17_6() { return cSemicolonKeyword_17_6; }
+		public Keyword getSemicolonKeyword_1_6() { return cSemicolonKeyword_1_6; }
 	}
 	public class DSLSensorBelongsToElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLSensorBelongsTo");
@@ -1999,19 +1999,20 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceManagedInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
+		private final Assignment cManagedinterfacesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cManagedinterfacesManagedInterfaceParserRuleCall_2_1_0 = (RuleCall)cManagedinterfacesAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceManagedInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
+		private final Assignment cManagedinterfacesAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cManagedinterfacesManagedInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cManagedinterfacesAssignment_2_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DSLManaged:
-		//	'Managed' name=ID ('with-interface' interface+=ManagedInterface (',' interface+=ManagedInterface)*)? ';';
+		//	'Managed' name=ID ('with-interface' managedinterfaces+=ManagedInterface (',' managedinterfaces+=ManagedInterface)*)?
+		//	';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Managed' name=ID ('with-interface' interface+=ManagedInterface (',' interface+=ManagedInterface)*)? ';'
+		//'Managed' name=ID ('with-interface' managedinterfaces+=ManagedInterface (',' managedinterfaces+=ManagedInterface)*)? ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Managed'
@@ -2023,29 +2024,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=ManagedInterface (',' interface+=ManagedInterface)*)?
+		//('with-interface' managedinterfaces+=ManagedInterface (',' managedinterfaces+=ManagedInterface)*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'with-interface'
 		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
 		
-		//interface+=ManagedInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
+		//managedinterfaces+=ManagedInterface
+		public Assignment getManagedinterfacesAssignment_2_1() { return cManagedinterfacesAssignment_2_1; }
 		
 		//ManagedInterface
-		public RuleCall getInterfaceManagedInterfaceParserRuleCall_2_1_0() { return cInterfaceManagedInterfaceParserRuleCall_2_1_0; }
+		public RuleCall getManagedinterfacesManagedInterfaceParserRuleCall_2_1_0() { return cManagedinterfacesManagedInterfaceParserRuleCall_2_1_0; }
 		
-		//(',' interface+=ManagedInterface)*
+		//(',' managedinterfaces+=ManagedInterface)*
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 		
-		//interface+=ManagedInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
+		//managedinterfaces+=ManagedInterface
+		public Assignment getManagedinterfacesAssignment_2_2_1() { return cManagedinterfacesAssignment_2_2_1; }
 		
 		//ManagedInterface
-		public RuleCall getInterfaceManagedInterfaceParserRuleCall_2_2_1_0() { return cInterfaceManagedInterfaceParserRuleCall_2_2_1_0; }
+		public RuleCall getManagedinterfacesManagedInterfaceParserRuleCall_2_2_1_0() { return cManagedinterfacesManagedInterfaceParserRuleCall_2_2_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -2060,21 +2061,21 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDSLTypeCLMParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cWithInterfaceKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cInterfaceAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cInterfaceControlLoopManagerInterfaceParserRuleCall_4_1_0 = (RuleCall)cInterfaceAssignment_4_1.eContents().get(0);
+		private final Assignment cClminterfacesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cClminterfacesControlLoopManagerInterfaceParserRuleCall_4_1_0 = (RuleCall)cClminterfacesAssignment_4_1.eContents().get(0);
 		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
 		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
-		private final RuleCall cInterfaceControlLoopManagerInterfaceParserRuleCall_4_2_1_0 = (RuleCall)cInterfaceAssignment_4_2_1.eContents().get(0);
+		private final Assignment cClminterfacesAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final RuleCall cClminterfacesControlLoopManagerInterfaceParserRuleCall_4_2_1_0 = (RuleCall)cClminterfacesAssignment_4_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//DSLControlLoopManager:
-		//	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('with-interface' interface+=ControlLoopManagerInterface (','
-		//	interface+=ControlLoopManagerInterface)*)? ';';
+		//	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('with-interface' clminterfaces+=ControlLoopManagerInterface (','
+		//	clminterfaces+=ControlLoopManagerInterface)*)? ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('with-interface' interface+=ControlLoopManagerInterface (','
-		//interface+=ControlLoopManagerInterface)*)? ';'
+		//'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('with-interface' clminterfaces+=ControlLoopManagerInterface (','
+		//clminterfaces+=ControlLoopManagerInterface)*)? ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'ControlLoopManager'
@@ -2092,29 +2093,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//DSLTypeCLM
 		public RuleCall getDSLTypeCLMParserRuleCall_3() { return cDSLTypeCLMParserRuleCall_3; }
 		
-		//('with-interface' interface+=ControlLoopManagerInterface (',' interface+=ControlLoopManagerInterface)*)?
+		//('with-interface' clminterfaces+=ControlLoopManagerInterface (',' clminterfaces+=ControlLoopManagerInterface)*)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'with-interface'
 		public Keyword getWithInterfaceKeyword_4_0() { return cWithInterfaceKeyword_4_0; }
 		
-		//interface+=ControlLoopManagerInterface
-		public Assignment getInterfaceAssignment_4_1() { return cInterfaceAssignment_4_1; }
+		//clminterfaces+=ControlLoopManagerInterface
+		public Assignment getClminterfacesAssignment_4_1() { return cClminterfacesAssignment_4_1; }
 		
 		//ControlLoopManagerInterface
-		public RuleCall getInterfaceControlLoopManagerInterfaceParserRuleCall_4_1_0() { return cInterfaceControlLoopManagerInterfaceParserRuleCall_4_1_0; }
+		public RuleCall getClminterfacesControlLoopManagerInterfaceParserRuleCall_4_1_0() { return cClminterfacesControlLoopManagerInterfaceParserRuleCall_4_1_0; }
 		
-		//(',' interface+=ControlLoopManagerInterface)*
+		//(',' clminterfaces+=ControlLoopManagerInterface)*
 		public Group getGroup_4_2() { return cGroup_4_2; }
 		
 		//','
 		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
 		
-		//interface+=ControlLoopManagerInterface
-		public Assignment getInterfaceAssignment_4_2_1() { return cInterfaceAssignment_4_2_1; }
+		//clminterfaces+=ControlLoopManagerInterface
+		public Assignment getClminterfacesAssignment_4_2_1() { return cClminterfacesAssignment_4_2_1; }
 		
 		//ControlLoopManagerInterface
-		public RuleCall getInterfaceControlLoopManagerInterfaceParserRuleCall_4_2_1_0() { return cInterfaceControlLoopManagerInterfaceParserRuleCall_4_2_1_0; }
+		public RuleCall getClminterfacesControlLoopManagerInterfaceParserRuleCall_4_2_1_0() { return cClminterfacesControlLoopManagerInterfaceParserRuleCall_4_2_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
@@ -2150,19 +2151,21 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceControlLoopInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
+		private final Assignment cClinterfacesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cClinterfacesControlLoopInterfaceParserRuleCall_2_1_0 = (RuleCall)cClinterfacesAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceControlLoopInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
+		private final Assignment cClinterfacesAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cClinterfacesControlLoopInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cClinterfacesAssignment_2_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DSLControlLoop:
-		//	'ControlLoop' name=ID ('with-interface' interface+=ControlLoopInterface (',' interface+=ControlLoopInterface)*)? ';';
+		//	'ControlLoop' name=ID ('with-interface' clinterfaces+=ControlLoopInterface (',' clinterfaces+=ControlLoopInterface)*)?
+		//	';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ControlLoop' name=ID ('with-interface' interface+=ControlLoopInterface (',' interface+=ControlLoopInterface)*)? ';'
+		//'ControlLoop' name=ID ('with-interface' clinterfaces+=ControlLoopInterface (',' clinterfaces+=ControlLoopInterface)*)?
+		//';'
 		public Group getGroup() { return cGroup; }
 		
 		//'ControlLoop'
@@ -2174,29 +2177,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=ControlLoopInterface (',' interface+=ControlLoopInterface)*)?
+		//('with-interface' clinterfaces+=ControlLoopInterface (',' clinterfaces+=ControlLoopInterface)*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'with-interface'
 		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
 		
-		//interface+=ControlLoopInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
+		//clinterfaces+=ControlLoopInterface
+		public Assignment getClinterfacesAssignment_2_1() { return cClinterfacesAssignment_2_1; }
 		
 		//ControlLoopInterface
-		public RuleCall getInterfaceControlLoopInterfaceParserRuleCall_2_1_0() { return cInterfaceControlLoopInterfaceParserRuleCall_2_1_0; }
+		public RuleCall getClinterfacesControlLoopInterfaceParserRuleCall_2_1_0() { return cClinterfacesControlLoopInterfaceParserRuleCall_2_1_0; }
 		
-		//(',' interface+=ControlLoopInterface)*
+		//(',' clinterfaces+=ControlLoopInterface)*
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 		
-		//interface+=ControlLoopInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
+		//clinterfaces+=ControlLoopInterface
+		public Assignment getClinterfacesAssignment_2_2_1() { return cClinterfacesAssignment_2_2_1; }
 		
 		//ControlLoopInterface
-		public RuleCall getInterfaceControlLoopInterfaceParserRuleCall_2_2_1_0() { return cInterfaceControlLoopInterfaceParserRuleCall_2_2_1_0; }
+		public RuleCall getClinterfacesControlLoopInterfaceParserRuleCall_2_2_1_0() { return cClinterfacesControlLoopInterfaceParserRuleCall_2_2_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -2209,19 +2212,20 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceMonitorInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
+		private final Assignment cMonitorinterfacesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cMonitorinterfacesMonitorInterfaceParserRuleCall_2_1_0 = (RuleCall)cMonitorinterfacesAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceMonitorInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
+		private final Assignment cMonitorinterfacesAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cMonitorinterfacesMonitorInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cMonitorinterfacesAssignment_2_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DSLMonitor:
-		//	'Monitor' name=ID ('with-interface' interface+=MonitorInterface (',' interface+=MonitorInterface)*)? ';';
+		//	'Monitor' name=ID ('with-interface' monitorinterfaces+=MonitorInterface (',' monitorinterfaces+=MonitorInterface)*)?
+		//	';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Monitor' name=ID ('with-interface' interface+=MonitorInterface (',' interface+=MonitorInterface)*)? ';'
+		//'Monitor' name=ID ('with-interface' monitorinterfaces+=MonitorInterface (',' monitorinterfaces+=MonitorInterface)*)? ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Monitor'
@@ -2233,29 +2237,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=MonitorInterface (',' interface+=MonitorInterface)*)?
+		//('with-interface' monitorinterfaces+=MonitorInterface (',' monitorinterfaces+=MonitorInterface)*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'with-interface'
 		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
 		
-		//interface+=MonitorInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
+		//monitorinterfaces+=MonitorInterface
+		public Assignment getMonitorinterfacesAssignment_2_1() { return cMonitorinterfacesAssignment_2_1; }
 		
 		//MonitorInterface
-		public RuleCall getInterfaceMonitorInterfaceParserRuleCall_2_1_0() { return cInterfaceMonitorInterfaceParserRuleCall_2_1_0; }
+		public RuleCall getMonitorinterfacesMonitorInterfaceParserRuleCall_2_1_0() { return cMonitorinterfacesMonitorInterfaceParserRuleCall_2_1_0; }
 		
-		//(',' interface+=MonitorInterface)*
+		//(',' monitorinterfaces+=MonitorInterface)*
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 		
-		//interface+=MonitorInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
+		//monitorinterfaces+=MonitorInterface
+		public Assignment getMonitorinterfacesAssignment_2_2_1() { return cMonitorinterfacesAssignment_2_2_1; }
 		
 		//MonitorInterface
-		public RuleCall getInterfaceMonitorInterfaceParserRuleCall_2_2_1_0() { return cInterfaceMonitorInterfaceParserRuleCall_2_2_1_0; }
+		public RuleCall getMonitorinterfacesMonitorInterfaceParserRuleCall_2_2_1_0() { return cMonitorinterfacesMonitorInterfaceParserRuleCall_2_2_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -2266,21 +2270,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAnalyzerKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceAnalyzerInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceAnalyzerInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLAnalyzer:
-		//	'Analyzer' name=ID ('with-interface' interface+=AnalyzerInterface (',' interface+=AnalyzerInterface)*)? ';';
+		//	'Analyzer' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Analyzer' name=ID ('with-interface' interface+=AnalyzerInterface (',' interface+=AnalyzerInterface)*)? ';'
+		//'Analyzer' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Analyzer'
@@ -2292,32 +2288,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=AnalyzerInterface (',' interface+=AnalyzerInterface)*)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'with-interface'
-		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
-		
-		//interface+=AnalyzerInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
-		
-		//AnalyzerInterface
-		public RuleCall getInterfaceAnalyzerInterfaceParserRuleCall_2_1_0() { return cInterfaceAnalyzerInterfaceParserRuleCall_2_1_0; }
-		
-		//(',' interface+=AnalyzerInterface)*
-		public Group getGroup_2_2() { return cGroup_2_2; }
-		
-		//','
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
-		
-		//interface+=AnalyzerInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
-		
-		//AnalyzerInterface
-		public RuleCall getInterfaceAnalyzerInterfaceParserRuleCall_2_2_1_0() { return cInterfaceAnalyzerInterfaceParserRuleCall_2_2_1_0; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLPlannerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLPlanner");
@@ -2327,19 +2299,20 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfacePlannerInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
+		private final Assignment cPlannerinterfacesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cPlannerinterfacesPlannerInterfaceParserRuleCall_2_1_0 = (RuleCall)cPlannerinterfacesAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfacePlannerInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
+		private final Assignment cPlannerinterfacesAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cPlannerinterfacesPlannerInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cPlannerinterfacesAssignment_2_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DSLPlanner:
-		//	'Planner' name=ID ('with-interface' interface+=PlannerInterface (',' interface+=PlannerInterface)*)? ';';
+		//	'Planner' name=ID ('with-interface' plannerinterfaces+=PlannerInterface (',' plannerinterfaces+=PlannerInterface)*)?
+		//	';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Planner' name=ID ('with-interface' interface+=PlannerInterface (',' interface+=PlannerInterface)*)? ';'
+		//'Planner' name=ID ('with-interface' plannerinterfaces+=PlannerInterface (',' plannerinterfaces+=PlannerInterface)*)? ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Planner'
@@ -2351,29 +2324,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=PlannerInterface (',' interface+=PlannerInterface)*)?
+		//('with-interface' plannerinterfaces+=PlannerInterface (',' plannerinterfaces+=PlannerInterface)*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'with-interface'
 		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
 		
-		//interface+=PlannerInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
+		//plannerinterfaces+=PlannerInterface
+		public Assignment getPlannerinterfacesAssignment_2_1() { return cPlannerinterfacesAssignment_2_1; }
 		
 		//PlannerInterface
-		public RuleCall getInterfacePlannerInterfaceParserRuleCall_2_1_0() { return cInterfacePlannerInterfaceParserRuleCall_2_1_0; }
+		public RuleCall getPlannerinterfacesPlannerInterfaceParserRuleCall_2_1_0() { return cPlannerinterfacesPlannerInterfaceParserRuleCall_2_1_0; }
 		
-		//(',' interface+=PlannerInterface)*
+		//(',' plannerinterfaces+=PlannerInterface)*
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 		
-		//interface+=PlannerInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
+		//plannerinterfaces+=PlannerInterface
+		public Assignment getPlannerinterfacesAssignment_2_2_1() { return cPlannerinterfacesAssignment_2_2_1; }
 		
 		//PlannerInterface
-		public RuleCall getInterfacePlannerInterfaceParserRuleCall_2_2_1_0() { return cInterfacePlannerInterfaceParserRuleCall_2_2_1_0; }
+		public RuleCall getPlannerinterfacesPlannerInterfaceParserRuleCall_2_2_1_0() { return cPlannerinterfacesPlannerInterfaceParserRuleCall_2_2_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -2386,19 +2359,21 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceExecutorInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
+		private final Assignment cExecutorinterfacesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cExecutorinterfacesExecutorInterfaceParserRuleCall_2_1_0 = (RuleCall)cExecutorinterfacesAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceExecutorInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
+		private final Assignment cExecutorinterfacesAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cExecutorinterfacesExecutorInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cExecutorinterfacesAssignment_2_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DSLExecutor:
-		//	'Executor' name=ID ('with-interface' interface+=ExecutorInterface (',' interface+=ExecutorInterface)*)? ';';
+		//	'Executor' name=ID ('with-interface' executorinterfaces+=ExecutorInterface (','
+		//	executorinterfaces+=ExecutorInterface)*)? ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Executor' name=ID ('with-interface' interface+=ExecutorInterface (',' interface+=ExecutorInterface)*)? ';'
+		//'Executor' name=ID ('with-interface' executorinterfaces+=ExecutorInterface (','
+		//executorinterfaces+=ExecutorInterface)*)? ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Executor'
@@ -2410,29 +2385,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=ExecutorInterface (',' interface+=ExecutorInterface)*)?
+		//('with-interface' executorinterfaces+=ExecutorInterface (',' executorinterfaces+=ExecutorInterface)*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'with-interface'
 		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
 		
-		//interface+=ExecutorInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
+		//executorinterfaces+=ExecutorInterface
+		public Assignment getExecutorinterfacesAssignment_2_1() { return cExecutorinterfacesAssignment_2_1; }
 		
 		//ExecutorInterface
-		public RuleCall getInterfaceExecutorInterfaceParserRuleCall_2_1_0() { return cInterfaceExecutorInterfaceParserRuleCall_2_1_0; }
+		public RuleCall getExecutorinterfacesExecutorInterfaceParserRuleCall_2_1_0() { return cExecutorinterfacesExecutorInterfaceParserRuleCall_2_1_0; }
 		
-		//(',' interface+=ExecutorInterface)*
+		//(',' executorinterfaces+=ExecutorInterface)*
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 		
-		//interface+=ExecutorInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
+		//executorinterfaces+=ExecutorInterface
+		public Assignment getExecutorinterfacesAssignment_2_2_1() { return cExecutorinterfacesAssignment_2_2_1; }
 		
 		//ExecutorInterface
-		public RuleCall getInterfaceExecutorInterfaceParserRuleCall_2_2_1_0() { return cInterfaceExecutorInterfaceParserRuleCall_2_2_1_0; }
+		public RuleCall getExecutorinterfacesExecutorInterfaceParserRuleCall_2_2_1_0() { return cExecutorinterfacesExecutorInterfaceParserRuleCall_2_2_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -2445,19 +2420,21 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceKnowledgeInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
+		private final Assignment cKnowledgeinterfacesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cKnowledgeinterfacesKnowledgeInterfaceParserRuleCall_2_1_0 = (RuleCall)cKnowledgeinterfacesAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceKnowledgeInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
+		private final Assignment cKnowledgeinterfacesAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cKnowledgeinterfacesKnowledgeInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cKnowledgeinterfacesAssignment_2_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DSLKnowledge:
-		//	'Knowledge' name=ID ('with-interface' interface+=KnowledgeInterface (',' interface+=KnowledgeInterface)*)? ';';
+		//	'Knowledge' name=ID ('with-interface' knowledgeinterfaces+=KnowledgeInterface (','
+		//	knowledgeinterfaces+=KnowledgeInterface)*)? ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Knowledge' name=ID ('with-interface' interface+=KnowledgeInterface (',' interface+=KnowledgeInterface)*)? ';'
+		//'Knowledge' name=ID ('with-interface' knowledgeinterfaces+=KnowledgeInterface (','
+		//knowledgeinterfaces+=KnowledgeInterface)*)? ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Knowledge'
@@ -2469,29 +2446,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=KnowledgeInterface (',' interface+=KnowledgeInterface)*)?
+		//('with-interface' knowledgeinterfaces+=KnowledgeInterface (',' knowledgeinterfaces+=KnowledgeInterface)*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'with-interface'
 		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
 		
-		//interface+=KnowledgeInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
+		//knowledgeinterfaces+=KnowledgeInterface
+		public Assignment getKnowledgeinterfacesAssignment_2_1() { return cKnowledgeinterfacesAssignment_2_1; }
 		
 		//KnowledgeInterface
-		public RuleCall getInterfaceKnowledgeInterfaceParserRuleCall_2_1_0() { return cInterfaceKnowledgeInterfaceParserRuleCall_2_1_0; }
+		public RuleCall getKnowledgeinterfacesKnowledgeInterfaceParserRuleCall_2_1_0() { return cKnowledgeinterfacesKnowledgeInterfaceParserRuleCall_2_1_0; }
 		
-		//(',' interface+=KnowledgeInterface)*
+		//(',' knowledgeinterfaces+=KnowledgeInterface)*
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 		
-		//interface+=KnowledgeInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
+		//knowledgeinterfaces+=KnowledgeInterface
+		public Assignment getKnowledgeinterfacesAssignment_2_2_1() { return cKnowledgeinterfacesAssignment_2_2_1; }
 		
 		//KnowledgeInterface
-		public RuleCall getInterfaceKnowledgeInterfaceParserRuleCall_2_2_1_0() { return cInterfaceKnowledgeInterfaceParserRuleCall_2_2_1_0; }
+		public RuleCall getKnowledgeinterfacesKnowledgeInterfaceParserRuleCall_2_2_1_0() { return cKnowledgeinterfacesKnowledgeInterfaceParserRuleCall_2_2_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -2502,21 +2479,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSensorKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceSensorInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceSensorInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLSensor:
-		//	'Sensor' name=ID ('with-interface' interface+=SensorInterface (',' interface+=SensorInterface)*)? ';';
+		//	'Sensor' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Sensor' name=ID ('with-interface' interface+=SensorInterface (',' interface+=SensorInterface)*)? ';'
+		//'Sensor' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Sensor'
@@ -2528,32 +2497,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=SensorInterface (',' interface+=SensorInterface)*)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'with-interface'
-		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
-		
-		//interface+=SensorInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
-		
-		//SensorInterface
-		public RuleCall getInterfaceSensorInterfaceParserRuleCall_2_1_0() { return cInterfaceSensorInterfaceParserRuleCall_2_1_0; }
-		
-		//(',' interface+=SensorInterface)*
-		public Group getGroup_2_2() { return cGroup_2_2; }
-		
-		//','
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
-		
-		//interface+=SensorInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
-		
-		//SensorInterface
-		public RuleCall getInterfaceSensorInterfaceParserRuleCall_2_2_1_0() { return cInterfaceSensorInterfaceParserRuleCall_2_2_1_0; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLEffectorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLEffector");
@@ -2563,19 +2508,21 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceEffectorInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
+		private final Assignment cEffectorinterfacesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cEffectorinterfacesEffectorInterfaceParserRuleCall_2_1_0 = (RuleCall)cEffectorinterfacesAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceEffectorInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
+		private final Assignment cEffectorinterfacesAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cEffectorinterfacesEffectorInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cEffectorinterfacesAssignment_2_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DSLEffector:
-		//	'Effector' name=ID ('with-interface' interface+=EffectorInterface (',' interface+=EffectorInterface)*)? ';';
+		//	'Effector' name=ID ('with-interface' effectorinterfaces+=EffectorInterface (','
+		//	effectorinterfaces+=EffectorInterface)*)? ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Effector' name=ID ('with-interface' interface+=EffectorInterface (',' interface+=EffectorInterface)*)? ';'
+		//'Effector' name=ID ('with-interface' effectorinterfaces+=EffectorInterface (','
+		//effectorinterfaces+=EffectorInterface)*)? ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Effector'
@@ -2587,29 +2534,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=EffectorInterface (',' interface+=EffectorInterface)*)?
+		//('with-interface' effectorinterfaces+=EffectorInterface (',' effectorinterfaces+=EffectorInterface)*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'with-interface'
 		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
 		
-		//interface+=EffectorInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
+		//effectorinterfaces+=EffectorInterface
+		public Assignment getEffectorinterfacesAssignment_2_1() { return cEffectorinterfacesAssignment_2_1; }
 		
 		//EffectorInterface
-		public RuleCall getInterfaceEffectorInterfaceParserRuleCall_2_1_0() { return cInterfaceEffectorInterfaceParserRuleCall_2_1_0; }
+		public RuleCall getEffectorinterfacesEffectorInterfaceParserRuleCall_2_1_0() { return cEffectorinterfacesEffectorInterfaceParserRuleCall_2_1_0; }
 		
-		//(',' interface+=EffectorInterface)*
+		//(',' effectorinterfaces+=EffectorInterface)*
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 		
-		//interface+=EffectorInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
+		//effectorinterfaces+=EffectorInterface
+		public Assignment getEffectorinterfacesAssignment_2_2_1() { return cEffectorinterfacesAssignment_2_2_1; }
 		
 		//EffectorInterface
-		public RuleCall getInterfaceEffectorInterfaceParserRuleCall_2_2_1_0() { return cInterfaceEffectorInterfaceParserRuleCall_2_2_1_0; }
+		public RuleCall getEffectorinterfacesEffectorInterfaceParserRuleCall_2_2_1_0() { return cEffectorinterfacesEffectorInterfaceParserRuleCall_2_2_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -2681,19 +2628,19 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceGaugeInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
+		private final Assignment cGaugeinterfacesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cGaugeinterfacesGaugeInterfaceParserRuleCall_2_1_0 = (RuleCall)cGaugeinterfacesAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceGaugeInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
+		private final Assignment cGaugeinterfacesAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cGaugeinterfacesGaugeInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cGaugeinterfacesAssignment_2_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DSLGauge:
-		//	'Gauge' name=ID ('with-interface' interface+=GaugeInterface (',' interface+=GaugeInterface)*)? ';';
+		//	'Gauge' name=ID ('with-interface' gaugeinterfaces+=GaugeInterface (',' gaugeinterfaces+=GaugeInterface)*)? ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Gauge' name=ID ('with-interface' interface+=GaugeInterface (',' interface+=GaugeInterface)*)? ';'
+		//'Gauge' name=ID ('with-interface' gaugeinterfaces+=GaugeInterface (',' gaugeinterfaces+=GaugeInterface)*)? ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'Gauge'
@@ -2705,29 +2652,29 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=GaugeInterface (',' interface+=GaugeInterface)*)?
+		//('with-interface' gaugeinterfaces+=GaugeInterface (',' gaugeinterfaces+=GaugeInterface)*)?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'with-interface'
 		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
 		
-		//interface+=GaugeInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
+		//gaugeinterfaces+=GaugeInterface
+		public Assignment getGaugeinterfacesAssignment_2_1() { return cGaugeinterfacesAssignment_2_1; }
 		
 		//GaugeInterface
-		public RuleCall getInterfaceGaugeInterfaceParserRuleCall_2_1_0() { return cInterfaceGaugeInterfaceParserRuleCall_2_1_0; }
+		public RuleCall getGaugeinterfacesGaugeInterfaceParserRuleCall_2_1_0() { return cGaugeinterfacesGaugeInterfaceParserRuleCall_2_1_0; }
 		
-		//(',' interface+=GaugeInterface)*
+		//(',' gaugeinterfaces+=GaugeInterface)*
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//','
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 		
-		//interface+=GaugeInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
+		//gaugeinterfaces+=GaugeInterface
+		public Assignment getGaugeinterfacesAssignment_2_2_1() { return cGaugeinterfacesAssignment_2_2_1; }
 		
 		//GaugeInterface
-		public RuleCall getInterfaceGaugeInterfaceParserRuleCall_2_2_1_0() { return cInterfaceGaugeInterfaceParserRuleCall_2_2_1_0; }
+		public RuleCall getGaugeinterfacesGaugeInterfaceParserRuleCall_2_2_1_0() { return cGaugeinterfacesGaugeInterfaceParserRuleCall_2_2_1_0; }
 		
 		//';'
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
@@ -2738,23 +2685,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReferenceInputKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceReferenceInputInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceReferenceInputInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLReferenceInput:
-		//	'ReferenceInput' name=ID ('with-interface' interface+=ReferenceInputInterface (','
-		//	interface+=ReferenceInputInterface)*)? ';';
+		//	'ReferenceInput' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ReferenceInput' name=ID ('with-interface' interface+=ReferenceInputInterface (','
-		//interface+=ReferenceInputInterface)*)? ';'
+		//'ReferenceInput' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'ReferenceInput'
@@ -2766,32 +2703,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=ReferenceInputInterface (',' interface+=ReferenceInputInterface)*)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'with-interface'
-		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
-		
-		//interface+=ReferenceInputInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
-		
-		//ReferenceInputInterface
-		public RuleCall getInterfaceReferenceInputInterfaceParserRuleCall_2_1_0() { return cInterfaceReferenceInputInterfaceParserRuleCall_2_1_0; }
-		
-		//(',' interface+=ReferenceInputInterface)*
-		public Group getGroup_2_2() { return cGroup_2_2; }
-		
-		//','
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
-		
-		//interface+=ReferenceInputInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
-		
-		//ReferenceInputInterface
-		public RuleCall getInterfaceReferenceInputInterfaceParserRuleCall_2_2_1_0() { return cInterfaceReferenceInputInterfaceParserRuleCall_2_2_1_0; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class DSLMeasuredOutputElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.DSLMeasuredOutput");
@@ -2799,23 +2712,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMeasuredOutputKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cWithInterfaceKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cInterfaceMeasuredOutputInterfaceParserRuleCall_2_1_0 = (RuleCall)cInterfaceAssignment_2_1.eContents().get(0);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cInterfaceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cInterfaceMeasuredOutputInterfaceParserRuleCall_2_2_1_0 = (RuleCall)cInterfaceAssignment_2_2_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//DSLMeasuredOutput:
-		//	'MeasuredOutput' name=ID ('with-interface' interface+=MeasuredOutputInterface (','
-		//	interface+=MeasuredOutputInterface)*)? ';';
+		//	'MeasuredOutput' name=ID ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'MeasuredOutput' name=ID ('with-interface' interface+=MeasuredOutputInterface (','
-		//interface+=MeasuredOutputInterface)*)? ';'
+		//'MeasuredOutput' name=ID ';'
 		public Group getGroup() { return cGroup; }
 		
 		//'MeasuredOutput'
@@ -2827,32 +2730,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//('with-interface' interface+=MeasuredOutputInterface (',' interface+=MeasuredOutputInterface)*)?
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'with-interface'
-		public Keyword getWithInterfaceKeyword_2_0() { return cWithInterfaceKeyword_2_0; }
-		
-		//interface+=MeasuredOutputInterface
-		public Assignment getInterfaceAssignment_2_1() { return cInterfaceAssignment_2_1; }
-		
-		//MeasuredOutputInterface
-		public RuleCall getInterfaceMeasuredOutputInterfaceParserRuleCall_2_1_0() { return cInterfaceMeasuredOutputInterfaceParserRuleCall_2_1_0; }
-		
-		//(',' interface+=MeasuredOutputInterface)*
-		public Group getGroup_2_2() { return cGroup_2_2; }
-		
-		//','
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
-		
-		//interface+=MeasuredOutputInterface
-		public Assignment getInterfaceAssignment_2_2_1() { return cInterfaceAssignment_2_2_1; }
-		
-		//MeasuredOutputInterface
-		public RuleCall getInterfaceMeasuredOutputInterfaceParserRuleCall_2_2_1_0() { return cInterfaceMeasuredOutputInterfaceParserRuleCall_2_2_1_0; }
-		
 		//';'
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 	public class MeasuredOutputInterfaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "br.ufscar.sas.xtext.sasdsl.SasDsl.MeasuredOutputInterface");
@@ -2905,10 +2784,10 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
 		//ProbeInterface:
-		//	name+=ID;
+		//	name=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name+=ID
+		//name=ID
 		public Assignment getNameAssignment() { return cNameAssignment; }
 		
 		//ID
@@ -3070,6 +2949,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final DSLAbstractionElements pDSLAbstraction;
 	private final DSLCompositionElements pDSLComposition;
 	private final DSLRestrictionElements pDSLRestriction;
+	private final DSLRestrictionProbeElements pDSLRestrictionProbe;
+	private final DSLRestrictionMonitorElements pDSLRestrictionMonitor;
+	private final DSLRestrictionPlannerElements pDSLRestrictionPlanner;
+	private final DSLRestrictionExecutorElements pDSLRestrictionExecutor;
+	private final DSLRestrictionKnowledgeElements pDSLRestrictionKnowledge;
+	private final DSLRestrictionGaugeElements pDSLRestrictionGauge;
+	private final DSLRestrictionManagedElements pDSLRestrictionManaged;
 	private final DSLSensorBelongsToElements pDSLSensorBelongsTo;
 	private final DSLReferenceInputBelongsToElements pDSLReferenceInputBelongsTo;
 	private final DSLEffectorBelongsToElements pDSLEffectorBelongsTo;
@@ -3131,6 +3017,13 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDSLAbstraction = new DSLAbstractionElements();
 		this.pDSLComposition = new DSLCompositionElements();
 		this.pDSLRestriction = new DSLRestrictionElements();
+		this.pDSLRestrictionProbe = new DSLRestrictionProbeElements();
+		this.pDSLRestrictionMonitor = new DSLRestrictionMonitorElements();
+		this.pDSLRestrictionPlanner = new DSLRestrictionPlannerElements();
+		this.pDSLRestrictionExecutor = new DSLRestrictionExecutorElements();
+		this.pDSLRestrictionKnowledge = new DSLRestrictionKnowledgeElements();
+		this.pDSLRestrictionGauge = new DSLRestrictionGaugeElements();
+		this.pDSLRestrictionManaged = new DSLRestrictionManagedElements();
 		this.pDSLSensorBelongsTo = new DSLSensorBelongsToElements();
 		this.pDSLReferenceInputBelongsTo = new DSLReferenceInputBelongsToElements();
 		this.pDSLEffectorBelongsTo = new DSLEffectorBelongsToElements();
@@ -3244,29 +3137,93 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLRestriction:
-	//	'sensor' t=[DSLSensor] 'must-not-access-probe' type=[DSLProbe] ';' | 'sensor' t=[DSLSensor] 'must-access-probe'
-	//	type=[DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';' | 'analyzer' t=[DSLAnalyzer]
-	//	'must-not-access-monitor' type=[DSLMonitor] ';' | 'analyzer' t=[DSLAnalyzer] 'must-access-monitor' type=[DSLMonitor]
-	//	'through-interface' interface=[MonitorInterface] ';' | 'analyzer' t=[DSLAnalyzer] 'must-not-access-planner'
-	//	type=[DSLPlanner] ';' | 'analyzer' t=[DSLAnalyzer] 'must-access-planner' type=[DSLPlanner] 'through-interface'
-	//	interface=[PlannerInterface] ';' | 'analyzer' t=[DSLAnalyzer] 'must-not-access-executor' type=[DSLExecutor] ';' |
-	//	'analyzer' t=[DSLAnalyzer] 'must-access-executor' type=[DSLExecutor] 'through-interface' interface=[ExecutorInterface]
-	//	';' | 'planner' t=[DSLPlanner] 'must-not-access-executor' type=[DSLExecutor] ';' | 'planner' t=[DSLPlanner]
-	//	'must-access-executor' type=[DSLExecutor] 'through-interface' interface=[ExecutorInterface] ';' | 'analyzer'
-	//	t=[DSLAnalyzer] 'must-not-access-knowledge' type=[DSLKnowledge] ';' | 'analyzer' t=[DSLAnalyzer]
-	//	'must-access-knowledge' type=[DSLKnowledge] 'through-interface' interface=[KnowledgeInterface] ';' | 'planner'
-	//	t=[DSLPlanner] 'must-not-access-knowledge' type=[DSLKnowledge] ';' | 'planner' t=[DSLPlanner] 'must-access-knowledge'
-	//	type=[DSLKnowledge] 'through-interface' interface=[KnowledgeInterface] ';' | 'effector' t=[DSLEffector]
-	//	'must-not-access-gauge' type=[DSLGauge] ';' | 'effector' t=[DSLEffector] 'must-access-gauge' type=[DSLGauge]
-	//	'through-interface' interface=[GaugeInterface] ';' | 'managing' t=[DSLManaging] 'must-not-access-managed'
-	//	type=[DSLManaged] ';' | 'managing' t=[DSLManaging] 'must-access-managed' type=[DSLManaged] 'through-interface'
-	//	interface=[ManagedInterface] ';';
+	//	DSLRestrictionProbe | DSLRestrictionMonitor | DSLRestrictionPlanner | DSLRestrictionExecutor | DSLRestrictionKnowledge
+	//	| DSLRestrictionGauge | DSLRestrictionManaged;
 	public DSLRestrictionElements getDSLRestrictionAccess() {
 		return pDSLRestriction;
 	}
 	
 	public ParserRule getDSLRestrictionRule() {
 		return getDSLRestrictionAccess().getRule();
+	}
+	
+	//DSLRestrictionProbe:
+	//	'sensor' t=[DSLSensor] 'must-not-access-probe' probe=[DSLProbe] ';' | 'sensor' t=[DSLSensor] 'must-access-probe'
+	//	probe=[DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';';
+	public DSLRestrictionProbeElements getDSLRestrictionProbeAccess() {
+		return pDSLRestrictionProbe;
+	}
+	
+	public ParserRule getDSLRestrictionProbeRule() {
+		return getDSLRestrictionProbeAccess().getRule();
+	}
+	
+	//DSLRestrictionMonitor:
+	//	'analyzer' t=[DSLAnalyzer] 'must-not-access-monitor' monitor=[DSLMonitor] ';' | 'analyzer' t=[DSLAnalyzer]
+	//	'must-access-monitor' monitor=[DSLMonitor] 'through-interface' monitorinterface=[MonitorInterface] ';';
+	public DSLRestrictionMonitorElements getDSLRestrictionMonitorAccess() {
+		return pDSLRestrictionMonitor;
+	}
+	
+	public ParserRule getDSLRestrictionMonitorRule() {
+		return getDSLRestrictionMonitorAccess().getRule();
+	}
+	
+	//DSLRestrictionPlanner:
+	//	'analyzer' t=[DSLAnalyzer] 'must-not-access-planner' planner=[DSLPlanner] ';' | 'analyzer' t=[DSLAnalyzer]
+	//	'must-access-planner' planner=[DSLPlanner] 'through-interface' plannerinterface=[PlannerInterface] ';';
+	public DSLRestrictionPlannerElements getDSLRestrictionPlannerAccess() {
+		return pDSLRestrictionPlanner;
+	}
+	
+	public ParserRule getDSLRestrictionPlannerRule() {
+		return getDSLRestrictionPlannerAccess().getRule();
+	}
+	
+	//DSLRestrictionExecutor:
+	//	'analyzer' t=[DSLAnalyzer] 'must-not-access-executor' executor=[DSLExecutor] ';' | 'analyzer' t=[DSLAnalyzer]
+	//	'must-access-executor' executor=[DSLExecutor] 'through-interface' executorinterface=[ExecutorInterface] ';';
+	public DSLRestrictionExecutorElements getDSLRestrictionExecutorAccess() {
+		return pDSLRestrictionExecutor;
+	}
+	
+	public ParserRule getDSLRestrictionExecutorRule() {
+		return getDSLRestrictionExecutorAccess().getRule();
+	}
+	
+	//DSLRestrictionKnowledge:
+	//	'analyzer' t=[DSLAnalyzer] 'must-not-access-knowledge' knowledge=[DSLKnowledge] ';' | 'analyzer' t=[DSLAnalyzer]
+	//	'must-access-knowledge' knowledge=[DSLKnowledge] 'through-interface' knowledgeinterface=[KnowledgeInterface] ';' |
+	//	'planner' t=[DSLPlanner] 'must-not-access-knowledge' knowledge=[DSLKnowledge] ';' | 'planner' t=[DSLPlanner]
+	//	'must-access-knowledge' knowledge=[DSLKnowledge] 'through-interface' knowledgeinterface=[KnowledgeInterface] ';';
+	public DSLRestrictionKnowledgeElements getDSLRestrictionKnowledgeAccess() {
+		return pDSLRestrictionKnowledge;
+	}
+	
+	public ParserRule getDSLRestrictionKnowledgeRule() {
+		return getDSLRestrictionKnowledgeAccess().getRule();
+	}
+	
+	//DSLRestrictionGauge:
+	//	'effector' t=[DSLEffector] 'must-not-access-gauge' gauge=[DSLGauge] ';' | 'effector' t=[DSLEffector]
+	//	'must-access-gauge' gauge=[DSLGauge] 'through-interface' gaugeinterface=[GaugeInterface] ';';
+	public DSLRestrictionGaugeElements getDSLRestrictionGaugeAccess() {
+		return pDSLRestrictionGauge;
+	}
+	
+	public ParserRule getDSLRestrictionGaugeRule() {
+		return getDSLRestrictionGaugeAccess().getRule();
+	}
+	
+	//DSLRestrictionManaged:
+	//	'managing' t=[DSLManaging] 'must-not-access-managed' managed=[DSLManaged] ';' | 'managing' t=[DSLManaging]
+	//	'must-access-managed' managed=[DSLManaged] 'through-interface' managedinterface=[ManagedInterface] ';';
+	public DSLRestrictionManagedElements getDSLRestrictionManagedAccess() {
+		return pDSLRestrictionManaged;
+	}
+	
+	public ParserRule getDSLRestrictionManagedRule() {
+		return getDSLRestrictionManagedAccess().getRule();
 	}
 	
 	//DSLSensorBelongsTo:
@@ -3450,7 +3407,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLManaged:
-	//	'Managed' name=ID ('with-interface' interface+=ManagedInterface (',' interface+=ManagedInterface)*)? ';';
+	//	'Managed' name=ID ('with-interface' managedinterfaces+=ManagedInterface (',' managedinterfaces+=ManagedInterface)*)?
+	//	';';
 	public DSLManagedElements getDSLManagedAccess() {
 		return pDSLManaged;
 	}
@@ -3460,8 +3418,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLControlLoopManager:
-	//	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('with-interface' interface+=ControlLoopManagerInterface (','
-	//	interface+=ControlLoopManagerInterface)*)? ';';
+	//	'ControlLoopManager' name=ID 'typeOf' DSLTypeCLM ('with-interface' clminterfaces+=ControlLoopManagerInterface (','
+	//	clminterfaces+=ControlLoopManagerInterface)*)? ';';
 	public DSLControlLoopManagerElements getDSLControlLoopManagerAccess() {
 		return pDSLControlLoopManager;
 	}
@@ -3481,7 +3439,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLControlLoop:
-	//	'ControlLoop' name=ID ('with-interface' interface+=ControlLoopInterface (',' interface+=ControlLoopInterface)*)? ';';
+	//	'ControlLoop' name=ID ('with-interface' clinterfaces+=ControlLoopInterface (',' clinterfaces+=ControlLoopInterface)*)?
+	//	';';
 	public DSLControlLoopElements getDSLControlLoopAccess() {
 		return pDSLControlLoop;
 	}
@@ -3491,7 +3450,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLMonitor:
-	//	'Monitor' name=ID ('with-interface' interface+=MonitorInterface (',' interface+=MonitorInterface)*)? ';';
+	//	'Monitor' name=ID ('with-interface' monitorinterfaces+=MonitorInterface (',' monitorinterfaces+=MonitorInterface)*)?
+	//	';';
 	public DSLMonitorElements getDSLMonitorAccess() {
 		return pDSLMonitor;
 	}
@@ -3501,7 +3461,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLAnalyzer:
-	//	'Analyzer' name=ID ('with-interface' interface+=AnalyzerInterface (',' interface+=AnalyzerInterface)*)? ';';
+	//	'Analyzer' name=ID ';';
 	public DSLAnalyzerElements getDSLAnalyzerAccess() {
 		return pDSLAnalyzer;
 	}
@@ -3511,7 +3471,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLPlanner:
-	//	'Planner' name=ID ('with-interface' interface+=PlannerInterface (',' interface+=PlannerInterface)*)? ';';
+	//	'Planner' name=ID ('with-interface' plannerinterfaces+=PlannerInterface (',' plannerinterfaces+=PlannerInterface)*)?
+	//	';';
 	public DSLPlannerElements getDSLPlannerAccess() {
 		return pDSLPlanner;
 	}
@@ -3521,7 +3482,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLExecutor:
-	//	'Executor' name=ID ('with-interface' interface+=ExecutorInterface (',' interface+=ExecutorInterface)*)? ';';
+	//	'Executor' name=ID ('with-interface' executorinterfaces+=ExecutorInterface (','
+	//	executorinterfaces+=ExecutorInterface)*)? ';';
 	public DSLExecutorElements getDSLExecutorAccess() {
 		return pDSLExecutor;
 	}
@@ -3531,7 +3493,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLKnowledge:
-	//	'Knowledge' name=ID ('with-interface' interface+=KnowledgeInterface (',' interface+=KnowledgeInterface)*)? ';';
+	//	'Knowledge' name=ID ('with-interface' knowledgeinterfaces+=KnowledgeInterface (','
+	//	knowledgeinterfaces+=KnowledgeInterface)*)? ';';
 	public DSLKnowledgeElements getDSLKnowledgeAccess() {
 		return pDSLKnowledge;
 	}
@@ -3541,7 +3504,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLSensor:
-	//	'Sensor' name=ID ('with-interface' interface+=SensorInterface (',' interface+=SensorInterface)*)? ';';
+	//	'Sensor' name=ID ';';
 	public DSLSensorElements getDSLSensorAccess() {
 		return pDSLSensor;
 	}
@@ -3551,7 +3514,8 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLEffector:
-	//	'Effector' name=ID ('with-interface' interface+=EffectorInterface (',' interface+=EffectorInterface)*)? ';';
+	//	'Effector' name=ID ('with-interface' effectorinterfaces+=EffectorInterface (','
+	//	effectorinterfaces+=EffectorInterface)*)? ';';
 	public DSLEffectorElements getDSLEffectorAccess() {
 		return pDSLEffector;
 	}
@@ -3571,7 +3535,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLGauge:
-	//	'Gauge' name=ID ('with-interface' interface+=GaugeInterface (',' interface+=GaugeInterface)*)? ';';
+	//	'Gauge' name=ID ('with-interface' gaugeinterfaces+=GaugeInterface (',' gaugeinterfaces+=GaugeInterface)*)? ';';
 	public DSLGaugeElements getDSLGaugeAccess() {
 		return pDSLGauge;
 	}
@@ -3581,8 +3545,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLReferenceInput:
-	//	'ReferenceInput' name=ID ('with-interface' interface+=ReferenceInputInterface (','
-	//	interface+=ReferenceInputInterface)*)? ';';
+	//	'ReferenceInput' name=ID ';';
 	public DSLReferenceInputElements getDSLReferenceInputAccess() {
 		return pDSLReferenceInput;
 	}
@@ -3592,8 +3555,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DSLMeasuredOutput:
-	//	'MeasuredOutput' name=ID ('with-interface' interface+=MeasuredOutputInterface (','
-	//	interface+=MeasuredOutputInterface)*)? ';';
+	//	'MeasuredOutput' name=ID ';';
 	public DSLMeasuredOutputElements getDSLMeasuredOutputAccess() {
 		return pDSLMeasuredOutput;
 	}
@@ -3633,7 +3595,7 @@ public class SasDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ProbeInterface:
-	//	name+=ID;
+	//	name=ID;
 	public ProbeInterfaceElements getProbeInterfaceAccess() {
 		return pProbeInterface;
 	}

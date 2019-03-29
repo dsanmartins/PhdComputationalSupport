@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLControlLoopImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLControlLoopImpl#getClinterfaces <em>Clinterfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DSLControlLoopImpl extends DSLAbstractionImpl implements DSLControlLoop
 {
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
+   * The cached value of the '{@link #getClinterfaces() <em>Clinterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInterface()
+   * @see #getClinterfaces()
    * @generated
    * @ordered
    */
-  protected EList<ControlLoopInterface> interface_;
+  protected EList<ControlLoopInterface> clinterfaces;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +70,13 @@ public class DSLControlLoopImpl extends DSLAbstractionImpl implements DSLControl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ControlLoopInterface> getInterface()
+  public EList<ControlLoopInterface> getClinterfaces()
   {
-    if (interface_ == null)
+    if (clinterfaces == null)
     {
-      interface_ = new EObjectContainmentEList<ControlLoopInterface>(ControlLoopInterface.class, this, SasDslPackage.DSL_CONTROL_LOOP__INTERFACE);
+      clinterfaces = new EObjectContainmentEList<ControlLoopInterface>(ControlLoopInterface.class, this, SasDslPackage.DSL_CONTROL_LOOP__CLINTERFACES);
     }
-    return interface_;
+    return clinterfaces;
   }
 
   /**
@@ -89,8 +89,8 @@ public class DSLControlLoopImpl extends DSLAbstractionImpl implements DSLControl
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP__INTERFACE:
-        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_CONTROL_LOOP__CLINTERFACES:
+        return ((InternalEList<?>)getClinterfaces()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +105,8 @@ public class DSLControlLoopImpl extends DSLAbstractionImpl implements DSLControl
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP__INTERFACE:
-        return getInterface();
+      case SasDslPackage.DSL_CONTROL_LOOP__CLINTERFACES:
+        return getClinterfaces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +122,9 @@ public class DSLControlLoopImpl extends DSLAbstractionImpl implements DSLControl
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends ControlLoopInterface>)newValue);
+      case SasDslPackage.DSL_CONTROL_LOOP__CLINTERFACES:
+        getClinterfaces().clear();
+        getClinterfaces().addAll((Collection<? extends ControlLoopInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +140,8 @@ public class DSLControlLoopImpl extends DSLAbstractionImpl implements DSLControl
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP__INTERFACE:
-        getInterface().clear();
+      case SasDslPackage.DSL_CONTROL_LOOP__CLINTERFACES:
+        getClinterfaces().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +157,8 @@ public class DSLControlLoopImpl extends DSLAbstractionImpl implements DSLControl
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
+      case SasDslPackage.DSL_CONTROL_LOOP__CLINTERFACES:
+        return clinterfaces != null && !clinterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
   }

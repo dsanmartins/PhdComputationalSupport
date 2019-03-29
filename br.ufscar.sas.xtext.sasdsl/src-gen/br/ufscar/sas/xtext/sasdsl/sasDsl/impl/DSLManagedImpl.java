@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLManagedImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLManagedImpl#getManagedinterfaces <em>Managedinterfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
 {
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
+   * The cached value of the '{@link #getManagedinterfaces() <em>Managedinterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInterface()
+   * @see #getManagedinterfaces()
    * @generated
    * @ordered
    */
-  protected EList<ManagedInterface> interface_;
+  protected EList<ManagedInterface> managedinterfaces;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +70,13 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ManagedInterface> getInterface()
+  public EList<ManagedInterface> getManagedinterfaces()
   {
-    if (interface_ == null)
+    if (managedinterfaces == null)
     {
-      interface_ = new EObjectContainmentEList<ManagedInterface>(ManagedInterface.class, this, SasDslPackage.DSL_MANAGED__INTERFACE);
+      managedinterfaces = new EObjectContainmentEList<ManagedInterface>(ManagedInterface.class, this, SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES);
     }
-    return interface_;
+    return managedinterfaces;
   }
 
   /**
@@ -89,8 +89,8 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__INTERFACE:
-        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
+        return ((InternalEList<?>)getManagedinterfaces()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +105,8 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__INTERFACE:
-        return getInterface();
+      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
+        return getManagedinterfaces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +122,9 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends ManagedInterface>)newValue);
+      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
+        getManagedinterfaces().clear();
+        getManagedinterfaces().addAll((Collection<? extends ManagedInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +140,8 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__INTERFACE:
-        getInterface().clear();
+      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
+        getManagedinterfaces().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +157,8 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
+      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
+        return managedinterfaces != null && !managedinterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
   }

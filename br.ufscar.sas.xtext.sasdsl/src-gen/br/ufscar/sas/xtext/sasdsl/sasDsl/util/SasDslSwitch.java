@@ -101,6 +101,62 @@ public class SasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SasDslPackage.DSL_RESTRICTION_PROBE:
+      {
+        DSLRestrictionProbe dslRestrictionProbe = (DSLRestrictionProbe)theEObject;
+        T result = caseDSLRestrictionProbe(dslRestrictionProbe);
+        if (result == null) result = caseDSLRestriction(dslRestrictionProbe);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DSL_RESTRICTION_MONITOR:
+      {
+        DSLRestrictionMonitor dslRestrictionMonitor = (DSLRestrictionMonitor)theEObject;
+        T result = caseDSLRestrictionMonitor(dslRestrictionMonitor);
+        if (result == null) result = caseDSLRestriction(dslRestrictionMonitor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DSL_RESTRICTION_PLANNER:
+      {
+        DSLRestrictionPlanner dslRestrictionPlanner = (DSLRestrictionPlanner)theEObject;
+        T result = caseDSLRestrictionPlanner(dslRestrictionPlanner);
+        if (result == null) result = caseDSLRestriction(dslRestrictionPlanner);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DSL_RESTRICTION_EXECUTOR:
+      {
+        DSLRestrictionExecutor dslRestrictionExecutor = (DSLRestrictionExecutor)theEObject;
+        T result = caseDSLRestrictionExecutor(dslRestrictionExecutor);
+        if (result == null) result = caseDSLRestriction(dslRestrictionExecutor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DSL_RESTRICTION_KNOWLEDGE:
+      {
+        DSLRestrictionKnowledge dslRestrictionKnowledge = (DSLRestrictionKnowledge)theEObject;
+        T result = caseDSLRestrictionKnowledge(dslRestrictionKnowledge);
+        if (result == null) result = caseDSLRestriction(dslRestrictionKnowledge);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DSL_RESTRICTION_GAUGE:
+      {
+        DSLRestrictionGauge dslRestrictionGauge = (DSLRestrictionGauge)theEObject;
+        T result = caseDSLRestrictionGauge(dslRestrictionGauge);
+        if (result == null) result = caseDSLRestriction(dslRestrictionGauge);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DSL_RESTRICTION_MANAGED:
+      {
+        DSLRestrictionManaged dslRestrictionManaged = (DSLRestrictionManaged)theEObject;
+        T result = caseDSLRestrictionManaged(dslRestrictionManaged);
+        if (result == null) result = caseDSLRestriction(dslRestrictionManaged);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SasDslPackage.DSL_SENSOR_BELONGS_TO:
       {
         DSLSensorBelongsTo dslSensorBelongsTo = (DSLSensorBelongsTo)theEObject;
@@ -519,6 +575,118 @@ public class SasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDSLRestriction(DSLRestriction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Probe</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Probe</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDSLRestrictionProbe(DSLRestrictionProbe object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Monitor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Monitor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDSLRestrictionMonitor(DSLRestrictionMonitor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Planner</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Planner</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDSLRestrictionPlanner(DSLRestrictionPlanner object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Executor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Executor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDSLRestrictionExecutor(DSLRestrictionExecutor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Knowledge</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Knowledge</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDSLRestrictionKnowledge(DSLRestrictionKnowledge object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Gauge</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Gauge</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDSLRestrictionGauge(DSLRestrictionGauge object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Managed</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Managed</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDSLRestrictionManaged(DSLRestrictionManaged object)
   {
     return null;
   }

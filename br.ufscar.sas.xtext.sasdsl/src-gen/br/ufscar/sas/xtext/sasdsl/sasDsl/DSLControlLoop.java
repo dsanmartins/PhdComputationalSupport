@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLControlLoop#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLControlLoop#getClinterfaces <em>Clinterfaces</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLControlLoop()
@@ -24,19 +24,19 @@ import org.eclipse.emf.common.util.EList;
 public interface DSLControlLoop extends DSLAbstraction
 {
   /**
-   * Returns the value of the '<em><b>Interface</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Clinterfaces</b></em>' containment reference list.
    * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.ControlLoopInterface}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Interface</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Clinterfaces</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Interface</em>' containment reference list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLControlLoop_Interface()
+   * @return the value of the '<em>Clinterfaces</em>' containment reference list.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLControlLoop_Clinterfaces()
    * @model containment="true"
    * @generated
    */
-  EList<ControlLoopInterface> getInterface();
+  EList<ControlLoopInterface> getClinterfaces();
 
 } // DSLControlLoop

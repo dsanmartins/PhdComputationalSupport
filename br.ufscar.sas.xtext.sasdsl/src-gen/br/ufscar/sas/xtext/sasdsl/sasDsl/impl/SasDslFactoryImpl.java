@@ -69,6 +69,13 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_ABSTRACTION: return createDSLAbstraction();
       case SasDslPackage.DSL_COMPOSITION: return createDSLComposition();
       case SasDslPackage.DSL_RESTRICTION: return createDSLRestriction();
+      case SasDslPackage.DSL_RESTRICTION_PROBE: return createDSLRestrictionProbe();
+      case SasDslPackage.DSL_RESTRICTION_MONITOR: return createDSLRestrictionMonitor();
+      case SasDslPackage.DSL_RESTRICTION_PLANNER: return createDSLRestrictionPlanner();
+      case SasDslPackage.DSL_RESTRICTION_EXECUTOR: return createDSLRestrictionExecutor();
+      case SasDslPackage.DSL_RESTRICTION_KNOWLEDGE: return createDSLRestrictionKnowledge();
+      case SasDslPackage.DSL_RESTRICTION_GAUGE: return createDSLRestrictionGauge();
+      case SasDslPackage.DSL_RESTRICTION_MANAGED: return createDSLRestrictionManaged();
       case SasDslPackage.DSL_SENSOR_BELONGS_TO: return createDSLSensorBelongsTo();
       case SasDslPackage.DSL_REFERENCE_INPUT_BELONGS_TO: return createDSLReferenceInputBelongsTo();
       case SasDslPackage.DSL_EFFECTOR_BELONGS_TO: return createDSLEffectorBelongsTo();
@@ -162,6 +169,83 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
   {
     DSLRestrictionImpl dslRestriction = new DSLRestrictionImpl();
     return dslRestriction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLRestrictionProbe createDSLRestrictionProbe()
+  {
+    DSLRestrictionProbeImpl dslRestrictionProbe = new DSLRestrictionProbeImpl();
+    return dslRestrictionProbe;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLRestrictionMonitor createDSLRestrictionMonitor()
+  {
+    DSLRestrictionMonitorImpl dslRestrictionMonitor = new DSLRestrictionMonitorImpl();
+    return dslRestrictionMonitor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLRestrictionPlanner createDSLRestrictionPlanner()
+  {
+    DSLRestrictionPlannerImpl dslRestrictionPlanner = new DSLRestrictionPlannerImpl();
+    return dslRestrictionPlanner;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLRestrictionExecutor createDSLRestrictionExecutor()
+  {
+    DSLRestrictionExecutorImpl dslRestrictionExecutor = new DSLRestrictionExecutorImpl();
+    return dslRestrictionExecutor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLRestrictionKnowledge createDSLRestrictionKnowledge()
+  {
+    DSLRestrictionKnowledgeImpl dslRestrictionKnowledge = new DSLRestrictionKnowledgeImpl();
+    return dslRestrictionKnowledge;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLRestrictionGauge createDSLRestrictionGauge()
+  {
+    DSLRestrictionGaugeImpl dslRestrictionGauge = new DSLRestrictionGaugeImpl();
+    return dslRestrictionGauge;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLRestrictionManaged createDSLRestrictionManaged()
+  {
+    DSLRestrictionManagedImpl dslRestrictionManaged = new DSLRestrictionManagedImpl();
+    return dslRestrictionManaged;
   }
 
   /**

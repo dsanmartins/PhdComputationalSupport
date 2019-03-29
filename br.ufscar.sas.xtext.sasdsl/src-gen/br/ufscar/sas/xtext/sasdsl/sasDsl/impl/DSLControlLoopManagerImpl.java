@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLControlLoopManagerImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLControlLoopManagerImpl#getClminterfaces <em>Clminterfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DSLControlLoopManagerImpl extends DSLAbstractionImpl implements DSLControlLoopManager
 {
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
+   * The cached value of the '{@link #getClminterfaces() <em>Clminterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInterface()
+   * @see #getClminterfaces()
    * @generated
    * @ordered
    */
-  protected EList<ControlLoopManagerInterface> interface_;
+  protected EList<ControlLoopManagerInterface> clminterfaces;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +70,13 @@ public class DSLControlLoopManagerImpl extends DSLAbstractionImpl implements DSL
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ControlLoopManagerInterface> getInterface()
+  public EList<ControlLoopManagerInterface> getClminterfaces()
   {
-    if (interface_ == null)
+    if (clminterfaces == null)
     {
-      interface_ = new EObjectContainmentEList<ControlLoopManagerInterface>(ControlLoopManagerInterface.class, this, SasDslPackage.DSL_CONTROL_LOOP_MANAGER__INTERFACE);
+      clminterfaces = new EObjectContainmentEList<ControlLoopManagerInterface>(ControlLoopManagerInterface.class, this, SasDslPackage.DSL_CONTROL_LOOP_MANAGER__CLMINTERFACES);
     }
-    return interface_;
+    return clminterfaces;
   }
 
   /**
@@ -89,8 +89,8 @@ public class DSLControlLoopManagerImpl extends DSLAbstractionImpl implements DSL
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__INTERFACE:
-        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__CLMINTERFACES:
+        return ((InternalEList<?>)getClminterfaces()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +105,8 @@ public class DSLControlLoopManagerImpl extends DSLAbstractionImpl implements DSL
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__INTERFACE:
-        return getInterface();
+      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__CLMINTERFACES:
+        return getClminterfaces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +122,9 @@ public class DSLControlLoopManagerImpl extends DSLAbstractionImpl implements DSL
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends ControlLoopManagerInterface>)newValue);
+      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__CLMINTERFACES:
+        getClminterfaces().clear();
+        getClminterfaces().addAll((Collection<? extends ControlLoopManagerInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +140,8 @@ public class DSLControlLoopManagerImpl extends DSLAbstractionImpl implements DSL
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__INTERFACE:
-        getInterface().clear();
+      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__CLMINTERFACES:
+        getClminterfaces().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +157,8 @@ public class DSLControlLoopManagerImpl extends DSLAbstractionImpl implements DSL
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
+      case SasDslPackage.DSL_CONTROL_LOOP_MANAGER__CLMINTERFACES:
+        return clminterfaces != null && !clminterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
   }

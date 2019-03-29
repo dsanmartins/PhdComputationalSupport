@@ -3,47 +3,20 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.AnalyzerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzer;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>DSL Analyzer</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLAnalyzerImpl#getInterface <em>Interface</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class DSLAnalyzerImpl extends DSLAbstractionImpl implements DSLAnalyzer
 {
-  /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInterface()
-   * @generated
-   * @ordered
-   */
-  protected EList<AnalyzerInterface> interface_;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -63,104 +36,6 @@ public class DSLAnalyzerImpl extends DSLAbstractionImpl implements DSLAnalyzer
   protected EClass eStaticClass()
   {
     return SasDslPackage.Literals.DSL_ANALYZER;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<AnalyzerInterface> getInterface()
-  {
-    if (interface_ == null)
-    {
-      interface_ = new EObjectContainmentEList<AnalyzerInterface>(AnalyzerInterface.class, this, SasDslPackage.DSL_ANALYZER__INTERFACE);
-    }
-    return interface_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_ANALYZER__INTERFACE:
-        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_ANALYZER__INTERFACE:
-        return getInterface();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_ANALYZER__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends AnalyzerInterface>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_ANALYZER__INTERFACE:
-        getInterface().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_ANALYZER__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
-    }
-    return super.eIsSet(featureID);
   }
 
 } //DSLAnalyzerImpl

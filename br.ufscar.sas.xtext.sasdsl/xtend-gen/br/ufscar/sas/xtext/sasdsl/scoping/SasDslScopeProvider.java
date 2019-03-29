@@ -3,9 +3,18 @@
  */
 package br.ufscar.sas.xtext.sasdsl.scoping;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGauge;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionExecutor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionGauge;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionKnowledge;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionMonitor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionPlanner;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionProbe;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 import br.ufscar.sas.xtext.sasdsl.scoping.AbstractSasDslScopeProvider;
 import org.eclipse.emf.ecore.EObject;
@@ -25,12 +34,58 @@ public class SasDslScopeProvider extends AbstractSasDslScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION__PROBEINTERFACE)) {
-        if ((context instanceof DSLRestriction)) {
-          DSLAbstraction _type = ((DSLRestriction)context).getType();
-          final DSLProbe probe = ((DSLProbe) _type);
-          System.out.println(probe.getProbeinterfaces());
-          return Scopes.scopeFor(probe.getProbeinterfaces());
+      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_PROBE__PROBEINTERFACE)) {
+        if ((context instanceof DSLRestrictionProbe)) {
+          DSLProbe _probe = ((DSLRestrictionProbe)context).getProbe();
+          final DSLProbe probe = ((DSLProbe) _probe);
+          if ((probe instanceof DSLProbe)) {
+            return Scopes.scopeFor(probe.getProbeinterfaces());
+          }
+        }
+      }
+      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_MONITOR__MONITORINTERFACE)) {
+        if ((context instanceof DSLRestrictionMonitor)) {
+          DSLMonitor _monitor = ((DSLRestrictionMonitor)context).getMonitor();
+          final DSLMonitor monitor = ((DSLMonitor) _monitor);
+          if ((monitor instanceof DSLMonitor)) {
+            return Scopes.scopeFor(monitor.getMonitorinterfaces());
+          }
+        }
+      }
+      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_PLANNER__PLANNERINTERFACE)) {
+        if ((context instanceof DSLRestrictionPlanner)) {
+          DSLPlanner _planner = ((DSLRestrictionPlanner)context).getPlanner();
+          final DSLPlanner planner = ((DSLPlanner) _planner);
+          if ((planner instanceof DSLPlanner)) {
+            return Scopes.scopeFor(planner.getPlannerinterfaces());
+          }
+        }
+      }
+      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_EXECUTOR__EXECUTORINTERFACE)) {
+        if ((context instanceof DSLRestrictionExecutor)) {
+          DSLExecutor _executor = ((DSLRestrictionExecutor)context).getExecutor();
+          final DSLExecutor executor = ((DSLExecutor) _executor);
+          if ((executor instanceof DSLExecutor)) {
+            return Scopes.scopeFor(executor.getExecutorinterfaces());
+          }
+        }
+      }
+      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_KNOWLEDGE__KNOWLEDGEINTERFACE)) {
+        if ((context instanceof DSLRestrictionKnowledge)) {
+          DSLKnowledge _knowledge = ((DSLRestrictionKnowledge)context).getKnowledge();
+          final DSLKnowledge knowledge = ((DSLKnowledge) _knowledge);
+          if ((knowledge instanceof DSLKnowledge)) {
+            return Scopes.scopeFor(knowledge.getKnowledgeinterfaces());
+          }
+        }
+      }
+      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_GAUGE__GAUGEINTERFACE)) {
+        if ((context instanceof DSLRestrictionGauge)) {
+          DSLGauge _gauge = ((DSLRestrictionGauge)context).getGauge();
+          final DSLGauge gauge = ((DSLGauge) _gauge);
+          if ((gauge instanceof DSLGauge)) {
+            return Scopes.scopeFor(gauge.getGaugeinterfaces());
+          }
         }
       }
       _xblockexpression = super.getScope(context, reference);

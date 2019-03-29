@@ -14,11 +14,41 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLComposition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLRestriction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLAbstraction"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLRestriction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLRestrictionProbe" eSuperTypes="#//DSLRestriction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLSensor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probe" eType="#//DSLProbe"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="probeinterface" eType="#//ProbeInterface"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLRestrictionMonitor" eSuperTypes="#//DSLRestriction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLAnalyzer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="monitor" eType="#//DSLMonitor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="monitorinterface" eType="#//MonitorInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLRestrictionPlanner" eSuperTypes="#//DSLRestriction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLAnalyzer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="planner" eType="#//DSLPlanner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plannerinterface" eType="#//PlannerInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLRestrictionExecutor" eSuperTypes="#//DSLRestriction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLAnalyzer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executor" eType="#//DSLExecutor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executorinterface" eType="#//ExecutorInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLRestrictionKnowledge" eSuperTypes="#//DSLRestriction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLAbstraction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="knowledge" eType="#//DSLKnowledge"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="knowledgeinterface" eType="#//KnowledgeInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLRestrictionGauge" eSuperTypes="#//DSLRestriction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLEffector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gauge" eType="#//DSLGauge"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gaugeinterface" eType="#//GaugeInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLRestrictionManaged" eSuperTypes="#//DSLRestriction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//DSLManaging"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managed" eType="#//DSLManaged"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managedinterface" eType="#//ManagedInterface"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLSensorBelongsTo" eSuperTypes="#//DSLComposition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//DSLSensor"/>
@@ -90,43 +120,37 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLManaging" eSuperTypes="#//DSLAbstraction"/>
   <eClassifiers xsi:type="ecore:EClass" name="DSLManaged" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managedinterfaces" upperBound="-1"
         eType="#//ManagedInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLControlLoopManager" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clminterfaces" upperBound="-1"
         eType="#//ControlLoopManagerInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLControlLoop" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clinterfaces" upperBound="-1"
         eType="#//ControlLoopInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLMonitor" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="monitorinterfaces" upperBound="-1"
         eType="#//MonitorInterface" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLAnalyzer" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
-        eType="#//AnalyzerInterface" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLAnalyzer" eSuperTypes="#//DSLAbstraction"/>
   <eClassifiers xsi:type="ecore:EClass" name="DSLPlanner" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plannerinterfaces" upperBound="-1"
         eType="#//PlannerInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLExecutor" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executorinterfaces" upperBound="-1"
         eType="#//ExecutorInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLKnowledge" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="knowledgeinterfaces" upperBound="-1"
         eType="#//KnowledgeInterface" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLSensor" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
-        eType="#//SensorInterface" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLSensor" eSuperTypes="#//DSLAbstraction"/>
   <eClassifiers xsi:type="ecore:EClass" name="DSLEffector" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effectorinterfaces" upperBound="-1"
         eType="#//EffectorInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLProbe" eSuperTypes="#//DSLAbstraction">
@@ -134,17 +158,11 @@
         eType="#//ProbeInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DSLGauge" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gaugeinterfaces" upperBound="-1"
         eType="#//GaugeInterface" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLReferenceInput" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
-        eType="#//ReferenceInputInterface" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DSLMeasuredOutput" eSuperTypes="#//DSLAbstraction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" upperBound="-1"
-        eType="#//MeasuredOutputInterface" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLReferenceInput" eSuperTypes="#//DSLAbstraction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DSLMeasuredOutput" eSuperTypes="#//DSLAbstraction"/>
   <eClassifiers xsi:type="ecore:EClass" name="MeasuredOutputInterface">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -155,8 +173,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProbeInterface">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SensorInterface">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

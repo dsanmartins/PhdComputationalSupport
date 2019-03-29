@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLGaugeImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLGaugeImpl#getGaugeinterfaces <em>Gaugeinterfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DSLGaugeImpl extends DSLAbstractionImpl implements DSLGauge
 {
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
+   * The cached value of the '{@link #getGaugeinterfaces() <em>Gaugeinterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInterface()
+   * @see #getGaugeinterfaces()
    * @generated
    * @ordered
    */
-  protected EList<GaugeInterface> interface_;
+  protected EList<GaugeInterface> gaugeinterfaces;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +70,13 @@ public class DSLGaugeImpl extends DSLAbstractionImpl implements DSLGauge
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<GaugeInterface> getInterface()
+  public EList<GaugeInterface> getGaugeinterfaces()
   {
-    if (interface_ == null)
+    if (gaugeinterfaces == null)
     {
-      interface_ = new EObjectContainmentEList<GaugeInterface>(GaugeInterface.class, this, SasDslPackage.DSL_GAUGE__INTERFACE);
+      gaugeinterfaces = new EObjectContainmentEList<GaugeInterface>(GaugeInterface.class, this, SasDslPackage.DSL_GAUGE__GAUGEINTERFACES);
     }
-    return interface_;
+    return gaugeinterfaces;
   }
 
   /**
@@ -89,8 +89,8 @@ public class DSLGaugeImpl extends DSLAbstractionImpl implements DSLGauge
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_GAUGE__INTERFACE:
-        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_GAUGE__GAUGEINTERFACES:
+        return ((InternalEList<?>)getGaugeinterfaces()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +105,8 @@ public class DSLGaugeImpl extends DSLAbstractionImpl implements DSLGauge
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_GAUGE__INTERFACE:
-        return getInterface();
+      case SasDslPackage.DSL_GAUGE__GAUGEINTERFACES:
+        return getGaugeinterfaces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +122,9 @@ public class DSLGaugeImpl extends DSLAbstractionImpl implements DSLGauge
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_GAUGE__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends GaugeInterface>)newValue);
+      case SasDslPackage.DSL_GAUGE__GAUGEINTERFACES:
+        getGaugeinterfaces().clear();
+        getGaugeinterfaces().addAll((Collection<? extends GaugeInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +140,8 @@ public class DSLGaugeImpl extends DSLAbstractionImpl implements DSLGauge
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_GAUGE__INTERFACE:
-        getInterface().clear();
+      case SasDslPackage.DSL_GAUGE__GAUGEINTERFACES:
+        getGaugeinterfaces().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +157,8 @@ public class DSLGaugeImpl extends DSLAbstractionImpl implements DSLGauge
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_GAUGE__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
+      case SasDslPackage.DSL_GAUGE__GAUGEINTERFACES:
+        return gaugeinterfaces != null && !gaugeinterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
   }

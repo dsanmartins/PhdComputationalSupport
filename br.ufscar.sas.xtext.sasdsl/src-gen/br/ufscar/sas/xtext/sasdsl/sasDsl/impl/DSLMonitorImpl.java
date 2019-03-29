@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLMonitorImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLMonitorImpl#getMonitorinterfaces <em>Monitorinterfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DSLMonitorImpl extends DSLAbstractionImpl implements DSLMonitor
 {
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
+   * The cached value of the '{@link #getMonitorinterfaces() <em>Monitorinterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInterface()
+   * @see #getMonitorinterfaces()
    * @generated
    * @ordered
    */
-  protected EList<MonitorInterface> interface_;
+  protected EList<MonitorInterface> monitorinterfaces;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +70,13 @@ public class DSLMonitorImpl extends DSLAbstractionImpl implements DSLMonitor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<MonitorInterface> getInterface()
+  public EList<MonitorInterface> getMonitorinterfaces()
   {
-    if (interface_ == null)
+    if (monitorinterfaces == null)
     {
-      interface_ = new EObjectContainmentEList<MonitorInterface>(MonitorInterface.class, this, SasDslPackage.DSL_MONITOR__INTERFACE);
+      monitorinterfaces = new EObjectContainmentEList<MonitorInterface>(MonitorInterface.class, this, SasDslPackage.DSL_MONITOR__MONITORINTERFACES);
     }
-    return interface_;
+    return monitorinterfaces;
   }
 
   /**
@@ -89,8 +89,8 @@ public class DSLMonitorImpl extends DSLAbstractionImpl implements DSLMonitor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MONITOR__INTERFACE:
-        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_MONITOR__MONITORINTERFACES:
+        return ((InternalEList<?>)getMonitorinterfaces()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +105,8 @@ public class DSLMonitorImpl extends DSLAbstractionImpl implements DSLMonitor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MONITOR__INTERFACE:
-        return getInterface();
+      case SasDslPackage.DSL_MONITOR__MONITORINTERFACES:
+        return getMonitorinterfaces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +122,9 @@ public class DSLMonitorImpl extends DSLAbstractionImpl implements DSLMonitor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MONITOR__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends MonitorInterface>)newValue);
+      case SasDslPackage.DSL_MONITOR__MONITORINTERFACES:
+        getMonitorinterfaces().clear();
+        getMonitorinterfaces().addAll((Collection<? extends MonitorInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +140,8 @@ public class DSLMonitorImpl extends DSLAbstractionImpl implements DSLMonitor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MONITOR__INTERFACE:
-        getInterface().clear();
+      case SasDslPackage.DSL_MONITOR__MONITORINTERFACES:
+        getMonitorinterfaces().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +157,8 @@ public class DSLMonitorImpl extends DSLAbstractionImpl implements DSLMonitor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MONITOR__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
+      case SasDslPackage.DSL_MONITOR__MONITORINTERFACES:
+        return monitorinterfaces != null && !monitorinterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
   }

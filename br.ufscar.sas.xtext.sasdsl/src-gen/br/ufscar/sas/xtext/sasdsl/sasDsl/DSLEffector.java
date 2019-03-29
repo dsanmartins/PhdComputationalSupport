@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector#getEffectorinterfaces <em>Effectorinterfaces</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLEffector()
@@ -24,19 +24,19 @@ import org.eclipse.emf.common.util.EList;
 public interface DSLEffector extends DSLAbstraction
 {
   /**
-   * Returns the value of the '<em><b>Interface</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Effectorinterfaces</b></em>' containment reference list.
    * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Interface</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Effectorinterfaces</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Interface</em>' containment reference list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLEffector_Interface()
+   * @return the value of the '<em>Effectorinterfaces</em>' containment reference list.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLEffector_Effectorinterfaces()
    * @model containment="true"
    * @generated
    */
-  EList<EffectorInterface> getInterface();
+  EList<EffectorInterface> getEffectorinterfaces();
 
 } // DSLEffector

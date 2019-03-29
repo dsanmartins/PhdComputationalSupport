@@ -3,12 +3,22 @@
  */
 package br.ufscar.sas.xtext.sasdsl.scoping
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionProbe
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.Scopes
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionMonitor
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionPlanner
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionExecutor
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionKnowledge
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGauge
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionGauge
 
 /**
  * This class contains custom scoping description.
@@ -19,13 +29,49 @@ import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe
 class SasDslScopeProvider extends AbstractSasDslScopeProvider {
 
 	override getScope(EObject context, EReference reference) {
-        if (reference === SasDslPackage.Literals.DSL_RESTRICTION__PROBEINTERFACE) {
-            if (context instanceof DSLRestriction) {
-                val probe = context.type as DSLProbe   
-                System.out.println(probe.probeinterfaces)
-                return Scopes.scopeFor(probe.probeinterfaces)
+        if (reference === SasDslPackage.Literals.DSL_RESTRICTION_PROBE__PROBEINTERFACE) {
+            if (context instanceof DSLRestrictionProbe) {
+                val probe = context.probe as DSLProbe   
+                if (probe instanceof DSLProbe)
+                	return Scopes.scopeFor(probe.probeinterfaces)
             }
         }
+        if (reference === SasDslPackage.Literals.DSL_RESTRICTION_MONITOR__MONITORINTERFACE) {
+            if (context instanceof DSLRestrictionMonitor) {
+                val monitor = context.monitor as DSLMonitor   
+                if (monitor instanceof DSLMonitor)
+                	return Scopes.scopeFor(monitor.monitorinterfaces)
+            }
+        }
+        if (reference === SasDslPackage.Literals.DSL_RESTRICTION_PLANNER__PLANNERINTERFACE) {
+            if (context instanceof DSLRestrictionPlanner) {
+                val planner = context.planner as DSLPlanner   
+                if (planner instanceof DSLPlanner)
+                	return Scopes.scopeFor(planner.plannerinterfaces)
+            }
+        }
+        if (reference === SasDslPackage.Literals.DSL_RESTRICTION_EXECUTOR__EXECUTORINTERFACE) {
+            if (context instanceof DSLRestrictionExecutor) {
+                val executor = context.executor as DSLExecutor   
+                if (executor instanceof DSLExecutor)
+                	return Scopes.scopeFor(executor.executorinterfaces)
+            }
+        }
+        if (reference === SasDslPackage.Literals.DSL_RESTRICTION_KNOWLEDGE__KNOWLEDGEINTERFACE) {
+            if (context instanceof DSLRestrictionKnowledge) {
+                val knowledge = context.knowledge as DSLKnowledge   
+                if (knowledge instanceof DSLKnowledge)
+                	return Scopes.scopeFor(knowledge.knowledgeinterfaces)
+            }
+        }
+        if (reference === SasDslPackage.Literals.DSL_RESTRICTION_GAUGE__GAUGEINTERFACE) {
+            if (context instanceof DSLRestrictionGauge) {
+                val gauge = context.gauge as DSLGauge   
+                if (gauge instanceof DSLGauge)
+                	return Scopes.scopeFor(gauge.gaugeinterfaces)
+            }
+        }
+        
         super.getScope(context, reference)
     }
 

@@ -15,11 +15,41 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//DSLAbstraction/name"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLComposition"/>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLRestriction">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/t"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/probeinterface"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestriction/interface"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLRestriction"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLRestrictionProbe">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionProbe/t"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionProbe/probe"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionProbe/probeinterface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLRestrictionMonitor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionMonitor/t"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionMonitor/monitor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionMonitor/monitorinterface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLRestrictionPlanner">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionPlanner/t"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionPlanner/planner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionPlanner/plannerinterface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLRestrictionExecutor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionExecutor/t"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionExecutor/executor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionExecutor/executorinterface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLRestrictionKnowledge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionKnowledge/t"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionKnowledge/knowledge"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionKnowledge/knowledgeinterface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLRestrictionGauge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionGauge/t"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionGauge/gauge"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionGauge/gaugeinterface"/>
+    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLRestrictionManaged">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionManaged/t"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionManaged/managed"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLRestrictionManaged/managedinterface"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLSensorBelongsTo">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLSensorBelongsTo/sensor"/>
@@ -91,47 +121,39 @@
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLManaging"/>
     <genClasses ecoreClass="SasDsl.ecore#//DSLManaged">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLManaged/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLManaged/managedinterfaces"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLControlLoopManager">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLControlLoopManager/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLControlLoopManager/clminterfaces"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLControlLoop">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLControlLoop/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLControlLoop/clinterfaces"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLMonitor">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMonitor/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMonitor/monitorinterfaces"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLAnalyzer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLAnalyzer/interface"/>
-    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLAnalyzer"/>
     <genClasses ecoreClass="SasDsl.ecore#//DSLPlanner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLPlanner/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLPlanner/plannerinterfaces"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLExecutor">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLExecutor/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLExecutor/executorinterfaces"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLKnowledge">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLKnowledge/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLKnowledge/knowledgeinterfaces"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLSensor">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLSensor/interface"/>
-    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLSensor"/>
     <genClasses ecoreClass="SasDsl.ecore#//DSLEffector">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLEffector/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLEffector/effectorinterfaces"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLProbe">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLProbe/probeinterfaces"/>
     </genClasses>
     <genClasses ecoreClass="SasDsl.ecore#//DSLGauge">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLGauge/interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLGauge/gaugeinterfaces"/>
     </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLReferenceInput">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLReferenceInput/interface"/>
-    </genClasses>
-    <genClasses ecoreClass="SasDsl.ecore#//DSLMeasuredOutput">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SasDsl.ecore#//DSLMeasuredOutput/interface"/>
-    </genClasses>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLReferenceInput"/>
+    <genClasses ecoreClass="SasDsl.ecore#//DSLMeasuredOutput"/>
     <genClasses ecoreClass="SasDsl.ecore#//MeasuredOutputInterface">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SasDsl.ecore#//MeasuredOutputInterface/name"/>
     </genClasses>

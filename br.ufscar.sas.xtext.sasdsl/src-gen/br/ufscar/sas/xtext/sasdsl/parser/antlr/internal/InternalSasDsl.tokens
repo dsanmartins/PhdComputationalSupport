@@ -32,7 +32,7 @@
 'monitor'=41
 'must-access-executor'=27
 'must-access-gauge'=33
-'must-access-knowledge'=30
+'must-access-knowledge'=29
 'must-access-managed'=36
 'must-access-monitor'=23
 'must-access-planner'=25
@@ -46,12 +46,12 @@
 'must-be-in-monitor'=37
 'must-not-access-executor'=26
 'must-not-access-gauge'=32
-'must-not-access-knowledge'=29
+'must-not-access-knowledge'=28
 'must-not-access-managed'=35
 'must-not-access-monitor'=22
 'must-not-access-planner'=24
 'must-not-access-probe'=17
-'planner'=28
+'planner'=30
 'probe'=51
 'reference-input'=38
 'sensor'=16

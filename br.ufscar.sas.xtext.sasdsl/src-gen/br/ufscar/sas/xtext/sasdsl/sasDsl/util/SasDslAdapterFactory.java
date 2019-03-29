@@ -96,6 +96,41 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
         return createDSLRestrictionAdapter();
       }
       @Override
+      public Adapter caseDSLRestrictionProbe(DSLRestrictionProbe object)
+      {
+        return createDSLRestrictionProbeAdapter();
+      }
+      @Override
+      public Adapter caseDSLRestrictionMonitor(DSLRestrictionMonitor object)
+      {
+        return createDSLRestrictionMonitorAdapter();
+      }
+      @Override
+      public Adapter caseDSLRestrictionPlanner(DSLRestrictionPlanner object)
+      {
+        return createDSLRestrictionPlannerAdapter();
+      }
+      @Override
+      public Adapter caseDSLRestrictionExecutor(DSLRestrictionExecutor object)
+      {
+        return createDSLRestrictionExecutorAdapter();
+      }
+      @Override
+      public Adapter caseDSLRestrictionKnowledge(DSLRestrictionKnowledge object)
+      {
+        return createDSLRestrictionKnowledgeAdapter();
+      }
+      @Override
+      public Adapter caseDSLRestrictionGauge(DSLRestrictionGauge object)
+      {
+        return createDSLRestrictionGaugeAdapter();
+      }
+      @Override
+      public Adapter caseDSLRestrictionManaged(DSLRestrictionManaged object)
+      {
+        return createDSLRestrictionManagedAdapter();
+      }
+      @Override
       public Adapter caseDSLSensorBelongsTo(DSLSensorBelongsTo object)
       {
         return createDSLSensorBelongsToAdapter();
@@ -403,6 +438,111 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDSLRestrictionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionProbe <em>DSL Restriction Probe</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionProbe
+   * @generated
+   */
+  public Adapter createDSLRestrictionProbeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionMonitor <em>DSL Restriction Monitor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionMonitor
+   * @generated
+   */
+  public Adapter createDSLRestrictionMonitorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionPlanner <em>DSL Restriction Planner</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionPlanner
+   * @generated
+   */
+  public Adapter createDSLRestrictionPlannerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionExecutor <em>DSL Restriction Executor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionExecutor
+   * @generated
+   */
+  public Adapter createDSLRestrictionExecutorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionKnowledge <em>DSL Restriction Knowledge</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionKnowledge
+   * @generated
+   */
+  public Adapter createDSLRestrictionKnowledgeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionGauge <em>DSL Restriction Gauge</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionGauge
+   * @generated
+   */
+  public Adapter createDSLRestrictionGaugeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionManaged <em>DSL Restriction Managed</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionManaged
+   * @generated
+   */
+  public Adapter createDSLRestrictionManagedAdapter()
   {
     return null;
   }

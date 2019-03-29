@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLExecutorImpl#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLExecutorImpl#getExecutorinterfaces <em>Executorinterfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DSLExecutorImpl extends DSLAbstractionImpl implements DSLExecutor
 {
   /**
-   * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
+   * The cached value of the '{@link #getExecutorinterfaces() <em>Executorinterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInterface()
+   * @see #getExecutorinterfaces()
    * @generated
    * @ordered
    */
-  protected EList<ExecutorInterface> interface_;
+  protected EList<ExecutorInterface> executorinterfaces;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +70,13 @@ public class DSLExecutorImpl extends DSLAbstractionImpl implements DSLExecutor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ExecutorInterface> getInterface()
+  public EList<ExecutorInterface> getExecutorinterfaces()
   {
-    if (interface_ == null)
+    if (executorinterfaces == null)
     {
-      interface_ = new EObjectContainmentEList<ExecutorInterface>(ExecutorInterface.class, this, SasDslPackage.DSL_EXECUTOR__INTERFACE);
+      executorinterfaces = new EObjectContainmentEList<ExecutorInterface>(ExecutorInterface.class, this, SasDslPackage.DSL_EXECUTOR__EXECUTORINTERFACES);
     }
-    return interface_;
+    return executorinterfaces;
   }
 
   /**
@@ -89,8 +89,8 @@ public class DSLExecutorImpl extends DSLAbstractionImpl implements DSLExecutor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_EXECUTOR__INTERFACE:
-        return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_EXECUTOR__EXECUTORINTERFACES:
+        return ((InternalEList<?>)getExecutorinterfaces()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +105,8 @@ public class DSLExecutorImpl extends DSLAbstractionImpl implements DSLExecutor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_EXECUTOR__INTERFACE:
-        return getInterface();
+      case SasDslPackage.DSL_EXECUTOR__EXECUTORINTERFACES:
+        return getExecutorinterfaces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +122,9 @@ public class DSLExecutorImpl extends DSLAbstractionImpl implements DSLExecutor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_EXECUTOR__INTERFACE:
-        getInterface().clear();
-        getInterface().addAll((Collection<? extends ExecutorInterface>)newValue);
+      case SasDslPackage.DSL_EXECUTOR__EXECUTORINTERFACES:
+        getExecutorinterfaces().clear();
+        getExecutorinterfaces().addAll((Collection<? extends ExecutorInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +140,8 @@ public class DSLExecutorImpl extends DSLAbstractionImpl implements DSLExecutor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_EXECUTOR__INTERFACE:
-        getInterface().clear();
+      case SasDslPackage.DSL_EXECUTOR__EXECUTORINTERFACES:
+        getExecutorinterfaces().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,8 +157,8 @@ public class DSLExecutorImpl extends DSLAbstractionImpl implements DSLExecutor
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_EXECUTOR__INTERFACE:
-        return interface_ != null && !interface_.isEmpty();
+      case SasDslPackage.DSL_EXECUTOR__EXECUTORINTERFACES:
+        return executorinterfaces != null && !executorinterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
   }

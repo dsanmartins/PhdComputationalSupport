@@ -60,6 +60,69 @@ public interface SasDslFactory extends EFactory
   DSLRestriction createDSLRestriction();
 
   /**
+   * Returns a new object of class '<em>DSL Restriction Probe</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Restriction Probe</em>'.
+   * @generated
+   */
+  DSLRestrictionProbe createDSLRestrictionProbe();
+
+  /**
+   * Returns a new object of class '<em>DSL Restriction Monitor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Restriction Monitor</em>'.
+   * @generated
+   */
+  DSLRestrictionMonitor createDSLRestrictionMonitor();
+
+  /**
+   * Returns a new object of class '<em>DSL Restriction Planner</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Restriction Planner</em>'.
+   * @generated
+   */
+  DSLRestrictionPlanner createDSLRestrictionPlanner();
+
+  /**
+   * Returns a new object of class '<em>DSL Restriction Executor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Restriction Executor</em>'.
+   * @generated
+   */
+  DSLRestrictionExecutor createDSLRestrictionExecutor();
+
+  /**
+   * Returns a new object of class '<em>DSL Restriction Knowledge</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Restriction Knowledge</em>'.
+   * @generated
+   */
+  DSLRestrictionKnowledge createDSLRestrictionKnowledge();
+
+  /**
+   * Returns a new object of class '<em>DSL Restriction Gauge</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Restriction Gauge</em>'.
+   * @generated
+   */
+  DSLRestrictionGauge createDSLRestrictionGauge();
+
+  /**
+   * Returns a new object of class '<em>DSL Restriction Managed</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Restriction Managed</em>'.
+   * @generated
+   */
+  DSLRestrictionManaged createDSLRestrictionManaged();
+
+  /**
    * Returns a new object of class '<em>DSL Sensor Belongs To</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

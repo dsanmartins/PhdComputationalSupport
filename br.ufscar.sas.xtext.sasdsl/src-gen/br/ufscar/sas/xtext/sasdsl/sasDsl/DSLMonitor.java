@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor#getInterface <em>Interface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor#getMonitorinterfaces <em>Monitorinterfaces</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLMonitor()
@@ -24,19 +24,19 @@ import org.eclipse.emf.common.util.EList;
 public interface DSLMonitor extends DSLAbstraction
 {
   /**
-   * Returns the value of the '<em><b>Interface</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Monitorinterfaces</b></em>' containment reference list.
    * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.MonitorInterface}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Interface</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Monitorinterfaces</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Interface</em>' containment reference list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLMonitor_Interface()
+   * @return the value of the '<em>Monitorinterfaces</em>' containment reference list.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLMonitor_Monitorinterfaces()
    * @model containment="true"
    * @generated
    */
-  EList<MonitorInterface> getInterface();
+  EList<MonitorInterface> getMonitorinterfaces();
 
 } // DSLMonitor
