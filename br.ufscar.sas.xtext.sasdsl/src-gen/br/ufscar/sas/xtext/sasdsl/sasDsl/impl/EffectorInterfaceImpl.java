@@ -3,7 +3,7 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Only2;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,45 +15,45 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Only2</b></em>'.
+ * An implementation of the model object '<em><b>Effector Interface</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.Only2Impl#getOnly2 <em>Only2</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.EffectorInterfaceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class Only2Impl extends MinimalEObjectImpl.Container implements Only2
+public class EffectorInterfaceImpl extends MinimalEObjectImpl.Container implements EffectorInterface
 {
   /**
-   * The default value of the '{@link #getOnly2() <em>Only2</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOnly2()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ONLY2_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getOnly2() <em>Only2</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOnly2()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String only2 = ONLY2_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Only2Impl()
+  protected EffectorInterfaceImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class Only2Impl extends MinimalEObjectImpl.Container implements Only2
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.ONLY2;
+    return SasDslPackage.Literals.EFFECTOR_INTERFACE;
   }
 
   /**
@@ -74,9 +74,9 @@ public class Only2Impl extends MinimalEObjectImpl.Container implements Only2
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getOnly2()
+  public String getName()
   {
-    return only2;
+    return name;
   }
 
   /**
@@ -84,12 +84,12 @@ public class Only2Impl extends MinimalEObjectImpl.Container implements Only2
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOnly2(String newOnly2)
+  public void setName(String newName)
   {
-    String oldOnly2 = only2;
-    only2 = newOnly2;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.ONLY2__ONLY2, oldOnly2, only2));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.EFFECTOR_INTERFACE__NAME, oldName, name));
   }
 
   /**
@@ -102,8 +102,8 @@ public class Only2Impl extends MinimalEObjectImpl.Container implements Only2
   {
     switch (featureID)
     {
-      case SasDslPackage.ONLY2__ONLY2:
-        return getOnly2();
+      case SasDslPackage.EFFECTOR_INTERFACE__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class Only2Impl extends MinimalEObjectImpl.Container implements Only2
   {
     switch (featureID)
     {
-      case SasDslPackage.ONLY2__ONLY2:
-        setOnly2((String)newValue);
+      case SasDslPackage.EFFECTOR_INTERFACE__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class Only2Impl extends MinimalEObjectImpl.Container implements Only2
   {
     switch (featureID)
     {
-      case SasDslPackage.ONLY2__ONLY2:
-        setOnly2(ONLY2_EDEFAULT);
+      case SasDslPackage.EFFECTOR_INTERFACE__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class Only2Impl extends MinimalEObjectImpl.Container implements Only2
   {
     switch (featureID)
     {
-      case SasDslPackage.ONLY2__ONLY2:
-        return ONLY2_EDEFAULT == null ? only2 != null : !ONLY2_EDEFAULT.equals(only2);
+      case SasDslPackage.EFFECTOR_INTERFACE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -169,10 +169,10 @@ public class Only2Impl extends MinimalEObjectImpl.Container implements Only2
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (only2: ");
-    result.append(only2);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //Only2Impl
+} //EffectorInterfaceImpl

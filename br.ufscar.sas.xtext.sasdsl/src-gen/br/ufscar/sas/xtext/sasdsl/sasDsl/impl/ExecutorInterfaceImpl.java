@@ -3,7 +3,7 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Cannot;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.ExecutorInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,45 +15,45 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Cannot</b></em>'.
+ * An implementation of the model object '<em><b>Executor Interface</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.CannotImpl#getCannot <em>Cannot</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ExecutorInterfaceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CannotImpl extends MinimalEObjectImpl.Container implements Cannot
+public class ExecutorInterfaceImpl extends MinimalEObjectImpl.Container implements ExecutorInterface
 {
   /**
-   * The default value of the '{@link #getCannot() <em>Cannot</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCannot()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String CANNOT_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getCannot() <em>Cannot</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCannot()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String cannot = CANNOT_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CannotImpl()
+  protected ExecutorInterfaceImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class CannotImpl extends MinimalEObjectImpl.Container implements Cannot
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.CANNOT;
+    return SasDslPackage.Literals.EXECUTOR_INTERFACE;
   }
 
   /**
@@ -74,9 +74,9 @@ public class CannotImpl extends MinimalEObjectImpl.Container implements Cannot
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCannot()
+  public String getName()
   {
-    return cannot;
+    return name;
   }
 
   /**
@@ -84,12 +84,12 @@ public class CannotImpl extends MinimalEObjectImpl.Container implements Cannot
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCannot(String newCannot)
+  public void setName(String newName)
   {
-    String oldCannot = cannot;
-    cannot = newCannot;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.CANNOT__CANNOT, oldCannot, cannot));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.EXECUTOR_INTERFACE__NAME, oldName, name));
   }
 
   /**
@@ -102,8 +102,8 @@ public class CannotImpl extends MinimalEObjectImpl.Container implements Cannot
   {
     switch (featureID)
     {
-      case SasDslPackage.CANNOT__CANNOT:
-        return getCannot();
+      case SasDslPackage.EXECUTOR_INTERFACE__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class CannotImpl extends MinimalEObjectImpl.Container implements Cannot
   {
     switch (featureID)
     {
-      case SasDslPackage.CANNOT__CANNOT:
-        setCannot((String)newValue);
+      case SasDslPackage.EXECUTOR_INTERFACE__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class CannotImpl extends MinimalEObjectImpl.Container implements Cannot
   {
     switch (featureID)
     {
-      case SasDslPackage.CANNOT__CANNOT:
-        setCannot(CANNOT_EDEFAULT);
+      case SasDslPackage.EXECUTOR_INTERFACE__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class CannotImpl extends MinimalEObjectImpl.Container implements Cannot
   {
     switch (featureID)
     {
-      case SasDslPackage.CANNOT__CANNOT:
-        return CANNOT_EDEFAULT == null ? cannot != null : !CANNOT_EDEFAULT.equals(cannot);
+      case SasDslPackage.EXECUTOR_INTERFACE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -169,10 +169,10 @@ public class CannotImpl extends MinimalEObjectImpl.Container implements Cannot
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (cannot: ");
-    result.append(cannot);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //CannotImpl
+} //ExecutorInterfaceImpl

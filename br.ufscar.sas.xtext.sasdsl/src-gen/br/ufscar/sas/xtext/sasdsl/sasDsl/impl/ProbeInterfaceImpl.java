@@ -3,57 +3,50 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Can;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.ProbeInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Can</b></em>'.
+ * An implementation of the model object '<em><b>Probe Interface</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.CanImpl#getCan <em>Can</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ProbeInterfaceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CanImpl extends MinimalEObjectImpl.Container implements Can
+public class ProbeInterfaceImpl extends MinimalEObjectImpl.Container implements ProbeInterface
 {
   /**
-   * The default value of the '{@link #getCan() <em>Can</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCan()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String CAN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCan() <em>Can</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCan()
-   * @generated
-   * @ordered
-   */
-  protected String can = CAN_EDEFAULT;
+  protected EList<String> name;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CanImpl()
+  protected ProbeInterfaceImpl()
   {
     super();
   }
@@ -66,7 +59,7 @@ public class CanImpl extends MinimalEObjectImpl.Container implements Can
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.CAN;
+    return SasDslPackage.Literals.PROBE_INTERFACE;
   }
 
   /**
@@ -74,22 +67,13 @@ public class CanImpl extends MinimalEObjectImpl.Container implements Can
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCan()
+  public EList<String> getName()
   {
-    return can;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCan(String newCan)
-  {
-    String oldCan = can;
-    can = newCan;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.CAN__CAN, oldCan, can));
+    if (name == null)
+    {
+      name = new EDataTypeEList<String>(String.class, this, SasDslPackage.PROBE_INTERFACE__NAME);
+    }
+    return name;
   }
 
   /**
@@ -102,8 +86,8 @@ public class CanImpl extends MinimalEObjectImpl.Container implements Can
   {
     switch (featureID)
     {
-      case SasDslPackage.CAN__CAN:
-        return getCan();
+      case SasDslPackage.PROBE_INTERFACE__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -113,13 +97,15 @@ public class CanImpl extends MinimalEObjectImpl.Container implements Can
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case SasDslPackage.CAN__CAN:
-        setCan((String)newValue);
+      case SasDslPackage.PROBE_INTERFACE__NAME:
+        getName().clear();
+        getName().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +121,8 @@ public class CanImpl extends MinimalEObjectImpl.Container implements Can
   {
     switch (featureID)
     {
-      case SasDslPackage.CAN__CAN:
-        setCan(CAN_EDEFAULT);
+      case SasDslPackage.PROBE_INTERFACE__NAME:
+        getName().clear();
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +138,8 @@ public class CanImpl extends MinimalEObjectImpl.Container implements Can
   {
     switch (featureID)
     {
-      case SasDslPackage.CAN__CAN:
-        return CAN_EDEFAULT == null ? can != null : !CAN_EDEFAULT.equals(can);
+      case SasDslPackage.PROBE_INTERFACE__NAME:
+        return name != null && !name.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -169,10 +155,10 @@ public class CanImpl extends MinimalEObjectImpl.Container implements Can
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (can: ");
-    result.append(can);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //CanImpl
+} //ProbeInterfaceImpl

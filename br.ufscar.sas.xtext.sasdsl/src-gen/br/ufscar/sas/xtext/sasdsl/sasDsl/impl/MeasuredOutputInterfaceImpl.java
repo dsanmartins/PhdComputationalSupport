@@ -3,7 +3,7 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.BasicType;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.MeasuredOutputInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -11,48 +11,49 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Basic Type</b></em>'.
+ * An implementation of the model object '<em><b>Measured Output Interface</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.BasicTypeImpl#getTypeName <em>Type Name</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.MeasuredOutputInterfaceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BasicTypeImpl extends ElementTypeImpl implements BasicType
+public class MeasuredOutputInterfaceImpl extends MinimalEObjectImpl.Container implements MeasuredOutputInterface
 {
   /**
-   * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypeName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_NAME_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTypeName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String typeName = TYPE_NAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BasicTypeImpl()
+  protected MeasuredOutputInterfaceImpl()
   {
     super();
   }
@@ -65,7 +66,7 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.BASIC_TYPE;
+    return SasDslPackage.Literals.MEASURED_OUTPUT_INTERFACE;
   }
 
   /**
@@ -73,9 +74,9 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTypeName()
+  public String getName()
   {
-    return typeName;
+    return name;
   }
 
   /**
@@ -83,12 +84,12 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTypeName(String newTypeName)
+  public void setName(String newName)
   {
-    String oldTypeName = typeName;
-    typeName = newTypeName;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.BASIC_TYPE__TYPE_NAME, oldTypeName, typeName));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.MEASURED_OUTPUT_INTERFACE__NAME, oldName, name));
   }
 
   /**
@@ -101,8 +102,8 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
   {
     switch (featureID)
     {
-      case SasDslPackage.BASIC_TYPE__TYPE_NAME:
-        return getTypeName();
+      case SasDslPackage.MEASURED_OUTPUT_INTERFACE__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +118,8 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
   {
     switch (featureID)
     {
-      case SasDslPackage.BASIC_TYPE__TYPE_NAME:
-        setTypeName((String)newValue);
+      case SasDslPackage.MEASURED_OUTPUT_INTERFACE__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +135,8 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
   {
     switch (featureID)
     {
-      case SasDslPackage.BASIC_TYPE__TYPE_NAME:
-        setTypeName(TYPE_NAME_EDEFAULT);
+      case SasDslPackage.MEASURED_OUTPUT_INTERFACE__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +152,8 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
   {
     switch (featureID)
     {
-      case SasDslPackage.BASIC_TYPE__TYPE_NAME:
-        return TYPE_NAME_EDEFAULT == null ? typeName != null : !TYPE_NAME_EDEFAULT.equals(typeName);
+      case SasDslPackage.MEASURED_OUTPUT_INTERFACE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -168,10 +169,10 @@ public class BasicTypeImpl extends ElementTypeImpl implements BasicType
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (typeName: ");
-    result.append(typeName);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //BasicTypeImpl
+} //MeasuredOutputInterfaceImpl

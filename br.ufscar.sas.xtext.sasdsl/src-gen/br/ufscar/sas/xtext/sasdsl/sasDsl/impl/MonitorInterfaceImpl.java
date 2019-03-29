@@ -3,7 +3,7 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.Only;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.MonitorInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,45 +15,45 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Only</b></em>'.
+ * An implementation of the model object '<em><b>Monitor Interface</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.OnlyImpl#getOnly <em>Only</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.MonitorInterfaceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OnlyImpl extends MinimalEObjectImpl.Container implements Only
+public class MonitorInterfaceImpl extends MinimalEObjectImpl.Container implements MonitorInterface
 {
   /**
-   * The default value of the '{@link #getOnly() <em>Only</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOnly()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ONLY_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getOnly() <em>Only</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOnly()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String only = ONLY_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected OnlyImpl()
+  protected MonitorInterfaceImpl()
   {
     super();
   }
@@ -66,7 +66,7 @@ public class OnlyImpl extends MinimalEObjectImpl.Container implements Only
   @Override
   protected EClass eStaticClass()
   {
-    return SasDslPackage.Literals.ONLY;
+    return SasDslPackage.Literals.MONITOR_INTERFACE;
   }
 
   /**
@@ -74,9 +74,9 @@ public class OnlyImpl extends MinimalEObjectImpl.Container implements Only
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getOnly()
+  public String getName()
   {
-    return only;
+    return name;
   }
 
   /**
@@ -84,12 +84,12 @@ public class OnlyImpl extends MinimalEObjectImpl.Container implements Only
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOnly(String newOnly)
+  public void setName(String newName)
   {
-    String oldOnly = only;
-    only = newOnly;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.ONLY__ONLY, oldOnly, only));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.MONITOR_INTERFACE__NAME, oldName, name));
   }
 
   /**
@@ -102,8 +102,8 @@ public class OnlyImpl extends MinimalEObjectImpl.Container implements Only
   {
     switch (featureID)
     {
-      case SasDslPackage.ONLY__ONLY:
-        return getOnly();
+      case SasDslPackage.MONITOR_INTERFACE__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class OnlyImpl extends MinimalEObjectImpl.Container implements Only
   {
     switch (featureID)
     {
-      case SasDslPackage.ONLY__ONLY:
-        setOnly((String)newValue);
+      case SasDslPackage.MONITOR_INTERFACE__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class OnlyImpl extends MinimalEObjectImpl.Container implements Only
   {
     switch (featureID)
     {
-      case SasDslPackage.ONLY__ONLY:
-        setOnly(ONLY_EDEFAULT);
+      case SasDslPackage.MONITOR_INTERFACE__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class OnlyImpl extends MinimalEObjectImpl.Container implements Only
   {
     switch (featureID)
     {
-      case SasDslPackage.ONLY__ONLY:
-        return ONLY_EDEFAULT == null ? only != null : !ONLY_EDEFAULT.equals(only);
+      case SasDslPackage.MONITOR_INTERFACE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -169,10 +169,10 @@ public class OnlyImpl extends MinimalEObjectImpl.Container implements Only
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (only: ");
-    result.append(only);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //OnlyImpl
+} //MonitorInterfaceImpl
