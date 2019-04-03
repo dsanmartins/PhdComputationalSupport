@@ -5,18 +5,45 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.SensorInterface;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>DSL Sensor</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLSensorImpl#getSensorinterfaces <em>Sensorinterfaces</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class DSLSensorImpl extends DSLAbstractionImpl implements DSLSensor
 {
+  /**
+   * The cached value of the '{@link #getSensorinterfaces() <em>Sensorinterfaces</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSensorinterfaces()
+   * @generated
+   * @ordered
+   */
+  protected EList<SensorInterface> sensorinterfaces;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +63,104 @@ public class DSLSensorImpl extends DSLAbstractionImpl implements DSLSensor
   protected EClass eStaticClass()
   {
     return SasDslPackage.Literals.DSL_SENSOR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<SensorInterface> getSensorinterfaces()
+  {
+    if (sensorinterfaces == null)
+    {
+      sensorinterfaces = new EObjectContainmentEList<SensorInterface>(SensorInterface.class, this, SasDslPackage.DSL_SENSOR__SENSORINTERFACES);
+    }
+    return sensorinterfaces;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SasDslPackage.DSL_SENSOR__SENSORINTERFACES:
+        return ((InternalEList<?>)getSensorinterfaces()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case SasDslPackage.DSL_SENSOR__SENSORINTERFACES:
+        return getSensorinterfaces();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case SasDslPackage.DSL_SENSOR__SENSORINTERFACES:
+        getSensorinterfaces().clear();
+        getSensorinterfaces().addAll((Collection<? extends SensorInterface>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case SasDslPackage.DSL_SENSOR__SENSORINTERFACES:
+        getSensorinterfaces().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case SasDslPackage.DSL_SENSOR__SENSORINTERFACES:
+        return sensorinterfaces != null && !sensorinterfaces.isEmpty();
+    }
+    return super.eIsSet(featureID);
   }
 
 } //DSLSensorImpl

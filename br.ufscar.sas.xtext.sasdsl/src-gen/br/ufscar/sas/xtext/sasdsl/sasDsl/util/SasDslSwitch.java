@@ -101,11 +101,19 @@ public class SasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SasDslPackage.DSL_RESTRICTION_PROBE:
+      case SasDslPackage.DSL_RESTRICTION_EFFECTOR:
       {
-        DSLRestrictionProbe dslRestrictionProbe = (DSLRestrictionProbe)theEObject;
-        T result = caseDSLRestrictionProbe(dslRestrictionProbe);
-        if (result == null) result = caseDSLRestriction(dslRestrictionProbe);
+        DSLRestrictionEffector dslRestrictionEffector = (DSLRestrictionEffector)theEObject;
+        T result = caseDSLRestrictionEffector(dslRestrictionEffector);
+        if (result == null) result = caseDSLRestriction(dslRestrictionEffector);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SasDslPackage.DSL_RESTRICTION_SENSOR:
+      {
+        DSLRestrictionSensor dslRestrictionSensor = (DSLRestrictionSensor)theEObject;
+        T result = caseDSLRestrictionSensor(dslRestrictionSensor);
+        if (result == null) result = caseDSLRestriction(dslRestrictionSensor);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -138,14 +146,6 @@ public class SasDslSwitch<T> extends Switch<T>
         DSLRestrictionKnowledge dslRestrictionKnowledge = (DSLRestrictionKnowledge)theEObject;
         T result = caseDSLRestrictionKnowledge(dslRestrictionKnowledge);
         if (result == null) result = caseDSLRestriction(dslRestrictionKnowledge);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.DSL_RESTRICTION_GAUGE:
-      {
-        DSLRestrictionGauge dslRestrictionGauge = (DSLRestrictionGauge)theEObject;
-        T result = caseDSLRestrictionGauge(dslRestrictionGauge);
-        if (result == null) result = caseDSLRestriction(dslRestrictionGauge);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -277,19 +277,11 @@ public class SasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SasDslPackage.DSL_GAUGE_BELONGS_TO:
+      case SasDslPackage.DSL_KNOWLEDGE_BELONGS_TO:
       {
-        DSLGaugeBelongsTo dslGaugeBelongsTo = (DSLGaugeBelongsTo)theEObject;
-        T result = caseDSLGaugeBelongsTo(dslGaugeBelongsTo);
-        if (result == null) result = caseDSLComposition(dslGaugeBelongsTo);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.DSL_PROBE_BELONGS_TO:
-      {
-        DSLProbeBelongsTo dslProbeBelongsTo = (DSLProbeBelongsTo)theEObject;
-        T result = caseDSLProbeBelongsTo(dslProbeBelongsTo);
-        if (result == null) result = caseDSLComposition(dslProbeBelongsTo);
+        DSLKnowledgeBelongsTo dslKnowledgeBelongsTo = (DSLKnowledgeBelongsTo)theEObject;
+        T result = caseDSLKnowledgeBelongsTo(dslKnowledgeBelongsTo);
+        if (result == null) result = caseDSLComposition(dslKnowledgeBelongsTo);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -381,22 +373,6 @@ public class SasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SasDslPackage.DSL_PROBE:
-      {
-        DSLProbe dslProbe = (DSLProbe)theEObject;
-        T result = caseDSLProbe(dslProbe);
-        if (result == null) result = caseDSLAbstraction(dslProbe);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.DSL_GAUGE:
-      {
-        DSLGauge dslGauge = (DSLGauge)theEObject;
-        T result = caseDSLGauge(dslGauge);
-        if (result == null) result = caseDSLAbstraction(dslGauge);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case SasDslPackage.DSL_REFERENCE_INPUT:
       {
         DSLReferenceInput dslReferenceInput = (DSLReferenceInput)theEObject;
@@ -413,31 +389,10 @@ public class SasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SasDslPackage.MEASURED_OUTPUT_INTERFACE:
-      {
-        MeasuredOutputInterface measuredOutputInterface = (MeasuredOutputInterface)theEObject;
-        T result = caseMeasuredOutputInterface(measuredOutputInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.GAUGE_INTERFACE:
-      {
-        GaugeInterface gaugeInterface = (GaugeInterface)theEObject;
-        T result = caseGaugeInterface(gaugeInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case SasDslPackage.EFFECTOR_INTERFACE:
       {
         EffectorInterface effectorInterface = (EffectorInterface)theEObject;
         T result = caseEffectorInterface(effectorInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.PROBE_INTERFACE:
-      {
-        ProbeInterface probeInterface = (ProbeInterface)theEObject;
-        T result = caseProbeInterface(probeInterface);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -494,13 +449,6 @@ public class SasDslSwitch<T> extends Switch<T>
       {
         ControlLoopManagerInterface controlLoopManagerInterface = (ControlLoopManagerInterface)theEObject;
         T result = caseControlLoopManagerInterface(controlLoopManagerInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.REFERENCE_INPUT_INTERFACE:
-      {
-        ReferenceInputInterface referenceInputInterface = (ReferenceInputInterface)theEObject;
-        T result = caseReferenceInputInterface(referenceInputInterface);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -580,17 +528,33 @@ public class SasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Probe</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Effector</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Probe</em>'.
+   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Effector</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDSLRestrictionProbe(DSLRestrictionProbe object)
+  public T caseDSLRestrictionEffector(DSLRestrictionEffector object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Sensor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Sensor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDSLRestrictionSensor(DSLRestrictionSensor object)
   {
     return null;
   }
@@ -655,22 +619,6 @@ public class SasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDSLRestrictionKnowledge(DSLRestrictionKnowledge object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>DSL Restriction Gauge</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>DSL Restriction Gauge</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDSLRestrictionGauge(DSLRestrictionGauge object)
   {
     return null;
   }
@@ -932,33 +880,17 @@ public class SasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>DSL Gauge Belongs To</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>DSL Knowledge Belongs To</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>DSL Gauge Belongs To</em>'.
+   * @return the result of interpreting the object as an instance of '<em>DSL Knowledge Belongs To</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDSLGaugeBelongsTo(DSLGaugeBelongsTo object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>DSL Probe Belongs To</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>DSL Probe Belongs To</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDSLProbeBelongsTo(DSLProbeBelongsTo object)
+  public T caseDSLKnowledgeBelongsTo(DSLKnowledgeBelongsTo object)
   {
     return null;
   }
@@ -1140,38 +1072,6 @@ public class SasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>DSL Probe</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>DSL Probe</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDSLProbe(DSLProbe object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>DSL Gauge</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>DSL Gauge</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDSLGauge(DSLGauge object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>DSL Reference Input</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1204,38 +1104,6 @@ public class SasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Measured Output Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Measured Output Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMeasuredOutputInterface(MeasuredOutputInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Gauge Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Gauge Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseGaugeInterface(GaugeInterface object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Effector Interface</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1247,22 +1115,6 @@ public class SasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEffectorInterface(EffectorInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Probe Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Probe Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseProbeInterface(ProbeInterface object)
   {
     return null;
   }
@@ -1391,22 +1243,6 @@ public class SasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseControlLoopManagerInterface(ControlLoopManagerInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Reference Input Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Reference Input Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseReferenceInputInterface(ReferenceInputInterface object)
   {
     return null;
   }

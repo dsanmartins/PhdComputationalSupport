@@ -12,27 +12,32 @@ DSLAbstraction:
 	
 	DSLManaging | DSLManaged | DSLControlLoopManager | DSLControlLoop | 
 	DSLMonitor | DSLAnalyzer | DSLPlanner | DSLExecutor | DSLKnowledge | DSLSensor | 
-	DSLEffector | DSLProbe | DSLGauge | DSLReferenceInput | DSLMeasuredOutput 
+	DSLEffector | DSLReferenceInput | DSLMeasuredOutput 
 ;	
 
 DSLComposition:
 	
 	DSLSensorBelongsTo | DSLReferenceInputBelongsTo | DSLEffectorBelongsTo | DSLMonitorBelongsTo1 | DSLMonitorBelongsTo2 | DSLAnalyzerBelongsTo1 |
 	DSLAnalyzerBelongsTo2 | DSLPlannerBelongsTo1 | DSLPlannerBelongsTo2 | DSLExecutorBelongsTo1 | DSLExecutorBelongsTo2 | DSLClBelongsTo1 |
-	DSLClBelongsTo2 | DSLClmBelongsTo | DSLMeasuredOuputBelongsTo | DSLGaugeBelongsTo | DSLProbeBelongsTo
+	DSLClBelongsTo2 | DSLClmBelongsTo | DSLMeasuredOuputBelongsTo | DSLKnowledgeBelongsTo
 ;
 
 DSLRestriction:
 	
-	DSLRestrictionProbe| DSLRestrictionMonitor | DSLRestrictionPlanner | DSLRestrictionExecutor | DSLRestrictionKnowledge |
-	DSLRestrictionGauge | DSLRestrictionManaged
+	DSLRestrictionMonitor | DSLRestrictionPlanner | DSLRestrictionExecutor | DSLRestrictionKnowledge | DSLRestrictionManaged | DSLRestrictionSensor | DSLRestrictionEffector
 
 ;
 
-DSLRestrictionProbe:
+DSLRestrictionEffector:
 	
-	('sensor' t=[DSLSensor] 'must-not-access-probe' probe = [DSLProbe] ';') |
-	('sensor' t=[DSLSensor] 'must-access-probe' probe = [DSLProbe] 'through-interface' probeinterface=[ProbeInterface] ';') 
+	('executor' t=[DSLExecutor] 'must-not-access-effector' effector = [DSLEffector] ';') |
+	('executor' t=[DSLExecutor] 'must-access-effector' effector = [DSLEffector] 'through-interface' effectorinterface=[EffectorInterface] ';') 
+;
+
+DSLRestrictionSensor:
+	
+	('monitor' t=[DSLMonitor] 'must-not-access-sensor' sensor = [DSLSensor] ';') |
+	('monitor' t=[DSLMonitor] 'must-access-sensor' sensor = [DSLSensor] 'through-interface' sensorinterface=[SensorInterface] ';') 
 ;
 
 DSLRestrictionMonitor:
@@ -62,23 +67,15 @@ DSLRestrictionKnowledge:
 	('planner' t=[DSLPlanner] 'must-access-knowledge' knowledge = [DSLKnowledge] 'through-interface' knowledgeinterface=[KnowledgeInterface] ';') 
 ;
 
-DSLRestrictionGauge:
-	
-	('effector' t=[DSLEffector] 'must-not-access-gauge' gauge = [DSLGauge] ';') |
-	('effector' t=[DSLEffector] 'must-access-gauge' gauge = [DSLGauge] 'through-interface' gaugeinterface=[GaugeInterface] ';') 
-;
-
-
 DSLRestrictionManaged:
 		
 	('managing' t=[DSLManaging] 'must-not-access-managed' managed = [DSLManaged] ';') |
 	('managing' t=[DSLManaging] 'must-access-managed' managed = [DSLManaged] 'through-interface' managedinterface=[ManagedInterface] ';') 
 ;
 
-
 DSLSensorBelongsTo:
 	
-	'sensor' sensor=[DSLSensor] 'must-be-in-monitor' monitor=[DSLMonitor] ';'
+	'sensor' sensor=[DSLSensor] 'must-be-in-managed' managed=[DSLManaged] ';'
 ;
 
 DSLReferenceInputBelongsTo:
@@ -89,7 +86,7 @@ DSLReferenceInputBelongsTo:
 
 DSLEffectorBelongsTo:
 	
-	'effector' effector=[DSLEffector] 'must-be-in-executor' executor=[DSLExecutor] ';'
+	'effector' effector=[DSLEffector] 'must-be-in-managed' managed=[DSLManaged] ';'
 	
 ;
 
@@ -164,14 +161,9 @@ DSLMeasuredOuputBelongsTo:
 	'measured-output' measured=[DSLMeasuredOutput] 'must-be-in-managed' managed=[DSLManaged] ';'
 ;
 
-DSLGaugeBelongsTo:
+DSLKnowledgeBelongsTo:
 	
-	'gauge' gauge=[DSLGauge] 'must-be-in-managed' managed=[DSLManaged] ';'
-;
-
-DSLProbeBelongsTo:
-	
-	'probe' probe=[DSLProbe] 'must-be-in-managed' managed=[DSLManaged] ';'
+	'knowledge' knowledge=[DSLKnowledge] 'must-be-in-managing' managing=[DSLManaging] ';'
 ;
 
 DSLManaging:
@@ -208,7 +200,7 @@ DSLMonitor:
 
 DSLAnalyzer:
 	
-	'Analyzer' name=ID ';'
+	'Analyzer' name=ID  ('with-interface' anlyzerinterfaces+=AnalyzerInterface (',' anlyzerinterfaces+=AnalyzerInterface)* )? ';'
 ;
 
 DSLPlanner: 
@@ -228,7 +220,7 @@ DSLKnowledge:
 
 DSLSensor: 
 	
-	'Sensor' name=ID  ';'
+	'Sensor' name=ID  ('with-interface' sensorinterfaces+=SensorInterface (',' sensorinterfaces+=SensorInterface)* )? ';'
 ;
 
 DSLEffector: 
@@ -236,16 +228,6 @@ DSLEffector:
 	'Effector' name=ID ('with-interface' effectorinterfaces+=EffectorInterface (',' effectorinterfaces+=EffectorInterface)* )? ';'
 ;
   
-DSLProbe:
-	
-	'Probe' name=ID  ('with-interface' probeinterfaces+=ProbeInterface ("," probeinterfaces+=ProbeInterface)*)? ';'
-;  
-
-DSLGauge: 
-	
-	'Gauge' name=ID ('with-interface' gaugeinterfaces+=GaugeInterface (',' gaugeinterfaces+=GaugeInterface)* )? ';'
-;
-
 DSLReferenceInput:
 	
 	'ReferenceInput'  name=ID ';'
@@ -256,25 +238,11 @@ DSLMeasuredOutput:
 	'MeasuredOutput' name=ID ';'
 ;
 
-MeasuredOutputInterface:
-	
-	name=ID
-;
-
-GaugeInterface :
-	
-	name=ID
-;
-
 EffectorInterface :
 	
 	name=ID
 ;
 
-ProbeInterface :
-	
- 	name=ID
-;
 
 SensorInterface :
 	
@@ -318,10 +286,6 @@ ControlLoopManagerInterface :
 	name=ID
 ;
 
-ReferenceInputInterface :
-	
-	name=ID
-;
 
 ManagedInterface:
 	

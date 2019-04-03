@@ -60,13 +60,22 @@ public interface SasDslFactory extends EFactory
   DSLRestriction createDSLRestriction();
 
   /**
-   * Returns a new object of class '<em>DSL Restriction Probe</em>'.
+   * Returns a new object of class '<em>DSL Restriction Effector</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction Probe</em>'.
+   * @return a new object of class '<em>DSL Restriction Effector</em>'.
    * @generated
    */
-  DSLRestrictionProbe createDSLRestrictionProbe();
+  DSLRestrictionEffector createDSLRestrictionEffector();
+
+  /**
+   * Returns a new object of class '<em>DSL Restriction Sensor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Restriction Sensor</em>'.
+   * @generated
+   */
+  DSLRestrictionSensor createDSLRestrictionSensor();
 
   /**
    * Returns a new object of class '<em>DSL Restriction Monitor</em>'.
@@ -103,15 +112,6 @@ public interface SasDslFactory extends EFactory
    * @generated
    */
   DSLRestrictionKnowledge createDSLRestrictionKnowledge();
-
-  /**
-   * Returns a new object of class '<em>DSL Restriction Gauge</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction Gauge</em>'.
-   * @generated
-   */
-  DSLRestrictionGauge createDSLRestrictionGauge();
 
   /**
    * Returns a new object of class '<em>DSL Restriction Managed</em>'.
@@ -258,22 +258,13 @@ public interface SasDslFactory extends EFactory
   DSLMeasuredOuputBelongsTo createDSLMeasuredOuputBelongsTo();
 
   /**
-   * Returns a new object of class '<em>DSL Gauge Belongs To</em>'.
+   * Returns a new object of class '<em>DSL Knowledge Belongs To</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Gauge Belongs To</em>'.
+   * @return a new object of class '<em>DSL Knowledge Belongs To</em>'.
    * @generated
    */
-  DSLGaugeBelongsTo createDSLGaugeBelongsTo();
-
-  /**
-   * Returns a new object of class '<em>DSL Probe Belongs To</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Probe Belongs To</em>'.
-   * @generated
-   */
-  DSLProbeBelongsTo createDSLProbeBelongsTo();
+  DSLKnowledgeBelongsTo createDSLKnowledgeBelongsTo();
 
   /**
    * Returns a new object of class '<em>DSL Managing</em>'.
@@ -375,24 +366,6 @@ public interface SasDslFactory extends EFactory
   DSLEffector createDSLEffector();
 
   /**
-   * Returns a new object of class '<em>DSL Probe</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Probe</em>'.
-   * @generated
-   */
-  DSLProbe createDSLProbe();
-
-  /**
-   * Returns a new object of class '<em>DSL Gauge</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Gauge</em>'.
-   * @generated
-   */
-  DSLGauge createDSLGauge();
-
-  /**
    * Returns a new object of class '<em>DSL Reference Input</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -411,24 +384,6 @@ public interface SasDslFactory extends EFactory
   DSLMeasuredOutput createDSLMeasuredOutput();
 
   /**
-   * Returns a new object of class '<em>Measured Output Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Measured Output Interface</em>'.
-   * @generated
-   */
-  MeasuredOutputInterface createMeasuredOutputInterface();
-
-  /**
-   * Returns a new object of class '<em>Gauge Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Gauge Interface</em>'.
-   * @generated
-   */
-  GaugeInterface createGaugeInterface();
-
-  /**
    * Returns a new object of class '<em>Effector Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -436,15 +391,6 @@ public interface SasDslFactory extends EFactory
    * @generated
    */
   EffectorInterface createEffectorInterface();
-
-  /**
-   * Returns a new object of class '<em>Probe Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Probe Interface</em>'.
-   * @generated
-   */
-  ProbeInterface createProbeInterface();
 
   /**
    * Returns a new object of class '<em>Sensor Interface</em>'.
@@ -517,15 +463,6 @@ public interface SasDslFactory extends EFactory
    * @generated
    */
   ControlLoopManagerInterface createControlLoopManagerInterface();
-
-  /**
-   * Returns a new object of class '<em>Reference Input Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Reference Input Interface</em>'.
-   * @generated
-   */
-  ReferenceInputInterface createReferenceInputInterface();
 
   /**
    * Returns a new object of class '<em>Managed Interface</em>'.

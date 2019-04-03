@@ -14,7 +14,7 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo#getEffector <em>Effector</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo#getExecutor <em>Executor</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo#getManaged <em>Managed</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLEffectorBelongsTo()
@@ -50,29 +50,29 @@ public interface DSLEffectorBelongsTo extends DSLComposition
   void setEffector(DSLEffector value);
 
   /**
-   * Returns the value of the '<em><b>Executor</b></em>' reference.
+   * Returns the value of the '<em><b>Managed</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Executor</em>' reference isn't clear,
+   * If the meaning of the '<em>Managed</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Executor</em>' reference.
-   * @see #setExecutor(DSLExecutor)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLEffectorBelongsTo_Executor()
+   * @return the value of the '<em>Managed</em>' reference.
+   * @see #setManaged(DSLManaged)
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLEffectorBelongsTo_Managed()
    * @model
    * @generated
    */
-  DSLExecutor getExecutor();
+  DSLManaged getManaged();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo#getExecutor <em>Executor</em>}' reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo#getManaged <em>Managed</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Executor</em>' reference.
-   * @see #getExecutor()
+   * @param value the new value of the '<em>Managed</em>' reference.
+   * @see #getManaged()
    * @generated
    */
-  void setExecutor(DSLExecutor value);
+  void setManaged(DSLManaged value);
 
 } // DSLEffectorBelongsTo

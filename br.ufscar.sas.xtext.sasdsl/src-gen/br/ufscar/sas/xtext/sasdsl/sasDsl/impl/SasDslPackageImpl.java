@@ -22,9 +22,8 @@ import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutorBelongsTo1;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutorBelongsTo2;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGauge;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGaugeBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledgeBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaged;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaging;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOuputBelongsTo;
@@ -35,30 +34,24 @@ import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitorBelongsTo2;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlannerBelongsTo1;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlannerBelongsTo2;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbeBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInput;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInputBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionEffector;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionExecutor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionGauge;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionKnowledge;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionManaged;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionMonitor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionPlanner;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionProbe;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionSensor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensorBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ExecutorInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.GaugeInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.KnowledgeInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ManagedInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.MeasuredOutputInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.MonitorInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.PlannerInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ProbeInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ReferenceInputInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslFactory;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SensorInterface;
@@ -111,7 +104,14 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslRestrictionProbeEClass = null;
+  private EClass dslRestrictionEffectorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dslRestrictionSensorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -140,13 +140,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * @generated
    */
   private EClass dslRestrictionKnowledgeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslRestrictionGaugeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -265,14 +258,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslGaugeBelongsToEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslProbeBelongsToEClass = null;
+  private EClass dslKnowledgeBelongsToEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -356,20 +342,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslProbeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslGaugeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass dslReferenceInputEClass = null;
 
   /**
@@ -384,28 +356,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass measuredOutputInterfaceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass gaugeInterfaceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass effectorInterfaceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass probeInterfaceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -462,13 +413,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * @generated
    */
   private EClass controlLoopManagerInterfaceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass referenceInputInterfaceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -625,9 +569,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestrictionProbe()
+  public EClass getDSLRestrictionEffector()
   {
-    return dslRestrictionProbeEClass;
+    return dslRestrictionEffectorEClass;
   }
 
   /**
@@ -635,9 +579,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionProbe_T()
+  public EReference getDSLRestrictionEffector_T()
   {
-    return (EReference)dslRestrictionProbeEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRestrictionEffectorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -645,9 +589,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionProbe_Probe()
+  public EReference getDSLRestrictionEffector_Effector()
   {
-    return (EReference)dslRestrictionProbeEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRestrictionEffectorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -655,9 +599,49 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionProbe_Probeinterface()
+  public EReference getDSLRestrictionEffector_Effectorinterface()
   {
-    return (EReference)dslRestrictionProbeEClass.getEStructuralFeatures().get(2);
+    return (EReference)dslRestrictionEffectorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDSLRestrictionSensor()
+  {
+    return dslRestrictionSensorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLRestrictionSensor_T()
+  {
+    return (EReference)dslRestrictionSensorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLRestrictionSensor_Sensor()
+  {
+    return (EReference)dslRestrictionSensorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLRestrictionSensor_Sensorinterface()
+  {
+    return (EReference)dslRestrictionSensorEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -825,46 +809,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestrictionGauge()
-  {
-    return dslRestrictionGaugeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLRestrictionGauge_T()
-  {
-    return (EReference)dslRestrictionGaugeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLRestrictionGauge_Gauge()
-  {
-    return (EReference)dslRestrictionGaugeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLRestrictionGauge_Gaugeinterface()
-  {
-    return (EReference)dslRestrictionGaugeEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDSLRestrictionManaged()
   {
     return dslRestrictionManagedEClass;
@@ -925,7 +869,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLSensorBelongsTo_Monitor()
+  public EReference getDSLSensorBelongsTo_Managed()
   {
     return (EReference)dslSensorBelongsToEClass.getEStructuralFeatures().get(1);
   }
@@ -985,7 +929,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLEffectorBelongsTo_Executor()
+  public EReference getDSLEffectorBelongsTo_Managed()
   {
     return (EReference)dslEffectorBelongsToEClass.getEStructuralFeatures().get(1);
   }
@@ -1355,9 +1299,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLGaugeBelongsTo()
+  public EClass getDSLKnowledgeBelongsTo()
   {
-    return dslGaugeBelongsToEClass;
+    return dslKnowledgeBelongsToEClass;
   }
 
   /**
@@ -1365,9 +1309,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLGaugeBelongsTo_Gauge()
+  public EReference getDSLKnowledgeBelongsTo_Knowledge()
   {
-    return (EReference)dslGaugeBelongsToEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslKnowledgeBelongsToEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1375,39 +1319,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLGaugeBelongsTo_Managed()
+  public EReference getDSLKnowledgeBelongsTo_Managing()
   {
-    return (EReference)dslGaugeBelongsToEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLProbeBelongsTo()
-  {
-    return dslProbeBelongsToEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLProbeBelongsTo_Probe()
-  {
-    return (EReference)dslProbeBelongsToEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLProbeBelongsTo_Managed()
-  {
-    return (EReference)dslProbeBelongsToEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslKnowledgeBelongsToEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1515,6 +1429,16 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDSLAnalyzer_Anlyzerinterfaces()
+  {
+    return (EReference)dslAnalyzerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLPlanner()
   {
     return dslPlannerEClass;
@@ -1585,6 +1509,16 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getDSLSensor_Sensorinterfaces()
+  {
+    return (EReference)dslSensorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLEffector()
   {
     return dslEffectorEClass;
@@ -1598,46 +1532,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
   public EReference getDSLEffector_Effectorinterfaces()
   {
     return (EReference)dslEffectorEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLProbe()
-  {
-    return dslProbeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLProbe_Probeinterfaces()
-  {
-    return (EReference)dslProbeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLGauge()
-  {
-    return dslGaugeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLGauge_Gaugeinterfaces()
-  {
-    return (EReference)dslGaugeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1665,46 +1559,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMeasuredOutputInterface()
-  {
-    return measuredOutputInterfaceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getMeasuredOutputInterface_Name()
-  {
-    return (EAttribute)measuredOutputInterfaceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getGaugeInterface()
-  {
-    return gaugeInterfaceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getGaugeInterface_Name()
-  {
-    return (EAttribute)gaugeInterfaceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getEffectorInterface()
   {
     return effectorInterfaceEClass;
@@ -1718,26 +1572,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
   public EAttribute getEffectorInterface_Name()
   {
     return (EAttribute)effectorInterfaceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getProbeInterface()
-  {
-    return probeInterfaceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getProbeInterface_Name()
-  {
-    return (EAttribute)probeInterfaceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1905,26 +1739,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getReferenceInputInterface()
-  {
-    return referenceInputInterfaceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getReferenceInputInterface_Name()
-  {
-    return (EAttribute)referenceInputInterfaceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getManagedInterface()
   {
     return managedInterfaceEClass;
@@ -1982,10 +1796,15 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     dslRestrictionEClass = createEClass(DSL_RESTRICTION);
 
-    dslRestrictionProbeEClass = createEClass(DSL_RESTRICTION_PROBE);
-    createEReference(dslRestrictionProbeEClass, DSL_RESTRICTION_PROBE__T);
-    createEReference(dslRestrictionProbeEClass, DSL_RESTRICTION_PROBE__PROBE);
-    createEReference(dslRestrictionProbeEClass, DSL_RESTRICTION_PROBE__PROBEINTERFACE);
+    dslRestrictionEffectorEClass = createEClass(DSL_RESTRICTION_EFFECTOR);
+    createEReference(dslRestrictionEffectorEClass, DSL_RESTRICTION_EFFECTOR__T);
+    createEReference(dslRestrictionEffectorEClass, DSL_RESTRICTION_EFFECTOR__EFFECTOR);
+    createEReference(dslRestrictionEffectorEClass, DSL_RESTRICTION_EFFECTOR__EFFECTORINTERFACE);
+
+    dslRestrictionSensorEClass = createEClass(DSL_RESTRICTION_SENSOR);
+    createEReference(dslRestrictionSensorEClass, DSL_RESTRICTION_SENSOR__T);
+    createEReference(dslRestrictionSensorEClass, DSL_RESTRICTION_SENSOR__SENSOR);
+    createEReference(dslRestrictionSensorEClass, DSL_RESTRICTION_SENSOR__SENSORINTERFACE);
 
     dslRestrictionMonitorEClass = createEClass(DSL_RESTRICTION_MONITOR);
     createEReference(dslRestrictionMonitorEClass, DSL_RESTRICTION_MONITOR__T);
@@ -2007,11 +1826,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     createEReference(dslRestrictionKnowledgeEClass, DSL_RESTRICTION_KNOWLEDGE__KNOWLEDGE);
     createEReference(dslRestrictionKnowledgeEClass, DSL_RESTRICTION_KNOWLEDGE__KNOWLEDGEINTERFACE);
 
-    dslRestrictionGaugeEClass = createEClass(DSL_RESTRICTION_GAUGE);
-    createEReference(dslRestrictionGaugeEClass, DSL_RESTRICTION_GAUGE__T);
-    createEReference(dslRestrictionGaugeEClass, DSL_RESTRICTION_GAUGE__GAUGE);
-    createEReference(dslRestrictionGaugeEClass, DSL_RESTRICTION_GAUGE__GAUGEINTERFACE);
-
     dslRestrictionManagedEClass = createEClass(DSL_RESTRICTION_MANAGED);
     createEReference(dslRestrictionManagedEClass, DSL_RESTRICTION_MANAGED__T);
     createEReference(dslRestrictionManagedEClass, DSL_RESTRICTION_MANAGED__MANAGED);
@@ -2019,7 +1833,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     dslSensorBelongsToEClass = createEClass(DSL_SENSOR_BELONGS_TO);
     createEReference(dslSensorBelongsToEClass, DSL_SENSOR_BELONGS_TO__SENSOR);
-    createEReference(dslSensorBelongsToEClass, DSL_SENSOR_BELONGS_TO__MONITOR);
+    createEReference(dslSensorBelongsToEClass, DSL_SENSOR_BELONGS_TO__MANAGED);
 
     dslReferenceInputBelongsToEClass = createEClass(DSL_REFERENCE_INPUT_BELONGS_TO);
     createEReference(dslReferenceInputBelongsToEClass, DSL_REFERENCE_INPUT_BELONGS_TO__REFERENCE);
@@ -2027,7 +1841,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     dslEffectorBelongsToEClass = createEClass(DSL_EFFECTOR_BELONGS_TO);
     createEReference(dslEffectorBelongsToEClass, DSL_EFFECTOR_BELONGS_TO__EFFECTOR);
-    createEReference(dslEffectorBelongsToEClass, DSL_EFFECTOR_BELONGS_TO__EXECUTOR);
+    createEReference(dslEffectorBelongsToEClass, DSL_EFFECTOR_BELONGS_TO__MANAGED);
 
     dslMonitorBelongsTo1EClass = createEClass(DSL_MONITOR_BELONGS_TO1);
     createEReference(dslMonitorBelongsTo1EClass, DSL_MONITOR_BELONGS_TO1__MONITOR);
@@ -2077,13 +1891,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     createEReference(dslMeasuredOuputBelongsToEClass, DSL_MEASURED_OUPUT_BELONGS_TO__MEASURED);
     createEReference(dslMeasuredOuputBelongsToEClass, DSL_MEASURED_OUPUT_BELONGS_TO__MANAGED);
 
-    dslGaugeBelongsToEClass = createEClass(DSL_GAUGE_BELONGS_TO);
-    createEReference(dslGaugeBelongsToEClass, DSL_GAUGE_BELONGS_TO__GAUGE);
-    createEReference(dslGaugeBelongsToEClass, DSL_GAUGE_BELONGS_TO__MANAGED);
-
-    dslProbeBelongsToEClass = createEClass(DSL_PROBE_BELONGS_TO);
-    createEReference(dslProbeBelongsToEClass, DSL_PROBE_BELONGS_TO__PROBE);
-    createEReference(dslProbeBelongsToEClass, DSL_PROBE_BELONGS_TO__MANAGED);
+    dslKnowledgeBelongsToEClass = createEClass(DSL_KNOWLEDGE_BELONGS_TO);
+    createEReference(dslKnowledgeBelongsToEClass, DSL_KNOWLEDGE_BELONGS_TO__KNOWLEDGE);
+    createEReference(dslKnowledgeBelongsToEClass, DSL_KNOWLEDGE_BELONGS_TO__MANAGING);
 
     dslManagingEClass = createEClass(DSL_MANAGING);
 
@@ -2100,6 +1910,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     createEReference(dslMonitorEClass, DSL_MONITOR__MONITORINTERFACES);
 
     dslAnalyzerEClass = createEClass(DSL_ANALYZER);
+    createEReference(dslAnalyzerEClass, DSL_ANALYZER__ANLYZERINTERFACES);
 
     dslPlannerEClass = createEClass(DSL_PLANNER);
     createEReference(dslPlannerEClass, DSL_PLANNER__PLANNERINTERFACES);
@@ -2111,31 +1922,17 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     createEReference(dslKnowledgeEClass, DSL_KNOWLEDGE__KNOWLEDGEINTERFACES);
 
     dslSensorEClass = createEClass(DSL_SENSOR);
+    createEReference(dslSensorEClass, DSL_SENSOR__SENSORINTERFACES);
 
     dslEffectorEClass = createEClass(DSL_EFFECTOR);
     createEReference(dslEffectorEClass, DSL_EFFECTOR__EFFECTORINTERFACES);
-
-    dslProbeEClass = createEClass(DSL_PROBE);
-    createEReference(dslProbeEClass, DSL_PROBE__PROBEINTERFACES);
-
-    dslGaugeEClass = createEClass(DSL_GAUGE);
-    createEReference(dslGaugeEClass, DSL_GAUGE__GAUGEINTERFACES);
 
     dslReferenceInputEClass = createEClass(DSL_REFERENCE_INPUT);
 
     dslMeasuredOutputEClass = createEClass(DSL_MEASURED_OUTPUT);
 
-    measuredOutputInterfaceEClass = createEClass(MEASURED_OUTPUT_INTERFACE);
-    createEAttribute(measuredOutputInterfaceEClass, MEASURED_OUTPUT_INTERFACE__NAME);
-
-    gaugeInterfaceEClass = createEClass(GAUGE_INTERFACE);
-    createEAttribute(gaugeInterfaceEClass, GAUGE_INTERFACE__NAME);
-
     effectorInterfaceEClass = createEClass(EFFECTOR_INTERFACE);
     createEAttribute(effectorInterfaceEClass, EFFECTOR_INTERFACE__NAME);
-
-    probeInterfaceEClass = createEClass(PROBE_INTERFACE);
-    createEAttribute(probeInterfaceEClass, PROBE_INTERFACE__NAME);
 
     sensorInterfaceEClass = createEClass(SENSOR_INTERFACE);
     createEAttribute(sensorInterfaceEClass, SENSOR_INTERFACE__NAME);
@@ -2160,9 +1957,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     controlLoopManagerInterfaceEClass = createEClass(CONTROL_LOOP_MANAGER_INTERFACE);
     createEAttribute(controlLoopManagerInterfaceEClass, CONTROL_LOOP_MANAGER_INTERFACE__NAME);
-
-    referenceInputInterfaceEClass = createEClass(REFERENCE_INPUT_INTERFACE);
-    createEAttribute(referenceInputInterfaceEClass, REFERENCE_INPUT_INTERFACE__NAME);
 
     managedInterfaceEClass = createEClass(MANAGED_INTERFACE);
     createEAttribute(managedInterfaceEClass, MANAGED_INTERFACE__NAME);
@@ -2197,12 +1991,12 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    dslRestrictionProbeEClass.getESuperTypes().add(this.getDSLRestriction());
+    dslRestrictionEffectorEClass.getESuperTypes().add(this.getDSLRestriction());
+    dslRestrictionSensorEClass.getESuperTypes().add(this.getDSLRestriction());
     dslRestrictionMonitorEClass.getESuperTypes().add(this.getDSLRestriction());
     dslRestrictionPlannerEClass.getESuperTypes().add(this.getDSLRestriction());
     dslRestrictionExecutorEClass.getESuperTypes().add(this.getDSLRestriction());
     dslRestrictionKnowledgeEClass.getESuperTypes().add(this.getDSLRestriction());
-    dslRestrictionGaugeEClass.getESuperTypes().add(this.getDSLRestriction());
     dslRestrictionManagedEClass.getESuperTypes().add(this.getDSLRestriction());
     dslSensorBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
     dslReferenceInputBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
@@ -2219,8 +2013,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     dslClBelongsTo2EClass.getESuperTypes().add(this.getDSLComposition());
     dslClmBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
     dslMeasuredOuputBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
-    dslGaugeBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
-    dslProbeBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
+    dslKnowledgeBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
     dslManagingEClass.getESuperTypes().add(this.getDSLAbstraction());
     dslManagedEClass.getESuperTypes().add(this.getDSLAbstraction());
     dslControlLoopManagerEClass.getESuperTypes().add(this.getDSLAbstraction());
@@ -2232,8 +2025,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     dslKnowledgeEClass.getESuperTypes().add(this.getDSLAbstraction());
     dslSensorEClass.getESuperTypes().add(this.getDSLAbstraction());
     dslEffectorEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslProbeEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslGaugeEClass.getESuperTypes().add(this.getDSLAbstraction());
     dslReferenceInputEClass.getESuperTypes().add(this.getDSLAbstraction());
     dslMeasuredOutputEClass.getESuperTypes().add(this.getDSLAbstraction());
 
@@ -2250,10 +2041,15 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     initEClass(dslRestrictionEClass, DSLRestriction.class, "DSLRestriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(dslRestrictionProbeEClass, DSLRestrictionProbe.class, "DSLRestrictionProbe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLRestrictionProbe_T(), this.getDSLSensor(), null, "t", null, 0, 1, DSLRestrictionProbe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionProbe_Probe(), this.getDSLProbe(), null, "probe", null, 0, 1, DSLRestrictionProbe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionProbe_Probeinterface(), this.getProbeInterface(), null, "probeinterface", null, 0, 1, DSLRestrictionProbe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslRestrictionEffectorEClass, DSLRestrictionEffector.class, "DSLRestrictionEffector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLRestrictionEffector_T(), this.getDSLExecutor(), null, "t", null, 0, 1, DSLRestrictionEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRestrictionEffector_Effector(), this.getDSLEffector(), null, "effector", null, 0, 1, DSLRestrictionEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRestrictionEffector_Effectorinterface(), this.getEffectorInterface(), null, "effectorinterface", null, 0, 1, DSLRestrictionEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dslRestrictionSensorEClass, DSLRestrictionSensor.class, "DSLRestrictionSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLRestrictionSensor_T(), this.getDSLMonitor(), null, "t", null, 0, 1, DSLRestrictionSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRestrictionSensor_Sensor(), this.getDSLSensor(), null, "sensor", null, 0, 1, DSLRestrictionSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRestrictionSensor_Sensorinterface(), this.getSensorInterface(), null, "sensorinterface", null, 0, 1, DSLRestrictionSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslRestrictionMonitorEClass, DSLRestrictionMonitor.class, "DSLRestrictionMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDSLRestrictionMonitor_T(), this.getDSLAnalyzer(), null, "t", null, 0, 1, DSLRestrictionMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2275,11 +2071,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     initEReference(getDSLRestrictionKnowledge_Knowledge(), this.getDSLKnowledge(), null, "knowledge", null, 0, 1, DSLRestrictionKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLRestrictionKnowledge_Knowledgeinterface(), this.getKnowledgeInterface(), null, "knowledgeinterface", null, 0, 1, DSLRestrictionKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslRestrictionGaugeEClass, DSLRestrictionGauge.class, "DSLRestrictionGauge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLRestrictionGauge_T(), this.getDSLEffector(), null, "t", null, 0, 1, DSLRestrictionGauge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionGauge_Gauge(), this.getDSLGauge(), null, "gauge", null, 0, 1, DSLRestrictionGauge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionGauge_Gaugeinterface(), this.getGaugeInterface(), null, "gaugeinterface", null, 0, 1, DSLRestrictionGauge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(dslRestrictionManagedEClass, DSLRestrictionManaged.class, "DSLRestrictionManaged", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDSLRestrictionManaged_T(), this.getDSLManaging(), null, "t", null, 0, 1, DSLRestrictionManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLRestrictionManaged_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLRestrictionManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2287,7 +2078,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     initEClass(dslSensorBelongsToEClass, DSLSensorBelongsTo.class, "DSLSensorBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDSLSensorBelongsTo_Sensor(), this.getDSLSensor(), null, "sensor", null, 0, 1, DSLSensorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLSensorBelongsTo_Monitor(), this.getDSLMonitor(), null, "monitor", null, 0, 1, DSLSensorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLSensorBelongsTo_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLSensorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslReferenceInputBelongsToEClass, DSLReferenceInputBelongsTo.class, "DSLReferenceInputBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDSLReferenceInputBelongsTo_Reference(), this.getDSLReferenceInput(), null, "reference", null, 0, 1, DSLReferenceInputBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2295,7 +2086,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     initEClass(dslEffectorBelongsToEClass, DSLEffectorBelongsTo.class, "DSLEffectorBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDSLEffectorBelongsTo_Effector(), this.getDSLEffector(), null, "effector", null, 0, 1, DSLEffectorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLEffectorBelongsTo_Executor(), this.getDSLExecutor(), null, "executor", null, 0, 1, DSLEffectorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLEffectorBelongsTo_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLEffectorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslMonitorBelongsTo1EClass, DSLMonitorBelongsTo1.class, "DSLMonitorBelongsTo1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDSLMonitorBelongsTo1_Monitor(), this.getDSLMonitor(), null, "monitor", null, 0, 1, DSLMonitorBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2345,13 +2136,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     initEReference(getDSLMeasuredOuputBelongsTo_Measured(), this.getDSLMeasuredOutput(), null, "measured", null, 0, 1, DSLMeasuredOuputBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLMeasuredOuputBelongsTo_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLMeasuredOuputBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslGaugeBelongsToEClass, DSLGaugeBelongsTo.class, "DSLGaugeBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLGaugeBelongsTo_Gauge(), this.getDSLGauge(), null, "gauge", null, 0, 1, DSLGaugeBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLGaugeBelongsTo_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLGaugeBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslProbeBelongsToEClass, DSLProbeBelongsTo.class, "DSLProbeBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLProbeBelongsTo_Probe(), this.getDSLProbe(), null, "probe", null, 0, 1, DSLProbeBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLProbeBelongsTo_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLProbeBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslKnowledgeBelongsToEClass, DSLKnowledgeBelongsTo.class, "DSLKnowledgeBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLKnowledgeBelongsTo_Knowledge(), this.getDSLKnowledge(), null, "knowledge", null, 0, 1, DSLKnowledgeBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLKnowledgeBelongsTo_Managing(), this.getDSLManaging(), null, "managing", null, 0, 1, DSLKnowledgeBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslManagingEClass, DSLManaging.class, "DSLManaging", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2368,6 +2155,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     initEReference(getDSLMonitor_Monitorinterfaces(), this.getMonitorInterface(), null, "monitorinterfaces", null, 0, -1, DSLMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslAnalyzerEClass, DSLAnalyzer.class, "DSLAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLAnalyzer_Anlyzerinterfaces(), this.getAnalyzerInterface(), null, "anlyzerinterfaces", null, 0, -1, DSLAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslPlannerEClass, DSLPlanner.class, "DSLPlanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDSLPlanner_Plannerinterfaces(), this.getPlannerInterface(), null, "plannerinterfaces", null, 0, -1, DSLPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2379,31 +2167,17 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     initEReference(getDSLKnowledge_Knowledgeinterfaces(), this.getKnowledgeInterface(), null, "knowledgeinterfaces", null, 0, -1, DSLKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslSensorEClass, DSLSensor.class, "DSLSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLSensor_Sensorinterfaces(), this.getSensorInterface(), null, "sensorinterfaces", null, 0, -1, DSLSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslEffectorEClass, DSLEffector.class, "DSLEffector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDSLEffector_Effectorinterfaces(), this.getEffectorInterface(), null, "effectorinterfaces", null, 0, -1, DSLEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslProbeEClass, DSLProbe.class, "DSLProbe", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLProbe_Probeinterfaces(), this.getProbeInterface(), null, "probeinterfaces", null, 0, -1, DSLProbe.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslGaugeEClass, DSLGauge.class, "DSLGauge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLGauge_Gaugeinterfaces(), this.getGaugeInterface(), null, "gaugeinterfaces", null, 0, -1, DSLGauge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslReferenceInputEClass, DSLReferenceInput.class, "DSLReferenceInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(dslMeasuredOutputEClass, DSLMeasuredOutput.class, "DSLMeasuredOutput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(measuredOutputInterfaceEClass, MeasuredOutputInterface.class, "MeasuredOutputInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMeasuredOutputInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, MeasuredOutputInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(gaugeInterfaceEClass, GaugeInterface.class, "GaugeInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGaugeInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, GaugeInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(effectorInterfaceEClass, EffectorInterface.class, "EffectorInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEffectorInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, EffectorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(probeInterfaceEClass, ProbeInterface.class, "ProbeInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProbeInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProbeInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sensorInterfaceEClass, SensorInterface.class, "SensorInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSensorInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, SensorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2428,9 +2202,6 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     initEClass(controlLoopManagerInterfaceEClass, ControlLoopManagerInterface.class, "ControlLoopManagerInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getControlLoopManagerInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, ControlLoopManagerInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(referenceInputInterfaceEClass, ReferenceInputInterface.class, "ReferenceInputInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getReferenceInputInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReferenceInputInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(managedInterfaceEClass, ManagedInterface.class, "ManagedInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getManagedInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, ManagedInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -69,12 +69,12 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_ABSTRACTION: return createDSLAbstraction();
       case SasDslPackage.DSL_COMPOSITION: return createDSLComposition();
       case SasDslPackage.DSL_RESTRICTION: return createDSLRestriction();
-      case SasDslPackage.DSL_RESTRICTION_PROBE: return createDSLRestrictionProbe();
+      case SasDslPackage.DSL_RESTRICTION_EFFECTOR: return createDSLRestrictionEffector();
+      case SasDslPackage.DSL_RESTRICTION_SENSOR: return createDSLRestrictionSensor();
       case SasDslPackage.DSL_RESTRICTION_MONITOR: return createDSLRestrictionMonitor();
       case SasDslPackage.DSL_RESTRICTION_PLANNER: return createDSLRestrictionPlanner();
       case SasDslPackage.DSL_RESTRICTION_EXECUTOR: return createDSLRestrictionExecutor();
       case SasDslPackage.DSL_RESTRICTION_KNOWLEDGE: return createDSLRestrictionKnowledge();
-      case SasDslPackage.DSL_RESTRICTION_GAUGE: return createDSLRestrictionGauge();
       case SasDslPackage.DSL_RESTRICTION_MANAGED: return createDSLRestrictionManaged();
       case SasDslPackage.DSL_SENSOR_BELONGS_TO: return createDSLSensorBelongsTo();
       case SasDslPackage.DSL_REFERENCE_INPUT_BELONGS_TO: return createDSLReferenceInputBelongsTo();
@@ -91,8 +91,7 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_CL_BELONGS_TO2: return createDSLClBelongsTo2();
       case SasDslPackage.DSL_CLM_BELONGS_TO: return createDSLClmBelongsTo();
       case SasDslPackage.DSL_MEASURED_OUPUT_BELONGS_TO: return createDSLMeasuredOuputBelongsTo();
-      case SasDslPackage.DSL_GAUGE_BELONGS_TO: return createDSLGaugeBelongsTo();
-      case SasDslPackage.DSL_PROBE_BELONGS_TO: return createDSLProbeBelongsTo();
+      case SasDslPackage.DSL_KNOWLEDGE_BELONGS_TO: return createDSLKnowledgeBelongsTo();
       case SasDslPackage.DSL_MANAGING: return createDSLManaging();
       case SasDslPackage.DSL_MANAGED: return createDSLManaged();
       case SasDslPackage.DSL_CONTROL_LOOP_MANAGER: return createDSLControlLoopManager();
@@ -104,14 +103,9 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_KNOWLEDGE: return createDSLKnowledge();
       case SasDslPackage.DSL_SENSOR: return createDSLSensor();
       case SasDslPackage.DSL_EFFECTOR: return createDSLEffector();
-      case SasDslPackage.DSL_PROBE: return createDSLProbe();
-      case SasDslPackage.DSL_GAUGE: return createDSLGauge();
       case SasDslPackage.DSL_REFERENCE_INPUT: return createDSLReferenceInput();
       case SasDslPackage.DSL_MEASURED_OUTPUT: return createDSLMeasuredOutput();
-      case SasDslPackage.MEASURED_OUTPUT_INTERFACE: return createMeasuredOutputInterface();
-      case SasDslPackage.GAUGE_INTERFACE: return createGaugeInterface();
       case SasDslPackage.EFFECTOR_INTERFACE: return createEffectorInterface();
-      case SasDslPackage.PROBE_INTERFACE: return createProbeInterface();
       case SasDslPackage.SENSOR_INTERFACE: return createSensorInterface();
       case SasDslPackage.MONITOR_INTERFACE: return createMonitorInterface();
       case SasDslPackage.ANALYZER_INTERFACE: return createAnalyzerInterface();
@@ -120,7 +114,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.KNOWLEDGE_INTERFACE: return createKnowledgeInterface();
       case SasDslPackage.CONTROL_LOOP_INTERFACE: return createControlLoopInterface();
       case SasDslPackage.CONTROL_LOOP_MANAGER_INTERFACE: return createControlLoopManagerInterface();
-      case SasDslPackage.REFERENCE_INPUT_INTERFACE: return createReferenceInputInterface();
       case SasDslPackage.MANAGED_INTERFACE: return createManagedInterface();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -176,10 +169,21 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLRestrictionProbe createDSLRestrictionProbe()
+  public DSLRestrictionEffector createDSLRestrictionEffector()
   {
-    DSLRestrictionProbeImpl dslRestrictionProbe = new DSLRestrictionProbeImpl();
-    return dslRestrictionProbe;
+    DSLRestrictionEffectorImpl dslRestrictionEffector = new DSLRestrictionEffectorImpl();
+    return dslRestrictionEffector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLRestrictionSensor createDSLRestrictionSensor()
+  {
+    DSLRestrictionSensorImpl dslRestrictionSensor = new DSLRestrictionSensorImpl();
+    return dslRestrictionSensor;
   }
 
   /**
@@ -224,17 +228,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
   {
     DSLRestrictionKnowledgeImpl dslRestrictionKnowledge = new DSLRestrictionKnowledgeImpl();
     return dslRestrictionKnowledge;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLRestrictionGauge createDSLRestrictionGauge()
-  {
-    DSLRestrictionGaugeImpl dslRestrictionGauge = new DSLRestrictionGaugeImpl();
-    return dslRestrictionGauge;
   }
 
   /**
@@ -418,21 +411,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLGaugeBelongsTo createDSLGaugeBelongsTo()
+  public DSLKnowledgeBelongsTo createDSLKnowledgeBelongsTo()
   {
-    DSLGaugeBelongsToImpl dslGaugeBelongsTo = new DSLGaugeBelongsToImpl();
-    return dslGaugeBelongsTo;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLProbeBelongsTo createDSLProbeBelongsTo()
-  {
-    DSLProbeBelongsToImpl dslProbeBelongsTo = new DSLProbeBelongsToImpl();
-    return dslProbeBelongsTo;
+    DSLKnowledgeBelongsToImpl dslKnowledgeBelongsTo = new DSLKnowledgeBelongsToImpl();
+    return dslKnowledgeBelongsTo;
   }
 
   /**
@@ -561,28 +543,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLProbe createDSLProbe()
-  {
-    DSLProbeImpl dslProbe = new DSLProbeImpl();
-    return dslProbe;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLGauge createDSLGauge()
-  {
-    DSLGaugeImpl dslGauge = new DSLGaugeImpl();
-    return dslGauge;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public DSLReferenceInput createDSLReferenceInput()
   {
     DSLReferenceInputImpl dslReferenceInput = new DSLReferenceInputImpl();
@@ -605,43 +565,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MeasuredOutputInterface createMeasuredOutputInterface()
-  {
-    MeasuredOutputInterfaceImpl measuredOutputInterface = new MeasuredOutputInterfaceImpl();
-    return measuredOutputInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GaugeInterface createGaugeInterface()
-  {
-    GaugeInterfaceImpl gaugeInterface = new GaugeInterfaceImpl();
-    return gaugeInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EffectorInterface createEffectorInterface()
   {
     EffectorInterfaceImpl effectorInterface = new EffectorInterfaceImpl();
     return effectorInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ProbeInterface createProbeInterface()
-  {
-    ProbeInterfaceImpl probeInterface = new ProbeInterfaceImpl();
-    return probeInterface;
   }
 
   /**
@@ -730,17 +657,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
   {
     ControlLoopManagerInterfaceImpl controlLoopManagerInterface = new ControlLoopManagerInterfaceImpl();
     return controlLoopManagerInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ReferenceInputInterface createReferenceInputInterface()
-  {
-    ReferenceInputInterfaceImpl referenceInputInterface = new ReferenceInputInterfaceImpl();
-    return referenceInputInterface;
   }
 
   /**

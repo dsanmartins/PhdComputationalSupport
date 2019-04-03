@@ -96,9 +96,14 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
         return createDSLRestrictionAdapter();
       }
       @Override
-      public Adapter caseDSLRestrictionProbe(DSLRestrictionProbe object)
+      public Adapter caseDSLRestrictionEffector(DSLRestrictionEffector object)
       {
-        return createDSLRestrictionProbeAdapter();
+        return createDSLRestrictionEffectorAdapter();
+      }
+      @Override
+      public Adapter caseDSLRestrictionSensor(DSLRestrictionSensor object)
+      {
+        return createDSLRestrictionSensorAdapter();
       }
       @Override
       public Adapter caseDSLRestrictionMonitor(DSLRestrictionMonitor object)
@@ -119,11 +124,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDSLRestrictionKnowledge(DSLRestrictionKnowledge object)
       {
         return createDSLRestrictionKnowledgeAdapter();
-      }
-      @Override
-      public Adapter caseDSLRestrictionGauge(DSLRestrictionGauge object)
-      {
-        return createDSLRestrictionGaugeAdapter();
       }
       @Override
       public Adapter caseDSLRestrictionManaged(DSLRestrictionManaged object)
@@ -206,14 +206,9 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
         return createDSLMeasuredOuputBelongsToAdapter();
       }
       @Override
-      public Adapter caseDSLGaugeBelongsTo(DSLGaugeBelongsTo object)
+      public Adapter caseDSLKnowledgeBelongsTo(DSLKnowledgeBelongsTo object)
       {
-        return createDSLGaugeBelongsToAdapter();
-      }
-      @Override
-      public Adapter caseDSLProbeBelongsTo(DSLProbeBelongsTo object)
-      {
-        return createDSLProbeBelongsToAdapter();
+        return createDSLKnowledgeBelongsToAdapter();
       }
       @Override
       public Adapter caseDSLManaging(DSLManaging object)
@@ -271,16 +266,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
         return createDSLEffectorAdapter();
       }
       @Override
-      public Adapter caseDSLProbe(DSLProbe object)
-      {
-        return createDSLProbeAdapter();
-      }
-      @Override
-      public Adapter caseDSLGauge(DSLGauge object)
-      {
-        return createDSLGaugeAdapter();
-      }
-      @Override
       public Adapter caseDSLReferenceInput(DSLReferenceInput object)
       {
         return createDSLReferenceInputAdapter();
@@ -291,24 +276,9 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
         return createDSLMeasuredOutputAdapter();
       }
       @Override
-      public Adapter caseMeasuredOutputInterface(MeasuredOutputInterface object)
-      {
-        return createMeasuredOutputInterfaceAdapter();
-      }
-      @Override
-      public Adapter caseGaugeInterface(GaugeInterface object)
-      {
-        return createGaugeInterfaceAdapter();
-      }
-      @Override
       public Adapter caseEffectorInterface(EffectorInterface object)
       {
         return createEffectorInterfaceAdapter();
-      }
-      @Override
-      public Adapter caseProbeInterface(ProbeInterface object)
-      {
-        return createProbeInterfaceAdapter();
       }
       @Override
       public Adapter caseSensorInterface(SensorInterface object)
@@ -349,11 +319,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseControlLoopManagerInterface(ControlLoopManagerInterface object)
       {
         return createControlLoopManagerInterfaceAdapter();
-      }
-      @Override
-      public Adapter caseReferenceInputInterface(ReferenceInputInterface object)
-      {
-        return createReferenceInputInterfaceAdapter();
       }
       @Override
       public Adapter caseManagedInterface(ManagedInterface object)
@@ -443,16 +408,31 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionProbe <em>DSL Restriction Probe</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionEffector <em>DSL Restriction Effector</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionProbe
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionEffector
    * @generated
    */
-  public Adapter createDSLRestrictionProbeAdapter()
+  public Adapter createDSLRestrictionEffectorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionSensor <em>DSL Restriction Sensor</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionSensor
+   * @generated
+   */
+  public Adapter createDSLRestrictionSensorAdapter()
   {
     return null;
   }
@@ -513,21 +493,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDSLRestrictionKnowledgeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionGauge <em>DSL Restriction Gauge</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionGauge
-   * @generated
-   */
-  public Adapter createDSLRestrictionGaugeAdapter()
   {
     return null;
   }
@@ -773,31 +738,16 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGaugeBelongsTo <em>DSL Gauge Belongs To</em>}'.
+   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledgeBelongsTo <em>DSL Knowledge Belongs To</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGaugeBelongsTo
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledgeBelongsTo
    * @generated
    */
-  public Adapter createDSLGaugeBelongsToAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbeBelongsTo <em>DSL Probe Belongs To</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbeBelongsTo
-   * @generated
-   */
-  public Adapter createDSLProbeBelongsToAdapter()
+  public Adapter createDSLKnowledgeBelongsToAdapter()
   {
     return null;
   }
@@ -968,36 +918,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe <em>DSL Probe</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe
-   * @generated
-   */
-  public Adapter createDSLProbeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGauge <em>DSL Gauge</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGauge
-   * @generated
-   */
-  public Adapter createDSLGaugeAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInput <em>DSL Reference Input</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1028,36 +948,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.MeasuredOutputInterface <em>Measured Output Interface</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.MeasuredOutputInterface
-   * @generated
-   */
-  public Adapter createMeasuredOutputInterfaceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.GaugeInterface <em>Gauge Interface</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.GaugeInterface
-   * @generated
-   */
-  public Adapter createGaugeInterfaceAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface <em>Effector Interface</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1068,21 +958,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEffectorInterfaceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ProbeInterface <em>Probe Interface</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ProbeInterface
-   * @generated
-   */
-  public Adapter createProbeInterfaceAdapter()
   {
     return null;
   }
@@ -1203,21 +1078,6 @@ public class SasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createControlLoopManagerInterfaceAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.ReferenceInputInterface <em>Reference Input Interface</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.ReferenceInputInterface
-   * @generated
-   */
-  public Adapter createReferenceInputInterfaceAdapter()
   {
     return null;
   }

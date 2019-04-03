@@ -3,18 +3,18 @@
  */
 package br.ufscar.sas.xtext.sasdsl.scoping;
 
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLGauge;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLProbe;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionEffector;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionExecutor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionGauge;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionKnowledge;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionMonitor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionPlanner;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionProbe;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionSensor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 import br.ufscar.sas.xtext.sasdsl.scoping.AbstractSasDslScopeProvider;
 import org.eclipse.emf.ecore.EObject;
@@ -34,12 +34,12 @@ public class SasDslScopeProvider extends AbstractSasDslScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_PROBE__PROBEINTERFACE)) {
-        if ((context instanceof DSLRestrictionProbe)) {
-          DSLProbe _probe = ((DSLRestrictionProbe)context).getProbe();
-          final DSLProbe probe = ((DSLProbe) _probe);
-          if ((probe instanceof DSLProbe)) {
-            return Scopes.scopeFor(probe.getProbeinterfaces());
+      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_SENSOR__SENSORINTERFACE)) {
+        if ((context instanceof DSLRestrictionSensor)) {
+          DSLSensor _sensor = ((DSLRestrictionSensor)context).getSensor();
+          final DSLSensor sensor = ((DSLSensor) _sensor);
+          if ((sensor instanceof DSLSensor)) {
+            return Scopes.scopeFor(sensor.getSensorinterfaces());
           }
         }
       }
@@ -79,12 +79,12 @@ public class SasDslScopeProvider extends AbstractSasDslScopeProvider {
           }
         }
       }
-      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_GAUGE__GAUGEINTERFACE)) {
-        if ((context instanceof DSLRestrictionGauge)) {
-          DSLGauge _gauge = ((DSLRestrictionGauge)context).getGauge();
-          final DSLGauge gauge = ((DSLGauge) _gauge);
-          if ((gauge instanceof DSLGauge)) {
-            return Scopes.scopeFor(gauge.getGaugeinterfaces());
+      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_EFFECTOR__EFFECTORINTERFACE)) {
+        if ((context instanceof DSLRestrictionEffector)) {
+          DSLEffector _effector = ((DSLRestrictionEffector)context).getEffector();
+          final DSLEffector effector = ((DSLEffector) _effector);
+          if ((effector instanceof DSLEffector)) {
+            return Scopes.scopeFor(effector.getEffectorinterfaces());
           }
         }
       }

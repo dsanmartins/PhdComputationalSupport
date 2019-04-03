@@ -5,7 +5,7 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaged;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLEffectorBelongsToImpl#getEffector <em>Effector</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLEffectorBelongsToImpl#getExecutor <em>Executor</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLEffectorBelongsToImpl#getManaged <em>Managed</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,14 +42,14 @@ public class DSLEffectorBelongsToImpl extends DSLCompositionImpl implements DSLE
   protected DSLEffector effector;
 
   /**
-   * The cached value of the '{@link #getExecutor() <em>Executor</em>}' reference.
+   * The cached value of the '{@link #getManaged() <em>Managed</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExecutor()
+   * @see #getManaged()
    * @generated
    * @ordered
    */
-  protected DSLExecutor executor;
+  protected DSLManaged managed;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,19 +120,19 @@ public class DSLEffectorBelongsToImpl extends DSLCompositionImpl implements DSLE
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLExecutor getExecutor()
+  public DSLManaged getManaged()
   {
-    if (executor != null && executor.eIsProxy())
+    if (managed != null && managed.eIsProxy())
     {
-      InternalEObject oldExecutor = (InternalEObject)executor;
-      executor = (DSLExecutor)eResolveProxy(oldExecutor);
-      if (executor != oldExecutor)
+      InternalEObject oldManaged = (InternalEObject)managed;
+      managed = (DSLManaged)eResolveProxy(oldManaged);
+      if (managed != oldManaged)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EXECUTOR, oldExecutor, executor));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_EFFECTOR_BELONGS_TO__MANAGED, oldManaged, managed));
       }
     }
-    return executor;
+    return managed;
   }
 
   /**
@@ -140,9 +140,9 @@ public class DSLEffectorBelongsToImpl extends DSLCompositionImpl implements DSLE
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLExecutor basicGetExecutor()
+  public DSLManaged basicGetManaged()
   {
-    return executor;
+    return managed;
   }
 
   /**
@@ -150,12 +150,12 @@ public class DSLEffectorBelongsToImpl extends DSLCompositionImpl implements DSLE
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExecutor(DSLExecutor newExecutor)
+  public void setManaged(DSLManaged newManaged)
   {
-    DSLExecutor oldExecutor = executor;
-    executor = newExecutor;
+    DSLManaged oldManaged = managed;
+    managed = newManaged;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EXECUTOR, oldExecutor, executor));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_EFFECTOR_BELONGS_TO__MANAGED, oldManaged, managed));
   }
 
   /**
@@ -171,9 +171,9 @@ public class DSLEffectorBelongsToImpl extends DSLCompositionImpl implements DSLE
       case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EFFECTOR:
         if (resolve) return getEffector();
         return basicGetEffector();
-      case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EXECUTOR:
-        if (resolve) return getExecutor();
-        return basicGetExecutor();
+      case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__MANAGED:
+        if (resolve) return getManaged();
+        return basicGetManaged();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -191,8 +191,8 @@ public class DSLEffectorBelongsToImpl extends DSLCompositionImpl implements DSLE
       case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EFFECTOR:
         setEffector((DSLEffector)newValue);
         return;
-      case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EXECUTOR:
-        setExecutor((DSLExecutor)newValue);
+      case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__MANAGED:
+        setManaged((DSLManaged)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -211,8 +211,8 @@ public class DSLEffectorBelongsToImpl extends DSLCompositionImpl implements DSLE
       case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EFFECTOR:
         setEffector((DSLEffector)null);
         return;
-      case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EXECUTOR:
-        setExecutor((DSLExecutor)null);
+      case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__MANAGED:
+        setManaged((DSLManaged)null);
         return;
     }
     super.eUnset(featureID);
@@ -230,8 +230,8 @@ public class DSLEffectorBelongsToImpl extends DSLCompositionImpl implements DSLE
     {
       case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EFFECTOR:
         return effector != null;
-      case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__EXECUTOR:
-        return executor != null;
+      case SasDslPackage.DSL_EFFECTOR_BELONGS_TO__MANAGED:
+        return managed != null;
     }
     return super.eIsSet(featureID);
   }

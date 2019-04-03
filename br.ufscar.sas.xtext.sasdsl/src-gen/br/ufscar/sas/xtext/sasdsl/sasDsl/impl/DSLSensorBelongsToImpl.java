@@ -3,7 +3,7 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaged;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensorBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLSensorBelongsToImpl#getSensor <em>Sensor</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLSensorBelongsToImpl#getMonitor <em>Monitor</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLSensorBelongsToImpl#getManaged <em>Managed</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,14 +42,14 @@ public class DSLSensorBelongsToImpl extends DSLCompositionImpl implements DSLSen
   protected DSLSensor sensor;
 
   /**
-   * The cached value of the '{@link #getMonitor() <em>Monitor</em>}' reference.
+   * The cached value of the '{@link #getManaged() <em>Managed</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMonitor()
+   * @see #getManaged()
    * @generated
    * @ordered
    */
-  protected DSLMonitor monitor;
+  protected DSLManaged managed;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,19 +120,19 @@ public class DSLSensorBelongsToImpl extends DSLCompositionImpl implements DSLSen
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLMonitor getMonitor()
+  public DSLManaged getManaged()
   {
-    if (monitor != null && monitor.eIsProxy())
+    if (managed != null && managed.eIsProxy())
     {
-      InternalEObject oldMonitor = (InternalEObject)monitor;
-      monitor = (DSLMonitor)eResolveProxy(oldMonitor);
-      if (monitor != oldMonitor)
+      InternalEObject oldManaged = (InternalEObject)managed;
+      managed = (DSLManaged)eResolveProxy(oldManaged);
+      if (managed != oldManaged)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_SENSOR_BELONGS_TO__MONITOR, oldMonitor, monitor));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_SENSOR_BELONGS_TO__MANAGED, oldManaged, managed));
       }
     }
-    return monitor;
+    return managed;
   }
 
   /**
@@ -140,9 +140,9 @@ public class DSLSensorBelongsToImpl extends DSLCompositionImpl implements DSLSen
    * <!-- end-user-doc -->
    * @generated
    */
-  public DSLMonitor basicGetMonitor()
+  public DSLManaged basicGetManaged()
   {
-    return monitor;
+    return managed;
   }
 
   /**
@@ -150,12 +150,12 @@ public class DSLSensorBelongsToImpl extends DSLCompositionImpl implements DSLSen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMonitor(DSLMonitor newMonitor)
+  public void setManaged(DSLManaged newManaged)
   {
-    DSLMonitor oldMonitor = monitor;
-    monitor = newMonitor;
+    DSLManaged oldManaged = managed;
+    managed = newManaged;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_SENSOR_BELONGS_TO__MONITOR, oldMonitor, monitor));
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_SENSOR_BELONGS_TO__MANAGED, oldManaged, managed));
   }
 
   /**
@@ -171,9 +171,9 @@ public class DSLSensorBelongsToImpl extends DSLCompositionImpl implements DSLSen
       case SasDslPackage.DSL_SENSOR_BELONGS_TO__SENSOR:
         if (resolve) return getSensor();
         return basicGetSensor();
-      case SasDslPackage.DSL_SENSOR_BELONGS_TO__MONITOR:
-        if (resolve) return getMonitor();
-        return basicGetMonitor();
+      case SasDslPackage.DSL_SENSOR_BELONGS_TO__MANAGED:
+        if (resolve) return getManaged();
+        return basicGetManaged();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -191,8 +191,8 @@ public class DSLSensorBelongsToImpl extends DSLCompositionImpl implements DSLSen
       case SasDslPackage.DSL_SENSOR_BELONGS_TO__SENSOR:
         setSensor((DSLSensor)newValue);
         return;
-      case SasDslPackage.DSL_SENSOR_BELONGS_TO__MONITOR:
-        setMonitor((DSLMonitor)newValue);
+      case SasDslPackage.DSL_SENSOR_BELONGS_TO__MANAGED:
+        setManaged((DSLManaged)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -211,8 +211,8 @@ public class DSLSensorBelongsToImpl extends DSLCompositionImpl implements DSLSen
       case SasDslPackage.DSL_SENSOR_BELONGS_TO__SENSOR:
         setSensor((DSLSensor)null);
         return;
-      case SasDslPackage.DSL_SENSOR_BELONGS_TO__MONITOR:
-        setMonitor((DSLMonitor)null);
+      case SasDslPackage.DSL_SENSOR_BELONGS_TO__MANAGED:
+        setManaged((DSLManaged)null);
         return;
     }
     super.eUnset(featureID);
@@ -230,8 +230,8 @@ public class DSLSensorBelongsToImpl extends DSLCompositionImpl implements DSLSen
     {
       case SasDslPackage.DSL_SENSOR_BELONGS_TO__SENSOR:
         return sensor != null;
-      case SasDslPackage.DSL_SENSOR_BELONGS_TO__MONITOR:
-        return monitor != null;
+      case SasDslPackage.DSL_SENSOR_BELONGS_TO__MANAGED:
+        return managed != null;
     }
     return super.eIsSet(featureID);
   }
