@@ -4,10 +4,16 @@
 package br.ufscar.sas.xtext.sasdsl;
 
 import br.ufscar.sas.xtext.sasdsl.AbstractSasDslRuntimeModule;
+import br.ufscar.sas.xtext.sasdsl.MyDslQualifiedNameProvider;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 @SuppressWarnings("all")
 public class SasDslRuntimeModule extends AbstractSasDslRuntimeModule {
+  @Override
+  public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
+    return MyDslQualifiedNameProvider.class;
+  }
 }

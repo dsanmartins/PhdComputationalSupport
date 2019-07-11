@@ -9,12 +9,16 @@ import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -27,13 +31,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLEffectorImpl#getName <em>Name</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLEffectorImpl#getEffectorinterfaces <em>Effectorinterfaces</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DSLEffectorImpl extends DSLAbstractionImpl implements DSLEffector
+public class DSLEffectorImpl extends MinimalEObjectImpl.Container implements DSLEffector
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getEffectorinterfaces() <em>Effectorinterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -63,6 +88,29 @@ public class DSLEffectorImpl extends DSLAbstractionImpl implements DSLEffector
   protected EClass eStaticClass()
   {
     return SasDslPackage.Literals.DSL_EFFECTOR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_EFFECTOR__NAME, oldName, name));
   }
 
   /**
@@ -105,6 +153,8 @@ public class DSLEffectorImpl extends DSLAbstractionImpl implements DSLEffector
   {
     switch (featureID)
     {
+      case SasDslPackage.DSL_EFFECTOR__NAME:
+        return getName();
       case SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES:
         return getEffectorinterfaces();
     }
@@ -122,6 +172,9 @@ public class DSLEffectorImpl extends DSLAbstractionImpl implements DSLEffector
   {
     switch (featureID)
     {
+      case SasDslPackage.DSL_EFFECTOR__NAME:
+        setName((String)newValue);
+        return;
       case SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES:
         getEffectorinterfaces().clear();
         getEffectorinterfaces().addAll((Collection<? extends EffectorInterface>)newValue);
@@ -140,6 +193,9 @@ public class DSLEffectorImpl extends DSLAbstractionImpl implements DSLEffector
   {
     switch (featureID)
     {
+      case SasDslPackage.DSL_EFFECTOR__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES:
         getEffectorinterfaces().clear();
         return;
@@ -157,10 +213,29 @@ public class DSLEffectorImpl extends DSLAbstractionImpl implements DSLEffector
   {
     switch (featureID)
     {
+      case SasDslPackage.DSL_EFFECTOR__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES:
         return effectorinterfaces != null && !effectorinterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //DSLEffectorImpl

@@ -3,11 +3,11 @@
  */
 package br.ufscar.sas.xtext.sasdsl.generator
 
+import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction
 
 /**
  * Generates code from your model files on save.
@@ -18,13 +18,113 @@ class SasDslGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		
-		for( e : resource.allContents.toIterable.filter(DSLAbstraction))
-			System.out.println(e.name);
+		for (e : resource.allContents.toIterable.filter(ArchitectureDefinition))
+		{
+			fsa.generateFile("PlannedArchitecture.xmi", e.compile)
+		}
+	}
+	
+	def compile(ArchitectureDefinition architectureDefinition){
+				
+		'''
+		<?xml version="1.0" encoding="UTF-8"?>
+		<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:action="http://www.eclipse.org/MoDisco/kdm/action" xmlns:code="http://www.eclipse.org/MoDisco/kdm/code" xmlns:kdm="http://www.eclipse.org/MoDisco/kdm/kdm" xmlns:source="http://www.eclipse.org/MoDisco/kdm/source" xmlns:structure="http://www.eclipse.org/MoDisco/kdm/structure">
+			<model xsi:type="structure:StructureModel" name="Planned Architecture">
+			«FOR arch : architectureDefinition.managing»
+				<structureElement xsi:type="structure:Subsystem" name="«arch.name»">
+				«FOR mcontroller: arch.managerController»
+					<structureElement xsi:type="structure:Component" name="«mcontroller.name»">
+					«FOR controller: mcontroller.controller»
+						<structureElement xsi:type="structure:Component" name="«controller.name»">
+						«FOR monitor: controller.monitor»
+							<structureElement xsi:type="structure:Component" name="«monitor.name»">
+												
+							</structureElement>
+						«ENDFOR»
+						«FOR analyzer: controller.analyzer»
+							<structureElement xsi:type="structure:Component" name="«analyzer.name»">
+																		
+							</structureElement>
+						«ENDFOR»
+						«FOR planner: controller.planner»
+							<structureElement xsi:type="structure:Component" name="«planner.name»">
+																								
+							</structureElement>
+						«ENDFOR»
+						«FOR executor: controller.executor»
+							<structureElement xsi:type="structure:Component" name="«executor.name»">
+																													
+							</structureElement>
+						«ENDFOR»
+						«FOR knowledge: controller.knowledge»
+							<structureElement xsi:type="structure:Component" name="«knowledge.name»">
+								«FOR referenceInput: knowledge.referenceInput»
+									<structureElement xsi:type="structure:Component" name="«referenceInput.name»"/>
+								«ENDFOR»																											
+							</structureElement>
+						«ENDFOR»
+						</structureElement>
+					«ENDFOR»
+					</structureElement>
+				</structureElement>
+				«ENDFOR»
+				«FOR controller: arch.controller»
+					<structureElement xsi:type="structure:Component" name="«controller.name»">
+					«FOR monitor: controller.monitor»
+						<structureElement xsi:type="structure:Component" name="«monitor.name»">
+																	
+						</structureElement>
+					«ENDFOR»
+					«FOR analyzer: controller.analyzer»
+						<structureElement xsi:type="structure:Component" name="«analyzer.name»">
+																							
+						</structureElement>
+					«ENDFOR»
+					«FOR planner: controller.planner»
+						<structureElement xsi:type="structure:Component" name="«planner.name»">
+																													
+						</structureElement>
+					«ENDFOR»
+					«FOR executor: controller.executor»
+						<structureElement xsi:type="structure:Component" name="«executor.name»">
+																																		
+						</structureElement>
+					«ENDFOR»
+					«FOR knowledge: controller.knowledge»
+						<structureElement xsi:type="structure:Component" name="«knowledge.name»">
+						«FOR referenceInput: knowledge.referenceInput»
+								<structureElement xsi:type="structure:Component" name="«referenceInput.name»"/>
+						«ENDFOR»																											
+						</structureElement>
+					«ENDFOR»
+					</structureElement>
+				«ENDFOR»
+				</structureElement>
+			«ENDFOR»
+			
+			«FOR arch : architectureDefinition.managed»
+				<structureElement xsi:type="structure:Subsystem" name="«arch.name»">
+				«FOR sensor : arch.sensor»
+					<structureElement xsi:type="structure:Component" name="«sensor.name»">
+								
+					</structureElement>			
+				«ENDFOR»
+				«FOR effector : arch.effector»
+					<structureElement xsi:type="structure:Component" name="«effector.name»">
+												
+					</structureElement>			
+				«ENDFOR»
+				«FOR measuredOutput : arch.measuredOutput»
+					<structureElement xsi:type="structure:Component" name="«measuredOutput.name»">
+																
+					</structureElement>			
+				«ENDFOR»
+				</structureElement>			
+			«ENDFOR»
+			
+			</model>	
+		</xmi:XMI>
+		'''
 		
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
 	}
 }

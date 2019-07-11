@@ -26,19 +26,19 @@ public class SasDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getDSLTypeCLMRule())
-			return getDSLTypeCLMToken(semanticObject, ruleCall, node);
+		if (ruleCall.getRule() == grammarAccess.getDSLTypeMCRule())
+			return getDSLTypeMCToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
 	/**
-	 * DSLTypeCLM:
+	 * DSLTypeMC:
 	 * 	
 	 * 	'Synchronized'| 'Coordinated' | 'Independent'
 	 * 	
 	 * ;
 	 */
-	protected String getDSLTypeCLMToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getDSLTypeMCToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "Synchronized";

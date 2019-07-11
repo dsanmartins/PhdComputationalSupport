@@ -33,238 +33,76 @@ public interface SasDslFactory extends EFactory
   ArchitectureDefinition createArchitectureDefinition();
 
   /**
-   * Returns a new object of class '<em>DSL Abstraction</em>'.
+   * Returns a new object of class '<em>DSL Rules</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Abstraction</em>'.
+   * @return a new object of class '<em>DSL Rules</em>'.
    * @generated
    */
-  DSLAbstraction createDSLAbstraction();
+  DSLRules createDSLRules();
 
   /**
-   * Returns a new object of class '<em>DSL Composition</em>'.
+   * Returns a new object of class '<em>DSL Rule Controller</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Composition</em>'.
+   * @return a new object of class '<em>DSL Rule Controller</em>'.
    * @generated
    */
-  DSLComposition createDSLComposition();
+  DSLRuleController createDSLRuleController();
 
   /**
-   * Returns a new object of class '<em>DSL Restriction</em>'.
+   * Returns a new object of class '<em>DSL Rule Monitor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction</em>'.
+   * @return a new object of class '<em>DSL Rule Monitor</em>'.
    * @generated
    */
-  DSLRestriction createDSLRestriction();
+  DSLRuleMonitor createDSLRuleMonitor();
 
   /**
-   * Returns a new object of class '<em>DSL Restriction Effector</em>'.
+   * Returns a new object of class '<em>DSL Rule Analyzer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction Effector</em>'.
+   * @return a new object of class '<em>DSL Rule Analyzer</em>'.
    * @generated
    */
-  DSLRestrictionEffector createDSLRestrictionEffector();
+  DSLRuleAnalyzer createDSLRuleAnalyzer();
 
   /**
-   * Returns a new object of class '<em>DSL Restriction Sensor</em>'.
+   * Returns a new object of class '<em>DSL Rule Planner</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction Sensor</em>'.
+   * @return a new object of class '<em>DSL Rule Planner</em>'.
    * @generated
    */
-  DSLRestrictionSensor createDSLRestrictionSensor();
+  DSLRulePlanner createDSLRulePlanner();
 
   /**
-   * Returns a new object of class '<em>DSL Restriction Monitor</em>'.
+   * Returns a new object of class '<em>DSL Rule Executor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction Monitor</em>'.
+   * @return a new object of class '<em>DSL Rule Executor</em>'.
    * @generated
    */
-  DSLRestrictionMonitor createDSLRestrictionMonitor();
+  DSLRuleExecutor createDSLRuleExecutor();
 
   /**
-   * Returns a new object of class '<em>DSL Restriction Planner</em>'.
+   * Returns a new object of class '<em>DSL Rule MO</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction Planner</em>'.
+   * @return a new object of class '<em>DSL Rule MO</em>'.
    * @generated
    */
-  DSLRestrictionPlanner createDSLRestrictionPlanner();
+  DSLRuleMO createDSLRuleMO();
 
   /**
-   * Returns a new object of class '<em>DSL Restriction Executor</em>'.
+   * Returns a new object of class '<em>DSL Rule RI</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction Executor</em>'.
+   * @return a new object of class '<em>DSL Rule RI</em>'.
    * @generated
    */
-  DSLRestrictionExecutor createDSLRestrictionExecutor();
-
-  /**
-   * Returns a new object of class '<em>DSL Restriction Knowledge</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction Knowledge</em>'.
-   * @generated
-   */
-  DSLRestrictionKnowledge createDSLRestrictionKnowledge();
-
-  /**
-   * Returns a new object of class '<em>DSL Restriction Managed</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Restriction Managed</em>'.
-   * @generated
-   */
-  DSLRestrictionManaged createDSLRestrictionManaged();
-
-  /**
-   * Returns a new object of class '<em>DSL Sensor Belongs To</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Sensor Belongs To</em>'.
-   * @generated
-   */
-  DSLSensorBelongsTo createDSLSensorBelongsTo();
-
-  /**
-   * Returns a new object of class '<em>DSL Reference Input Belongs To</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Reference Input Belongs To</em>'.
-   * @generated
-   */
-  DSLReferenceInputBelongsTo createDSLReferenceInputBelongsTo();
-
-  /**
-   * Returns a new object of class '<em>DSL Effector Belongs To</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Effector Belongs To</em>'.
-   * @generated
-   */
-  DSLEffectorBelongsTo createDSLEffectorBelongsTo();
-
-  /**
-   * Returns a new object of class '<em>DSL Monitor Belongs To1</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Monitor Belongs To1</em>'.
-   * @generated
-   */
-  DSLMonitorBelongsTo1 createDSLMonitorBelongsTo1();
-
-  /**
-   * Returns a new object of class '<em>DSL Monitor Belongs To2</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Monitor Belongs To2</em>'.
-   * @generated
-   */
-  DSLMonitorBelongsTo2 createDSLMonitorBelongsTo2();
-
-  /**
-   * Returns a new object of class '<em>DSL Analyzer Belongs To1</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Analyzer Belongs To1</em>'.
-   * @generated
-   */
-  DSLAnalyzerBelongsTo1 createDSLAnalyzerBelongsTo1();
-
-  /**
-   * Returns a new object of class '<em>DSL Analyzer Belongs To2</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Analyzer Belongs To2</em>'.
-   * @generated
-   */
-  DSLAnalyzerBelongsTo2 createDSLAnalyzerBelongsTo2();
-
-  /**
-   * Returns a new object of class '<em>DSL Planner Belongs To1</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Planner Belongs To1</em>'.
-   * @generated
-   */
-  DSLPlannerBelongsTo1 createDSLPlannerBelongsTo1();
-
-  /**
-   * Returns a new object of class '<em>DSL Planner Belongs To2</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Planner Belongs To2</em>'.
-   * @generated
-   */
-  DSLPlannerBelongsTo2 createDSLPlannerBelongsTo2();
-
-  /**
-   * Returns a new object of class '<em>DSL Executor Belongs To1</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Executor Belongs To1</em>'.
-   * @generated
-   */
-  DSLExecutorBelongsTo1 createDSLExecutorBelongsTo1();
-
-  /**
-   * Returns a new object of class '<em>DSL Executor Belongs To2</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Executor Belongs To2</em>'.
-   * @generated
-   */
-  DSLExecutorBelongsTo2 createDSLExecutorBelongsTo2();
-
-  /**
-   * Returns a new object of class '<em>DSL Cl Belongs To1</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Cl Belongs To1</em>'.
-   * @generated
-   */
-  DSLClBelongsTo1 createDSLClBelongsTo1();
-
-  /**
-   * Returns a new object of class '<em>DSL Cl Belongs To2</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Cl Belongs To2</em>'.
-   * @generated
-   */
-  DSLClBelongsTo2 createDSLClBelongsTo2();
-
-  /**
-   * Returns a new object of class '<em>DSL Clm Belongs To</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Clm Belongs To</em>'.
-   * @generated
-   */
-  DSLClmBelongsTo createDSLClmBelongsTo();
-
-  /**
-   * Returns a new object of class '<em>DSL Measured Ouput Belongs To</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Measured Ouput Belongs To</em>'.
-   * @generated
-   */
-  DSLMeasuredOuputBelongsTo createDSLMeasuredOuputBelongsTo();
-
-  /**
-   * Returns a new object of class '<em>DSL Knowledge Belongs To</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Knowledge Belongs To</em>'.
-   * @generated
-   */
-  DSLKnowledgeBelongsTo createDSLKnowledgeBelongsTo();
+  DSLRuleRI createDSLRuleRI();
 
   /**
    * Returns a new object of class '<em>DSL Managing</em>'.
@@ -285,22 +123,22 @@ public interface SasDslFactory extends EFactory
   DSLManaged createDSLManaged();
 
   /**
-   * Returns a new object of class '<em>DSL Control Loop Manager</em>'.
+   * Returns a new object of class '<em>DSL Manager Controller</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Control Loop Manager</em>'.
+   * @return a new object of class '<em>DSL Manager Controller</em>'.
    * @generated
    */
-  DSLControlLoopManager createDSLControlLoopManager();
+  DSLManagerController createDSLManagerController();
 
   /**
-   * Returns a new object of class '<em>DSL Control Loop</em>'.
+   * Returns a new object of class '<em>DSL Controller</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Control Loop</em>'.
+   * @return a new object of class '<em>DSL Controller</em>'.
    * @generated
    */
-  DSLControlLoop createDSLControlLoop();
+  DSLController createDSLController();
 
   /**
    * Returns a new object of class '<em>DSL Monitor</em>'.
@@ -447,31 +285,13 @@ public interface SasDslFactory extends EFactory
   KnowledgeInterface createKnowledgeInterface();
 
   /**
-   * Returns a new object of class '<em>Control Loop Interface</em>'.
+   * Returns a new object of class '<em>Controller Interface</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Control Loop Interface</em>'.
+   * @return a new object of class '<em>Controller Interface</em>'.
    * @generated
    */
-  ControlLoopInterface createControlLoopInterface();
-
-  /**
-   * Returns a new object of class '<em>Control Loop Manager Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Control Loop Manager Interface</em>'.
-   * @generated
-   */
-  ControlLoopManagerInterface createControlLoopManagerInterface();
-
-  /**
-   * Returns a new object of class '<em>Managed Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Managed Interface</em>'.
-   * @generated
-   */
-  ManagedInterface createManagedInterface();
+  ControllerInterface createControllerInterface();
 
   /**
    * Returns the package supported by this factory.

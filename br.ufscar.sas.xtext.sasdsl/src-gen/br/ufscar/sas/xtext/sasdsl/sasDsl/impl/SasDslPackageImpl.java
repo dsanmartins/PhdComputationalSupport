@@ -5,51 +5,31 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.AnalyzerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ControlLoopInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ControlLoopManagerInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.ControllerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzer;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzerBelongsTo1;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzerBelongsTo2;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLClBelongsTo1;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLClBelongsTo2;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLClmBelongsTo;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLComposition;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLControlLoop;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLControlLoopManager;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffectorBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutorBelongsTo1;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutorBelongsTo2;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledgeBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaged;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManagerController;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaging;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOuputBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOutput;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitorBelongsTo1;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitorBelongsTo2;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlannerBelongsTo1;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlannerBelongsTo2;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInput;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInputBelongsTo;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestriction;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionEffector;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionExecutor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionKnowledge;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionManaged;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionMonitor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionPlanner;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionSensor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleExecutor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleMO;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleMonitor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRulePlanner;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleRI;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRules;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensorBelongsTo;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ExecutorInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.KnowledgeInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ManagedInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.MonitorInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.PlannerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslFactory;
@@ -83,182 +63,56 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslAbstractionEClass = null;
+  private EClass dslRulesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslCompositionEClass = null;
+  private EClass dslRuleControllerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslRestrictionEClass = null;
+  private EClass dslRuleMonitorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslRestrictionEffectorEClass = null;
+  private EClass dslRuleAnalyzerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslRestrictionSensorEClass = null;
+  private EClass dslRulePlannerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslRestrictionMonitorEClass = null;
+  private EClass dslRuleExecutorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslRestrictionPlannerEClass = null;
+  private EClass dslRuleMOEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslRestrictionExecutorEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslRestrictionKnowledgeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslRestrictionManagedEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslSensorBelongsToEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslReferenceInputBelongsToEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslEffectorBelongsToEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslMonitorBelongsTo1EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslMonitorBelongsTo2EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslAnalyzerBelongsTo1EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslAnalyzerBelongsTo2EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslPlannerBelongsTo1EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslPlannerBelongsTo2EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslExecutorBelongsTo1EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslExecutorBelongsTo2EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslClBelongsTo1EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslClBelongsTo2EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslClmBelongsToEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslMeasuredOuputBelongsToEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dslKnowledgeBelongsToEClass = null;
+  private EClass dslRuleRIEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -279,14 +133,14 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslControlLoopManagerEClass = null;
+  private EClass dslManagerControllerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dslControlLoopEClass = null;
+  private EClass dslControllerEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -405,21 +259,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass controlLoopInterfaceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass controlLoopManagerInterfaceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass managedInterfaceEClass = null;
+  private EClass controllerInterfaceEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -499,9 +339,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getArchitectureDefinition_Abstractions()
+  public EAttribute getArchitectureDefinition_Name()
   {
-    return (EReference)architectureDefinitionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)architectureDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -509,7 +349,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getArchitectureDefinition_Compositions()
+  public EReference getArchitectureDefinition_Managing()
   {
     return (EReference)architectureDefinitionEClass.getEStructuralFeatures().get(1);
   }
@@ -519,7 +359,7 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getArchitectureDefinition_Restrictions()
+  public EReference getArchitectureDefinition_Managed()
   {
     return (EReference)architectureDefinitionEClass.getEStructuralFeatures().get(2);
   }
@@ -529,9 +369,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLAbstraction()
+  public EReference getArchitectureDefinition_Rules()
   {
-    return dslAbstractionEClass;
+    return (EReference)architectureDefinitionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -539,9 +379,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDSLAbstraction_Name()
+  public EClass getDSLRules()
   {
-    return (EAttribute)dslAbstractionEClass.getEStructuralFeatures().get(0);
+    return dslRulesEClass;
   }
 
   /**
@@ -549,9 +389,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLComposition()
+  public EClass getDSLRuleController()
   {
-    return dslCompositionEClass;
+    return dslRuleControllerEClass;
   }
 
   /**
@@ -559,9 +399,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestriction()
+  public EReference getDSLRuleController_Controller()
   {
-    return dslRestrictionEClass;
+    return (EReference)dslRuleControllerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -569,9 +409,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestrictionEffector()
+  public EReference getDSLRuleController_Monitor()
   {
-    return dslRestrictionEffectorEClass;
+    return (EReference)dslRuleControllerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -579,9 +419,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionEffector_T()
+  public EReference getDSLRuleController_Monitorinterface()
   {
-    return (EReference)dslRestrictionEffectorEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleControllerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -589,9 +429,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionEffector_Effector()
+  public EReference getDSLRuleController_Analyzer()
   {
-    return (EReference)dslRestrictionEffectorEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleControllerEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -599,9 +439,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionEffector_Effectorinterface()
+  public EReference getDSLRuleController_Analyzerinterface()
   {
-    return (EReference)dslRestrictionEffectorEClass.getEStructuralFeatures().get(2);
+    return (EReference)dslRuleControllerEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -609,9 +449,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestrictionSensor()
+  public EReference getDSLRuleController_Planner()
   {
-    return dslRestrictionSensorEClass;
+    return (EReference)dslRuleControllerEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -619,9 +459,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionSensor_T()
+  public EReference getDSLRuleController_Plannerinterface()
   {
-    return (EReference)dslRestrictionSensorEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleControllerEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -629,9 +469,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionSensor_Sensor()
+  public EReference getDSLRuleController_Executor()
   {
-    return (EReference)dslRestrictionSensorEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleControllerEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -639,9 +479,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionSensor_Sensorinterface()
+  public EReference getDSLRuleController_Executorinterface()
   {
-    return (EReference)dslRestrictionSensorEClass.getEStructuralFeatures().get(2);
+    return (EReference)dslRuleControllerEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -649,9 +489,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestrictionMonitor()
+  public EClass getDSLRuleMonitor()
   {
-    return dslRestrictionMonitorEClass;
+    return dslRuleMonitorEClass;
   }
 
   /**
@@ -659,9 +499,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionMonitor_T()
+  public EReference getDSLRuleMonitor_Monitor()
   {
-    return (EReference)dslRestrictionMonitorEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleMonitorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -669,9 +509,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionMonitor_Monitor()
+  public EReference getDSLRuleMonitor_Sensor()
   {
-    return (EReference)dslRestrictionMonitorEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleMonitorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -679,9 +519,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionMonitor_Monitorinterface()
+  public EReference getDSLRuleMonitor_Sensorinterface()
   {
-    return (EReference)dslRestrictionMonitorEClass.getEStructuralFeatures().get(2);
+    return (EReference)dslRuleMonitorEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -689,9 +529,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestrictionPlanner()
+  public EReference getDSLRuleMonitor_Knowledge()
   {
-    return dslRestrictionPlannerEClass;
+    return (EReference)dslRuleMonitorEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -699,9 +539,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionPlanner_T()
+  public EReference getDSLRuleMonitor_Knowledgeinterface()
   {
-    return (EReference)dslRestrictionPlannerEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleMonitorEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -709,9 +549,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionPlanner_Planner()
+  public EReference getDSLRuleMonitor_Analyzer()
   {
-    return (EReference)dslRestrictionPlannerEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleMonitorEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -719,9 +559,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionPlanner_Plannerinterface()
+  public EReference getDSLRuleMonitor_Analyzerinterface()
   {
-    return (EReference)dslRestrictionPlannerEClass.getEStructuralFeatures().get(2);
+    return (EReference)dslRuleMonitorEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -729,9 +569,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestrictionExecutor()
+  public EClass getDSLRuleAnalyzer()
   {
-    return dslRestrictionExecutorEClass;
+    return dslRuleAnalyzerEClass;
   }
 
   /**
@@ -739,9 +579,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionExecutor_T()
+  public EReference getDSLRuleAnalyzer_Analyzer()
   {
-    return (EReference)dslRestrictionExecutorEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleAnalyzerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -749,9 +589,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionExecutor_Executor()
+  public EReference getDSLRuleAnalyzer_Knowledge()
   {
-    return (EReference)dslRestrictionExecutorEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleAnalyzerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -759,9 +599,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionExecutor_Executorinterface()
+  public EReference getDSLRuleAnalyzer_Knowledgeinterface()
   {
-    return (EReference)dslRestrictionExecutorEClass.getEStructuralFeatures().get(2);
+    return (EReference)dslRuleAnalyzerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -769,9 +609,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestrictionKnowledge()
+  public EReference getDSLRuleAnalyzer_Monitor()
   {
-    return dslRestrictionKnowledgeEClass;
+    return (EReference)dslRuleAnalyzerEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -779,9 +619,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionKnowledge_T()
+  public EReference getDSLRuleAnalyzer_Monitorinterface()
   {
-    return (EReference)dslRestrictionKnowledgeEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleAnalyzerEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -789,9 +629,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionKnowledge_Knowledge()
+  public EReference getDSLRuleAnalyzer_Planner()
   {
-    return (EReference)dslRestrictionKnowledgeEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleAnalyzerEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -799,9 +639,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionKnowledge_Knowledgeinterface()
+  public EReference getDSLRuleAnalyzer_Plannerinterface()
   {
-    return (EReference)dslRestrictionKnowledgeEClass.getEStructuralFeatures().get(2);
+    return (EReference)dslRuleAnalyzerEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -809,9 +649,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLRestrictionManaged()
+  public EClass getDSLRulePlanner()
   {
-    return dslRestrictionManagedEClass;
+    return dslRulePlannerEClass;
   }
 
   /**
@@ -819,9 +659,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionManaged_T()
+  public EReference getDSLRulePlanner_Planner()
   {
-    return (EReference)dslRestrictionManagedEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRulePlannerEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -829,9 +669,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionManaged_Managed()
+  public EReference getDSLRulePlanner_Knowledge()
   {
-    return (EReference)dslRestrictionManagedEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRulePlannerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -839,9 +679,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLRestrictionManaged_Managedinterface()
+  public EReference getDSLRulePlanner_Knowledgeinterface()
   {
-    return (EReference)dslRestrictionManagedEClass.getEStructuralFeatures().get(2);
+    return (EReference)dslRulePlannerEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -849,9 +689,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLSensorBelongsTo()
+  public EReference getDSLRulePlanner_Analyzer()
   {
-    return dslSensorBelongsToEClass;
+    return (EReference)dslRulePlannerEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -859,9 +699,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLSensorBelongsTo_Sensor()
+  public EReference getDSLRulePlanner_Analyzerinterface()
   {
-    return (EReference)dslSensorBelongsToEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRulePlannerEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -869,9 +709,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLSensorBelongsTo_Managed()
+  public EReference getDSLRulePlanner_Executor()
   {
-    return (EReference)dslSensorBelongsToEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRulePlannerEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -879,9 +719,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLReferenceInputBelongsTo()
+  public EReference getDSLRulePlanner_Executorinterface()
   {
-    return dslReferenceInputBelongsToEClass;
+    return (EReference)dslRulePlannerEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -889,9 +729,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLReferenceInputBelongsTo_Reference()
+  public EClass getDSLRuleExecutor()
   {
-    return (EReference)dslReferenceInputBelongsToEClass.getEStructuralFeatures().get(0);
+    return dslRuleExecutorEClass;
   }
 
   /**
@@ -899,9 +739,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLReferenceInputBelongsTo_Knowledge()
+  public EReference getDSLRuleExecutor_Executor()
   {
-    return (EReference)dslReferenceInputBelongsToEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleExecutorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -909,9 +749,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLEffectorBelongsTo()
+  public EReference getDSLRuleExecutor_Effector()
   {
-    return dslEffectorBelongsToEClass;
+    return (EReference)dslRuleExecutorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -919,9 +759,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLEffectorBelongsTo_Effector()
+  public EReference getDSLRuleExecutor_Effectorinterface()
   {
-    return (EReference)dslEffectorBelongsToEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleExecutorEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -929,9 +769,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLEffectorBelongsTo_Managed()
+  public EReference getDSLRuleExecutor_Planner()
   {
-    return (EReference)dslEffectorBelongsToEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleExecutorEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -939,9 +779,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLMonitorBelongsTo1()
+  public EReference getDSLRuleExecutor_Plannerinterface()
   {
-    return dslMonitorBelongsTo1EClass;
+    return (EReference)dslRuleExecutorEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -949,9 +789,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLMonitorBelongsTo1_Monitor()
+  public EReference getDSLRuleExecutor_Knowledge()
   {
-    return (EReference)dslMonitorBelongsTo1EClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleExecutorEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -959,9 +799,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLMonitorBelongsTo1_Cl()
+  public EReference getDSLRuleExecutor_Knowledgeinterface()
   {
-    return (EReference)dslMonitorBelongsTo1EClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleExecutorEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -969,9 +809,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLMonitorBelongsTo2()
+  public EClass getDSLRuleMO()
   {
-    return dslMonitorBelongsTo2EClass;
+    return dslRuleMOEClass;
   }
 
   /**
@@ -979,9 +819,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLMonitorBelongsTo2_Monitor()
+  public EReference getDSLRuleMO_Sensor()
   {
-    return (EReference)dslMonitorBelongsTo2EClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleMOEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -989,9 +829,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLMonitorBelongsTo2_Managing()
+  public EReference getDSLRuleMO_Measured()
   {
-    return (EReference)dslMonitorBelongsTo2EClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleMOEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -999,9 +839,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLAnalyzerBelongsTo1()
+  public EClass getDSLRuleRI()
   {
-    return dslAnalyzerBelongsTo1EClass;
+    return dslRuleRIEClass;
   }
 
   /**
@@ -1009,9 +849,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLAnalyzerBelongsTo1_Analyzer()
+  public EReference getDSLRuleRI_Analyzer()
   {
-    return (EReference)dslAnalyzerBelongsTo1EClass.getEStructuralFeatures().get(0);
+    return (EReference)dslRuleRIEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1019,309 +859,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLAnalyzerBelongsTo1_Cl()
+  public EReference getDSLRuleRI_Reference()
   {
-    return (EReference)dslAnalyzerBelongsTo1EClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLAnalyzerBelongsTo2()
-  {
-    return dslAnalyzerBelongsTo2EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLAnalyzerBelongsTo2_Analyzer()
-  {
-    return (EReference)dslAnalyzerBelongsTo2EClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLAnalyzerBelongsTo2_Managing()
-  {
-    return (EReference)dslAnalyzerBelongsTo2EClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLPlannerBelongsTo1()
-  {
-    return dslPlannerBelongsTo1EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLPlannerBelongsTo1_Planner()
-  {
-    return (EReference)dslPlannerBelongsTo1EClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLPlannerBelongsTo1_Cl()
-  {
-    return (EReference)dslPlannerBelongsTo1EClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLPlannerBelongsTo2()
-  {
-    return dslPlannerBelongsTo2EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLPlannerBelongsTo2_Planner()
-  {
-    return (EReference)dslPlannerBelongsTo2EClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLPlannerBelongsTo2_Managing()
-  {
-    return (EReference)dslPlannerBelongsTo2EClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLExecutorBelongsTo1()
-  {
-    return dslExecutorBelongsTo1EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLExecutorBelongsTo1_Executor()
-  {
-    return (EReference)dslExecutorBelongsTo1EClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLExecutorBelongsTo1_Cl()
-  {
-    return (EReference)dslExecutorBelongsTo1EClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLExecutorBelongsTo2()
-  {
-    return dslExecutorBelongsTo2EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLExecutorBelongsTo2_Executor()
-  {
-    return (EReference)dslExecutorBelongsTo2EClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLExecutorBelongsTo2_Managing()
-  {
-    return (EReference)dslExecutorBelongsTo2EClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLClBelongsTo1()
-  {
-    return dslClBelongsTo1EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLClBelongsTo1_Cl()
-  {
-    return (EReference)dslClBelongsTo1EClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLClBelongsTo1_Clm()
-  {
-    return (EReference)dslClBelongsTo1EClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLClBelongsTo2()
-  {
-    return dslClBelongsTo2EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLClBelongsTo2_Cl()
-  {
-    return (EReference)dslClBelongsTo2EClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLClBelongsTo2_Managing()
-  {
-    return (EReference)dslClBelongsTo2EClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLClmBelongsTo()
-  {
-    return dslClmBelongsToEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLClmBelongsTo_Cl()
-  {
-    return (EReference)dslClmBelongsToEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLClmBelongsTo_Managing()
-  {
-    return (EReference)dslClmBelongsToEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLMeasuredOuputBelongsTo()
-  {
-    return dslMeasuredOuputBelongsToEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLMeasuredOuputBelongsTo_Measured()
-  {
-    return (EReference)dslMeasuredOuputBelongsToEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLMeasuredOuputBelongsTo_Managed()
-  {
-    return (EReference)dslMeasuredOuputBelongsToEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDSLKnowledgeBelongsTo()
-  {
-    return dslKnowledgeBelongsToEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLKnowledgeBelongsTo_Knowledge()
-  {
-    return (EReference)dslKnowledgeBelongsToEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDSLKnowledgeBelongsTo_Managing()
-  {
-    return (EReference)dslKnowledgeBelongsToEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslRuleRIEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1339,6 +879,36 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLManaging_Name()
+  {
+    return (EAttribute)dslManagingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLManaging_ManagerController()
+  {
+    return (EReference)dslManagingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLManaging_Controller()
+  {
+    return (EReference)dslManagingEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLManaged()
   {
     return dslManagedEClass;
@@ -1349,9 +919,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLManaged_Managedinterfaces()
+  public EAttribute getDSLManaged_Name()
   {
-    return (EReference)dslManagedEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)dslManagedEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1359,9 +929,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLControlLoopManager()
+  public EReference getDSLManaged_Sensor()
   {
-    return dslControlLoopManagerEClass;
+    return (EReference)dslManagedEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1369,9 +939,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLControlLoopManager_Clminterfaces()
+  public EReference getDSLManaged_Effector()
   {
-    return (EReference)dslControlLoopManagerEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslManagedEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1379,9 +949,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDSLControlLoop()
+  public EReference getDSLManaged_MeasuredOutput()
   {
-    return dslControlLoopEClass;
+    return (EReference)dslManagedEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1389,9 +959,109 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDSLControlLoop_Clinterfaces()
+  public EClass getDSLManagerController()
   {
-    return (EReference)dslControlLoopEClass.getEStructuralFeatures().get(0);
+    return dslManagerControllerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDSLManagerController_Name()
+  {
+    return (EAttribute)dslManagerControllerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLManagerController_Controller()
+  {
+    return (EReference)dslManagerControllerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDSLController()
+  {
+    return dslControllerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDSLController_Name()
+  {
+    return (EAttribute)dslControllerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLController_Controllerinterfaces()
+  {
+    return (EReference)dslControllerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLController_Monitor()
+  {
+    return (EReference)dslControllerEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLController_Analyzer()
+  {
+    return (EReference)dslControllerEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLController_Planner()
+  {
+    return (EReference)dslControllerEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLController_Executor()
+  {
+    return (EReference)dslControllerEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLController_Knowledge()
+  {
+    return (EReference)dslControllerEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1409,9 +1079,19 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLMonitor_Name()
+  {
+    return (EAttribute)dslMonitorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDSLMonitor_Monitorinterfaces()
   {
-    return (EReference)dslMonitorEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslMonitorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1429,9 +1109,19 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLAnalyzer_Name()
+  {
+    return (EAttribute)dslAnalyzerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDSLAnalyzer_Anlyzerinterfaces()
   {
-    return (EReference)dslAnalyzerEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslAnalyzerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1449,9 +1139,19 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLPlanner_Name()
+  {
+    return (EAttribute)dslPlannerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDSLPlanner_Plannerinterfaces()
   {
-    return (EReference)dslPlannerEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslPlannerEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1469,9 +1169,19 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLExecutor_Name()
+  {
+    return (EAttribute)dslExecutorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDSLExecutor_Executorinterfaces()
   {
-    return (EReference)dslExecutorEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslExecutorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1489,9 +1199,29 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLKnowledge_Name()
+  {
+    return (EAttribute)dslKnowledgeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDSLKnowledge_Knowledgeinterfaces()
   {
-    return (EReference)dslKnowledgeEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslKnowledgeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDSLKnowledge_ReferenceInput()
+  {
+    return (EReference)dslKnowledgeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1509,9 +1239,19 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLSensor_Name()
+  {
+    return (EAttribute)dslSensorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDSLSensor_Sensorinterfaces()
   {
-    return (EReference)dslSensorEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslSensorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1529,9 +1269,19 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLEffector_Name()
+  {
+    return (EAttribute)dslEffectorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDSLEffector_Effectorinterfaces()
   {
-    return (EReference)dslEffectorEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslEffectorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1549,9 +1299,29 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDSLReferenceInput_Name()
+  {
+    return (EAttribute)dslReferenceInputEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDSLMeasuredOutput()
   {
     return dslMeasuredOutputEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDSLMeasuredOutput_Name()
+  {
+    return (EAttribute)dslMeasuredOutputEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1699,9 +1469,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getControlLoopInterface()
+  public EClass getControllerInterface()
   {
-    return controlLoopInterfaceEClass;
+    return controllerInterfaceEClass;
   }
 
   /**
@@ -1709,49 +1479,9 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getControlLoopInterface_Name()
+  public EAttribute getControllerInterface_Name()
   {
-    return (EAttribute)controlLoopInterfaceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getControlLoopManagerInterface()
-  {
-    return controlLoopManagerInterfaceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getControlLoopManagerInterface_Name()
-  {
-    return (EAttribute)controlLoopManagerInterfaceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getManagedInterface()
-  {
-    return managedInterfaceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getManagedInterface_Name()
-  {
-    return (EAttribute)managedInterfaceEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)controllerInterfaceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1785,151 +1515,126 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
 
     // Create classes and their features
     architectureDefinitionEClass = createEClass(ARCHITECTURE_DEFINITION);
-    createEReference(architectureDefinitionEClass, ARCHITECTURE_DEFINITION__ABSTRACTIONS);
-    createEReference(architectureDefinitionEClass, ARCHITECTURE_DEFINITION__COMPOSITIONS);
-    createEReference(architectureDefinitionEClass, ARCHITECTURE_DEFINITION__RESTRICTIONS);
+    createEAttribute(architectureDefinitionEClass, ARCHITECTURE_DEFINITION__NAME);
+    createEReference(architectureDefinitionEClass, ARCHITECTURE_DEFINITION__MANAGING);
+    createEReference(architectureDefinitionEClass, ARCHITECTURE_DEFINITION__MANAGED);
+    createEReference(architectureDefinitionEClass, ARCHITECTURE_DEFINITION__RULES);
 
-    dslAbstractionEClass = createEClass(DSL_ABSTRACTION);
-    createEAttribute(dslAbstractionEClass, DSL_ABSTRACTION__NAME);
+    dslRulesEClass = createEClass(DSL_RULES);
 
-    dslCompositionEClass = createEClass(DSL_COMPOSITION);
+    dslRuleControllerEClass = createEClass(DSL_RULE_CONTROLLER);
+    createEReference(dslRuleControllerEClass, DSL_RULE_CONTROLLER__CONTROLLER);
+    createEReference(dslRuleControllerEClass, DSL_RULE_CONTROLLER__MONITOR);
+    createEReference(dslRuleControllerEClass, DSL_RULE_CONTROLLER__MONITORINTERFACE);
+    createEReference(dslRuleControllerEClass, DSL_RULE_CONTROLLER__ANALYZER);
+    createEReference(dslRuleControllerEClass, DSL_RULE_CONTROLLER__ANALYZERINTERFACE);
+    createEReference(dslRuleControllerEClass, DSL_RULE_CONTROLLER__PLANNER);
+    createEReference(dslRuleControllerEClass, DSL_RULE_CONTROLLER__PLANNERINTERFACE);
+    createEReference(dslRuleControllerEClass, DSL_RULE_CONTROLLER__EXECUTOR);
+    createEReference(dslRuleControllerEClass, DSL_RULE_CONTROLLER__EXECUTORINTERFACE);
 
-    dslRestrictionEClass = createEClass(DSL_RESTRICTION);
+    dslRuleMonitorEClass = createEClass(DSL_RULE_MONITOR);
+    createEReference(dslRuleMonitorEClass, DSL_RULE_MONITOR__MONITOR);
+    createEReference(dslRuleMonitorEClass, DSL_RULE_MONITOR__SENSOR);
+    createEReference(dslRuleMonitorEClass, DSL_RULE_MONITOR__SENSORINTERFACE);
+    createEReference(dslRuleMonitorEClass, DSL_RULE_MONITOR__KNOWLEDGE);
+    createEReference(dslRuleMonitorEClass, DSL_RULE_MONITOR__KNOWLEDGEINTERFACE);
+    createEReference(dslRuleMonitorEClass, DSL_RULE_MONITOR__ANALYZER);
+    createEReference(dslRuleMonitorEClass, DSL_RULE_MONITOR__ANALYZERINTERFACE);
 
-    dslRestrictionEffectorEClass = createEClass(DSL_RESTRICTION_EFFECTOR);
-    createEReference(dslRestrictionEffectorEClass, DSL_RESTRICTION_EFFECTOR__T);
-    createEReference(dslRestrictionEffectorEClass, DSL_RESTRICTION_EFFECTOR__EFFECTOR);
-    createEReference(dslRestrictionEffectorEClass, DSL_RESTRICTION_EFFECTOR__EFFECTORINTERFACE);
+    dslRuleAnalyzerEClass = createEClass(DSL_RULE_ANALYZER);
+    createEReference(dslRuleAnalyzerEClass, DSL_RULE_ANALYZER__ANALYZER);
+    createEReference(dslRuleAnalyzerEClass, DSL_RULE_ANALYZER__KNOWLEDGE);
+    createEReference(dslRuleAnalyzerEClass, DSL_RULE_ANALYZER__KNOWLEDGEINTERFACE);
+    createEReference(dslRuleAnalyzerEClass, DSL_RULE_ANALYZER__MONITOR);
+    createEReference(dslRuleAnalyzerEClass, DSL_RULE_ANALYZER__MONITORINTERFACE);
+    createEReference(dslRuleAnalyzerEClass, DSL_RULE_ANALYZER__PLANNER);
+    createEReference(dslRuleAnalyzerEClass, DSL_RULE_ANALYZER__PLANNERINTERFACE);
 
-    dslRestrictionSensorEClass = createEClass(DSL_RESTRICTION_SENSOR);
-    createEReference(dslRestrictionSensorEClass, DSL_RESTRICTION_SENSOR__T);
-    createEReference(dslRestrictionSensorEClass, DSL_RESTRICTION_SENSOR__SENSOR);
-    createEReference(dslRestrictionSensorEClass, DSL_RESTRICTION_SENSOR__SENSORINTERFACE);
+    dslRulePlannerEClass = createEClass(DSL_RULE_PLANNER);
+    createEReference(dslRulePlannerEClass, DSL_RULE_PLANNER__PLANNER);
+    createEReference(dslRulePlannerEClass, DSL_RULE_PLANNER__KNOWLEDGE);
+    createEReference(dslRulePlannerEClass, DSL_RULE_PLANNER__KNOWLEDGEINTERFACE);
+    createEReference(dslRulePlannerEClass, DSL_RULE_PLANNER__ANALYZER);
+    createEReference(dslRulePlannerEClass, DSL_RULE_PLANNER__ANALYZERINTERFACE);
+    createEReference(dslRulePlannerEClass, DSL_RULE_PLANNER__EXECUTOR);
+    createEReference(dslRulePlannerEClass, DSL_RULE_PLANNER__EXECUTORINTERFACE);
 
-    dslRestrictionMonitorEClass = createEClass(DSL_RESTRICTION_MONITOR);
-    createEReference(dslRestrictionMonitorEClass, DSL_RESTRICTION_MONITOR__T);
-    createEReference(dslRestrictionMonitorEClass, DSL_RESTRICTION_MONITOR__MONITOR);
-    createEReference(dslRestrictionMonitorEClass, DSL_RESTRICTION_MONITOR__MONITORINTERFACE);
+    dslRuleExecutorEClass = createEClass(DSL_RULE_EXECUTOR);
+    createEReference(dslRuleExecutorEClass, DSL_RULE_EXECUTOR__EXECUTOR);
+    createEReference(dslRuleExecutorEClass, DSL_RULE_EXECUTOR__EFFECTOR);
+    createEReference(dslRuleExecutorEClass, DSL_RULE_EXECUTOR__EFFECTORINTERFACE);
+    createEReference(dslRuleExecutorEClass, DSL_RULE_EXECUTOR__PLANNER);
+    createEReference(dslRuleExecutorEClass, DSL_RULE_EXECUTOR__PLANNERINTERFACE);
+    createEReference(dslRuleExecutorEClass, DSL_RULE_EXECUTOR__KNOWLEDGE);
+    createEReference(dslRuleExecutorEClass, DSL_RULE_EXECUTOR__KNOWLEDGEINTERFACE);
 
-    dslRestrictionPlannerEClass = createEClass(DSL_RESTRICTION_PLANNER);
-    createEReference(dslRestrictionPlannerEClass, DSL_RESTRICTION_PLANNER__T);
-    createEReference(dslRestrictionPlannerEClass, DSL_RESTRICTION_PLANNER__PLANNER);
-    createEReference(dslRestrictionPlannerEClass, DSL_RESTRICTION_PLANNER__PLANNERINTERFACE);
+    dslRuleMOEClass = createEClass(DSL_RULE_MO);
+    createEReference(dslRuleMOEClass, DSL_RULE_MO__SENSOR);
+    createEReference(dslRuleMOEClass, DSL_RULE_MO__MEASURED);
 
-    dslRestrictionExecutorEClass = createEClass(DSL_RESTRICTION_EXECUTOR);
-    createEReference(dslRestrictionExecutorEClass, DSL_RESTRICTION_EXECUTOR__T);
-    createEReference(dslRestrictionExecutorEClass, DSL_RESTRICTION_EXECUTOR__EXECUTOR);
-    createEReference(dslRestrictionExecutorEClass, DSL_RESTRICTION_EXECUTOR__EXECUTORINTERFACE);
-
-    dslRestrictionKnowledgeEClass = createEClass(DSL_RESTRICTION_KNOWLEDGE);
-    createEReference(dslRestrictionKnowledgeEClass, DSL_RESTRICTION_KNOWLEDGE__T);
-    createEReference(dslRestrictionKnowledgeEClass, DSL_RESTRICTION_KNOWLEDGE__KNOWLEDGE);
-    createEReference(dslRestrictionKnowledgeEClass, DSL_RESTRICTION_KNOWLEDGE__KNOWLEDGEINTERFACE);
-
-    dslRestrictionManagedEClass = createEClass(DSL_RESTRICTION_MANAGED);
-    createEReference(dslRestrictionManagedEClass, DSL_RESTRICTION_MANAGED__T);
-    createEReference(dslRestrictionManagedEClass, DSL_RESTRICTION_MANAGED__MANAGED);
-    createEReference(dslRestrictionManagedEClass, DSL_RESTRICTION_MANAGED__MANAGEDINTERFACE);
-
-    dslSensorBelongsToEClass = createEClass(DSL_SENSOR_BELONGS_TO);
-    createEReference(dslSensorBelongsToEClass, DSL_SENSOR_BELONGS_TO__SENSOR);
-    createEReference(dslSensorBelongsToEClass, DSL_SENSOR_BELONGS_TO__MANAGED);
-
-    dslReferenceInputBelongsToEClass = createEClass(DSL_REFERENCE_INPUT_BELONGS_TO);
-    createEReference(dslReferenceInputBelongsToEClass, DSL_REFERENCE_INPUT_BELONGS_TO__REFERENCE);
-    createEReference(dslReferenceInputBelongsToEClass, DSL_REFERENCE_INPUT_BELONGS_TO__KNOWLEDGE);
-
-    dslEffectorBelongsToEClass = createEClass(DSL_EFFECTOR_BELONGS_TO);
-    createEReference(dslEffectorBelongsToEClass, DSL_EFFECTOR_BELONGS_TO__EFFECTOR);
-    createEReference(dslEffectorBelongsToEClass, DSL_EFFECTOR_BELONGS_TO__MANAGED);
-
-    dslMonitorBelongsTo1EClass = createEClass(DSL_MONITOR_BELONGS_TO1);
-    createEReference(dslMonitorBelongsTo1EClass, DSL_MONITOR_BELONGS_TO1__MONITOR);
-    createEReference(dslMonitorBelongsTo1EClass, DSL_MONITOR_BELONGS_TO1__CL);
-
-    dslMonitorBelongsTo2EClass = createEClass(DSL_MONITOR_BELONGS_TO2);
-    createEReference(dslMonitorBelongsTo2EClass, DSL_MONITOR_BELONGS_TO2__MONITOR);
-    createEReference(dslMonitorBelongsTo2EClass, DSL_MONITOR_BELONGS_TO2__MANAGING);
-
-    dslAnalyzerBelongsTo1EClass = createEClass(DSL_ANALYZER_BELONGS_TO1);
-    createEReference(dslAnalyzerBelongsTo1EClass, DSL_ANALYZER_BELONGS_TO1__ANALYZER);
-    createEReference(dslAnalyzerBelongsTo1EClass, DSL_ANALYZER_BELONGS_TO1__CL);
-
-    dslAnalyzerBelongsTo2EClass = createEClass(DSL_ANALYZER_BELONGS_TO2);
-    createEReference(dslAnalyzerBelongsTo2EClass, DSL_ANALYZER_BELONGS_TO2__ANALYZER);
-    createEReference(dslAnalyzerBelongsTo2EClass, DSL_ANALYZER_BELONGS_TO2__MANAGING);
-
-    dslPlannerBelongsTo1EClass = createEClass(DSL_PLANNER_BELONGS_TO1);
-    createEReference(dslPlannerBelongsTo1EClass, DSL_PLANNER_BELONGS_TO1__PLANNER);
-    createEReference(dslPlannerBelongsTo1EClass, DSL_PLANNER_BELONGS_TO1__CL);
-
-    dslPlannerBelongsTo2EClass = createEClass(DSL_PLANNER_BELONGS_TO2);
-    createEReference(dslPlannerBelongsTo2EClass, DSL_PLANNER_BELONGS_TO2__PLANNER);
-    createEReference(dslPlannerBelongsTo2EClass, DSL_PLANNER_BELONGS_TO2__MANAGING);
-
-    dslExecutorBelongsTo1EClass = createEClass(DSL_EXECUTOR_BELONGS_TO1);
-    createEReference(dslExecutorBelongsTo1EClass, DSL_EXECUTOR_BELONGS_TO1__EXECUTOR);
-    createEReference(dslExecutorBelongsTo1EClass, DSL_EXECUTOR_BELONGS_TO1__CL);
-
-    dslExecutorBelongsTo2EClass = createEClass(DSL_EXECUTOR_BELONGS_TO2);
-    createEReference(dslExecutorBelongsTo2EClass, DSL_EXECUTOR_BELONGS_TO2__EXECUTOR);
-    createEReference(dslExecutorBelongsTo2EClass, DSL_EXECUTOR_BELONGS_TO2__MANAGING);
-
-    dslClBelongsTo1EClass = createEClass(DSL_CL_BELONGS_TO1);
-    createEReference(dslClBelongsTo1EClass, DSL_CL_BELONGS_TO1__CL);
-    createEReference(dslClBelongsTo1EClass, DSL_CL_BELONGS_TO1__CLM);
-
-    dslClBelongsTo2EClass = createEClass(DSL_CL_BELONGS_TO2);
-    createEReference(dslClBelongsTo2EClass, DSL_CL_BELONGS_TO2__CL);
-    createEReference(dslClBelongsTo2EClass, DSL_CL_BELONGS_TO2__MANAGING);
-
-    dslClmBelongsToEClass = createEClass(DSL_CLM_BELONGS_TO);
-    createEReference(dslClmBelongsToEClass, DSL_CLM_BELONGS_TO__CL);
-    createEReference(dslClmBelongsToEClass, DSL_CLM_BELONGS_TO__MANAGING);
-
-    dslMeasuredOuputBelongsToEClass = createEClass(DSL_MEASURED_OUPUT_BELONGS_TO);
-    createEReference(dslMeasuredOuputBelongsToEClass, DSL_MEASURED_OUPUT_BELONGS_TO__MEASURED);
-    createEReference(dslMeasuredOuputBelongsToEClass, DSL_MEASURED_OUPUT_BELONGS_TO__MANAGED);
-
-    dslKnowledgeBelongsToEClass = createEClass(DSL_KNOWLEDGE_BELONGS_TO);
-    createEReference(dslKnowledgeBelongsToEClass, DSL_KNOWLEDGE_BELONGS_TO__KNOWLEDGE);
-    createEReference(dslKnowledgeBelongsToEClass, DSL_KNOWLEDGE_BELONGS_TO__MANAGING);
+    dslRuleRIEClass = createEClass(DSL_RULE_RI);
+    createEReference(dslRuleRIEClass, DSL_RULE_RI__ANALYZER);
+    createEReference(dslRuleRIEClass, DSL_RULE_RI__REFERENCE);
 
     dslManagingEClass = createEClass(DSL_MANAGING);
+    createEAttribute(dslManagingEClass, DSL_MANAGING__NAME);
+    createEReference(dslManagingEClass, DSL_MANAGING__MANAGER_CONTROLLER);
+    createEReference(dslManagingEClass, DSL_MANAGING__CONTROLLER);
 
     dslManagedEClass = createEClass(DSL_MANAGED);
-    createEReference(dslManagedEClass, DSL_MANAGED__MANAGEDINTERFACES);
+    createEAttribute(dslManagedEClass, DSL_MANAGED__NAME);
+    createEReference(dslManagedEClass, DSL_MANAGED__SENSOR);
+    createEReference(dslManagedEClass, DSL_MANAGED__EFFECTOR);
+    createEReference(dslManagedEClass, DSL_MANAGED__MEASURED_OUTPUT);
 
-    dslControlLoopManagerEClass = createEClass(DSL_CONTROL_LOOP_MANAGER);
-    createEReference(dslControlLoopManagerEClass, DSL_CONTROL_LOOP_MANAGER__CLMINTERFACES);
+    dslManagerControllerEClass = createEClass(DSL_MANAGER_CONTROLLER);
+    createEAttribute(dslManagerControllerEClass, DSL_MANAGER_CONTROLLER__NAME);
+    createEReference(dslManagerControllerEClass, DSL_MANAGER_CONTROLLER__CONTROLLER);
 
-    dslControlLoopEClass = createEClass(DSL_CONTROL_LOOP);
-    createEReference(dslControlLoopEClass, DSL_CONTROL_LOOP__CLINTERFACES);
+    dslControllerEClass = createEClass(DSL_CONTROLLER);
+    createEAttribute(dslControllerEClass, DSL_CONTROLLER__NAME);
+    createEReference(dslControllerEClass, DSL_CONTROLLER__CONTROLLERINTERFACES);
+    createEReference(dslControllerEClass, DSL_CONTROLLER__MONITOR);
+    createEReference(dslControllerEClass, DSL_CONTROLLER__ANALYZER);
+    createEReference(dslControllerEClass, DSL_CONTROLLER__PLANNER);
+    createEReference(dslControllerEClass, DSL_CONTROLLER__EXECUTOR);
+    createEReference(dslControllerEClass, DSL_CONTROLLER__KNOWLEDGE);
 
     dslMonitorEClass = createEClass(DSL_MONITOR);
+    createEAttribute(dslMonitorEClass, DSL_MONITOR__NAME);
     createEReference(dslMonitorEClass, DSL_MONITOR__MONITORINTERFACES);
 
     dslAnalyzerEClass = createEClass(DSL_ANALYZER);
+    createEAttribute(dslAnalyzerEClass, DSL_ANALYZER__NAME);
     createEReference(dslAnalyzerEClass, DSL_ANALYZER__ANLYZERINTERFACES);
 
     dslPlannerEClass = createEClass(DSL_PLANNER);
+    createEAttribute(dslPlannerEClass, DSL_PLANNER__NAME);
     createEReference(dslPlannerEClass, DSL_PLANNER__PLANNERINTERFACES);
 
     dslExecutorEClass = createEClass(DSL_EXECUTOR);
+    createEAttribute(dslExecutorEClass, DSL_EXECUTOR__NAME);
     createEReference(dslExecutorEClass, DSL_EXECUTOR__EXECUTORINTERFACES);
 
     dslKnowledgeEClass = createEClass(DSL_KNOWLEDGE);
+    createEAttribute(dslKnowledgeEClass, DSL_KNOWLEDGE__NAME);
     createEReference(dslKnowledgeEClass, DSL_KNOWLEDGE__KNOWLEDGEINTERFACES);
+    createEReference(dslKnowledgeEClass, DSL_KNOWLEDGE__REFERENCE_INPUT);
 
     dslSensorEClass = createEClass(DSL_SENSOR);
+    createEAttribute(dslSensorEClass, DSL_SENSOR__NAME);
     createEReference(dslSensorEClass, DSL_SENSOR__SENSORINTERFACES);
 
     dslEffectorEClass = createEClass(DSL_EFFECTOR);
+    createEAttribute(dslEffectorEClass, DSL_EFFECTOR__NAME);
     createEReference(dslEffectorEClass, DSL_EFFECTOR__EFFECTORINTERFACES);
 
     dslReferenceInputEClass = createEClass(DSL_REFERENCE_INPUT);
+    createEAttribute(dslReferenceInputEClass, DSL_REFERENCE_INPUT__NAME);
 
     dslMeasuredOutputEClass = createEClass(DSL_MEASURED_OUTPUT);
+    createEAttribute(dslMeasuredOutputEClass, DSL_MEASURED_OUTPUT__NAME);
 
     effectorInterfaceEClass = createEClass(EFFECTOR_INTERFACE);
     createEAttribute(effectorInterfaceEClass, EFFECTOR_INTERFACE__NAME);
@@ -1952,14 +1657,8 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     knowledgeInterfaceEClass = createEClass(KNOWLEDGE_INTERFACE);
     createEAttribute(knowledgeInterfaceEClass, KNOWLEDGE_INTERFACE__NAME);
 
-    controlLoopInterfaceEClass = createEClass(CONTROL_LOOP_INTERFACE);
-    createEAttribute(controlLoopInterfaceEClass, CONTROL_LOOP_INTERFACE__NAME);
-
-    controlLoopManagerInterfaceEClass = createEClass(CONTROL_LOOP_MANAGER_INTERFACE);
-    createEAttribute(controlLoopManagerInterfaceEClass, CONTROL_LOOP_MANAGER_INTERFACE__NAME);
-
-    managedInterfaceEClass = createEClass(MANAGED_INTERFACE);
-    createEAttribute(managedInterfaceEClass, MANAGED_INTERFACE__NAME);
+    controllerInterfaceEClass = createEClass(CONTROLLER_INTERFACE);
+    createEAttribute(controllerInterfaceEClass, CONTROLLER_INTERFACE__NAME);
   }
 
   /**
@@ -1991,190 +1690,136 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    dslRestrictionEffectorEClass.getESuperTypes().add(this.getDSLRestriction());
-    dslRestrictionSensorEClass.getESuperTypes().add(this.getDSLRestriction());
-    dslRestrictionMonitorEClass.getESuperTypes().add(this.getDSLRestriction());
-    dslRestrictionPlannerEClass.getESuperTypes().add(this.getDSLRestriction());
-    dslRestrictionExecutorEClass.getESuperTypes().add(this.getDSLRestriction());
-    dslRestrictionKnowledgeEClass.getESuperTypes().add(this.getDSLRestriction());
-    dslRestrictionManagedEClass.getESuperTypes().add(this.getDSLRestriction());
-    dslSensorBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
-    dslReferenceInputBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
-    dslEffectorBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
-    dslMonitorBelongsTo1EClass.getESuperTypes().add(this.getDSLComposition());
-    dslMonitorBelongsTo2EClass.getESuperTypes().add(this.getDSLComposition());
-    dslAnalyzerBelongsTo1EClass.getESuperTypes().add(this.getDSLComposition());
-    dslAnalyzerBelongsTo2EClass.getESuperTypes().add(this.getDSLComposition());
-    dslPlannerBelongsTo1EClass.getESuperTypes().add(this.getDSLComposition());
-    dslPlannerBelongsTo2EClass.getESuperTypes().add(this.getDSLComposition());
-    dslExecutorBelongsTo1EClass.getESuperTypes().add(this.getDSLComposition());
-    dslExecutorBelongsTo2EClass.getESuperTypes().add(this.getDSLComposition());
-    dslClBelongsTo1EClass.getESuperTypes().add(this.getDSLComposition());
-    dslClBelongsTo2EClass.getESuperTypes().add(this.getDSLComposition());
-    dslClmBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
-    dslMeasuredOuputBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
-    dslKnowledgeBelongsToEClass.getESuperTypes().add(this.getDSLComposition());
-    dslManagingEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslManagedEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslControlLoopManagerEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslControlLoopEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslMonitorEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslAnalyzerEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslPlannerEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslExecutorEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslKnowledgeEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslSensorEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslEffectorEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslReferenceInputEClass.getESuperTypes().add(this.getDSLAbstraction());
-    dslMeasuredOutputEClass.getESuperTypes().add(this.getDSLAbstraction());
+    dslRuleControllerEClass.getESuperTypes().add(this.getDSLRules());
+    dslRuleMonitorEClass.getESuperTypes().add(this.getDSLRules());
+    dslRuleAnalyzerEClass.getESuperTypes().add(this.getDSLRules());
+    dslRulePlannerEClass.getESuperTypes().add(this.getDSLRules());
+    dslRuleExecutorEClass.getESuperTypes().add(this.getDSLRules());
+    dslRuleMOEClass.getESuperTypes().add(this.getDSLRules());
+    dslRuleRIEClass.getESuperTypes().add(this.getDSLRules());
 
     // Initialize classes and features; add operations and parameters
     initEClass(architectureDefinitionEClass, ArchitectureDefinition.class, "ArchitectureDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getArchitectureDefinition_Abstractions(), this.getDSLAbstraction(), null, "abstractions", null, 0, -1, ArchitectureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getArchitectureDefinition_Compositions(), this.getDSLComposition(), null, "compositions", null, 0, -1, ArchitectureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getArchitectureDefinition_Restrictions(), this.getDSLRestriction(), null, "restrictions", null, 0, -1, ArchitectureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getArchitectureDefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArchitectureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArchitectureDefinition_Managing(), this.getDSLManaging(), null, "managing", null, 0, -1, ArchitectureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArchitectureDefinition_Managed(), this.getDSLManaged(), null, "managed", null, 0, -1, ArchitectureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArchitectureDefinition_Rules(), this.getDSLRules(), null, "rules", null, 0, -1, ArchitectureDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslAbstractionEClass, DSLAbstraction.class, "DSLAbstraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDSLAbstraction_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslRulesEClass, DSLRules.class, "DSLRules", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(dslCompositionEClass, DSLComposition.class, "DSLComposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(dslRuleControllerEClass, DSLRuleController.class, "DSLRuleController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLRuleController_Controller(), this.getDSLController(), null, "controller", null, 0, 1, DSLRuleController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleController_Monitor(), this.getDSLMonitor(), null, "monitor", null, 0, 1, DSLRuleController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleController_Monitorinterface(), this.getMonitorInterface(), null, "monitorinterface", null, 0, 1, DSLRuleController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleController_Analyzer(), this.getDSLAnalyzer(), null, "analyzer", null, 0, 1, DSLRuleController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleController_Analyzerinterface(), this.getAnalyzerInterface(), null, "analyzerinterface", null, 0, 1, DSLRuleController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleController_Planner(), this.getDSLPlanner(), null, "planner", null, 0, 1, DSLRuleController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleController_Plannerinterface(), this.getPlannerInterface(), null, "plannerinterface", null, 0, 1, DSLRuleController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleController_Executor(), this.getDSLExecutor(), null, "executor", null, 0, 1, DSLRuleController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleController_Executorinterface(), this.getExecutorInterface(), null, "executorinterface", null, 0, 1, DSLRuleController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslRestrictionEClass, DSLRestriction.class, "DSLRestriction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(dslRuleMonitorEClass, DSLRuleMonitor.class, "DSLRuleMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLRuleMonitor_Monitor(), this.getDSLMonitor(), null, "monitor", null, 0, 1, DSLRuleMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleMonitor_Sensor(), this.getDSLSensor(), null, "sensor", null, 0, 1, DSLRuleMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleMonitor_Sensorinterface(), this.getSensorInterface(), null, "sensorinterface", null, 0, 1, DSLRuleMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleMonitor_Knowledge(), this.getDSLKnowledge(), null, "knowledge", null, 0, 1, DSLRuleMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleMonitor_Knowledgeinterface(), this.getKnowledgeInterface(), null, "knowledgeinterface", null, 0, 1, DSLRuleMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleMonitor_Analyzer(), this.getDSLAnalyzer(), null, "analyzer", null, 0, 1, DSLRuleMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleMonitor_Analyzerinterface(), this.getAnalyzerInterface(), null, "analyzerinterface", null, 0, 1, DSLRuleMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslRestrictionEffectorEClass, DSLRestrictionEffector.class, "DSLRestrictionEffector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLRestrictionEffector_T(), this.getDSLExecutor(), null, "t", null, 0, 1, DSLRestrictionEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionEffector_Effector(), this.getDSLEffector(), null, "effector", null, 0, 1, DSLRestrictionEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionEffector_Effectorinterface(), this.getEffectorInterface(), null, "effectorinterface", null, 0, 1, DSLRestrictionEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslRuleAnalyzerEClass, DSLRuleAnalyzer.class, "DSLRuleAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLRuleAnalyzer_Analyzer(), this.getDSLAnalyzer(), null, "analyzer", null, 0, 1, DSLRuleAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleAnalyzer_Knowledge(), ecorePackage.getEObject(), null, "knowledge", null, 0, 1, DSLRuleAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleAnalyzer_Knowledgeinterface(), this.getKnowledgeInterface(), null, "knowledgeinterface", null, 0, 1, DSLRuleAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleAnalyzer_Monitor(), this.getDSLMonitor(), null, "monitor", null, 0, 1, DSLRuleAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleAnalyzer_Monitorinterface(), this.getMonitorInterface(), null, "monitorinterface", null, 0, 1, DSLRuleAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleAnalyzer_Planner(), this.getDSLPlanner(), null, "planner", null, 0, 1, DSLRuleAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleAnalyzer_Plannerinterface(), this.getPlannerInterface(), null, "plannerinterface", null, 0, 1, DSLRuleAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslRestrictionSensorEClass, DSLRestrictionSensor.class, "DSLRestrictionSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLRestrictionSensor_T(), this.getDSLMonitor(), null, "t", null, 0, 1, DSLRestrictionSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionSensor_Sensor(), this.getDSLSensor(), null, "sensor", null, 0, 1, DSLRestrictionSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionSensor_Sensorinterface(), this.getSensorInterface(), null, "sensorinterface", null, 0, 1, DSLRestrictionSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslRulePlannerEClass, DSLRulePlanner.class, "DSLRulePlanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLRulePlanner_Planner(), this.getDSLPlanner(), null, "planner", null, 0, 1, DSLRulePlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRulePlanner_Knowledge(), this.getDSLKnowledge(), null, "knowledge", null, 0, 1, DSLRulePlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRulePlanner_Knowledgeinterface(), this.getKnowledgeInterface(), null, "knowledgeinterface", null, 0, 1, DSLRulePlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRulePlanner_Analyzer(), this.getDSLAnalyzer(), null, "analyzer", null, 0, 1, DSLRulePlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRulePlanner_Analyzerinterface(), this.getAnalyzerInterface(), null, "analyzerinterface", null, 0, 1, DSLRulePlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRulePlanner_Executor(), this.getDSLExecutor(), null, "executor", null, 0, 1, DSLRulePlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRulePlanner_Executorinterface(), this.getExecutorInterface(), null, "executorinterface", null, 0, 1, DSLRulePlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslRestrictionMonitorEClass, DSLRestrictionMonitor.class, "DSLRestrictionMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLRestrictionMonitor_T(), this.getDSLAnalyzer(), null, "t", null, 0, 1, DSLRestrictionMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionMonitor_Monitor(), this.getDSLMonitor(), null, "monitor", null, 0, 1, DSLRestrictionMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionMonitor_Monitorinterface(), this.getMonitorInterface(), null, "monitorinterface", null, 0, 1, DSLRestrictionMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslRuleExecutorEClass, DSLRuleExecutor.class, "DSLRuleExecutor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLRuleExecutor_Executor(), this.getDSLExecutor(), null, "executor", null, 0, 1, DSLRuleExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleExecutor_Effector(), this.getDSLEffector(), null, "effector", null, 0, 1, DSLRuleExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleExecutor_Effectorinterface(), this.getEffectorInterface(), null, "effectorinterface", null, 0, 1, DSLRuleExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleExecutor_Planner(), this.getDSLPlanner(), null, "planner", null, 0, 1, DSLRuleExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleExecutor_Plannerinterface(), this.getPlannerInterface(), null, "plannerinterface", null, 0, 1, DSLRuleExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleExecutor_Knowledge(), this.getDSLKnowledge(), null, "knowledge", null, 0, 1, DSLRuleExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleExecutor_Knowledgeinterface(), this.getKnowledgeInterface(), null, "knowledgeinterface", null, 0, 1, DSLRuleExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslRestrictionPlannerEClass, DSLRestrictionPlanner.class, "DSLRestrictionPlanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLRestrictionPlanner_T(), this.getDSLAnalyzer(), null, "t", null, 0, 1, DSLRestrictionPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionPlanner_Planner(), this.getDSLPlanner(), null, "planner", null, 0, 1, DSLRestrictionPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionPlanner_Plannerinterface(), this.getPlannerInterface(), null, "plannerinterface", null, 0, 1, DSLRestrictionPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslRuleMOEClass, DSLRuleMO.class, "DSLRuleMO", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLRuleMO_Sensor(), this.getDSLSensor(), null, "sensor", null, 0, 1, DSLRuleMO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleMO_Measured(), this.getDSLMeasuredOutput(), null, "measured", null, 0, 1, DSLRuleMO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslRestrictionExecutorEClass, DSLRestrictionExecutor.class, "DSLRestrictionExecutor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLRestrictionExecutor_T(), this.getDSLAnalyzer(), null, "t", null, 0, 1, DSLRestrictionExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionExecutor_Executor(), this.getDSLExecutor(), null, "executor", null, 0, 1, DSLRestrictionExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionExecutor_Executorinterface(), this.getExecutorInterface(), null, "executorinterface", null, 0, 1, DSLRestrictionExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslRestrictionKnowledgeEClass, DSLRestrictionKnowledge.class, "DSLRestrictionKnowledge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLRestrictionKnowledge_T(), this.getDSLAbstraction(), null, "t", null, 0, 1, DSLRestrictionKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionKnowledge_Knowledge(), this.getDSLKnowledge(), null, "knowledge", null, 0, 1, DSLRestrictionKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionKnowledge_Knowledgeinterface(), this.getKnowledgeInterface(), null, "knowledgeinterface", null, 0, 1, DSLRestrictionKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslRestrictionManagedEClass, DSLRestrictionManaged.class, "DSLRestrictionManaged", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLRestrictionManaged_T(), this.getDSLManaging(), null, "t", null, 0, 1, DSLRestrictionManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionManaged_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLRestrictionManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLRestrictionManaged_Managedinterface(), this.getManagedInterface(), null, "managedinterface", null, 0, 1, DSLRestrictionManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslSensorBelongsToEClass, DSLSensorBelongsTo.class, "DSLSensorBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLSensorBelongsTo_Sensor(), this.getDSLSensor(), null, "sensor", null, 0, 1, DSLSensorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLSensorBelongsTo_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLSensorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslReferenceInputBelongsToEClass, DSLReferenceInputBelongsTo.class, "DSLReferenceInputBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLReferenceInputBelongsTo_Reference(), this.getDSLReferenceInput(), null, "reference", null, 0, 1, DSLReferenceInputBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLReferenceInputBelongsTo_Knowledge(), this.getDSLKnowledge(), null, "knowledge", null, 0, 1, DSLReferenceInputBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslEffectorBelongsToEClass, DSLEffectorBelongsTo.class, "DSLEffectorBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLEffectorBelongsTo_Effector(), this.getDSLEffector(), null, "effector", null, 0, 1, DSLEffectorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLEffectorBelongsTo_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLEffectorBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslMonitorBelongsTo1EClass, DSLMonitorBelongsTo1.class, "DSLMonitorBelongsTo1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLMonitorBelongsTo1_Monitor(), this.getDSLMonitor(), null, "monitor", null, 0, 1, DSLMonitorBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLMonitorBelongsTo1_Cl(), this.getDSLControlLoop(), null, "cl", null, 0, 1, DSLMonitorBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslMonitorBelongsTo2EClass, DSLMonitorBelongsTo2.class, "DSLMonitorBelongsTo2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLMonitorBelongsTo2_Monitor(), this.getDSLMonitor(), null, "monitor", null, 0, 1, DSLMonitorBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLMonitorBelongsTo2_Managing(), this.getDSLManaging(), null, "managing", null, 0, 1, DSLMonitorBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslAnalyzerBelongsTo1EClass, DSLAnalyzerBelongsTo1.class, "DSLAnalyzerBelongsTo1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLAnalyzerBelongsTo1_Analyzer(), this.getDSLAnalyzer(), null, "analyzer", null, 0, 1, DSLAnalyzerBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLAnalyzerBelongsTo1_Cl(), this.getDSLControlLoop(), null, "cl", null, 0, 1, DSLAnalyzerBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslAnalyzerBelongsTo2EClass, DSLAnalyzerBelongsTo2.class, "DSLAnalyzerBelongsTo2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLAnalyzerBelongsTo2_Analyzer(), this.getDSLAnalyzer(), null, "analyzer", null, 0, 1, DSLAnalyzerBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLAnalyzerBelongsTo2_Managing(), this.getDSLManaging(), null, "managing", null, 0, 1, DSLAnalyzerBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslPlannerBelongsTo1EClass, DSLPlannerBelongsTo1.class, "DSLPlannerBelongsTo1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLPlannerBelongsTo1_Planner(), this.getDSLPlanner(), null, "planner", null, 0, 1, DSLPlannerBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLPlannerBelongsTo1_Cl(), this.getDSLControlLoop(), null, "cl", null, 0, 1, DSLPlannerBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslPlannerBelongsTo2EClass, DSLPlannerBelongsTo2.class, "DSLPlannerBelongsTo2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLPlannerBelongsTo2_Planner(), this.getDSLPlanner(), null, "planner", null, 0, 1, DSLPlannerBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLPlannerBelongsTo2_Managing(), this.getDSLManaging(), null, "managing", null, 0, 1, DSLPlannerBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslExecutorBelongsTo1EClass, DSLExecutorBelongsTo1.class, "DSLExecutorBelongsTo1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLExecutorBelongsTo1_Executor(), this.getDSLExecutor(), null, "executor", null, 0, 1, DSLExecutorBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLExecutorBelongsTo1_Cl(), this.getDSLControlLoop(), null, "cl", null, 0, 1, DSLExecutorBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslExecutorBelongsTo2EClass, DSLExecutorBelongsTo2.class, "DSLExecutorBelongsTo2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLExecutorBelongsTo2_Executor(), this.getDSLExecutor(), null, "executor", null, 0, 1, DSLExecutorBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLExecutorBelongsTo2_Managing(), this.getDSLManaging(), null, "managing", null, 0, 1, DSLExecutorBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslClBelongsTo1EClass, DSLClBelongsTo1.class, "DSLClBelongsTo1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLClBelongsTo1_Cl(), this.getDSLControlLoop(), null, "cl", null, 0, 1, DSLClBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLClBelongsTo1_Clm(), this.getDSLControlLoopManager(), null, "clm", null, 0, 1, DSLClBelongsTo1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslClBelongsTo2EClass, DSLClBelongsTo2.class, "DSLClBelongsTo2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLClBelongsTo2_Cl(), this.getDSLControlLoop(), null, "cl", null, 0, 1, DSLClBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLClBelongsTo2_Managing(), this.getDSLManaging(), null, "managing", null, 0, 1, DSLClBelongsTo2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslClmBelongsToEClass, DSLClmBelongsTo.class, "DSLClmBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLClmBelongsTo_Cl(), this.getDSLControlLoopManager(), null, "cl", null, 0, 1, DSLClmBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLClmBelongsTo_Managing(), this.getDSLManaging(), null, "managing", null, 0, 1, DSLClmBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslMeasuredOuputBelongsToEClass, DSLMeasuredOuputBelongsTo.class, "DSLMeasuredOuputBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLMeasuredOuputBelongsTo_Measured(), this.getDSLMeasuredOutput(), null, "measured", null, 0, 1, DSLMeasuredOuputBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLMeasuredOuputBelongsTo_Managed(), this.getDSLManaged(), null, "managed", null, 0, 1, DSLMeasuredOuputBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dslKnowledgeBelongsToEClass, DSLKnowledgeBelongsTo.class, "DSLKnowledgeBelongsTo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLKnowledgeBelongsTo_Knowledge(), this.getDSLKnowledge(), null, "knowledge", null, 0, 1, DSLKnowledgeBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDSLKnowledgeBelongsTo_Managing(), this.getDSLManaging(), null, "managing", null, 0, 1, DSLKnowledgeBelongsTo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslRuleRIEClass, DSLRuleRI.class, "DSLRuleRI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDSLRuleRI_Analyzer(), this.getDSLAnalyzer(), null, "analyzer", null, 0, 1, DSLRuleRI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLRuleRI_Reference(), this.getDSLReferenceInput(), null, "reference", null, 0, 1, DSLRuleRI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslManagingEClass, DSLManaging.class, "DSLManaging", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLManaging_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLManaging.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLManaging_ManagerController(), this.getDSLManagerController(), null, "managerController", null, 0, -1, DSLManaging.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLManaging_Controller(), this.getDSLController(), null, "controller", null, 0, -1, DSLManaging.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslManagedEClass, DSLManaged.class, "DSLManaged", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLManaged_Managedinterfaces(), this.getManagedInterface(), null, "managedinterfaces", null, 0, -1, DSLManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDSLManaged_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLManaged_Sensor(), this.getDSLSensor(), null, "sensor", null, 0, -1, DSLManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLManaged_Effector(), this.getDSLEffector(), null, "effector", null, 0, -1, DSLManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLManaged_MeasuredOutput(), this.getDSLMeasuredOutput(), null, "measuredOutput", null, 0, -1, DSLManaged.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslControlLoopManagerEClass, DSLControlLoopManager.class, "DSLControlLoopManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLControlLoopManager_Clminterfaces(), this.getControlLoopManagerInterface(), null, "clminterfaces", null, 0, -1, DSLControlLoopManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslManagerControllerEClass, DSLManagerController.class, "DSLManagerController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLManagerController_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLManagerController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLManagerController_Controller(), this.getDSLController(), null, "controller", null, 0, -1, DSLManagerController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(dslControlLoopEClass, DSLControlLoop.class, "DSLControlLoop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDSLControlLoop_Clinterfaces(), this.getControlLoopInterface(), null, "clinterfaces", null, 0, -1, DSLControlLoop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(dslControllerEClass, DSLController.class, "DSLController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLController_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLController_Controllerinterfaces(), this.getControllerInterface(), null, "controllerinterfaces", null, 0, -1, DSLController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLController_Monitor(), this.getDSLMonitor(), null, "monitor", null, 0, -1, DSLController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLController_Analyzer(), this.getDSLAnalyzer(), null, "analyzer", null, 0, -1, DSLController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLController_Planner(), this.getDSLPlanner(), null, "planner", null, 0, -1, DSLController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLController_Executor(), this.getDSLExecutor(), null, "executor", null, 0, -1, DSLController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLController_Knowledge(), this.getDSLKnowledge(), null, "knowledge", null, 0, -1, DSLController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslMonitorEClass, DSLMonitor.class, "DSLMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLMonitor_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLMonitor_Monitorinterfaces(), this.getMonitorInterface(), null, "monitorinterfaces", null, 0, -1, DSLMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslAnalyzerEClass, DSLAnalyzer.class, "DSLAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLAnalyzer_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLAnalyzer_Anlyzerinterfaces(), this.getAnalyzerInterface(), null, "anlyzerinterfaces", null, 0, -1, DSLAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslPlannerEClass, DSLPlanner.class, "DSLPlanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLPlanner_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLPlanner_Plannerinterfaces(), this.getPlannerInterface(), null, "plannerinterfaces", null, 0, -1, DSLPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslExecutorEClass, DSLExecutor.class, "DSLExecutor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLExecutor_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLExecutor_Executorinterfaces(), this.getExecutorInterface(), null, "executorinterfaces", null, 0, -1, DSLExecutor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslKnowledgeEClass, DSLKnowledge.class, "DSLKnowledge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLKnowledge_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLKnowledge_Knowledgeinterfaces(), this.getKnowledgeInterface(), null, "knowledgeinterfaces", null, 0, -1, DSLKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDSLKnowledge_ReferenceInput(), this.getDSLReferenceInput(), null, "referenceInput", null, 0, -1, DSLKnowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslSensorEClass, DSLSensor.class, "DSLSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLSensor_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLSensor_Sensorinterfaces(), this.getSensorInterface(), null, "sensorinterfaces", null, 0, -1, DSLSensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslEffectorEClass, DSLEffector.class, "DSLEffector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLEffector_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDSLEffector_Effectorinterfaces(), this.getEffectorInterface(), null, "effectorinterfaces", null, 0, -1, DSLEffector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslReferenceInputEClass, DSLReferenceInput.class, "DSLReferenceInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLReferenceInput_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLReferenceInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dslMeasuredOutputEClass, DSLMeasuredOutput.class, "DSLMeasuredOutput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDSLMeasuredOutput_Name(), ecorePackage.getEString(), "name", null, 0, 1, DSLMeasuredOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(effectorInterfaceEClass, EffectorInterface.class, "EffectorInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEffectorInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, EffectorInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2197,14 +1842,8 @@ public class SasDslPackageImpl extends EPackageImpl implements SasDslPackage
     initEClass(knowledgeInterfaceEClass, KnowledgeInterface.class, "KnowledgeInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getKnowledgeInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, KnowledgeInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(controlLoopInterfaceEClass, ControlLoopInterface.class, "ControlLoopInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getControlLoopInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, ControlLoopInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(controlLoopManagerInterfaceEClass, ControlLoopManagerInterface.class, "ControlLoopManagerInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getControlLoopManagerInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, ControlLoopManagerInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(managedInterfaceEClass, ManagedInterface.class, "ManagedInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getManagedInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, ManagedInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(controllerInterfaceEClass, ControllerInterface.class, "ControllerInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getControllerInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, ControllerInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

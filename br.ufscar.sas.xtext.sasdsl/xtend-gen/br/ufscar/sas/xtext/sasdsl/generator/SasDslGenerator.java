@@ -3,10 +3,25 @@
  */
 package br.ufscar.sas.xtext.sasdsl.generator;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAbstraction;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzer;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaged;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManagerController;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaging;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOutput;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInput;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
 import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
@@ -21,9 +36,360 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 public class SasDslGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    Iterable<DSLAbstraction> _filter = Iterables.<DSLAbstraction>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), DSLAbstraction.class);
-    for (final DSLAbstraction e : _filter) {
-      System.out.println(e.getName());
+    Iterable<ArchitectureDefinition> _filter = Iterables.<ArchitectureDefinition>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), ArchitectureDefinition.class);
+    for (final ArchitectureDefinition e : _filter) {
+      fsa.generateFile("PlannedArchitecture.xmi", this.compile(e));
     }
+  }
+  
+  public CharSequence compile(final ArchitectureDefinition architectureDefinition) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+    _builder.newLine();
+    _builder.append("<xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:action=\"http://www.eclipse.org/MoDisco/kdm/action\" xmlns:code=\"http://www.eclipse.org/MoDisco/kdm/code\" xmlns:kdm=\"http://www.eclipse.org/MoDisco/kdm/kdm\" xmlns:source=\"http://www.eclipse.org/MoDisco/kdm/source\" xmlns:structure=\"http://www.eclipse.org/MoDisco/kdm/structure\">");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<model xsi:type=\"structure:StructureModel\" name=\"Planned Architecture\">");
+    _builder.newLine();
+    {
+      EList<DSLManaging> _managing = architectureDefinition.getManaging();
+      for(final DSLManaging arch : _managing) {
+        _builder.append("\t");
+        _builder.append("<structureElement xsi:type=\"structure:Subsystem\" name=\"");
+        String _name = arch.getName();
+        _builder.append(_name, "\t");
+        _builder.append("\">");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<DSLManagerController> _managerController = arch.getManagerController();
+          for(final DSLManagerController mcontroller : _managerController) {
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+            String _name_1 = mcontroller.getName();
+            _builder.append(_name_1, "\t\t");
+            _builder.append("\">");
+            _builder.newLineIfNotEmpty();
+            {
+              EList<DSLController> _controller = mcontroller.getController();
+              for(final DSLController controller : _controller) {
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                String _name_2 = controller.getName();
+                _builder.append(_name_2, "\t\t");
+                _builder.append("\">");
+                _builder.newLineIfNotEmpty();
+                {
+                  EList<DSLMonitor> _monitor = controller.getMonitor();
+                  for(final DSLMonitor monitor : _monitor) {
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                    String _name_3 = monitor.getName();
+                    _builder.append(_name_3, "\t\t");
+                    _builder.append("\">");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("\t\t\t\t\t");
+                    _builder.newLine();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("</structureElement>");
+                    _builder.newLine();
+                  }
+                }
+                {
+                  EList<DSLAnalyzer> _analyzer = controller.getAnalyzer();
+                  for(final DSLAnalyzer analyzer : _analyzer) {
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                    String _name_4 = analyzer.getName();
+                    _builder.append(_name_4, "\t\t");
+                    _builder.append("\">");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("\t\t\t\t\t\t\t\t\t\t\t");
+                    _builder.newLine();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("</structureElement>");
+                    _builder.newLine();
+                  }
+                }
+                {
+                  EList<DSLPlanner> _planner = controller.getPlanner();
+                  for(final DSLPlanner planner : _planner) {
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                    String _name_5 = planner.getName();
+                    _builder.append(_name_5, "\t\t");
+                    _builder.append("\">");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
+                    _builder.newLine();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("</structureElement>");
+                    _builder.newLine();
+                  }
+                }
+                {
+                  EList<DSLExecutor> _executor = controller.getExecutor();
+                  for(final DSLExecutor executor : _executor) {
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                    String _name_6 = executor.getName();
+                    _builder.append(_name_6, "\t\t");
+                    _builder.append("\">");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
+                    _builder.newLine();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("</structureElement>");
+                    _builder.newLine();
+                  }
+                }
+                {
+                  EList<DSLKnowledge> _knowledge = controller.getKnowledge();
+                  for(final DSLKnowledge knowledge : _knowledge) {
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                    String _name_7 = knowledge.getName();
+                    _builder.append(_name_7, "\t\t");
+                    _builder.append("\">");
+                    _builder.newLineIfNotEmpty();
+                    {
+                      EList<DSLReferenceInput> _referenceInput = knowledge.getReferenceInput();
+                      for(final DSLReferenceInput referenceInput : _referenceInput) {
+                        _builder.append("\t");
+                        _builder.append("\t");
+                        _builder.append("\t");
+                        _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                        String _name_8 = referenceInput.getName();
+                        _builder.append(_name_8, "\t\t\t");
+                        _builder.append("\"/>");
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("</structureElement>");
+                    _builder.newLine();
+                  }
+                }
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("</structureElement>");
+                _builder.newLine();
+              }
+            }
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("</structureElement>");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("</structureElement>");
+            _builder.newLine();
+          }
+        }
+        {
+          EList<DSLController> _controller_1 = arch.getController();
+          for(final DSLController controller_1 : _controller_1) {
+            _builder.append("\t");
+            _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+            String _name_9 = controller_1.getName();
+            _builder.append(_name_9, "\t");
+            _builder.append("\">");
+            _builder.newLineIfNotEmpty();
+            {
+              EList<DSLMonitor> _monitor_1 = controller_1.getMonitor();
+              for(final DSLMonitor monitor_1 : _monitor_1) {
+                _builder.append("\t");
+                _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                String _name_10 = monitor_1.getName();
+                _builder.append(_name_10, "\t");
+                _builder.append("\">");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t\t\t\t\t\t\t\t\t\t\t");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("</structureElement>");
+                _builder.newLine();
+              }
+            }
+            {
+              EList<DSLAnalyzer> _analyzer_1 = controller_1.getAnalyzer();
+              for(final DSLAnalyzer analyzer_1 : _analyzer_1) {
+                _builder.append("\t");
+                _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                String _name_11 = analyzer_1.getName();
+                _builder.append(_name_11, "\t");
+                _builder.append("\">");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("</structureElement>");
+                _builder.newLine();
+              }
+            }
+            {
+              EList<DSLPlanner> _planner_1 = controller_1.getPlanner();
+              for(final DSLPlanner planner_1 : _planner_1) {
+                _builder.append("\t");
+                _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                String _name_12 = planner_1.getName();
+                _builder.append(_name_12, "\t");
+                _builder.append("\">");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("</structureElement>");
+                _builder.newLine();
+              }
+            }
+            {
+              EList<DSLExecutor> _executor_1 = controller_1.getExecutor();
+              for(final DSLExecutor executor_1 : _executor_1) {
+                _builder.append("\t");
+                _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                String _name_13 = executor_1.getName();
+                _builder.append(_name_13, "\t");
+                _builder.append("\">");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("</structureElement>");
+                _builder.newLine();
+              }
+            }
+            {
+              EList<DSLKnowledge> _knowledge_1 = controller_1.getKnowledge();
+              for(final DSLKnowledge knowledge_1 : _knowledge_1) {
+                _builder.append("\t");
+                _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                String _name_14 = knowledge_1.getName();
+                _builder.append(_name_14, "\t");
+                _builder.append("\">");
+                _builder.newLineIfNotEmpty();
+                {
+                  EList<DSLReferenceInput> _referenceInput_1 = knowledge_1.getReferenceInput();
+                  for(final DSLReferenceInput referenceInput_1 : _referenceInput_1) {
+                    _builder.append("\t");
+                    _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+                    String _name_15 = referenceInput_1.getName();
+                    _builder.append(_name_15, "\t");
+                    _builder.append("\"/>");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+                _builder.append("\t");
+                _builder.append("</structureElement>");
+                _builder.newLine();
+              }
+            }
+            _builder.append("\t");
+            _builder.append("</structureElement>");
+            _builder.newLine();
+          }
+        }
+        _builder.append("\t");
+        _builder.append("</structureElement>");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<DSLManaged> _managed = architectureDefinition.getManaged();
+      for(final DSLManaged arch_1 : _managed) {
+        _builder.append("\t");
+        _builder.append("<structureElement xsi:type=\"structure:Subsystem\" name=\"");
+        String _name_16 = arch_1.getName();
+        _builder.append(_name_16, "\t");
+        _builder.append("\">");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<DSLSensor> _sensor = arch_1.getSensor();
+          for(final DSLSensor sensor : _sensor) {
+            _builder.append("\t");
+            _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+            String _name_17 = sensor.getName();
+            _builder.append(_name_17, "\t");
+            _builder.append("\">");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t\t\t");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("</structureElement>\t\t\t");
+            _builder.newLine();
+          }
+        }
+        {
+          EList<DSLEffector> _effector = arch_1.getEffector();
+          for(final DSLEffector effector : _effector) {
+            _builder.append("\t");
+            _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+            String _name_18 = effector.getName();
+            _builder.append(_name_18, "\t");
+            _builder.append("\">");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t\t\t\t\t\t\t");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("</structureElement>\t\t\t");
+            _builder.newLine();
+          }
+        }
+        {
+          EList<DSLMeasuredOutput> _measuredOutput = arch_1.getMeasuredOutput();
+          for(final DSLMeasuredOutput measuredOutput : _measuredOutput) {
+            _builder.append("\t");
+            _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
+            String _name_19 = measuredOutput.getName();
+            _builder.append(_name_19, "\t");
+            _builder.append("\">");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t\t\t\t\t\t\t\t\t\t\t");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("</structureElement>\t\t\t");
+            _builder.newLine();
+          }
+        }
+        _builder.append("\t");
+        _builder.append("</structureElement>\t\t\t");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</model>\t");
+    _builder.newLine();
+    _builder.append("</xmi:XMI>");
+    _builder.newLine();
+    return _builder;
   }
 }

@@ -3,24 +3,7 @@
  */
 package br.ufscar.sas.xtext.sasdsl.scoping;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionEffector;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionExecutor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionKnowledge;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionMonitor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionPlanner;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRestrictionSensor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 import br.ufscar.sas.xtext.sasdsl.scoping.AbstractSasDslScopeProvider;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.scoping.IScope;
-import org.eclipse.xtext.scoping.Scopes;
 
 /**
  * This class contains custom scoping description.
@@ -30,66 +13,4 @@ import org.eclipse.xtext.scoping.Scopes;
  */
 @SuppressWarnings("all")
 public class SasDslScopeProvider extends AbstractSasDslScopeProvider {
-  @Override
-  public IScope getScope(final EObject context, final EReference reference) {
-    IScope _xblockexpression = null;
-    {
-      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_SENSOR__SENSORINTERFACE)) {
-        if ((context instanceof DSLRestrictionSensor)) {
-          DSLSensor _sensor = ((DSLRestrictionSensor)context).getSensor();
-          final DSLSensor sensor = ((DSLSensor) _sensor);
-          if ((sensor instanceof DSLSensor)) {
-            return Scopes.scopeFor(sensor.getSensorinterfaces());
-          }
-        }
-      }
-      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_MONITOR__MONITORINTERFACE)) {
-        if ((context instanceof DSLRestrictionMonitor)) {
-          DSLMonitor _monitor = ((DSLRestrictionMonitor)context).getMonitor();
-          final DSLMonitor monitor = ((DSLMonitor) _monitor);
-          if ((monitor instanceof DSLMonitor)) {
-            return Scopes.scopeFor(monitor.getMonitorinterfaces());
-          }
-        }
-      }
-      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_PLANNER__PLANNERINTERFACE)) {
-        if ((context instanceof DSLRestrictionPlanner)) {
-          DSLPlanner _planner = ((DSLRestrictionPlanner)context).getPlanner();
-          final DSLPlanner planner = ((DSLPlanner) _planner);
-          if ((planner instanceof DSLPlanner)) {
-            return Scopes.scopeFor(planner.getPlannerinterfaces());
-          }
-        }
-      }
-      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_EXECUTOR__EXECUTORINTERFACE)) {
-        if ((context instanceof DSLRestrictionExecutor)) {
-          DSLExecutor _executor = ((DSLRestrictionExecutor)context).getExecutor();
-          final DSLExecutor executor = ((DSLExecutor) _executor);
-          if ((executor instanceof DSLExecutor)) {
-            return Scopes.scopeFor(executor.getExecutorinterfaces());
-          }
-        }
-      }
-      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_KNOWLEDGE__KNOWLEDGEINTERFACE)) {
-        if ((context instanceof DSLRestrictionKnowledge)) {
-          DSLKnowledge _knowledge = ((DSLRestrictionKnowledge)context).getKnowledge();
-          final DSLKnowledge knowledge = ((DSLKnowledge) _knowledge);
-          if ((knowledge instanceof DSLKnowledge)) {
-            return Scopes.scopeFor(knowledge.getKnowledgeinterfaces());
-          }
-        }
-      }
-      if ((reference == SasDslPackage.Literals.DSL_RESTRICTION_EFFECTOR__EFFECTORINTERFACE)) {
-        if ((context instanceof DSLRestrictionEffector)) {
-          DSLEffector _effector = ((DSLRestrictionEffector)context).getEffector();
-          final DSLEffector effector = ((DSLEffector) _effector);
-          if ((effector instanceof DSLEffector)) {
-            return Scopes.scopeFor(effector.getEffectorinterfaces());
-          }
-        }
-      }
-      _xblockexpression = super.getScope(context, reference);
-    }
-    return _xblockexpression;
-  }
 }

@@ -4,17 +4,22 @@
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInput;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.KnowledgeInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -27,13 +32,35 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLKnowledgeImpl#getName <em>Name</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLKnowledgeImpl#getKnowledgeinterfaces <em>Knowledgeinterfaces</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLKnowledgeImpl#getReferenceInput <em>Reference Input</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
+public class DSLKnowledgeImpl extends MinimalEObjectImpl.Container implements DSLKnowledge
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getKnowledgeinterfaces() <em>Knowledgeinterfaces</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -43,6 +70,16 @@ public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
    * @ordered
    */
   protected EList<KnowledgeInterface> knowledgeinterfaces;
+
+  /**
+   * The cached value of the '{@link #getReferenceInput() <em>Reference Input</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReferenceInput()
+   * @generated
+   * @ordered
+   */
+  protected EList<DSLReferenceInput> referenceInput;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,6 +107,29 @@ public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_KNOWLEDGE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<KnowledgeInterface> getKnowledgeinterfaces()
   {
     if (knowledgeinterfaces == null)
@@ -84,6 +144,20 @@ public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<DSLReferenceInput> getReferenceInput()
+  {
+    if (referenceInput == null)
+    {
+      referenceInput = new EObjectContainmentEList<DSLReferenceInput>(DSLReferenceInput.class, this, SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT);
+    }
+    return referenceInput;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -91,6 +165,8 @@ public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
     {
       case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
         return ((InternalEList<?>)getKnowledgeinterfaces()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
+        return ((InternalEList<?>)getReferenceInput()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +181,12 @@ public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
   {
     switch (featureID)
     {
+      case SasDslPackage.DSL_KNOWLEDGE__NAME:
+        return getName();
       case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
         return getKnowledgeinterfaces();
+      case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
+        return getReferenceInput();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +202,16 @@ public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
   {
     switch (featureID)
     {
+      case SasDslPackage.DSL_KNOWLEDGE__NAME:
+        setName((String)newValue);
+        return;
       case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
         getKnowledgeinterfaces().clear();
         getKnowledgeinterfaces().addAll((Collection<? extends KnowledgeInterface>)newValue);
+        return;
+      case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
+        getReferenceInput().clear();
+        getReferenceInput().addAll((Collection<? extends DSLReferenceInput>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +227,14 @@ public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
   {
     switch (featureID)
     {
+      case SasDslPackage.DSL_KNOWLEDGE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
         getKnowledgeinterfaces().clear();
+        return;
+      case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
+        getReferenceInput().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,10 +250,31 @@ public class DSLKnowledgeImpl extends DSLAbstractionImpl implements DSLKnowledge
   {
     switch (featureID)
     {
+      case SasDslPackage.DSL_KNOWLEDGE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
         return knowledgeinterfaces != null && !knowledgeinterfaces.isEmpty();
+      case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
+        return referenceInput != null && !referenceInput.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //DSLKnowledgeImpl

@@ -3,18 +3,24 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaged;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ManagedInterface;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOutput;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -27,22 +33,65 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLManagedImpl#getManagedinterfaces <em>Managedinterfaces</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLManagedImpl#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLManagedImpl#getSensor <em>Sensor</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLManagedImpl#getEffector <em>Effector</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLManagedImpl#getMeasuredOutput <em>Measured Output</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
+public class DSLManagedImpl extends MinimalEObjectImpl.Container implements DSLManaged
 {
   /**
-   * The cached value of the '{@link #getManagedinterfaces() <em>Managedinterfaces</em>}' containment reference list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getManagedinterfaces()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<ManagedInterface> managedinterfaces;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSensor() <em>Sensor</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSensor()
+   * @generated
+   * @ordered
+   */
+  protected EList<DSLSensor> sensor;
+
+  /**
+   * The cached value of the '{@link #getEffector() <em>Effector</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEffector()
+   * @generated
+   * @ordered
+   */
+  protected EList<DSLEffector> effector;
+
+  /**
+   * The cached value of the '{@link #getMeasuredOutput() <em>Measured Output</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMeasuredOutput()
+   * @generated
+   * @ordered
+   */
+  protected EList<DSLMeasuredOutput> measuredOutput;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,13 +119,64 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ManagedInterface> getManagedinterfaces()
+  public String getName()
   {
-    if (managedinterfaces == null)
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_MANAGED__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<DSLSensor> getSensor()
+  {
+    if (sensor == null)
     {
-      managedinterfaces = new EObjectContainmentEList<ManagedInterface>(ManagedInterface.class, this, SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES);
+      sensor = new EObjectContainmentEList<DSLSensor>(DSLSensor.class, this, SasDslPackage.DSL_MANAGED__SENSOR);
     }
-    return managedinterfaces;
+    return sensor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<DSLEffector> getEffector()
+  {
+    if (effector == null)
+    {
+      effector = new EObjectContainmentEList<DSLEffector>(DSLEffector.class, this, SasDslPackage.DSL_MANAGED__EFFECTOR);
+    }
+    return effector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<DSLMeasuredOutput> getMeasuredOutput()
+  {
+    if (measuredOutput == null)
+    {
+      measuredOutput = new EObjectContainmentEList<DSLMeasuredOutput>(DSLMeasuredOutput.class, this, SasDslPackage.DSL_MANAGED__MEASURED_OUTPUT);
+    }
+    return measuredOutput;
   }
 
   /**
@@ -89,8 +189,12 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
-        return ((InternalEList<?>)getManagedinterfaces()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_MANAGED__SENSOR:
+        return ((InternalEList<?>)getSensor()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_MANAGED__EFFECTOR:
+        return ((InternalEList<?>)getEffector()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.DSL_MANAGED__MEASURED_OUTPUT:
+        return ((InternalEList<?>)getMeasuredOutput()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -105,8 +209,14 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
-        return getManagedinterfaces();
+      case SasDslPackage.DSL_MANAGED__NAME:
+        return getName();
+      case SasDslPackage.DSL_MANAGED__SENSOR:
+        return getSensor();
+      case SasDslPackage.DSL_MANAGED__EFFECTOR:
+        return getEffector();
+      case SasDslPackage.DSL_MANAGED__MEASURED_OUTPUT:
+        return getMeasuredOutput();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,9 +232,20 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
-        getManagedinterfaces().clear();
-        getManagedinterfaces().addAll((Collection<? extends ManagedInterface>)newValue);
+      case SasDslPackage.DSL_MANAGED__NAME:
+        setName((String)newValue);
+        return;
+      case SasDslPackage.DSL_MANAGED__SENSOR:
+        getSensor().clear();
+        getSensor().addAll((Collection<? extends DSLSensor>)newValue);
+        return;
+      case SasDslPackage.DSL_MANAGED__EFFECTOR:
+        getEffector().clear();
+        getEffector().addAll((Collection<? extends DSLEffector>)newValue);
+        return;
+      case SasDslPackage.DSL_MANAGED__MEASURED_OUTPUT:
+        getMeasuredOutput().clear();
+        getMeasuredOutput().addAll((Collection<? extends DSLMeasuredOutput>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,8 +261,17 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
-        getManagedinterfaces().clear();
+      case SasDslPackage.DSL_MANAGED__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case SasDslPackage.DSL_MANAGED__SENSOR:
+        getSensor().clear();
+        return;
+      case SasDslPackage.DSL_MANAGED__EFFECTOR:
+        getEffector().clear();
+        return;
+      case SasDslPackage.DSL_MANAGED__MEASURED_OUTPUT:
+        getMeasuredOutput().clear();
         return;
     }
     super.eUnset(featureID);
@@ -157,10 +287,33 @@ public class DSLManagedImpl extends DSLAbstractionImpl implements DSLManaged
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_MANAGED__MANAGEDINTERFACES:
-        return managedinterfaces != null && !managedinterfaces.isEmpty();
+      case SasDslPackage.DSL_MANAGED__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SasDslPackage.DSL_MANAGED__SENSOR:
+        return sensor != null && !sensor.isEmpty();
+      case SasDslPackage.DSL_MANAGED__EFFECTOR:
+        return effector != null && !effector.isEmpty();
+      case SasDslPackage.DSL_MANAGED__MEASURED_OUTPUT:
+        return measuredOutput != null && !measuredOutput.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //DSLManagedImpl

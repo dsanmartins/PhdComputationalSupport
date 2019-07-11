@@ -5,8 +5,6 @@ import java.util.regex.Pattern;
 
 import br.ufscar.sas.database.QueryClass;
 
-
-
 public class AddAbstractionTag {
 
 	QueryClass queryClass = null;

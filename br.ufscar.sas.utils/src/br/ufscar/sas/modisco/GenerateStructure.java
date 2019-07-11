@@ -16,7 +16,6 @@ import br.ufscar.sas.database.QueryClass;
 import br.ufscar.sas.structuretree.Tree;
 
 
-
 public class GenerateStructure {
 
 	private Tree tree = null;
