@@ -49,52 +49,102 @@ public class SasDslGenerator extends AbstractGenerator {
     _builder.append("<xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:action=\"http://www.eclipse.org/MoDisco/kdm/action\" xmlns:code=\"http://www.eclipse.org/MoDisco/kdm/code\" xmlns:kdm=\"http://www.eclipse.org/MoDisco/kdm/kdm\" xmlns:source=\"http://www.eclipse.org/MoDisco/kdm/source\" xmlns:structure=\"http://www.eclipse.org/MoDisco/kdm/structure\">");
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("<model xsi:type=\"code:CodeModel\" name=\"Elements Instances\">");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<codeElement xsi:type=\"code:Module\" name=\"Module Instance\">");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<codeElement xsi:type=\"code:CodeElement\" name=\"codeElement Instance\">");
+    _builder.newLine();
+    _builder.append("\t       \t\t");
+    _builder.append("<codeRelation xsi:type=\"code:Extends\"/>");
+    _builder.newLine();
+    _builder.append("\t       \t\t");
+    _builder.append("<codeRelation xsi:type=\"code:Implements\"/>");
+    _builder.newLine();
+    _builder.append("\t        \t");
+    _builder.append("<codeRelation xsi:type=\"code:HasValue\"/>");
+    _builder.newLine();
+    _builder.append("\t      \t");
+    _builder.append("</codeElement>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<codeElement xsi:type=\"action:ActionElement\" name=\"actionElement Instance\">");
+    _builder.newLine();
+    _builder.append("\t        \t");
+    _builder.append("<actionRelation xsi:type=\"action:Calls\"/>");
+    _builder.newLine();
+    _builder.append("\t        \t");
+    _builder.append("<actionRelation xsi:type=\"action:UsesType\"/>");
+    _builder.newLine();
+    _builder.append("\t        \t");
+    _builder.append("<actionRelation xsi:type=\"action:Creates\"/>");
+    _builder.newLine();
+    _builder.append("\t    \t");
+    _builder.append("</codeElement>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("</codeElement>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</model>");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("<model xsi:type=\"structure:StructureModel\" name=\"Planned Architecture\">");
     _builder.newLine();
     {
       EList<DSLManaging> _managing = architectureDefinition.getManaging();
       for(final DSLManaging arch : _managing) {
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("<structureElement xsi:type=\"structure:Subsystem\" name=\"");
         String _name = arch.getName();
-        _builder.append(_name, "\t");
+        _builder.append(_name, "\t\t");
         _builder.append("\">");
         _builder.newLineIfNotEmpty();
         {
           EList<DSLManagerController> _managerController = arch.getManagerController();
           for(final DSLManagerController mcontroller : _managerController) {
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("\t");
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_1 = mcontroller.getName();
-            _builder.append(_name_1, "\t\t");
+            _builder.append(_name_1, "\t\t\t\t");
             _builder.append("\">");
             _builder.newLineIfNotEmpty();
             {
               EList<DSLController> _controller = mcontroller.getController();
               for(final DSLController controller : _controller) {
+                _builder.append("\t\t");
                 _builder.append("\t");
-                _builder.append("\t");
+                _builder.append("\t\t");
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_2 = controller.getName();
-                _builder.append(_name_2, "\t\t");
+                _builder.append(_name_2, "\t\t\t\t\t");
                 _builder.append("\">");
                 _builder.newLineIfNotEmpty();
                 {
                   EList<DSLMonitor> _monitor = controller.getMonitor();
                   for(final DSLMonitor monitor : _monitor) {
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_3 = monitor.getName();
-                    _builder.append(_name_3, "\t\t");
+                    _builder.append(_name_3, "\t\t\t\t\t\t");
                     _builder.append("\">");
                     _builder.newLineIfNotEmpty();
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("\t\t\t\t\t");
                     _builder.newLine();
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("</structureElement>");
                     _builder.newLine();
@@ -103,18 +153,24 @@ public class SasDslGenerator extends AbstractGenerator {
                 {
                   EList<DSLAnalyzer> _analyzer = controller.getAnalyzer();
                   for(final DSLAnalyzer analyzer : _analyzer) {
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_4 = analyzer.getName();
-                    _builder.append(_name_4, "\t\t");
+                    _builder.append(_name_4, "\t\t\t\t\t\t");
                     _builder.append("\">");
                     _builder.newLineIfNotEmpty();
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("\t\t\t\t\t\t\t\t\t\t\t");
                     _builder.newLine();
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("</structureElement>");
                     _builder.newLine();
@@ -123,18 +179,24 @@ public class SasDslGenerator extends AbstractGenerator {
                 {
                   EList<DSLPlanner> _planner = controller.getPlanner();
                   for(final DSLPlanner planner : _planner) {
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_5 = planner.getName();
-                    _builder.append(_name_5, "\t\t");
+                    _builder.append(_name_5, "\t\t\t\t\t\t");
                     _builder.append("\">");
                     _builder.newLineIfNotEmpty();
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
                     _builder.newLine();
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("</structureElement>");
                     _builder.newLine();
@@ -143,18 +205,24 @@ public class SasDslGenerator extends AbstractGenerator {
                 {
                   EList<DSLExecutor> _executor = controller.getExecutor();
                   for(final DSLExecutor executor : _executor) {
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_6 = executor.getName();
-                    _builder.append(_name_6, "\t\t");
+                    _builder.append(_name_6, "\t\t\t\t\t\t");
                     _builder.append("\">");
                     _builder.newLineIfNotEmpty();
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
                     _builder.newLine();
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("</structureElement>");
                     _builder.newLine();
@@ -163,42 +231,51 @@ public class SasDslGenerator extends AbstractGenerator {
                 {
                   EList<DSLKnowledge> _knowledge = controller.getKnowledge();
                   for(final DSLKnowledge knowledge : _knowledge) {
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_7 = knowledge.getName();
-                    _builder.append(_name_7, "\t\t");
+                    _builder.append(_name_7, "\t\t\t\t\t\t");
                     _builder.append("\">");
                     _builder.newLineIfNotEmpty();
                     {
                       EList<DSLReferenceInput> _referenceInput = knowledge.getReferenceInput();
                       for(final DSLReferenceInput referenceInput : _referenceInput) {
+                        _builder.append("\t\t");
                         _builder.append("\t");
+                        _builder.append("\t\t");
                         _builder.append("\t");
                         _builder.append("\t");
                         _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                         String _name_8 = referenceInput.getName();
-                        _builder.append(_name_8, "\t\t\t");
+                        _builder.append(_name_8, "\t\t\t\t\t\t\t");
                         _builder.append("\"/>");
                         _builder.newLineIfNotEmpty();
                       }
                     }
+                    _builder.append("\t\t");
                     _builder.append("\t");
+                    _builder.append("\t\t");
                     _builder.append("\t");
                     _builder.append("</structureElement>");
                     _builder.newLine();
                   }
                 }
+                _builder.append("\t\t");
                 _builder.append("\t");
-                _builder.append("\t");
+                _builder.append("\t\t");
                 _builder.append("</structureElement>");
                 _builder.newLine();
               }
             }
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("\t");
             _builder.append("</structureElement>");
             _builder.newLine();
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("</structureElement>");
             _builder.newLine();
@@ -207,24 +284,31 @@ public class SasDslGenerator extends AbstractGenerator {
         {
           EList<DSLController> _controller_1 = arch.getController();
           for(final DSLController controller_1 : _controller_1) {
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_9 = controller_1.getName();
-            _builder.append(_name_9, "\t");
+            _builder.append(_name_9, "\t\t\t");
             _builder.append("\">");
             _builder.newLineIfNotEmpty();
             {
               EList<DSLMonitor> _monitor_1 = controller_1.getMonitor();
               for(final DSLMonitor monitor_1 : _monitor_1) {
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_10 = monitor_1.getName();
-                _builder.append(_name_10, "\t");
+                _builder.append(_name_10, "\t\t\t\t");
                 _builder.append("\">");
                 _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
                 _builder.append("\t");
-                _builder.append("\t\t\t\t\t\t\t\t\t\t\t");
+                _builder.append("\t");
+                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t");
                 _builder.newLine();
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("</structureElement>");
                 _builder.newLine();
@@ -233,15 +317,21 @@ public class SasDslGenerator extends AbstractGenerator {
             {
               EList<DSLAnalyzer> _analyzer_1 = controller_1.getAnalyzer();
               for(final DSLAnalyzer analyzer_1 : _analyzer_1) {
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_11 = analyzer_1.getName();
-                _builder.append(_name_11, "\t");
+                _builder.append(_name_11, "\t\t\t\t");
                 _builder.append("\">");
                 _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
                 _builder.append("\t");
-                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
+                _builder.append("\t");
+                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
                 _builder.newLine();
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("</structureElement>");
                 _builder.newLine();
@@ -250,15 +340,21 @@ public class SasDslGenerator extends AbstractGenerator {
             {
               EList<DSLPlanner> _planner_1 = controller_1.getPlanner();
               for(final DSLPlanner planner_1 : _planner_1) {
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_12 = planner_1.getName();
-                _builder.append(_name_12, "\t");
+                _builder.append(_name_12, "\t\t\t\t");
                 _builder.append("\">");
                 _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
                 _builder.append("\t");
-                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
+                _builder.append("\t");
+                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
                 _builder.newLine();
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("</structureElement>");
                 _builder.newLine();
@@ -267,15 +363,21 @@ public class SasDslGenerator extends AbstractGenerator {
             {
               EList<DSLExecutor> _executor_1 = controller_1.getExecutor();
               for(final DSLExecutor executor_1 : _executor_1) {
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_13 = executor_1.getName();
-                _builder.append(_name_13, "\t");
+                _builder.append(_name_13, "\t\t\t\t");
                 _builder.append("\">");
                 _builder.newLineIfNotEmpty();
+                _builder.append("\t\t");
                 _builder.append("\t");
-                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
+                _builder.append("\t");
+                _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t");
                 _builder.newLine();
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("</structureElement>");
                 _builder.newLine();
@@ -284,34 +386,42 @@ public class SasDslGenerator extends AbstractGenerator {
             {
               EList<DSLKnowledge> _knowledge_1 = controller_1.getKnowledge();
               for(final DSLKnowledge knowledge_1 : _knowledge_1) {
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_14 = knowledge_1.getName();
-                _builder.append(_name_14, "\t");
+                _builder.append(_name_14, "\t\t\t\t");
                 _builder.append("\">");
                 _builder.newLineIfNotEmpty();
                 {
                   EList<DSLReferenceInput> _referenceInput_1 = knowledge_1.getReferenceInput();
                   for(final DSLReferenceInput referenceInput_1 : _referenceInput_1) {
+                    _builder.append("\t\t");
+                    _builder.append("\t");
+                    _builder.append("\t");
                     _builder.append("\t");
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_15 = referenceInput_1.getName();
-                    _builder.append(_name_15, "\t");
+                    _builder.append(_name_15, "\t\t\t\t\t");
                     _builder.append("\"/>");
                     _builder.newLineIfNotEmpty();
                   }
                 }
+                _builder.append("\t\t");
+                _builder.append("\t");
                 _builder.append("\t");
                 _builder.append("</structureElement>");
                 _builder.newLine();
               }
             }
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("</structureElement>");
             _builder.newLine();
           }
         }
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("</structureElement>");
         _builder.newLine();
       }
@@ -321,24 +431,27 @@ public class SasDslGenerator extends AbstractGenerator {
     {
       EList<DSLManaged> _managed = architectureDefinition.getManaged();
       for(final DSLManaged arch_1 : _managed) {
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("<structureElement xsi:type=\"structure:Subsystem\" name=\"");
         String _name_16 = arch_1.getName();
-        _builder.append(_name_16, "\t");
+        _builder.append(_name_16, "\t\t");
         _builder.append("\">");
         _builder.newLineIfNotEmpty();
         {
           EList<DSLSensor> _sensor = arch_1.getSensor();
           for(final DSLSensor sensor : _sensor) {
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_17 = sensor.getName();
-            _builder.append(_name_17, "\t");
+            _builder.append(_name_17, "\t\t\t");
             _builder.append("\">");
             _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
             _builder.append("\t");
-            _builder.append("\t\t\t");
+            _builder.append("\t\t\t\t");
             _builder.newLine();
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("</structureElement>\t\t\t");
             _builder.newLine();
@@ -347,15 +460,18 @@ public class SasDslGenerator extends AbstractGenerator {
         {
           EList<DSLEffector> _effector = arch_1.getEffector();
           for(final DSLEffector effector : _effector) {
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_18 = effector.getName();
-            _builder.append(_name_18, "\t");
+            _builder.append(_name_18, "\t\t\t");
             _builder.append("\">");
             _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
             _builder.append("\t");
-            _builder.append("\t\t\t\t\t\t\t");
+            _builder.append("\t\t\t\t\t\t\t\t");
             _builder.newLine();
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("</structureElement>\t\t\t");
             _builder.newLine();
@@ -364,27 +480,28 @@ public class SasDslGenerator extends AbstractGenerator {
         {
           EList<DSLMeasuredOutput> _measuredOutput = arch_1.getMeasuredOutput();
           for(final DSLMeasuredOutput measuredOutput : _measuredOutput) {
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_19 = measuredOutput.getName();
-            _builder.append(_name_19, "\t");
+            _builder.append(_name_19, "\t\t\t");
             _builder.append("\">");
             _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
             _builder.append("\t");
-            _builder.append("\t\t\t\t\t\t\t\t\t\t\t");
+            _builder.append("\t\t\t\t\t\t\t\t\t\t\t\t");
             _builder.newLine();
+            _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("</structureElement>\t\t\t");
             _builder.newLine();
           }
         }
-        _builder.append("\t");
+        _builder.append("\t\t");
         _builder.append("</structureElement>\t\t\t");
         _builder.newLine();
       }
     }
-    _builder.append("\t");
-    _builder.newLine();
     _builder.append("\t");
     _builder.append("</model>\t");
     _builder.newLine();
