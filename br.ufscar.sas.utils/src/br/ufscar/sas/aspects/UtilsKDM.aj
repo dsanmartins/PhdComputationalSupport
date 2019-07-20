@@ -16,6 +16,7 @@ import org.xml.sax.SAXException;
 
 import br.ufscar.sas.modisco.AddAbstractionTag;
 import br.ufscar.sas.modisco.AddNamespaces;
+import br.ufscar.sas.modisco.GenerateStereotype;
 import br.ufscar.sas.modisco.GenerateStructure;
 import br.ufscar.sas.parser.SourceRegion;
 
@@ -56,6 +57,10 @@ public aspect UtilsKDM {
 		SourceRegion sourceRegion = new SourceRegion();
 		sourceRegion.statementsByLine(new File(path));
 		System.out.println("************* END EDITING SOURCE REGION *************");
+		System.out.println("************* GENERATE STEREOTYPE OF SAS *************");
+		GenerateStereotype generateStereotype = new GenerateStereotype();
+		generateStereotype.createModel(new File(path), file, dbName);
+		System.out.println("************* END STEREOTYPE OF SAS *************");
 		System.out.println("************* START GENERATE STRUCTURE *************");
 		GenerateStructure generateStructure = new GenerateStructure();
 		generateStructure.createModel(new File(path),file,dbName);

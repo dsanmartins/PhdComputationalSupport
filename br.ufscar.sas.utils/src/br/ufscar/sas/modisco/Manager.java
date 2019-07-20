@@ -245,7 +245,6 @@ public class Manager   {
 		proc.close();
 	}
 
-
 	/*
 	 * Esse método transforma os paths obtidos pela xquery em nomes de pacotes, classes e métodos dinâmicamente.
 	 */
@@ -446,6 +445,7 @@ public class Manager   {
 
 	public void createStructureElement(String componentName, String parent) throws SQLException, QueryException
 	{
+		String stereotype = this.getStereotype(componentName.split(Pattern.quote("_"))[0]);
 		String typeAbstraction="";
 		if (componentName.contains("Managing") || componentName.contains("Managed"))
 			typeAbstraction = "structure:Subsystem";
@@ -457,6 +457,7 @@ public class Manager   {
 		proc.bind("component_name", componentName);
 		proc.bind("parent", parent);
 		proc.bind("typeAbstraction",typeAbstraction);
+		proc.bind("stereotype", stereotype);
 		proc.value();
 		proc.close();
 	}
@@ -517,13 +518,13 @@ public class Manager   {
 	}
 
 	public boolean checkAggragationExist(String componentName, String from, String to) throws SQLException, QueryException {
-		
+
 		String query = PropertyFileManager.getQuery("checkAggregatedElement");
 		QueryProcessor proc = new QueryProcessor(query, context);
 		proc.bind("componentName", componentName);
 		proc.bind("from_",from);
 		proc.bind("to_",to);
-		
+
 		boolean value = false;
 		if (proc.value().toString().equals("true()"))
 			value = true;
@@ -531,9 +532,9 @@ public class Manager   {
 			value = false;
 		proc.close();
 		return value;
-	
+
 	}
-	
+
 	public void createAggregatedElement(String componentName, String from, String to, String relation) throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("createAggregatedElement");
@@ -545,7 +546,7 @@ public class Manager   {
 		proc.value();
 		proc.close();
 	}
-	
+
 	public String getAggregatedData(String componentName, String from, String to) throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("getAggregatedData");
@@ -557,7 +558,7 @@ public class Manager   {
 		proc.close();
 		return value;
 	}
-	
+
 	public void updateAggregatedRelationAndDensity(String componentName, String from, String to, String relation, String density) throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("updateStructureElementRelation");
@@ -568,7 +569,7 @@ public class Manager   {
 		proc.bind("relation", relation);
 		proc.value();
 		proc.close();
-		
+
 		query = PropertyFileManager.getQuery("updateStructureElementDensity");
 		proc = new QueryProcessor(query, context);
 		proc.bind("componentName", componentName);
@@ -577,9 +578,9 @@ public class Manager   {
 		proc.bind("density", density);
 		proc.value();
 		proc.close();
-		
+
 	}
-	
+
 	public String getPathOfAggregated(String componentName,String from, String to) throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("getPathOfAggregated");
@@ -592,7 +593,7 @@ public class Manager   {
 		proc.close();
 		return value;
 	}
-	
+
 	public String getOutAggregated(String componentName) throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("getOutAggregated");
@@ -602,7 +603,7 @@ public class Manager   {
 		proc.close();
 		return value;
 	}
-	
+
 	public void updateOutAggregated(String componentName, String outAggregated) throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("updateOutAggregated");
@@ -612,7 +613,7 @@ public class Manager   {
 		proc.value();
 		proc.close();
 	}
-	
+
 	public String getInAggregated(String componentName) throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("getInAggregated");
@@ -622,7 +623,7 @@ public class Manager   {
 		proc.close();
 		return value;
 	}
-	
+
 	public void updateInAggregated(String componentName, String inAggregated) throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("updateInAggregated");
@@ -632,7 +633,7 @@ public class Manager   {
 		proc.value();
 		proc.close();
 	}
-	
+
 	public void addAbstractionTag() throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("addAbstractionTag");
@@ -640,7 +641,7 @@ public class Manager   {
 		proc.value();
 		proc.close();
 	}
-	
+
 	public void addAbstraction(String predicate) throws SQLException, QueryException
 	{
 		String query = PropertyFileManager.getQuery("query-3");
@@ -649,5 +650,32 @@ public class Manager   {
 		proc.value();
 		proc.close();
 	}
-	
+
+	public void generateStereotype() throws SQLException, QueryException {
+
+		String query = PropertyFileManager.getQuery("createStereotype");
+		QueryProcessor proc = new QueryProcessor(query, context);
+		proc.value();
+		proc.close();
+	}
+
+	public String getStereotype(String name) {
+
+		switch (name) {
+		case "Monitor" : return "/0/@extension.0/@stereotype.0";
+		case "Analyzer" : return "/0/@extension.0/@stereotype.1";
+		case "Planner" : return "/0/@extension.0/@stereotype.2";
+		case "Executor" : return "/0/@extension.0/@stereotype.3";
+		case "Knowledge" : return "/0/@extension.0/@stereotype.4";
+		case "Reference Input" : return "/0/@extension.0/@stereotype.5";
+		case "Measured Output" : return "/0/@extension.0/@stereotype.6";
+		case "CL Manager" : return "/0/@extension.0/@stereotype.7";
+		case "Control Loop" : return "/0/@extension.0/@stereotype.8";
+		case "Sensor" : return "/0/@extension.0/@stereotype.9";
+		case "Effector" : return "/0/@extension.0/@stereotype.10";
+		case "Managing" : return "/0/@extension.0/@stereotype.11";
+		case "Managed" : return "/0/@extension.0/@stereotype.12";
+		default: return "";
+		}
+	}
 }
