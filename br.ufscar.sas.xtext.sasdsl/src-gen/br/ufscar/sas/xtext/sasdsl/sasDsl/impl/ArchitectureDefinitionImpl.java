@@ -4,11 +4,14 @@
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DCLAbstractions;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaged;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLManaging;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRules;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,7 +33,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getAbstractions <em>Abstractions</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getManaging <em>Managing</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getManaged <em>Managed</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.ArchitectureDefinitionImpl#getRules <em>Rules</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +44,54 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container implements ArchitectureDefinition
 {
   /**
-   * The cached value of the '{@link #getAbstractions() <em>Abstractions</em>}' containment reference list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAbstractions()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<DCLAbstractions> abstractions;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getManaging() <em>Managing</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getManaging()
+   * @generated
+   * @ordered
+   */
+  protected EList<DSLManaging> managing;
+
+  /**
+   * The cached value of the '{@link #getManaged() <em>Managed</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getManaged()
+   * @generated
+   * @ordered
+   */
+  protected EList<DSLManaged> managed;
+
+  /**
+   * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRules()
+   * @generated
+   * @ordered
+   */
+  protected EList<DSLRules> rules;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +119,64 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DCLAbstractions> getAbstractions()
+  public String getName()
   {
-    if (abstractions == null)
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.ARCHITECTURE_DEFINITION__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<DSLManaging> getManaging()
+  {
+    if (managing == null)
     {
-      abstractions = new EObjectContainmentEList<DCLAbstractions>(DCLAbstractions.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS);
+      managing = new EObjectContainmentEList<DSLManaging>(DSLManaging.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__MANAGING);
     }
-    return abstractions;
+    return managing;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<DSLManaged> getManaged()
+  {
+    if (managed == null)
+    {
+      managed = new EObjectContainmentEList<DSLManaged>(DSLManaged.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__MANAGED);
+    }
+    return managed;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<DSLRules> getRules()
+  {
+    if (rules == null)
+    {
+      rules = new EObjectContainmentEList<DSLRules>(DSLRules.class, this, SasDslPackage.ARCHITECTURE_DEFINITION__RULES);
+    }
+    return rules;
   }
 
   /**
@@ -91,8 +189,12 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
-        return ((InternalEList<?>)getAbstractions()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGING:
+        return ((InternalEList<?>)getManaging()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGED:
+        return ((InternalEList<?>)getManaged()).basicRemove(otherEnd, msgs);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RULES:
+        return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +209,14 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
-        return getAbstractions();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__NAME:
+        return getName();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGING:
+        return getManaging();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGED:
+        return getManaged();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RULES:
+        return getRules();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +232,20 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
-        getAbstractions().clear();
-        getAbstractions().addAll((Collection<? extends DCLAbstractions>)newValue);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__NAME:
+        setName((String)newValue);
+        return;
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGING:
+        getManaging().clear();
+        getManaging().addAll((Collection<? extends DSLManaging>)newValue);
+        return;
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGED:
+        getManaged().clear();
+        getManaged().addAll((Collection<? extends DSLManaged>)newValue);
+        return;
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RULES:
+        getRules().clear();
+        getRules().addAll((Collection<? extends DSLRules>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +261,17 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
-        getAbstractions().clear();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGING:
+        getManaging().clear();
+        return;
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGED:
+        getManaged().clear();
+        return;
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RULES:
+        getRules().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +287,33 @@ public class ArchitectureDefinitionImpl extends MinimalEObjectImpl.Container imp
   {
     switch (featureID)
     {
-      case SasDslPackage.ARCHITECTURE_DEFINITION__ABSTRACTIONS:
-        return abstractions != null && !abstractions.isEmpty();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGING:
+        return managing != null && !managing.isEmpty();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__MANAGED:
+        return managed != null && !managed.isEmpty();
+      case SasDslPackage.ARCHITECTURE_DEFINITION__RULES:
+        return rules != null && !rules.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ArchitectureDefinitionImpl

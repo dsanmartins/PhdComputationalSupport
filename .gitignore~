@@ -1,0 +1,5 @@
+/.project
+/.metadata/
+/.recommenders/
+bin/
+target/

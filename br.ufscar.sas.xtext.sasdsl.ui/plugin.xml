@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="windows-1252"?>
 <?eclipse version="3.0"?>
 <plugin>
 	<extension
@@ -220,21 +220,21 @@
 	</extension>
 	<!-- marker definitions for br.ufscar.sas.xtext.sasdsl.SasDsl -->
 	<extension
-			id="sasdsl.check.fast"
+			id="SasDsl.check.fast"
 			name="SasDsl Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.fast"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
-			id="sasdsl.check.normal"
+			id="SasDsl.check.normal"
 			name="SasDsl Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.normal"/>
 		<persistent value="true"/>
 	</extension>
 	<extension
-			id="sasdsl.check.expensive"
+			id="SasDsl.check.expensive"
 			name="SasDsl Problem"
 			point="org.eclipse.core.resources.markers">
 		<super type="org.eclipse.xtext.ui.check.expensive"/>
@@ -326,7 +326,7 @@
 			point="org.eclipse.ui.ide.markerResolution">
 		<markerResolutionGenerator
 			class="br.ufscar.sas.xtext.sasdsl.ui.SasDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="br.ufscar.sas.xtext.sasdsl.ui.sasdsl.check.fast">
+			markerType="br.ufscar.sas.xtext.sasdsl.ui.SasDsl.check.fast">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
@@ -334,7 +334,7 @@
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
 			class="br.ufscar.sas.xtext.sasdsl.ui.SasDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="br.ufscar.sas.xtext.sasdsl.ui.sasdsl.check.normal">
+			markerType="br.ufscar.sas.xtext.sasdsl.ui.SasDsl.check.normal">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">
@@ -342,7 +342,7 @@
 		</markerResolutionGenerator>
 		<markerResolutionGenerator
 			class="br.ufscar.sas.xtext.sasdsl.ui.SasDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="br.ufscar.sas.xtext.sasdsl.ui.sasdsl.check.expensive">
+			markerType="br.ufscar.sas.xtext.sasdsl.ui.SasDsl.check.expensive">
 			<attribute
 				name="FIXABLE_KEY"
 				value="true">

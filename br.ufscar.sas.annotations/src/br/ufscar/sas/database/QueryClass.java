@@ -65,19 +65,18 @@ public class QueryClass {
 	{
 		SqliteDb mydb = new SqliteDb(dbDriver,url);
 		mydb.executeStmt("insert into abstractions(id,annotation) values ('1','Managed');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('2','Probe');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('3','Managing');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('2','Managing');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('3','CL Manager');");
 		mydb.executeStmt("insert into abstractions(id,annotation) values ('4','Control Loop');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('5','Sensor');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('6','Monitor');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('7','Analyzer');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('8','Planner');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('9','Executor');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('10','Effector');");
-		mydb.executeStmt("insert into abstractions(id,annotation) values ('11','Knowledge');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('5','Monitor');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('6','Analyzer');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('7','Planner');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('8','Executor');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('9','Knowledge');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('10','Sensor');");
+		mydb.executeStmt("insert into abstractions(id,annotation) values ('11','Effector');");
 		mydb.executeStmt("insert into abstractions(id,annotation) values ('12','Measured Output');");
 		mydb.executeStmt("insert into abstractions(id,annotation) values ('13','Reference Input');");
-
 		mydb.closeConnection();
 	}
 

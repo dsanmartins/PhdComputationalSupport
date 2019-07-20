@@ -14,7 +14,6 @@ import org.basex.query.QueryException;
 
 import br.ufscar.sas.database.QueryClass;
 import br.ufscar.sas.structuretree.Tree;
-import br.ufscar.sas.view.MainView;
 
 
 public class GenerateStructure {
@@ -28,7 +27,7 @@ public class GenerateStructure {
 
 	public void createTree() throws Exception
 	{
-		QueryClass queryClass = new QueryClass(MainView.getDatabaseUrl());
+		QueryClass queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 		List<String> annotation = new ArrayList<String>();
 		List<String> belong = new ArrayList<String>();
 		List<String> db = queryClass.selectAnnotationBelong();
@@ -118,7 +117,7 @@ public class GenerateStructure {
 		QueryClass queryClass = null;
 		try {
 
-			queryClass = new QueryClass(MainView.getDatabaseUrl());
+			queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 			List<String> lst = queryClass.getPackageAnnotations();
 			String initString = " for $a in path(//kdm:Segment/model[@xsi:type=\"code:CodeModel\" and @name != \"externals\"]";
 
@@ -171,7 +170,7 @@ public class GenerateStructure {
 		QueryClass queryClass = null;
 		try {
 
-			queryClass = new QueryClass(MainView.getDatabaseUrl());
+			queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 			List<String> lst = queryClass.getClassAnnotations();
 			String initString = " for $a in path(//kdm:Segment/model[@xsi:type=\"code:CodeModel\" and @name != \"externals\"]";
 
@@ -230,7 +229,7 @@ public class GenerateStructure {
 		QueryClass queryClass = null;
 		try {
 
-			queryClass = new QueryClass(MainView.getDatabaseUrl());
+			queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 			List<String> lst = queryClass.getFieldClassAnnotations();
 			String initString = " for $a in path(//kdm:Segment/model[@xsi:type=\"code:CodeModel\" and @name != \"externals\"]";
 
@@ -291,7 +290,7 @@ public class GenerateStructure {
 		QueryClass queryClass = null;
 		try {
 
-			queryClass = new QueryClass(MainView.getDatabaseUrl());
+			queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 			List<String> lst = queryClass.getMethodAnnotations();
 			String initString = " for $a in path(//kdm:Segment/model[@xsi:type=\"code:CodeModel\" and @name != \"externals\"]";
 
@@ -352,7 +351,7 @@ public class GenerateStructure {
 		QueryClass queryClass = null;
 		try {
 
-			queryClass = new QueryClass(MainView.getDatabaseUrl());
+			queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 			List<String> lst = queryClass.getVariableAnnotations();
 			String initString = " for $a in path(//kdm:Segment/model[@xsi:type=\"code:CodeModel\" and @name != \"externals\"]";
 
@@ -525,7 +524,7 @@ public class GenerateStructure {
 			e1.printStackTrace();
 		}
 
-		QueryClass queryClass = new QueryClass(MainView.getDatabaseUrl());
+		QueryClass queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 		queryClass.deleteRelation();
 		String rtn = "";
 		List<String> relation = new ArrayList<String>();
@@ -588,7 +587,7 @@ public class GenerateStructure {
 			e1.printStackTrace();
 		}
 
-		QueryClass queryClass = new QueryClass(MainView.getDatabaseUrl());
+		QueryClass queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 		List<String> lstActionRelation = queryClass.getActionRelation();
 		if (lstActionRelation.size() != 0)
 		{

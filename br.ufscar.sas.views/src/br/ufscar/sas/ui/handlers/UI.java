@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
@@ -57,8 +58,8 @@ public class UI extends AbstractHandler {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		MessageDialog.openInformation(Display.getDefault().getActiveShell(), "Info", "The project " + projectName + " was selected! ");
+		
+		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().resetPerspective();
 
 		try {	
 			window.getActivePage().showView("MainView");
@@ -67,7 +68,8 @@ public class UI extends AbstractHandler {
 			e.printStackTrace();
 		}
 		window.getActivePage();
-
+		MessageDialog.openInformation(Display.getDefault().getActiveShell(), "Info", "The project " + projectName + " was selected! ");
+		
 		return null;
 	}
 

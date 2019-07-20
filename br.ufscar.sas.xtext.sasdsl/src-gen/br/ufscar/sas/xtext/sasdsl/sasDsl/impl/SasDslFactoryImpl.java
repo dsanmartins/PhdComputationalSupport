@@ -66,22 +66,35 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
     switch (eClass.getClassifierID())
     {
       case SasDslPackage.ARCHITECTURE_DEFINITION: return createArchitectureDefinition();
-      case SasDslPackage.DCL_ABSTRACTIONS: return createDCLAbstractions();
-      case SasDslPackage.DCL_MANAGING: return createDCLManaging();
-      case SasDslPackage.DCL_MANAGED: return createDCLManaged();
-      case SasDslPackage.DCL_CONTROL_LOOP_MANAGER: return createDCLControlLoopManager();
-      case SasDslPackage.DCL_CONTROL_LOOP: return createDCLControlLoop();
-      case SasDslPackage.DCL_MONITOR: return createDCLMonitor();
-      case SasDslPackage.DCL_ANALYZER: return createDCLAnalyzer();
-      case SasDslPackage.DCL_PLANNER: return createDCLPlanner();
-      case SasDslPackage.DCL_EXECUTOR: return createDCLExecutor();
-      case SasDslPackage.DCL_KNOWLEDGE: return createDCLKnowledge();
-      case SasDslPackage.DCL_SENSOR: return createDCLSensor();
-      case SasDslPackage.DCL_EFFECTOR: return createDCLEffector();
-      case SasDslPackage.DCL_PROBE: return createDCLProbe();
-      case SasDslPackage.DCL_GAUGE: return createDCLGauge();
-      case SasDslPackage.DCL_REFERENCE_INPUT: return createDCLReferenceInput();
-      case SasDslPackage.DCL_MEASURED_OUTPUT: return createDCLMeasuredOutput();
+      case SasDslPackage.DSL_RULES: return createDSLRules();
+      case SasDslPackage.DSL_RULE_CONTROLLER: return createDSLRuleController();
+      case SasDslPackage.DSL_RULE_MONITOR: return createDSLRuleMonitor();
+      case SasDslPackage.DSL_RULE_ANALYZER: return createDSLRuleAnalyzer();
+      case SasDslPackage.DSL_RULE_PLANNER: return createDSLRulePlanner();
+      case SasDslPackage.DSL_RULE_EXECUTOR: return createDSLRuleExecutor();
+      case SasDslPackage.DSL_RULE_MO: return createDSLRuleMO();
+      case SasDslPackage.DSL_RULE_RI: return createDSLRuleRI();
+      case SasDslPackage.DSL_MANAGING: return createDSLManaging();
+      case SasDslPackage.DSL_MANAGED: return createDSLManaged();
+      case SasDslPackage.DSL_MANAGER_CONTROLLER: return createDSLManagerController();
+      case SasDslPackage.DSL_CONTROLLER: return createDSLController();
+      case SasDslPackage.DSL_MONITOR: return createDSLMonitor();
+      case SasDslPackage.DSL_ANALYZER: return createDSLAnalyzer();
+      case SasDslPackage.DSL_PLANNER: return createDSLPlanner();
+      case SasDslPackage.DSL_EXECUTOR: return createDSLExecutor();
+      case SasDslPackage.DSL_KNOWLEDGE: return createDSLKnowledge();
+      case SasDslPackage.DSL_SENSOR: return createDSLSensor();
+      case SasDslPackage.DSL_EFFECTOR: return createDSLEffector();
+      case SasDslPackage.DSL_REFERENCE_INPUT: return createDSLReferenceInput();
+      case SasDslPackage.DSL_MEASURED_OUTPUT: return createDSLMeasuredOutput();
+      case SasDslPackage.EFFECTOR_INTERFACE: return createEffectorInterface();
+      case SasDslPackage.SENSOR_INTERFACE: return createSensorInterface();
+      case SasDslPackage.MONITOR_INTERFACE: return createMonitorInterface();
+      case SasDslPackage.ANALYZER_INTERFACE: return createAnalyzerInterface();
+      case SasDslPackage.PLANNER_INTERFACE: return createPlannerInterface();
+      case SasDslPackage.EXECUTOR_INTERFACE: return createExecutorInterface();
+      case SasDslPackage.KNOWLEDGE_INTERFACE: return createKnowledgeInterface();
+      case SasDslPackage.CONTROLLER_INTERFACE: return createControllerInterface();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -103,10 +116,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLAbstractions createDCLAbstractions()
+  public DSLRules createDSLRules()
   {
-    DCLAbstractionsImpl dclAbstractions = new DCLAbstractionsImpl();
-    return dclAbstractions;
+    DSLRulesImpl dslRules = new DSLRulesImpl();
+    return dslRules;
   }
 
   /**
@@ -114,10 +127,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLManaging createDCLManaging()
+  public DSLRuleController createDSLRuleController()
   {
-    DCLManagingImpl dclManaging = new DCLManagingImpl();
-    return dclManaging;
+    DSLRuleControllerImpl dslRuleController = new DSLRuleControllerImpl();
+    return dslRuleController;
   }
 
   /**
@@ -125,10 +138,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLManaged createDCLManaged()
+  public DSLRuleMonitor createDSLRuleMonitor()
   {
-    DCLManagedImpl dclManaged = new DCLManagedImpl();
-    return dclManaged;
+    DSLRuleMonitorImpl dslRuleMonitor = new DSLRuleMonitorImpl();
+    return dslRuleMonitor;
   }
 
   /**
@@ -136,10 +149,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLControlLoopManager createDCLControlLoopManager()
+  public DSLRuleAnalyzer createDSLRuleAnalyzer()
   {
-    DCLControlLoopManagerImpl dclControlLoopManager = new DCLControlLoopManagerImpl();
-    return dclControlLoopManager;
+    DSLRuleAnalyzerImpl dslRuleAnalyzer = new DSLRuleAnalyzerImpl();
+    return dslRuleAnalyzer;
   }
 
   /**
@@ -147,10 +160,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLControlLoop createDCLControlLoop()
+  public DSLRulePlanner createDSLRulePlanner()
   {
-    DCLControlLoopImpl dclControlLoop = new DCLControlLoopImpl();
-    return dclControlLoop;
+    DSLRulePlannerImpl dslRulePlanner = new DSLRulePlannerImpl();
+    return dslRulePlanner;
   }
 
   /**
@@ -158,10 +171,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLMonitor createDCLMonitor()
+  public DSLRuleExecutor createDSLRuleExecutor()
   {
-    DCLMonitorImpl dclMonitor = new DCLMonitorImpl();
-    return dclMonitor;
+    DSLRuleExecutorImpl dslRuleExecutor = new DSLRuleExecutorImpl();
+    return dslRuleExecutor;
   }
 
   /**
@@ -169,10 +182,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLAnalyzer createDCLAnalyzer()
+  public DSLRuleMO createDSLRuleMO()
   {
-    DCLAnalyzerImpl dclAnalyzer = new DCLAnalyzerImpl();
-    return dclAnalyzer;
+    DSLRuleMOImpl dslRuleMO = new DSLRuleMOImpl();
+    return dslRuleMO;
   }
 
   /**
@@ -180,10 +193,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLPlanner createDCLPlanner()
+  public DSLRuleRI createDSLRuleRI()
   {
-    DCLPlannerImpl dclPlanner = new DCLPlannerImpl();
-    return dclPlanner;
+    DSLRuleRIImpl dslRuleRI = new DSLRuleRIImpl();
+    return dslRuleRI;
   }
 
   /**
@@ -191,10 +204,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLExecutor createDCLExecutor()
+  public DSLManaging createDSLManaging()
   {
-    DCLExecutorImpl dclExecutor = new DCLExecutorImpl();
-    return dclExecutor;
+    DSLManagingImpl dslManaging = new DSLManagingImpl();
+    return dslManaging;
   }
 
   /**
@@ -202,10 +215,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLKnowledge createDCLKnowledge()
+  public DSLManaged createDSLManaged()
   {
-    DCLKnowledgeImpl dclKnowledge = new DCLKnowledgeImpl();
-    return dclKnowledge;
+    DSLManagedImpl dslManaged = new DSLManagedImpl();
+    return dslManaged;
   }
 
   /**
@@ -213,10 +226,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLSensor createDCLSensor()
+  public DSLManagerController createDSLManagerController()
   {
-    DCLSensorImpl dclSensor = new DCLSensorImpl();
-    return dclSensor;
+    DSLManagerControllerImpl dslManagerController = new DSLManagerControllerImpl();
+    return dslManagerController;
   }
 
   /**
@@ -224,10 +237,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLEffector createDCLEffector()
+  public DSLController createDSLController()
   {
-    DCLEffectorImpl dclEffector = new DCLEffectorImpl();
-    return dclEffector;
+    DSLControllerImpl dslController = new DSLControllerImpl();
+    return dslController;
   }
 
   /**
@@ -235,10 +248,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLProbe createDCLProbe()
+  public DSLMonitor createDSLMonitor()
   {
-    DCLProbeImpl dclProbe = new DCLProbeImpl();
-    return dclProbe;
+    DSLMonitorImpl dslMonitor = new DSLMonitorImpl();
+    return dslMonitor;
   }
 
   /**
@@ -246,10 +259,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLGauge createDCLGauge()
+  public DSLAnalyzer createDSLAnalyzer()
   {
-    DCLGaugeImpl dclGauge = new DCLGaugeImpl();
-    return dclGauge;
+    DSLAnalyzerImpl dslAnalyzer = new DSLAnalyzerImpl();
+    return dslAnalyzer;
   }
 
   /**
@@ -257,10 +270,10 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLReferenceInput createDCLReferenceInput()
+  public DSLPlanner createDSLPlanner()
   {
-    DCLReferenceInputImpl dclReferenceInput = new DCLReferenceInputImpl();
-    return dclReferenceInput;
+    DSLPlannerImpl dslPlanner = new DSLPlannerImpl();
+    return dslPlanner;
   }
 
   /**
@@ -268,10 +281,153 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DCLMeasuredOutput createDCLMeasuredOutput()
+  public DSLExecutor createDSLExecutor()
   {
-    DCLMeasuredOutputImpl dclMeasuredOutput = new DCLMeasuredOutputImpl();
-    return dclMeasuredOutput;
+    DSLExecutorImpl dslExecutor = new DSLExecutorImpl();
+    return dslExecutor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLKnowledge createDSLKnowledge()
+  {
+    DSLKnowledgeImpl dslKnowledge = new DSLKnowledgeImpl();
+    return dslKnowledge;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLSensor createDSLSensor()
+  {
+    DSLSensorImpl dslSensor = new DSLSensorImpl();
+    return dslSensor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLEffector createDSLEffector()
+  {
+    DSLEffectorImpl dslEffector = new DSLEffectorImpl();
+    return dslEffector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLReferenceInput createDSLReferenceInput()
+  {
+    DSLReferenceInputImpl dslReferenceInput = new DSLReferenceInputImpl();
+    return dslReferenceInput;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DSLMeasuredOutput createDSLMeasuredOutput()
+  {
+    DSLMeasuredOutputImpl dslMeasuredOutput = new DSLMeasuredOutputImpl();
+    return dslMeasuredOutput;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EffectorInterface createEffectorInterface()
+  {
+    EffectorInterfaceImpl effectorInterface = new EffectorInterfaceImpl();
+    return effectorInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SensorInterface createSensorInterface()
+  {
+    SensorInterfaceImpl sensorInterface = new SensorInterfaceImpl();
+    return sensorInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MonitorInterface createMonitorInterface()
+  {
+    MonitorInterfaceImpl monitorInterface = new MonitorInterfaceImpl();
+    return monitorInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AnalyzerInterface createAnalyzerInterface()
+  {
+    AnalyzerInterfaceImpl analyzerInterface = new AnalyzerInterfaceImpl();
+    return analyzerInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PlannerInterface createPlannerInterface()
+  {
+    PlannerInterfaceImpl plannerInterface = new PlannerInterfaceImpl();
+    return plannerInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExecutorInterface createExecutorInterface()
+  {
+    ExecutorInterfaceImpl executorInterface = new ExecutorInterfaceImpl();
+    return executorInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public KnowledgeInterface createKnowledgeInterface()
+  {
+    KnowledgeInterfaceImpl knowledgeInterface = new KnowledgeInterfaceImpl();
+    return knowledgeInterface;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ControllerInterface createControllerInterface()
+  {
+    ControllerInterfaceImpl controllerInterface = new ControllerInterfaceImpl();
+    return controllerInterface;
   }
 
   /**

@@ -81,7 +81,6 @@ import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
-import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 
 import br.ufscar.sas.createKDM.CreateKDM;
 import br.ufscar.sas.cripto.CriptoBase64;

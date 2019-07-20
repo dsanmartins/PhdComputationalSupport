@@ -33,148 +33,265 @@ public interface SasDslFactory extends EFactory
   ArchitectureDefinition createArchitectureDefinition();
 
   /**
-   * Returns a new object of class '<em>DCL Abstractions</em>'.
+   * Returns a new object of class '<em>DSL Rules</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Abstractions</em>'.
+   * @return a new object of class '<em>DSL Rules</em>'.
    * @generated
    */
-  DCLAbstractions createDCLAbstractions();
+  DSLRules createDSLRules();
 
   /**
-   * Returns a new object of class '<em>DCL Managing</em>'.
+   * Returns a new object of class '<em>DSL Rule Controller</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Managing</em>'.
+   * @return a new object of class '<em>DSL Rule Controller</em>'.
    * @generated
    */
-  DCLManaging createDCLManaging();
+  DSLRuleController createDSLRuleController();
 
   /**
-   * Returns a new object of class '<em>DCL Managed</em>'.
+   * Returns a new object of class '<em>DSL Rule Monitor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Managed</em>'.
+   * @return a new object of class '<em>DSL Rule Monitor</em>'.
    * @generated
    */
-  DCLManaged createDCLManaged();
+  DSLRuleMonitor createDSLRuleMonitor();
 
   /**
-   * Returns a new object of class '<em>DCL Control Loop Manager</em>'.
+   * Returns a new object of class '<em>DSL Rule Analyzer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Control Loop Manager</em>'.
+   * @return a new object of class '<em>DSL Rule Analyzer</em>'.
    * @generated
    */
-  DCLControlLoopManager createDCLControlLoopManager();
+  DSLRuleAnalyzer createDSLRuleAnalyzer();
 
   /**
-   * Returns a new object of class '<em>DCL Control Loop</em>'.
+   * Returns a new object of class '<em>DSL Rule Planner</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Control Loop</em>'.
+   * @return a new object of class '<em>DSL Rule Planner</em>'.
    * @generated
    */
-  DCLControlLoop createDCLControlLoop();
+  DSLRulePlanner createDSLRulePlanner();
 
   /**
-   * Returns a new object of class '<em>DCL Monitor</em>'.
+   * Returns a new object of class '<em>DSL Rule Executor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Monitor</em>'.
+   * @return a new object of class '<em>DSL Rule Executor</em>'.
    * @generated
    */
-  DCLMonitor createDCLMonitor();
+  DSLRuleExecutor createDSLRuleExecutor();
 
   /**
-   * Returns a new object of class '<em>DCL Analyzer</em>'.
+   * Returns a new object of class '<em>DSL Rule MO</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Analyzer</em>'.
+   * @return a new object of class '<em>DSL Rule MO</em>'.
    * @generated
    */
-  DCLAnalyzer createDCLAnalyzer();
+  DSLRuleMO createDSLRuleMO();
 
   /**
-   * Returns a new object of class '<em>DCL Planner</em>'.
+   * Returns a new object of class '<em>DSL Rule RI</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Planner</em>'.
+   * @return a new object of class '<em>DSL Rule RI</em>'.
    * @generated
    */
-  DCLPlanner createDCLPlanner();
+  DSLRuleRI createDSLRuleRI();
 
   /**
-   * Returns a new object of class '<em>DCL Executor</em>'.
+   * Returns a new object of class '<em>DSL Managing</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Executor</em>'.
+   * @return a new object of class '<em>DSL Managing</em>'.
    * @generated
    */
-  DCLExecutor createDCLExecutor();
+  DSLManaging createDSLManaging();
 
   /**
-   * Returns a new object of class '<em>DCL Knowledge</em>'.
+   * Returns a new object of class '<em>DSL Managed</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Knowledge</em>'.
+   * @return a new object of class '<em>DSL Managed</em>'.
    * @generated
    */
-  DCLKnowledge createDCLKnowledge();
+  DSLManaged createDSLManaged();
 
   /**
-   * Returns a new object of class '<em>DCL Sensor</em>'.
+   * Returns a new object of class '<em>DSL Manager Controller</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Sensor</em>'.
+   * @return a new object of class '<em>DSL Manager Controller</em>'.
    * @generated
    */
-  DCLSensor createDCLSensor();
+  DSLManagerController createDSLManagerController();
 
   /**
-   * Returns a new object of class '<em>DCL Effector</em>'.
+   * Returns a new object of class '<em>DSL Controller</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Effector</em>'.
+   * @return a new object of class '<em>DSL Controller</em>'.
    * @generated
    */
-  DCLEffector createDCLEffector();
+  DSLController createDSLController();
 
   /**
-   * Returns a new object of class '<em>DCL Probe</em>'.
+   * Returns a new object of class '<em>DSL Monitor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Probe</em>'.
+   * @return a new object of class '<em>DSL Monitor</em>'.
    * @generated
    */
-  DCLProbe createDCLProbe();
+  DSLMonitor createDSLMonitor();
 
   /**
-   * Returns a new object of class '<em>DCL Gauge</em>'.
+   * Returns a new object of class '<em>DSL Analyzer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Gauge</em>'.
+   * @return a new object of class '<em>DSL Analyzer</em>'.
    * @generated
    */
-  DCLGauge createDCLGauge();
+  DSLAnalyzer createDSLAnalyzer();
 
   /**
-   * Returns a new object of class '<em>DCL Reference Input</em>'.
+   * Returns a new object of class '<em>DSL Planner</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Reference Input</em>'.
+   * @return a new object of class '<em>DSL Planner</em>'.
    * @generated
    */
-  DCLReferenceInput createDCLReferenceInput();
+  DSLPlanner createDSLPlanner();
 
   /**
-   * Returns a new object of class '<em>DCL Measured Output</em>'.
+   * Returns a new object of class '<em>DSL Executor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>DCL Measured Output</em>'.
+   * @return a new object of class '<em>DSL Executor</em>'.
    * @generated
    */
-  DCLMeasuredOutput createDCLMeasuredOutput();
+  DSLExecutor createDSLExecutor();
+
+  /**
+   * Returns a new object of class '<em>DSL Knowledge</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Knowledge</em>'.
+   * @generated
+   */
+  DSLKnowledge createDSLKnowledge();
+
+  /**
+   * Returns a new object of class '<em>DSL Sensor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Sensor</em>'.
+   * @generated
+   */
+  DSLSensor createDSLSensor();
+
+  /**
+   * Returns a new object of class '<em>DSL Effector</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Effector</em>'.
+   * @generated
+   */
+  DSLEffector createDSLEffector();
+
+  /**
+   * Returns a new object of class '<em>DSL Reference Input</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Reference Input</em>'.
+   * @generated
+   */
+  DSLReferenceInput createDSLReferenceInput();
+
+  /**
+   * Returns a new object of class '<em>DSL Measured Output</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>DSL Measured Output</em>'.
+   * @generated
+   */
+  DSLMeasuredOutput createDSLMeasuredOutput();
+
+  /**
+   * Returns a new object of class '<em>Effector Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Effector Interface</em>'.
+   * @generated
+   */
+  EffectorInterface createEffectorInterface();
+
+  /**
+   * Returns a new object of class '<em>Sensor Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sensor Interface</em>'.
+   * @generated
+   */
+  SensorInterface createSensorInterface();
+
+  /**
+   * Returns a new object of class '<em>Monitor Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Monitor Interface</em>'.
+   * @generated
+   */
+  MonitorInterface createMonitorInterface();
+
+  /**
+   * Returns a new object of class '<em>Analyzer Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Analyzer Interface</em>'.
+   * @generated
+   */
+  AnalyzerInterface createAnalyzerInterface();
+
+  /**
+   * Returns a new object of class '<em>Planner Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Planner Interface</em>'.
+   * @generated
+   */
+  PlannerInterface createPlannerInterface();
+
+  /**
+   * Returns a new object of class '<em>Executor Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Executor Interface</em>'.
+   * @generated
+   */
+  ExecutorInterface createExecutorInterface();
+
+  /**
+   * Returns a new object of class '<em>Knowledge Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Knowledge Interface</em>'.
+   * @generated
+   */
+  KnowledgeInterface createKnowledgeInterface();
+
+  /**
+   * Returns a new object of class '<em>Controller Interface</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Controller Interface</em>'.
+   * @generated
+   */
+  ControllerInterface createControllerInterface();
 
   /**
    * Returns the package supported by this factory.

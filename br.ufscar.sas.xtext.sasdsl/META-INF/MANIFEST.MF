@@ -9,10 +9,10 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.emf.ecore,
- org.eclipse.xtext.xbase.lib,
- org.antlr.runtime,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.10.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
  org.eclipse.xtext.util,
- org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib;bundle-version="2.10.0",
  org.eclipse.emf.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: br.ufscar.sas.xtext.sasdsl.validation,
@@ -25,5 +25,6 @@ Export-Package: br.ufscar.sas.xtext.sasdsl.validation,
  br.ufscar.sas.xtext.sasdsl.sasDsl.util,
  br.ufscar.sas.xtext.sasdsl.parser.antlr,
  br.ufscar.sas.xtext.sasdsl.scoping,
- br.ufscar.sas.xtext.sasdsl.parser.antlr.internal
+ br.ufscar.sas.xtext.sasdsl.parser.antlr.internal,
+ br.ufscar.sas.xtext.sasdsl.formatting2
 Import-Package: org.apache.log4j

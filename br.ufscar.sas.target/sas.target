@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?><target name="sas">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde version="3.8"?><target includeMode="feature" name="sas">
 	<locations>
 		<location path="/home/dsanmartins/eclipse-workspace/PhdComputationalSupport/br.ufscar.sas.target/bundles" type="Directory"/>
 	</locations>

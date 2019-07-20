@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import br.ufscar.sas.database.QueryClass;
-import br.ufscar.sas.view.MainView;
 
 public class AddAbstractionTag {
 
@@ -29,7 +28,7 @@ public class AddAbstractionTag {
 
 	public void updatePackageWithAbstraction(String path_, String file, String dbName) throws Exception {
 
-		queryClass = new QueryClass(MainView.getDatabaseUrl());
+		queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 		List<String> packages = queryClass.getPackageAnnotations();
 		for (String line : packages)
 		{
@@ -67,7 +66,7 @@ public class AddAbstractionTag {
 
 	public void updateClassWithAbstraction(String path_, String file, String dbName) throws Exception {
 
-		queryClass = new QueryClass(MainView.getDatabaseUrl());
+		queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 		List<String> classes = queryClass.getClassAnnotations();
 		for (String line : classes)
 		{
@@ -113,7 +112,7 @@ public class AddAbstractionTag {
 
 	public void updateFieldWithAbstraction(String path_, String file, String dbName) throws Exception {
 
-		queryClass = new QueryClass(MainView.getDatabaseUrl());
+		queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 		List<String> fields = queryClass.getFieldClassAnnotations();
 		for (String line : fields)
 		{
@@ -161,7 +160,7 @@ public class AddAbstractionTag {
 
 	public void updateMethodWithAbstraction(String path_, String file, String dbName) throws Exception {
 
-		queryClass = new QueryClass(MainView.getDatabaseUrl());
+		queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 		List<String> methods = queryClass.getMethodAnnotations();
 		for (String line : methods)
 		{
@@ -208,7 +207,7 @@ public class AddAbstractionTag {
 
 	public void updateVariableMethodWithAbstraction(String path_, String file, String dbName) throws Exception {
 
-		queryClass = new QueryClass(MainView.getDatabaseUrl());
+		queryClass = new QueryClass(br.ufscar.sas.view.MainView.getDatabaseUrl());
 		List<String> variables = queryClass.getVariableAnnotations();
 		for (String line : variables)
 		{

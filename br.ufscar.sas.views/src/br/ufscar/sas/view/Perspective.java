@@ -13,8 +13,7 @@ public class Perspective implements IPerspectiveFactory {
 		String editorArea = layout.getEditorArea();
 
 		// Top left: Resource Navigator view and Bookmarks view placeholder
-		IFolderLayout topLeft = layout.createFolder("topLeft", IPageLayout.LEFT, 0.25f,
-				editorArea);
+		IFolderLayout topLeft = layout.createFolder("topLeft", IPageLayout.LEFT, 0.25f,	editorArea);
 		topLeft.addView(IPageLayout.ID_PROJECT_EXPLORER);
 
 		// Bottom right: Task List view
