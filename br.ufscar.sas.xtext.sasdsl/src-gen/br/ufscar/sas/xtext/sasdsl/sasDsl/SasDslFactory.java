@@ -96,15 +96,6 @@ public interface SasDslFactory extends EFactory
   DSLRuleMO createDSLRuleMO();
 
   /**
-   * Returns a new object of class '<em>DSL Rule RI</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>DSL Rule RI</em>'.
-   * @generated
-   */
-  DSLRuleRI createDSLRuleRI();
-
-  /**
    * Returns a new object of class '<em>DSL Managing</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -220,78 +211,6 @@ public interface SasDslFactory extends EFactory
    * @generated
    */
   DSLMeasuredOutput createDSLMeasuredOutput();
-
-  /**
-   * Returns a new object of class '<em>Effector Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Effector Interface</em>'.
-   * @generated
-   */
-  EffectorInterface createEffectorInterface();
-
-  /**
-   * Returns a new object of class '<em>Sensor Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sensor Interface</em>'.
-   * @generated
-   */
-  SensorInterface createSensorInterface();
-
-  /**
-   * Returns a new object of class '<em>Monitor Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Monitor Interface</em>'.
-   * @generated
-   */
-  MonitorInterface createMonitorInterface();
-
-  /**
-   * Returns a new object of class '<em>Analyzer Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Analyzer Interface</em>'.
-   * @generated
-   */
-  AnalyzerInterface createAnalyzerInterface();
-
-  /**
-   * Returns a new object of class '<em>Planner Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Planner Interface</em>'.
-   * @generated
-   */
-  PlannerInterface createPlannerInterface();
-
-  /**
-   * Returns a new object of class '<em>Executor Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Executor Interface</em>'.
-   * @generated
-   */
-  ExecutorInterface createExecutorInterface();
-
-  /**
-   * Returns a new object of class '<em>Knowledge Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Knowledge Interface</em>'.
-   * @generated
-   */
-  KnowledgeInterface createKnowledgeInterface();
-
-  /**
-   * Returns a new object of class '<em>Controller Interface</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Controller Interface</em>'.
-   * @generated
-   */
-  ControllerInterface createControllerInterface();
 
   /**
    * Returns the package supported by this factory.

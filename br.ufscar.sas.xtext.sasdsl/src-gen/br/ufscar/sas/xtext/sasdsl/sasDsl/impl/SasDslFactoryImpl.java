@@ -73,7 +73,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_RULE_PLANNER: return createDSLRulePlanner();
       case SasDslPackage.DSL_RULE_EXECUTOR: return createDSLRuleExecutor();
       case SasDslPackage.DSL_RULE_MO: return createDSLRuleMO();
-      case SasDslPackage.DSL_RULE_RI: return createDSLRuleRI();
       case SasDslPackage.DSL_MANAGING: return createDSLManaging();
       case SasDslPackage.DSL_MANAGED: return createDSLManaged();
       case SasDslPackage.DSL_MANAGER_CONTROLLER: return createDSLManagerController();
@@ -87,14 +86,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
       case SasDslPackage.DSL_EFFECTOR: return createDSLEffector();
       case SasDslPackage.DSL_REFERENCE_INPUT: return createDSLReferenceInput();
       case SasDslPackage.DSL_MEASURED_OUTPUT: return createDSLMeasuredOutput();
-      case SasDslPackage.EFFECTOR_INTERFACE: return createEffectorInterface();
-      case SasDslPackage.SENSOR_INTERFACE: return createSensorInterface();
-      case SasDslPackage.MONITOR_INTERFACE: return createMonitorInterface();
-      case SasDslPackage.ANALYZER_INTERFACE: return createAnalyzerInterface();
-      case SasDslPackage.PLANNER_INTERFACE: return createPlannerInterface();
-      case SasDslPackage.EXECUTOR_INTERFACE: return createExecutorInterface();
-      case SasDslPackage.KNOWLEDGE_INTERFACE: return createKnowledgeInterface();
-      case SasDslPackage.CONTROLLER_INTERFACE: return createControllerInterface();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -186,17 +177,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
   {
     DSLRuleMOImpl dslRuleMO = new DSLRuleMOImpl();
     return dslRuleMO;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DSLRuleRI createDSLRuleRI()
-  {
-    DSLRuleRIImpl dslRuleRI = new DSLRuleRIImpl();
-    return dslRuleRI;
   }
 
   /**
@@ -340,94 +320,6 @@ public class SasDslFactoryImpl extends EFactoryImpl implements SasDslFactory
   {
     DSLMeasuredOutputImpl dslMeasuredOutput = new DSLMeasuredOutputImpl();
     return dslMeasuredOutput;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EffectorInterface createEffectorInterface()
-  {
-    EffectorInterfaceImpl effectorInterface = new EffectorInterfaceImpl();
-    return effectorInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SensorInterface createSensorInterface()
-  {
-    SensorInterfaceImpl sensorInterface = new SensorInterfaceImpl();
-    return sensorInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MonitorInterface createMonitorInterface()
-  {
-    MonitorInterfaceImpl monitorInterface = new MonitorInterfaceImpl();
-    return monitorInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AnalyzerInterface createAnalyzerInterface()
-  {
-    AnalyzerInterfaceImpl analyzerInterface = new AnalyzerInterfaceImpl();
-    return analyzerInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PlannerInterface createPlannerInterface()
-  {
-    PlannerInterfaceImpl plannerInterface = new PlannerInterfaceImpl();
-    return plannerInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ExecutorInterface createExecutorInterface()
-  {
-    ExecutorInterfaceImpl executorInterface = new ExecutorInterfaceImpl();
-    return executorInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public KnowledgeInterface createKnowledgeInterface()
-  {
-    KnowledgeInterfaceImpl knowledgeInterface = new KnowledgeInterfaceImpl();
-    return knowledgeInterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ControllerInterface createControllerInterface()
-  {
-    ControllerInterfaceImpl controllerInterface = new ControllerInterfaceImpl();
-    return controllerInterface;
   }
 
   /**

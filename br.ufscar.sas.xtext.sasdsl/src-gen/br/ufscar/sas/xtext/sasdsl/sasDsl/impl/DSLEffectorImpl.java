@@ -4,24 +4,14 @@
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +22,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLEffectorImpl#getName <em>Name</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLEffectorImpl#getEffectorinterfaces <em>Effectorinterfaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,16 +47,6 @@ public class DSLEffectorImpl extends MinimalEObjectImpl.Container implements DSL
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getEffectorinterfaces() <em>Effectorinterfaces</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEffectorinterfaces()
-   * @generated
-   * @ordered
-   */
-  protected EList<EffectorInterface> effectorinterfaces;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,36 +97,6 @@ public class DSLEffectorImpl extends MinimalEObjectImpl.Container implements DSL
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EffectorInterface> getEffectorinterfaces()
-  {
-    if (effectorinterfaces == null)
-    {
-      effectorinterfaces = new EObjectContainmentEList<EffectorInterface>(EffectorInterface.class, this, SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES);
-    }
-    return effectorinterfaces;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES:
-        return ((InternalEList<?>)getEffectorinterfaces()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -155,8 +104,6 @@ public class DSLEffectorImpl extends MinimalEObjectImpl.Container implements DSL
     {
       case SasDslPackage.DSL_EFFECTOR__NAME:
         return getName();
-      case SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES:
-        return getEffectorinterfaces();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,7 +113,6 @@ public class DSLEffectorImpl extends MinimalEObjectImpl.Container implements DSL
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -174,10 +120,6 @@ public class DSLEffectorImpl extends MinimalEObjectImpl.Container implements DSL
     {
       case SasDslPackage.DSL_EFFECTOR__NAME:
         setName((String)newValue);
-        return;
-      case SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES:
-        getEffectorinterfaces().clear();
-        getEffectorinterfaces().addAll((Collection<? extends EffectorInterface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,9 +138,6 @@ public class DSLEffectorImpl extends MinimalEObjectImpl.Container implements DSL
       case SasDslPackage.DSL_EFFECTOR__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES:
-        getEffectorinterfaces().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -215,8 +154,6 @@ public class DSLEffectorImpl extends MinimalEObjectImpl.Container implements DSL
     {
       case SasDslPackage.DSL_EFFECTOR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case SasDslPackage.DSL_EFFECTOR__EFFECTORINTERFACES:
-        return effectorinterfaces != null && !effectorinterfaces.isEmpty();
     }
     return super.eIsSet(featureID);
   }

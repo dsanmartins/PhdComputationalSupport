@@ -3,9 +3,7 @@
  */
 package br.ufscar.sas.xtext.sasdsl.serializer;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.AnalyzerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.ArchitectureDefinition;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ControllerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzer;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLEffector;
@@ -24,15 +22,8 @@ import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleExecutor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleMO;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleMonitor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRulePlanner;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleRI;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ExecutorInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.KnowledgeInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.MonitorInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.PlannerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.SensorInterface;
 import br.ufscar.sas.xtext.sasdsl.services.SasDslGrammarAccess;
 import com.google.inject.Inject;
 import java.util.Set;
@@ -60,14 +51,8 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SasDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case SasDslPackage.ANALYZER_INTERFACE:
-				sequence_AnalyzerInterface(context, (AnalyzerInterface) semanticObject); 
-				return; 
 			case SasDslPackage.ARCHITECTURE_DEFINITION:
 				sequence_ArchitectureDefinition(context, (ArchitectureDefinition) semanticObject); 
-				return; 
-			case SasDslPackage.CONTROLLER_INTERFACE:
-				sequence_ControllerInterface(context, (ControllerInterface) semanticObject); 
 				return; 
 			case SasDslPackage.DSL_ANALYZER:
 				sequence_DSLAnalyzer(context, (DSLAnalyzer) semanticObject); 
@@ -123,52 +108,13 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case SasDslPackage.DSL_RULE_PLANNER:
 				sequence_DSLRulePlanner(context, (DSLRulePlanner) semanticObject); 
 				return; 
-			case SasDslPackage.DSL_RULE_RI:
-				sequence_DSLRuleRI(context, (DSLRuleRI) semanticObject); 
-				return; 
 			case SasDslPackage.DSL_SENSOR:
 				sequence_DSLSensor(context, (DSLSensor) semanticObject); 
-				return; 
-			case SasDslPackage.EFFECTOR_INTERFACE:
-				sequence_EffectorInterface(context, (EffectorInterface) semanticObject); 
-				return; 
-			case SasDslPackage.EXECUTOR_INTERFACE:
-				sequence_ExecutorInterface(context, (ExecutorInterface) semanticObject); 
-				return; 
-			case SasDslPackage.KNOWLEDGE_INTERFACE:
-				sequence_KnowledgeInterface(context, (KnowledgeInterface) semanticObject); 
-				return; 
-			case SasDslPackage.MONITOR_INTERFACE:
-				sequence_MonitorInterface(context, (MonitorInterface) semanticObject); 
-				return; 
-			case SasDslPackage.PLANNER_INTERFACE:
-				sequence_PlannerInterface(context, (PlannerInterface) semanticObject); 
-				return; 
-			case SasDslPackage.SENSOR_INTERFACE:
-				sequence_SensorInterface(context, (SensorInterface) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Contexts:
-	 *     AnalyzerInterface returns AnalyzerInterface
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_AnalyzerInterface(ISerializationContext context, AnalyzerInterface semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.ANALYZER_INTERFACE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.ANALYZER_INTERFACE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAnalyzerInterfaceAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
 	
 	/**
 	 * Contexts:
@@ -184,31 +130,19 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     ControllerInterface returns ControllerInterface
+	 *     DSLAnalyzer returns DSLAnalyzer
 	 *
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_ControllerInterface(ISerializationContext context, ControllerInterface semanticObject) {
+	protected void sequence_DSLAnalyzer(ISerializationContext context, DSLAnalyzer semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.CONTROLLER_INTERFACE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.CONTROLLER_INTERFACE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.DSL_ANALYZER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.DSL_ANALYZER__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getControllerInterfaceAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDSLAnalyzerAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     DSLAnalyzer returns DSLAnalyzer
-	 *
-	 * Constraint:
-	 *     (name=ID (anlyzerinterfaces+=AnalyzerInterface anlyzerinterfaces+=AnalyzerInterface*)?)
-	 */
-	protected void sequence_DSLAnalyzer(ISerializationContext context, DSLAnalyzer semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -219,7 +153,6 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         (controllerinterfaces+=ControllerInterface controllerinterfaces+=ControllerInterface*)? 
 	 *         monitor+=DSLMonitor+ 
 	 *         analyzer+=DSLAnalyzer+ 
 	 *         planner+=DSLPlanner+ 
@@ -237,10 +170,16 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     DSLEffector returns DSLEffector
 	 *
 	 * Constraint:
-	 *     (name=ID (effectorinterfaces+=EffectorInterface effectorinterfaces+=EffectorInterface*)?)
+	 *     name=ID
 	 */
 	protected void sequence_DSLEffector(ISerializationContext context, DSLEffector semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.DSL_EFFECTOR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.DSL_EFFECTOR__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDSLEffectorAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -249,10 +188,16 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     DSLExecutor returns DSLExecutor
 	 *
 	 * Constraint:
-	 *     (name=ID (executorinterfaces+=ExecutorInterface executorinterfaces+=ExecutorInterface*)?)
+	 *     name=ID
 	 */
 	protected void sequence_DSLExecutor(ISerializationContext context, DSLExecutor semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.DSL_EXECUTOR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.DSL_EXECUTOR__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDSLExecutorAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -261,7 +206,7 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     DSLKnowledge returns DSLKnowledge
 	 *
 	 * Constraint:
-	 *     (name=ID (knowledgeinterfaces+=KnowledgeInterface knowledgeinterfaces+=KnowledgeInterface*)? referenceInput+=DSLReferenceInput+)
+	 *     (name=ID referenceInput+=DSLReferenceInput+)
 	 */
 	protected void sequence_DSLKnowledge(ISerializationContext context, DSLKnowledge semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -327,10 +272,16 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     DSLMonitor returns DSLMonitor
 	 *
 	 * Constraint:
-	 *     (name=ID (monitorinterfaces+=MonitorInterface monitorinterfaces+=MonitorInterface*)?)
+	 *     name=ID
 	 */
 	protected void sequence_DSLMonitor(ISerializationContext context, DSLMonitor semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.DSL_MONITOR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.DSL_MONITOR__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDSLMonitorAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -339,10 +290,16 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     DSLPlanner returns DSLPlanner
 	 *
 	 * Constraint:
-	 *     (name=ID (plannerinterfaces+=PlannerInterface plannerinterfaces+=PlannerInterface*)?)
+	 *     name=ID
 	 */
 	protected void sequence_DSLPlanner(ISerializationContext context, DSLPlanner semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.DSL_PLANNER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.DSL_PLANNER__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDSLPlannerAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -371,12 +328,10 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         (analyzer=[DSLAnalyzer|ID] knowledge=[DSLKnowledge|ID]) | 
-	 *         (analyzer=[DSLAnalyzer|ID] knowledge=[DSLKnowledge|ID] knowledgeinterface=[KnowledgeInterface|FQN]) | 
-	 *         (analyzer=[DSLAnalyzer|ID] monitor=[DSLMonitor|ID]) | 
-	 *         (analyzer=[DSLAnalyzer|ID] knowledge=[DSLMonitor|ID] monitorinterface=[MonitorInterface|FQN]) | 
-	 *         (analyzer=[DSLAnalyzer|ID] planner=[DSLPlanner|ID]) | 
-	 *         (analyzer=[DSLAnalyzer|ID] planner=[DSLPlanner|ID] plannerinterface=[PlannerInterface|FQN])
+	 *         (analyzer=[DSLAnalyzer|ID] access=DSLAccess knowledge=[DSLKnowledge|ID]) | 
+	 *         (analyzer=[DSLAnalyzer|ID] access=DSLAccess monitor=[DSLMonitor|ID]) | 
+	 *         (analyzer=[DSLAnalyzer|ID] access=DSLAccess planner=[DSLPlanner|ID]) | 
+	 *         (analyzer=[DSLAnalyzer|ID] access=DSLAccess rreference=[DSLReferenceInput|ID])
 	 *     )
 	 */
 	protected void sequence_DSLRuleAnalyzer(ISerializationContext context, DSLRuleAnalyzer semanticObject) {
@@ -391,14 +346,10 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         (controller=[DSLController|ID] monitor=[DSLMonitor|ID]) | 
-	 *         (controller=[DSLController|ID] monitor=[DSLMonitor|ID] monitorinterface=[MonitorInterface|FQN]) | 
-	 *         (controller=[DSLController|ID] analyzer=[DSLAnalyzer|ID]) | 
-	 *         (controller=[DSLController|ID] analyzer=[DSLAnalyzer|ID] analyzerinterface=[AnalyzerInterface|FQN]) | 
-	 *         (controller=[DSLController|ID] planner=[DSLPlanner|ID]) | 
-	 *         (controller=[DSLController|ID] planner=[DSLPlanner|ID] plannerinterface=[PlannerInterface|FQN]) | 
-	 *         (controller=[DSLController|ID] executor=[DSLExecutor|ID]) | 
-	 *         (controller=[DSLController|ID] executor=[DSLExecutor|ID] executorinterface=[ExecutorInterface|FQN])
+	 *         (controller=[DSLController|ID] access=DSLAccess monitor=[DSLMonitor|ID]) | 
+	 *         (controller=[DSLController|ID] access=DSLAccess analyzer=[DSLAnalyzer|ID]) | 
+	 *         (controller=[DSLController|ID] access=DSLAccess planner=[DSLPlanner|ID]) | 
+	 *         (controller=[DSLController|ID] access=DSLAccess executor=[DSLExecutor|ID])
 	 *     )
 	 */
 	protected void sequence_DSLRuleController(ISerializationContext context, DSLRuleController semanticObject) {
@@ -413,12 +364,9 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         (executor=[DSLExecutor|ID] effector=[DSLEffector|ID]) | 
-	 *         (executor=[DSLExecutor|ID] effector=[DSLEffector|ID] effectorinterface=[EffectorInterface|FQN]) | 
-	 *         (executor=[DSLExecutor|ID] planner=[DSLPlanner|ID]) | 
-	 *         (executor=[DSLExecutor|ID] planner=[DSLPlanner|ID] plannerinterface=[PlannerInterface|FQN]) | 
-	 *         (executor=[DSLExecutor|ID] knowledge=[DSLKnowledge|ID]) | 
-	 *         (executor=[DSLExecutor|ID] knowledge=[DSLKnowledge|ID] knowledgeinterface=[KnowledgeInterface|FQN])
+	 *         (executor=[DSLExecutor|ID] access=DSLAccess effector=[DSLEffector|ID]) | 
+	 *         (executor=[DSLExecutor|ID] access=DSLAccess planner=[DSLPlanner|ID]) | 
+	 *         (executor=[DSLExecutor|ID] access=DSLAccess knowledge=[DSLKnowledge|ID])
 	 *     )
 	 */
 	protected void sequence_DSLRuleExecutor(ISerializationContext context, DSLRuleExecutor semanticObject) {
@@ -432,10 +380,22 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     DSLRuleMO returns DSLRuleMO
 	 *
 	 * Constraint:
-	 *     ((sensor=[DSLSensor|ID] measured=[DSLMeasuredOutput|ID]) | (sensor=[DSLSensor|ID] measured=[DSLMeasuredOutput|ID]))
+	 *     (sensor=[DSLSensor|ID] access=DSLAccess measured=[DSLMeasuredOutput|ID])
 	 */
 	protected void sequence_DSLRuleMO(ISerializationContext context, DSLRuleMO semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.DSL_RULE_MO__SENSOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.DSL_RULE_MO__SENSOR));
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.DSL_RULES__ACCESS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.DSL_RULES__ACCESS));
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.DSL_RULE_MO__MEASURED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.DSL_RULE_MO__MEASURED));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDSLRuleMOAccess().getSensorDSLSensorIDTerminalRuleCall_1_0_1(), semanticObject.getSensor());
+		feeder.accept(grammarAccess.getDSLRuleMOAccess().getAccessDSLAccessParserRuleCall_2_0(), semanticObject.getAccess());
+		feeder.accept(grammarAccess.getDSLRuleMOAccess().getMeasuredDSLMeasuredOutputIDTerminalRuleCall_4_0_1(), semanticObject.getMeasured());
+		feeder.finish();
 	}
 	
 	
@@ -446,12 +406,9 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         (monitor=[DSLMonitor|ID] sensor=[DSLSensor|ID]) | 
-	 *         (monitor=[DSLMonitor|ID] sensor=[DSLSensor|ID] sensorinterface=[SensorInterface|FQN]) | 
-	 *         (monitor=[DSLMonitor|ID] knowledge=[DSLKnowledge|ID]) | 
-	 *         (monitor=[DSLMonitor|ID] knowledge=[DSLKnowledge|ID] knowledgeinterface=[KnowledgeInterface|FQN]) | 
-	 *         (monitor=[DSLMonitor|ID] analyzer=[DSLAnalyzer|ID]) | 
-	 *         (monitor=[DSLMonitor|ID] analyzer=[DSLAnalyzer|ID] analyzerinterface=[AnalyzerInterface|FQN])
+	 *         (monitor=[DSLMonitor|ID] access=DSLAccess sensor=[DSLSensor|ID]) | 
+	 *         (monitor=[DSLMonitor|ID] access=DSLAccess knowledge=[DSLKnowledge|ID]) | 
+	 *         (monitor=[DSLMonitor|ID] access=DSLAccess analyzer=[DSLAnalyzer|ID])
 	 *     )
 	 */
 	protected void sequence_DSLRuleMonitor(ISerializationContext context, DSLRuleMonitor semanticObject) {
@@ -466,12 +423,9 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         (planner=[DSLPlanner|ID] knowledge=[DSLKnowledge|ID]) | 
-	 *         (planner=[DSLPlanner|ID] knowledge=[DSLKnowledge|ID] knowledgeinterface=[KnowledgeInterface|FQN]) | 
-	 *         (planner=[DSLPlanner|ID] analyzer=[DSLAnalyzer|ID]) | 
-	 *         (planner=[DSLPlanner|ID] analyzer=[DSLAnalyzer|ID] analyzerinterface=[AnalyzerInterface|FQN]) | 
-	 *         (planner=[DSLPlanner|ID] executor=[DSLExecutor|ID]) | 
-	 *         (planner=[DSLPlanner|ID] executor=[DSLExecutor|ID] executorinterface=[ExecutorInterface|FQN])
+	 *         (planner=[DSLPlanner|ID] access=DSLAccess knowledge=[DSLKnowledge|ID]) | 
+	 *         (planner=[DSLPlanner|ID] access=DSLAccess analyzer=[DSLAnalyzer|ID]) | 
+	 *         (planner=[DSLPlanner|ID] access=DSLAccess executor=[DSLExecutor|ID])
 	 *     )
 	 */
 	protected void sequence_DSLRulePlanner(ISerializationContext context, DSLRulePlanner semanticObject) {
@@ -481,133 +435,18 @@ public class SasDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     DSLRules returns DSLRuleRI
-	 *     DSLRuleRI returns DSLRuleRI
-	 *
-	 * Constraint:
-	 *     ((analyzer=[DSLAnalyzer|ID] reference=[DSLReferenceInput|ID]) | (analyzer=[DSLAnalyzer|ID] reference=[DSLReferenceInput|ID]))
-	 */
-	protected void sequence_DSLRuleRI(ISerializationContext context, DSLRuleRI semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DSLSensor returns DSLSensor
 	 *
 	 * Constraint:
-	 *     (name=ID (sensorinterfaces+=SensorInterface sensorinterfaces+=SensorInterface*)?)
+	 *     name=ID
 	 */
 	protected void sequence_DSLSensor(ISerializationContext context, DSLSensor semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     EffectorInterface returns EffectorInterface
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_EffectorInterface(ISerializationContext context, EffectorInterface semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.EFFECTOR_INTERFACE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.EFFECTOR_INTERFACE__NAME));
+			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.DSL_SENSOR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.DSL_SENSOR__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEffectorInterfaceAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ExecutorInterface returns ExecutorInterface
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_ExecutorInterface(ISerializationContext context, ExecutorInterface semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.EXECUTOR_INTERFACE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.EXECUTOR_INTERFACE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExecutorInterfaceAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     KnowledgeInterface returns KnowledgeInterface
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_KnowledgeInterface(ISerializationContext context, KnowledgeInterface semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.KNOWLEDGE_INTERFACE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.KNOWLEDGE_INTERFACE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getKnowledgeInterfaceAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     MonitorInterface returns MonitorInterface
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_MonitorInterface(ISerializationContext context, MonitorInterface semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.MONITOR_INTERFACE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.MONITOR_INTERFACE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMonitorInterfaceAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     PlannerInterface returns PlannerInterface
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_PlannerInterface(ISerializationContext context, PlannerInterface semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.PLANNER_INTERFACE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.PLANNER_INTERFACE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPlannerInterfaceAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     SensorInterface returns SensorInterface
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_SensorInterface(ISerializationContext context, SensorInterface semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SasDslPackage.Literals.SENSOR_INTERFACE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SasDslPackage.Literals.SENSOR_INTERFACE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSensorInterfaceAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDSLSensorAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

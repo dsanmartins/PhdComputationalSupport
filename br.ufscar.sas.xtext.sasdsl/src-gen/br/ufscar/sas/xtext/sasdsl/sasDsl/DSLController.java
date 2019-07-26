@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController#getName <em>Name</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController#getControllerinterfaces <em>Controllerinterfaces</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController#getMonitor <em>Monitor</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController#getAnalyzer <em>Analyzer</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController#getPlanner <em>Planner</em>}</li>
@@ -56,22 +55,6 @@ public interface DSLController extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Controllerinterfaces</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.ControllerInterface}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Controllerinterfaces</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Controllerinterfaces</em>' containment reference list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLController_Controllerinterfaces()
-   * @model containment="true"
-   * @generated
-   */
-  EList<ControllerInterface> getControllerinterfaces();
 
   /**
    * Returns the value of the '<em><b>Monitor</b></em>' containment reference list.

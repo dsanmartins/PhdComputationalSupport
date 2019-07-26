@@ -15,13 +15,9 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl;
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getController <em>Controller</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getMonitor <em>Monitor</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getMonitorinterface <em>Monitorinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getAnalyzer <em>Analyzer</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getAnalyzerinterface <em>Analyzerinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getPlanner <em>Planner</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getPlannerinterface <em>Plannerinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getExecutor <em>Executor</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getExecutorinterface <em>Executorinterface</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleController()
@@ -83,32 +79,6 @@ public interface DSLRuleController extends DSLRules
   void setMonitor(DSLMonitor value);
 
   /**
-   * Returns the value of the '<em><b>Monitorinterface</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Monitorinterface</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Monitorinterface</em>' reference.
-   * @see #setMonitorinterface(MonitorInterface)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleController_Monitorinterface()
-   * @model
-   * @generated
-   */
-  MonitorInterface getMonitorinterface();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getMonitorinterface <em>Monitorinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Monitorinterface</em>' reference.
-   * @see #getMonitorinterface()
-   * @generated
-   */
-  void setMonitorinterface(MonitorInterface value);
-
-  /**
    * Returns the value of the '<em><b>Analyzer</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -133,32 +103,6 @@ public interface DSLRuleController extends DSLRules
    * @generated
    */
   void setAnalyzer(DSLAnalyzer value);
-
-  /**
-   * Returns the value of the '<em><b>Analyzerinterface</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Analyzerinterface</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Analyzerinterface</em>' reference.
-   * @see #setAnalyzerinterface(AnalyzerInterface)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleController_Analyzerinterface()
-   * @model
-   * @generated
-   */
-  AnalyzerInterface getAnalyzerinterface();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getAnalyzerinterface <em>Analyzerinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Analyzerinterface</em>' reference.
-   * @see #getAnalyzerinterface()
-   * @generated
-   */
-  void setAnalyzerinterface(AnalyzerInterface value);
 
   /**
    * Returns the value of the '<em><b>Planner</b></em>' reference.
@@ -187,32 +131,6 @@ public interface DSLRuleController extends DSLRules
   void setPlanner(DSLPlanner value);
 
   /**
-   * Returns the value of the '<em><b>Plannerinterface</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Plannerinterface</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Plannerinterface</em>' reference.
-   * @see #setPlannerinterface(PlannerInterface)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleController_Plannerinterface()
-   * @model
-   * @generated
-   */
-  PlannerInterface getPlannerinterface();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getPlannerinterface <em>Plannerinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Plannerinterface</em>' reference.
-   * @see #getPlannerinterface()
-   * @generated
-   */
-  void setPlannerinterface(PlannerInterface value);
-
-  /**
    * Returns the value of the '<em><b>Executor</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -237,31 +155,5 @@ public interface DSLRuleController extends DSLRules
    * @generated
    */
   void setExecutor(DSLExecutor value);
-
-  /**
-   * Returns the value of the '<em><b>Executorinterface</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Executorinterface</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Executorinterface</em>' reference.
-   * @see #setExecutorinterface(ExecutorInterface)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleController_Executorinterface()
-   * @model
-   * @generated
-   */
-  ExecutorInterface getExecutorinterface();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController#getExecutorinterface <em>Executorinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Executorinterface</em>' reference.
-   * @see #getExecutorinterface()
-   * @generated
-   */
-  void setExecutorinterface(ExecutorInterface value);
 
 } // DSLRuleController

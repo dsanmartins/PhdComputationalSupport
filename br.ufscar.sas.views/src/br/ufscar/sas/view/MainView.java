@@ -11,11 +11,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -68,7 +66,6 @@ import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.ISelectionService;
-import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
@@ -85,9 +82,6 @@ import com.github.javaparser.ast.body.VariableDeclarator;
 import br.ufscar.sas.createKDM.CreateKDM;
 import br.ufscar.sas.cripto.CriptoBase64;
 import br.ufscar.sas.database.QueryClass;
-import br.ufscar.sas.fca.Algorithm;
-import br.ufscar.sas.generator.GeneratorMain;
-import br.ufscar.sas.modelgraph.ArchitectureVisualization;
 import br.ufscar.sas.parser.FieldClassVisitor;
 import br.ufscar.sas.parser.MethodVisitor;
 import br.ufscar.sas.parser.VariableVisitor;
@@ -95,7 +89,9 @@ import br.ufscar.sas.tableviewer.Data;
 import br.ufscar.sas.tableviewer.EditingAnnotationBelong;
 import br.ufscar.sas.tableviewer.EditingAnnotationInstance;
 import br.ufscar.sas.tableviewer.TableLabelProvider;
-import br.ufscar.sas.transformation.RenameClass;
+import br.ufscar.sas.transformation.Kdm2Uml;
+import br.ufscar.sas.transformation.OpenComponentDiagram;
+import br.ufscar.sas.transformation.Uml2PlantUML;
 
 public class MainView extends ViewPart implements IPartListener2 {
 
@@ -514,23 +510,41 @@ public class MainView extends ViewPart implements IPartListener2 {
 		String folder = workspace.getRoot().getLocation().toFile().getPath().toString();
 
 		String kdmFileFolder = folder + "/" + projectName + "/";
-		String kdmFile = projectName + "_KDM.xmi";
+		
 		btnFCA.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 
 				if (radios[0].getSelection())
 				{
 					try {
-						Algorithm algorithm = new Algorithm(kdmFileFolder, projectName, kdmFile);
-						Map<String, List<String>> map = (Map<String,List<String>>) algorithm.getArchitecture().get(0);
-						List<String> relations = (List<String>) algorithm.getArchitecture().get(1);
-						IViewPart myView = window.getActivePage().showView("visualization");
-						((ArchitectureVisualization) myView).setListNodes(map, relations);
-						
-					} catch (PartInitException e1) {
+						dialog.run(true, true, new IRunnableWithProgress() {
+							public void run(IProgressMonitor monitor) {
+								// Creates KDM instance
+								int totalUnitsOfWork = IProgressMonitor.UNKNOWN;
+								monitor.beginTask("Component Diagram of Current Architecture....", totalUnitsOfWork);
+								try 
+								{
+									Kdm2Uml rc = new Kdm2Uml();
+									Uml2PlantUML up = new Uml2PlantUML();
+									up.createPlantComponentDiagram(rc.createComponentDiagram(projectName), kdmFileFolder, projectName);
+									refreshProjects();
+								} catch (ExecutionException e1) {e1.printStackTrace();} catch (CoreException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								monitor.done();
+							}
+						});
+						OpenComponentDiagram od = new OpenComponentDiagram();
+						od.open(kdmFileFolder, projectName);
+					} catch (InvocationTargetException | InterruptedException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
+					
+					
+					
+				
 				}
 				else
 				{
@@ -553,107 +567,6 @@ public class MainView extends ViewPart implements IPartListener2 {
 		});
 
 		tab1.setControl(group);
-	}
-
-	private void UIArchitecturalRefactoring(TabFolder tabFolder, String projectName) {
-
-		TabItem tab2 = new TabItem(tabFolder, SWT.NONE);
-		tab2.setText("Architectural Refactorings for SaS");
-
-		Group group = new Group(tabFolder, SWT.NONE);
-		Label label1 = new Label(group, SWT.NONE);
-		label1.setText("Project Name:");
-		label1.setBounds(10, 10, 100, 20);
-		tab2.setControl(group);
-
-		Button btnRR = new Button(group, SWT.NONE);
-		btnRR.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
-		btnRR.setBounds(10, 87, 146, 25);
-		btnRR.setText("Run Refactorings");
-
-		btnRR.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				try {
-					dialog.run(true, true, new IRunnableWithProgress() {
-						public void run(IProgressMonitor monitor) {
-							// Creates KDM instance
-							int totalUnitsOfWork = IProgressMonitor.UNKNOWN;
-							monitor.beginTask("Performing Architectural Refactorings....", totalUnitsOfWork);
-							RenameClass rc = new RenameClass();
-							try {
-								rc.renameClass(projectName);
-							} catch (ExecutionException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							monitor.done();
-						}
-					});
-				} catch (InvocationTargetException | InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
-	}
-
-	private void UICodeGenerator(TabFolder tabFolder, String projectName) {
-		TabItem tab3 = new TabItem(tabFolder, SWT.NONE);
-		tab3.setText("SaS Code Generator");
-
-		Group group = new Group(tabFolder, SWT.NONE);
-		Label label1 = new Label(group, SWT.NONE);
-		label1.setText("Project Name:");
-		label1.setBounds(10, 10, 100, 20);
-		tab3.setControl(group);
-
-		Button btnGC = new Button(group, SWT.NONE);
-		btnGC.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLACK));
-		btnGC.setBounds(10, 87, 140, 25);
-		btnGC.setText("Generate SaS Code");
-
-		btnGC.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				try {
-					dialog.run(true, true, new IRunnableWithProgress() {
-						public void run(IProgressMonitor monitor) {
-							int totalUnitsOfWork = IProgressMonitor.UNKNOWN;
-							monitor.beginTask("Performing Forward Engineering....", totalUnitsOfWork);
-							IPath newJavaProjectPath = null;
-							try {
-								newJavaProjectPath = createRefactoredJavaProject(projectName);
-							} catch (CoreException e) {
-								e.printStackTrace();
-							}
-							GeneratorMain kdm2Code = new GeneratorMain();
-							String pathKDM = "";
-							String iProjectStr = "";
-							if (structured != null) {
-								if (structured.getFirstElement() instanceof IJavaProject) {
-									IJavaProject jProject = (IJavaProject) structured.getFirstElement();
-									IProject iProject = jProject.getProject();
-									iProjectStr = iProject.getName();
-									IFile iFile = iProject.getFile(iProject.getName() + "_REFACTORED_KDM.xmi");
-									pathKDM = iFile.getLocation().toString();
-								}
-							}
-							kdm2Code.mainGenerator(pathKDM, newJavaProjectPath.toString() + "/src");
-							moveFile(pathKDM,
-									newJavaProjectPath.toString() + "/" + iProjectStr + "_REFACTORED_KDM.xmi");
-							monitor.done();
-							try {
-								refreshProjects();
-							} catch (CoreException e) {
-								e.printStackTrace();
-							}
-						}
-					});
-				} catch (InvocationTargetException | InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-		});
 	}
 
 	public void moveFile(String in, String out) {

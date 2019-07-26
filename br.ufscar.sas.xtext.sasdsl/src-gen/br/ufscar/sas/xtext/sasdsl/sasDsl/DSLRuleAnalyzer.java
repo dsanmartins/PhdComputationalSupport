@@ -3,7 +3,6 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,11 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getAnalyzer <em>Analyzer</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getKnowledge <em>Knowledge</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getKnowledgeinterface <em>Knowledgeinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getMonitor <em>Monitor</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getMonitorinterface <em>Monitorinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getPlanner <em>Planner</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getPlannerinterface <em>Plannerinterface</em>}</li>
+ *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getRreference <em>Rreference</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleAnalyzer()
@@ -64,12 +61,12 @@ public interface DSLRuleAnalyzer extends DSLRules
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Knowledge</em>' reference.
-   * @see #setKnowledge(EObject)
+   * @see #setKnowledge(DSLKnowledge)
    * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleAnalyzer_Knowledge()
    * @model
    * @generated
    */
-  EObject getKnowledge();
+  DSLKnowledge getKnowledge();
 
   /**
    * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getKnowledge <em>Knowledge</em>}' reference.
@@ -79,33 +76,7 @@ public interface DSLRuleAnalyzer extends DSLRules
    * @see #getKnowledge()
    * @generated
    */
-  void setKnowledge(EObject value);
-
-  /**
-   * Returns the value of the '<em><b>Knowledgeinterface</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Knowledgeinterface</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Knowledgeinterface</em>' reference.
-   * @see #setKnowledgeinterface(KnowledgeInterface)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleAnalyzer_Knowledgeinterface()
-   * @model
-   * @generated
-   */
-  KnowledgeInterface getKnowledgeinterface();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getKnowledgeinterface <em>Knowledgeinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Knowledgeinterface</em>' reference.
-   * @see #getKnowledgeinterface()
-   * @generated
-   */
-  void setKnowledgeinterface(KnowledgeInterface value);
+  void setKnowledge(DSLKnowledge value);
 
   /**
    * Returns the value of the '<em><b>Monitor</b></em>' reference.
@@ -134,32 +105,6 @@ public interface DSLRuleAnalyzer extends DSLRules
   void setMonitor(DSLMonitor value);
 
   /**
-   * Returns the value of the '<em><b>Monitorinterface</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Monitorinterface</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Monitorinterface</em>' reference.
-   * @see #setMonitorinterface(MonitorInterface)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleAnalyzer_Monitorinterface()
-   * @model
-   * @generated
-   */
-  MonitorInterface getMonitorinterface();
-
-  /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getMonitorinterface <em>Monitorinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Monitorinterface</em>' reference.
-   * @see #getMonitorinterface()
-   * @generated
-   */
-  void setMonitorinterface(MonitorInterface value);
-
-  /**
    * Returns the value of the '<em><b>Planner</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -186,29 +131,29 @@ public interface DSLRuleAnalyzer extends DSLRules
   void setPlanner(DSLPlanner value);
 
   /**
-   * Returns the value of the '<em><b>Plannerinterface</b></em>' reference.
+   * Returns the value of the '<em><b>Rreference</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Plannerinterface</em>' reference isn't clear,
+   * If the meaning of the '<em>Rreference</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Plannerinterface</em>' reference.
-   * @see #setPlannerinterface(PlannerInterface)
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleAnalyzer_Plannerinterface()
+   * @return the value of the '<em>Rreference</em>' reference.
+   * @see #setRreference(DSLReferenceInput)
+   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLRuleAnalyzer_Rreference()
    * @model
    * @generated
    */
-  PlannerInterface getPlannerinterface();
+  DSLReferenceInput getRreference();
 
   /**
-   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getPlannerinterface <em>Plannerinterface</em>}' reference.
+   * Sets the value of the '{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer#getRreference <em>Rreference</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Plannerinterface</em>' reference.
-   * @see #getPlannerinterface()
+   * @param value the new value of the '<em>Rreference</em>' reference.
+   * @see #getRreference()
    * @generated
    */
-  void setPlannerinterface(PlannerInterface value);
+  void setRreference(DSLReferenceInput value);
 
 } // DSLRuleAnalyzer

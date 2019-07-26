@@ -5,7 +5,6 @@ package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInput;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.KnowledgeInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import java.util.Collection;
@@ -33,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLKnowledgeImpl#getName <em>Name</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLKnowledgeImpl#getKnowledgeinterfaces <em>Knowledgeinterfaces</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLKnowledgeImpl#getReferenceInput <em>Reference Input</em>}</li>
  * </ul>
  *
@@ -60,16 +58,6 @@ public class DSLKnowledgeImpl extends MinimalEObjectImpl.Container implements DS
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getKnowledgeinterfaces() <em>Knowledgeinterfaces</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getKnowledgeinterfaces()
-   * @generated
-   * @ordered
-   */
-  protected EList<KnowledgeInterface> knowledgeinterfaces;
 
   /**
    * The cached value of the '{@link #getReferenceInput() <em>Reference Input</em>}' containment reference list.
@@ -130,20 +118,6 @@ public class DSLKnowledgeImpl extends MinimalEObjectImpl.Container implements DS
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<KnowledgeInterface> getKnowledgeinterfaces()
-  {
-    if (knowledgeinterfaces == null)
-    {
-      knowledgeinterfaces = new EObjectContainmentEList<KnowledgeInterface>(KnowledgeInterface.class, this, SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES);
-    }
-    return knowledgeinterfaces;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<DSLReferenceInput> getReferenceInput()
   {
     if (referenceInput == null)
@@ -163,8 +137,6 @@ public class DSLKnowledgeImpl extends MinimalEObjectImpl.Container implements DS
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
-        return ((InternalEList<?>)getKnowledgeinterfaces()).basicRemove(otherEnd, msgs);
       case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
         return ((InternalEList<?>)getReferenceInput()).basicRemove(otherEnd, msgs);
     }
@@ -183,8 +155,6 @@ public class DSLKnowledgeImpl extends MinimalEObjectImpl.Container implements DS
     {
       case SasDslPackage.DSL_KNOWLEDGE__NAME:
         return getName();
-      case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
-        return getKnowledgeinterfaces();
       case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
         return getReferenceInput();
     }
@@ -204,10 +174,6 @@ public class DSLKnowledgeImpl extends MinimalEObjectImpl.Container implements DS
     {
       case SasDslPackage.DSL_KNOWLEDGE__NAME:
         setName((String)newValue);
-        return;
-      case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
-        getKnowledgeinterfaces().clear();
-        getKnowledgeinterfaces().addAll((Collection<? extends KnowledgeInterface>)newValue);
         return;
       case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
         getReferenceInput().clear();
@@ -230,9 +196,6 @@ public class DSLKnowledgeImpl extends MinimalEObjectImpl.Container implements DS
       case SasDslPackage.DSL_KNOWLEDGE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
-        getKnowledgeinterfaces().clear();
-        return;
       case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
         getReferenceInput().clear();
         return;
@@ -252,8 +215,6 @@ public class DSLKnowledgeImpl extends MinimalEObjectImpl.Container implements DS
     {
       case SasDslPackage.DSL_KNOWLEDGE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case SasDslPackage.DSL_KNOWLEDGE__KNOWLEDGEINTERFACES:
-        return knowledgeinterfaces != null && !knowledgeinterfaces.isEmpty();
       case SasDslPackage.DSL_KNOWLEDGE__REFERENCE_INPUT:
         return referenceInput != null && !referenceInput.isEmpty();
     }

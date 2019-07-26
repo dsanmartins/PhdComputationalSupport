@@ -16,8 +16,17 @@ import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMeasuredOutput;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLReferenceInput;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleAnalyzer;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleExecutor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleMO;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleMonitor;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRulePlanner;
+import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRules;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor;
 import com.google.common.collect.Iterables;
+import java.util.ArrayList;
+import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -25,6 +34,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
@@ -34,11 +44,314 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
  */
 @SuppressWarnings("all")
 public class SasDslGenerator extends AbstractGenerator {
+  private HashMap<String, String> structureElementPath = new HashMap<String, String>();
+  
+  private HashMap<String, String> outAggregatedPath = new HashMap<String, String>();
+  
+  private HashMap<String, String> aggregatedPath = new HashMap<String, String>();
+  
+  private ArrayList<Integer> depth = CollectionLiterals.<Integer>newArrayList(Integer.valueOf(5));
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     Iterable<ArchitectureDefinition> _filter = Iterables.<ArchitectureDefinition>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), ArchitectureDefinition.class);
     for (final ArchitectureDefinition e : _filter) {
-      fsa.generateFile("PlannedArchitecture.xmi", this.compile(e));
+      {
+        this.createPath(e);
+        fsa.generateFile("PlannedArchitecture.xmi", this.compile(e));
+        fsa.generateFile("Constraints.ocl", this.compile2(e));
+      }
+    }
+  }
+  
+  public void createPath(final ArchitectureDefinition architecture) {
+    this.depth.clear();
+    this.depth.add(0, Integer.valueOf(0));
+    this.depth.add(1, Integer.valueOf(0));
+    this.depth.add(2, Integer.valueOf(0));
+    this.depth.add(3, Integer.valueOf(0));
+    this.depth.add(4, Integer.valueOf(0));
+    EList<DSLManaging> managing = architecture.getManaging();
+    for (int i = 0; (i < managing.size()); i++) {
+      {
+        Integer level0 = this.depth.get(0);
+        DSLManaging man = managing.get(i);
+        this.structureElementPath.put(man.getName(), ("//@model.1/@structureElement." + level0));
+        EList<DSLManagerController> mcontroller = man.getManagerController();
+        for (int j = 0; (j < mcontroller.size()); j++) {
+          {
+            Integer level1 = this.depth.get(1);
+            DSLManagerController mcon = mcontroller.get(j);
+            this.structureElementPath.put(mcon.getName(), (((("//@model.1/@structureElement." + level0) + "/") + "@structureElement.") + level1));
+            EList<DSLController> controller = mcon.getController();
+            for (int k = 0; (k < controller.size()); k++) {
+              {
+                Integer level2 = this.depth.get(2);
+                DSLController con = controller.get(k);
+                this.structureElementPath.put(con.getName(), ((((((("//@model.1/@structureElement." + level0) + 
+                  "/") + "@structureElement.") + level1) + 
+                  "/") + "@structureElement.") + level2));
+                EList<DSLMonitor> monitor = con.getMonitor();
+                for (int l = 0; (l < monitor.size()); l++) {
+                  {
+                    Integer level3 = this.depth.get(3);
+                    DSLMonitor mon = monitor.get(l);
+                    this.structureElementPath.put(mon.getName(), (((((((((("//@model.1/@structureElement." + level0) + 
+                      "/") + "@structureElement.") + level1) + 
+                      "/") + "@structureElement.") + level2) + 
+                      "/") + "@structureElement.") + level3));
+                    level3++;
+                    this.depth.set(3, level3);
+                  }
+                }
+                EList<DSLAnalyzer> analyzer = con.getAnalyzer();
+                for (int l = 0; (l < analyzer.size()); l++) {
+                  {
+                    Integer level3 = this.depth.get(3);
+                    DSLAnalyzer ana = analyzer.get(l);
+                    this.structureElementPath.put(ana.getName(), (((((((((("//@model.1/@structureElement." + level0) + 
+                      "/") + "@structureElement.") + level1) + 
+                      "/") + "@structureElement.") + level2) + 
+                      "/") + "@structureElement.") + level3));
+                    level3++;
+                    this.depth.set(3, level3);
+                  }
+                }
+                EList<DSLPlanner> planner = con.getPlanner();
+                for (int l = 0; (l < planner.size()); l++) {
+                  {
+                    Integer level3 = this.depth.get(3);
+                    DSLPlanner pla = planner.get(l);
+                    this.structureElementPath.put(pla.getName(), (((((((((("//@model.1/@structureElement." + level0) + 
+                      "/") + "@structureElement.") + level1) + 
+                      "/") + "@structureElement.") + level2) + 
+                      "/") + "@structureElement.") + level3));
+                    level3++;
+                    this.depth.set(3, level3);
+                  }
+                }
+                EList<DSLExecutor> executor = con.getExecutor();
+                for (int l = 0; (l < executor.size()); l++) {
+                  {
+                    Integer level3 = this.depth.get(3);
+                    DSLExecutor exe = executor.get(l);
+                    this.structureElementPath.put(exe.getName(), (((((((((("//@model.1/@structureElement." + level0) + 
+                      "/") + "@structureElement.") + level1) + 
+                      "/") + "@structureElement.") + level2) + 
+                      "/") + "@structureElement.") + level3));
+                    level3++;
+                    this.depth.set(3, level3);
+                  }
+                }
+                EList<DSLKnowledge> knowledge = con.getKnowledge();
+                for (int l = 0; (l < knowledge.size()); l++) {
+                  {
+                    Integer level3 = this.depth.get(3);
+                    DSLKnowledge kno = knowledge.get(l);
+                    this.structureElementPath.put(kno.getName(), (((((((((("//@model.1/@structureElement." + level0) + 
+                      "/") + "@structureElement.") + level1) + 
+                      "/") + "@structureElement.") + level2) + 
+                      "/") + "@structureElement.") + level3));
+                    EList<DSLReferenceInput> ri = kno.getReferenceInput();
+                    for (int m = 0; (m < ri.size()); m++) {
+                      {
+                        Integer level4 = this.depth.get(4);
+                        DSLReferenceInput r = ri.get(m);
+                        this.structureElementPath.put(r.getName(), ((((((((((((("//@model.1/@structureElement." + level0) + 
+                          "/") + "@structureElement.") + level1) + 
+                          "/") + "@structureElement.") + level2) + 
+                          "/") + "@structureElement.") + level3) + 
+                          "/") + "@structureElement.") + level4));
+                        level4++;
+                        this.depth.set(4, level4);
+                      }
+                    }
+                    level3++;
+                    this.depth.set(3, level3);
+                  }
+                }
+                level2++;
+                this.depth.set(2, level2);
+              }
+            }
+            level1++;
+            this.depth.set(1, level1);
+          }
+        }
+        level0++;
+        this.depth.set(0, level0);
+        EList<DSLController> controller = man.getController();
+        for (int k = 0; (k < controller.size()); k++) {
+          {
+            Integer level1 = this.depth.get(1);
+            DSLController con = controller.get(k);
+            this.structureElementPath.put(con.getName(), (((("//@model.1/@structureElement." + level0) + 
+              "/") + "@structureElement.") + level1));
+            EList<DSLMonitor> monitor = con.getMonitor();
+            for (int l = 0; (l < monitor.size()); l++) {
+              {
+                Integer level2 = this.depth.get(2);
+                DSLMonitor mon = monitor.get(l);
+                this.structureElementPath.put(mon.getName(), ((((((("//@model.1/@structureElement." + level0) + 
+                  "/") + "@structureElement.") + level1) + 
+                  "/") + "@structureElement.") + level2));
+                level2++;
+                this.depth.set(2, level2);
+              }
+            }
+            EList<DSLAnalyzer> analyzer = con.getAnalyzer();
+            for (int l = 0; (l < analyzer.size()); l++) {
+              {
+                Integer level2 = this.depth.get(2);
+                DSLAnalyzer ana = analyzer.get(l);
+                this.structureElementPath.put(ana.getName(), ((((((("//@model.1/@structureElement." + level0) + 
+                  "/") + "@structureElement.") + level1) + 
+                  "/") + "@structureElement.") + level2));
+                level2++;
+                this.depth.set(2, level2);
+              }
+            }
+            EList<DSLPlanner> planner = con.getPlanner();
+            for (int l = 0; (l < planner.size()); l++) {
+              {
+                Integer level2 = this.depth.get(2);
+                DSLPlanner pla = planner.get(l);
+                this.structureElementPath.put(pla.getName(), ((((((("//@model.1/@structureElement." + level0) + 
+                  "/") + "@structureElement.") + level1) + 
+                  "/") + "@structureElement.") + level2));
+                level2++;
+                this.depth.set(2, level2);
+              }
+            }
+            EList<DSLExecutor> executor = con.getExecutor();
+            for (int l = 0; (l < executor.size()); l++) {
+              {
+                Integer level2 = this.depth.get(2);
+                DSLExecutor exe = executor.get(l);
+                this.structureElementPath.put(exe.getName(), ((((((("//@model.1/@structureElement." + level0) + 
+                  "/") + "@structureElement.") + level1) + 
+                  "/") + "@structureElement.") + level2));
+                level2++;
+                this.depth.set(2, level2);
+              }
+            }
+            EList<DSLKnowledge> knowledge = con.getKnowledge();
+            for (int l = 0; (l < knowledge.size()); l++) {
+              {
+                Integer level2 = this.depth.get(2);
+                DSLKnowledge kno = knowledge.get(l);
+                this.structureElementPath.put(kno.getName(), ((((((("//@model.1/@structureElement." + level0) + 
+                  "/") + "@structureElement.") + level1) + 
+                  "/") + "@structureElement.") + level2));
+                EList<DSLReferenceInput> ri = kno.getReferenceInput();
+                for (int m = 0; (m < ri.size()); m++) {
+                  {
+                    Integer level3 = this.depth.get(3);
+                    DSLReferenceInput r = ri.get(m);
+                    this.structureElementPath.put(r.getName(), (((((((((("//@model.1/@structureElement." + level0) + 
+                      "/") + "@structureElement.") + level1) + 
+                      "/") + "@structureElement.") + level2) + 
+                      "/") + "@structureElement.") + level3));
+                    level3++;
+                    this.depth.set(3, level3);
+                  }
+                }
+                level2++;
+                this.depth.set(2, level2);
+              }
+            }
+            level1++;
+            this.depth.set(1, level1);
+          }
+        }
+        level0++;
+        this.depth.set(0, level0);
+      }
+    }
+    EList<DSLManaged> managed = architecture.getManaged();
+    for (int i = 0; (i < managed.size()); i++) {
+      {
+        Integer level0 = this.depth.get(0);
+        DSLManaged man = managed.get(i);
+        this.structureElementPath.put(man.getName(), ("//@model.1/@structureElement." + level0));
+        EList<DSLSensor> sensor = man.getSensor();
+        for (int k = 0; (k < sensor.size()); k++) {
+          {
+            Integer level1 = this.depth.get(1);
+            DSLSensor sen = sensor.get(k);
+            this.structureElementPath.put(sen.getName(), (((("//@model.1/@structureElement." + level0) + 
+              "/") + "@structureElement.") + level1));
+            level1++;
+            this.depth.set(1, level1);
+          }
+        }
+        EList<DSLEffector> effector = man.getEffector();
+        for (int k = 0; (k < effector.size()); k++) {
+          {
+            Integer level1 = this.depth.get(1);
+            DSLEffector efe = effector.get(k);
+            this.structureElementPath.put(efe.getName(), (((("//@model.1/@structureElement." + level0) + 
+              "/") + "@structureElement.") + level1));
+            level1++;
+            this.depth.set(1, level1);
+          }
+        }
+        EList<DSLMeasuredOutput> mea = man.getMeasuredOutput();
+        for (int k = 0; (k < mea.size()); k++) {
+          {
+            Integer level1 = this.depth.get(1);
+            DSLMeasuredOutput me = mea.get(k);
+            this.structureElementPath.put(me.getName(), (((("//@model.1/@structureElement." + level0) + 
+              "/") + "@structureElement.") + level1));
+            level1++;
+            this.depth.set(1, level1);
+          }
+        }
+        level0++;
+        this.depth.set(0, level0);
+      }
+    }
+    EList<DSLRules> rule = architecture.getRules();
+    int rController = 0;
+    String outController = "";
+    int rMonitor = 0;
+    String outMonitor = "";
+    int rAnalyzer = 0;
+    String outAnalyzer = "";
+    int rPlanner = 0;
+    String outPlanner = "";
+    int rExecutor = 0;
+    String outExecutor = "";
+    int rMO = 0;
+    String outMO = "";
+    for (int i = 0; (i < rule.size()); i++) {
+      {
+        DSLRules r = rule.get(i);
+        boolean _equals = r.getAccess().equals("can-access");
+        if (_equals) {
+          if ((r instanceof DSLRuleController)) {
+            String path = this.outAggregatedPath.get(((DSLRuleController)r).getController().getName());
+            if ((path != null)) {
+              outController = ((outController + "/@aggregated.") + Integer.valueOf(rController));
+            }
+          } else {
+            if ((r instanceof DSLRuleMonitor)) {
+            } else {
+              if ((r instanceof DSLRuleAnalyzer)) {
+              } else {
+                if ((r instanceof DSLRulePlanner)) {
+                } else {
+                  if ((r instanceof DSLRuleExecutor)) {
+                  } else {
+                    if ((r instanceof DSLRuleMO)) {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
   
@@ -47,6 +360,9 @@ public class SasDslGenerator extends AbstractGenerator {
     _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     _builder.newLine();
     _builder.append("<xmi:XMI xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:action=\"http://www.eclipse.org/MoDisco/kdm/action\" xmlns:code=\"http://www.eclipse.org/MoDisco/kdm/code\" xmlns:kdm=\"http://www.eclipse.org/MoDisco/kdm/kdm\" xmlns:source=\"http://www.eclipse.org/MoDisco/kdm/source\" xmlns:structure=\"http://www.eclipse.org/MoDisco/kdm/structure\">");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<kdm:Segment name=\"Planned Architecture\">");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<model xsi:type=\"code:CodeModel\" name=\"Elements Instances\">");
@@ -91,7 +407,52 @@ public class SasDslGenerator extends AbstractGenerator {
     _builder.append("</model>");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("<model xsi:type=\"structure:StructureModel\" name=\"Planned Architecture\">");
+    _builder.append("<extension xsi:type=\"kdm:ExtensionFamily\" name=\"Adaptive System Domain\">");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Monitor\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Analyzer\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Planner\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Executor\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Knowledge\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Reference Input\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Measured Output\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Control Loop Manager\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Control Loop\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Sensor\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Effector\" type=\"structure:Component\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Managing Subsystem\" type=\"structure:Subsystem\"/>");
+    _builder.newLine();
+    _builder.append("\t     ");
+    _builder.append("<stereotype name=\"Managed Subsystem\" type=\"structure:Subsystem\"/>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</extension>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<model xsi:type=\"structure:StructureModel\" name=\"Architecture Abstractions\">");
     _builder.newLine();
     {
       EList<DSLManaging> _managing = architectureDefinition.getManaging();
@@ -100,7 +461,7 @@ public class SasDslGenerator extends AbstractGenerator {
         _builder.append("<structureElement xsi:type=\"structure:Subsystem\" name=\"");
         String _name = arch.getName();
         _builder.append(_name, "\t\t");
-        _builder.append("\">");
+        _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.11\">");
         _builder.newLineIfNotEmpty();
         {
           EList<DSLManagerController> _managerController = arch.getManagerController();
@@ -111,7 +472,7 @@ public class SasDslGenerator extends AbstractGenerator {
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_1 = mcontroller.getName();
             _builder.append(_name_1, "\t\t\t\t");
-            _builder.append("\">");
+            _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.7\">");
             _builder.newLineIfNotEmpty();
             {
               EList<DSLController> _controller = mcontroller.getController();
@@ -122,7 +483,7 @@ public class SasDslGenerator extends AbstractGenerator {
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_2 = controller.getName();
                 _builder.append(_name_2, "\t\t\t\t\t");
-                _builder.append("\">");
+                _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.8\">");
                 _builder.newLineIfNotEmpty();
                 {
                   EList<DSLMonitor> _monitor = controller.getMonitor();
@@ -134,7 +495,7 @@ public class SasDslGenerator extends AbstractGenerator {
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_3 = monitor.getName();
                     _builder.append(_name_3, "\t\t\t\t\t\t");
-                    _builder.append("\">");
+                    _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.0\">");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t\t");
                     _builder.append("\t");
@@ -160,7 +521,7 @@ public class SasDslGenerator extends AbstractGenerator {
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_4 = analyzer.getName();
                     _builder.append(_name_4, "\t\t\t\t\t\t");
-                    _builder.append("\">");
+                    _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.1\">");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t\t");
                     _builder.append("\t");
@@ -186,7 +547,7 @@ public class SasDslGenerator extends AbstractGenerator {
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_5 = planner.getName();
                     _builder.append(_name_5, "\t\t\t\t\t\t");
-                    _builder.append("\">");
+                    _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.2\">");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t\t");
                     _builder.append("\t");
@@ -212,7 +573,7 @@ public class SasDslGenerator extends AbstractGenerator {
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_6 = executor.getName();
                     _builder.append(_name_6, "\t\t\t\t\t\t");
-                    _builder.append("\">");
+                    _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.3\">");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t\t");
                     _builder.append("\t");
@@ -238,7 +599,7 @@ public class SasDslGenerator extends AbstractGenerator {
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_7 = knowledge.getName();
                     _builder.append(_name_7, "\t\t\t\t\t\t");
-                    _builder.append("\">");
+                    _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.4\">");
                     _builder.newLineIfNotEmpty();
                     {
                       EList<DSLReferenceInput> _referenceInput = knowledge.getReferenceInput();
@@ -251,7 +612,7 @@ public class SasDslGenerator extends AbstractGenerator {
                         _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                         String _name_8 = referenceInput.getName();
                         _builder.append(_name_8, "\t\t\t\t\t\t\t");
-                        _builder.append("\"/>");
+                        _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.5\"/>");
                         _builder.newLineIfNotEmpty();
                       }
                     }
@@ -289,7 +650,7 @@ public class SasDslGenerator extends AbstractGenerator {
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_9 = controller_1.getName();
             _builder.append(_name_9, "\t\t\t");
-            _builder.append("\">");
+            _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.8\">");
             _builder.newLineIfNotEmpty();
             {
               EList<DSLMonitor> _monitor_1 = controller_1.getMonitor();
@@ -300,7 +661,7 @@ public class SasDslGenerator extends AbstractGenerator {
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_10 = monitor_1.getName();
                 _builder.append(_name_10, "\t\t\t\t");
-                _builder.append("\">");
+                _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.0\">");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t\t");
                 _builder.append("\t");
@@ -323,7 +684,7 @@ public class SasDslGenerator extends AbstractGenerator {
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_11 = analyzer_1.getName();
                 _builder.append(_name_11, "\t\t\t\t");
-                _builder.append("\">");
+                _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.1\">");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t\t");
                 _builder.append("\t");
@@ -346,7 +707,7 @@ public class SasDslGenerator extends AbstractGenerator {
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_12 = planner_1.getName();
                 _builder.append(_name_12, "\t\t\t\t");
-                _builder.append("\">");
+                _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.2\">");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t\t");
                 _builder.append("\t");
@@ -369,7 +730,7 @@ public class SasDslGenerator extends AbstractGenerator {
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_13 = executor_1.getName();
                 _builder.append(_name_13, "\t\t\t\t");
-                _builder.append("\">");
+                _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.3\">");
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t\t");
                 _builder.append("\t");
@@ -392,7 +753,7 @@ public class SasDslGenerator extends AbstractGenerator {
                 _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                 String _name_14 = knowledge_1.getName();
                 _builder.append(_name_14, "\t\t\t\t");
-                _builder.append("\">");
+                _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.4\">");
                 _builder.newLineIfNotEmpty();
                 {
                   EList<DSLReferenceInput> _referenceInput_1 = knowledge_1.getReferenceInput();
@@ -404,7 +765,7 @@ public class SasDslGenerator extends AbstractGenerator {
                     _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
                     String _name_15 = referenceInput_1.getName();
                     _builder.append(_name_15, "\t\t\t\t\t");
-                    _builder.append("\"/>");
+                    _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.5\"/>");
                     _builder.newLineIfNotEmpty();
                   }
                 }
@@ -435,7 +796,7 @@ public class SasDslGenerator extends AbstractGenerator {
         _builder.append("<structureElement xsi:type=\"structure:Subsystem\" name=\"");
         String _name_16 = arch_1.getName();
         _builder.append(_name_16, "\t\t");
-        _builder.append("\">");
+        _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.12\">");
         _builder.newLineIfNotEmpty();
         {
           EList<DSLSensor> _sensor = arch_1.getSensor();
@@ -445,7 +806,7 @@ public class SasDslGenerator extends AbstractGenerator {
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_17 = sensor.getName();
             _builder.append(_name_17, "\t\t\t");
-            _builder.append("\">");
+            _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.9\">");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t");
@@ -465,7 +826,7 @@ public class SasDslGenerator extends AbstractGenerator {
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_18 = effector.getName();
             _builder.append(_name_18, "\t\t\t");
-            _builder.append("\">");
+            _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.10\">");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t");
@@ -485,7 +846,7 @@ public class SasDslGenerator extends AbstractGenerator {
             _builder.append("<structureElement xsi:type=\"structure:Component\" name=\"");
             String _name_19 = measuredOutput.getName();
             _builder.append(_name_19, "\t\t\t");
-            _builder.append("\">");
+            _builder.append("\" stereotype=\"/0/@extension.0/@stereotype.6\">");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t");
@@ -503,9 +864,21 @@ public class SasDslGenerator extends AbstractGenerator {
       }
     }
     _builder.append("\t");
-    _builder.append("</model>\t");
+    _builder.append("</model>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</kdm:Segment>\t");
     _builder.newLine();
     _builder.append("</xmi:XMI>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile2(final ArchitectureDefinition architectureDefinition) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
     _builder.newLine();
     return _builder;
   }

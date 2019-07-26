@@ -3,7 +3,6 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ControllerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzer;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
@@ -37,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLControllerImpl#getName <em>Name</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLControllerImpl#getControllerinterfaces <em>Controllerinterfaces</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLControllerImpl#getMonitor <em>Monitor</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLControllerImpl#getAnalyzer <em>Analyzer</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLControllerImpl#getPlanner <em>Planner</em>}</li>
@@ -68,16 +66,6 @@ public class DSLControllerImpl extends MinimalEObjectImpl.Container implements D
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getControllerinterfaces() <em>Controllerinterfaces</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getControllerinterfaces()
-   * @generated
-   * @ordered
-   */
-  protected EList<ControllerInterface> controllerinterfaces;
 
   /**
    * The cached value of the '{@link #getMonitor() <em>Monitor</em>}' containment reference list.
@@ -178,20 +166,6 @@ public class DSLControllerImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ControllerInterface> getControllerinterfaces()
-  {
-    if (controllerinterfaces == null)
-    {
-      controllerinterfaces = new EObjectContainmentEList<ControllerInterface>(ControllerInterface.class, this, SasDslPackage.DSL_CONTROLLER__CONTROLLERINTERFACES);
-    }
-    return controllerinterfaces;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<DSLMonitor> getMonitor()
   {
     if (monitor == null)
@@ -267,8 +241,6 @@ public class DSLControllerImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case SasDslPackage.DSL_CONTROLLER__CONTROLLERINTERFACES:
-        return ((InternalEList<?>)getControllerinterfaces()).basicRemove(otherEnd, msgs);
       case SasDslPackage.DSL_CONTROLLER__MONITOR:
         return ((InternalEList<?>)getMonitor()).basicRemove(otherEnd, msgs);
       case SasDslPackage.DSL_CONTROLLER__ANALYZER:
@@ -295,8 +267,6 @@ public class DSLControllerImpl extends MinimalEObjectImpl.Container implements D
     {
       case SasDslPackage.DSL_CONTROLLER__NAME:
         return getName();
-      case SasDslPackage.DSL_CONTROLLER__CONTROLLERINTERFACES:
-        return getControllerinterfaces();
       case SasDslPackage.DSL_CONTROLLER__MONITOR:
         return getMonitor();
       case SasDslPackage.DSL_CONTROLLER__ANALYZER:
@@ -324,10 +294,6 @@ public class DSLControllerImpl extends MinimalEObjectImpl.Container implements D
     {
       case SasDslPackage.DSL_CONTROLLER__NAME:
         setName((String)newValue);
-        return;
-      case SasDslPackage.DSL_CONTROLLER__CONTROLLERINTERFACES:
-        getControllerinterfaces().clear();
-        getControllerinterfaces().addAll((Collection<? extends ControllerInterface>)newValue);
         return;
       case SasDslPackage.DSL_CONTROLLER__MONITOR:
         getMonitor().clear();
@@ -366,9 +332,6 @@ public class DSLControllerImpl extends MinimalEObjectImpl.Container implements D
       case SasDslPackage.DSL_CONTROLLER__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case SasDslPackage.DSL_CONTROLLER__CONTROLLERINTERFACES:
-        getControllerinterfaces().clear();
-        return;
       case SasDslPackage.DSL_CONTROLLER__MONITOR:
         getMonitor().clear();
         return;
@@ -400,8 +363,6 @@ public class DSLControllerImpl extends MinimalEObjectImpl.Container implements D
     {
       case SasDslPackage.DSL_CONTROLLER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case SasDslPackage.DSL_CONTROLLER__CONTROLLERINTERFACES:
-        return controllerinterfaces != null && !controllerinterfaces.isEmpty();
       case SasDslPackage.DSL_CONTROLLER__MONITOR:
         return monitor != null && !monitor.isEmpty();
       case SasDslPackage.DSL_CONTROLLER__ANALYZER:

@@ -12,74 +12,55 @@ ArchitectureDefinition:
 	
 DSLRules:
 	
-	'controller' DSLRuleController |  'monitor' DSLRuleMonitor | 'analyzer' DSLRuleAnalyzer | 
-	'planner' DSLRulePlanner | 'executor' DSLRuleExecutor | 'sensor' DSLRuleMO | 'analyzer' DSLRuleRI
+	 DSLRuleController | DSLRuleMonitor | DSLRuleAnalyzer |  DSLRulePlanner | DSLRuleExecutor | DSLRuleMO 
 ;
 
 
 DSLRuleController:
-	(controller=[DSLController] 'must-not-access-monitor' monitor = [DSLMonitor] ';') |
-	(controller=[DSLController] 'must-access-monitor' monitor = [DSLMonitor] 'through' monitorinterface=[MonitorInterface|FQN] ';') |
-	(controller=[DSLController] 'must-not-access-analyzer' analyzer = [DSLAnalyzer] ';') |
-	(controller=[DSLController] 'must-access-analyzer' analyzer = [DSLAnalyzer] 'through' analyzerinterface=[AnalyzerInterface|FQN] ';')|
-	(controller=[DSLController] 'must-not-access-planner' planner = [DSLPlanner] ';') |
-	(controller=[DSLController] 'must-access-planner' planner = [DSLPlanner] 'through' plannerinterface=[PlannerInterface|FQN] ';')|
-	(controller=[DSLController] 'must-not-access-executor' executor = [DSLExecutor] ';') |
-	(controller=[DSLController] 'must-access-executor' executor = [DSLExecutor] 'through' executorinterface=[ExecutorInterface|FQN] ';')
-
+	('controller' controller=[DSLController] access=DSLAccess 'monitor' monitor = [DSLMonitor] ';') |
+	('controller' controller=[DSLController] access=DSLAccess 'analyzer' analyzer = [DSLAnalyzer] ';') |
+	('controller' controller=[DSLController] access=DSLAccess 'planner' planner = [DSLPlanner] ';') |
+	('controller' controller=[DSLController] access=DSLAccess 'executor' executor = [DSLExecutor] ';') 
 ;
 
 DSLRuleMonitor:
 	
-	(monitor=[DSLMonitor] 'must-not-access-sensor' sensor = [DSLSensor] ';') |
-	(monitor=[DSLMonitor] 'must-access-sensor' sensor = [DSLSensor] 'through' sensorinterface=[SensorInterface|FQN] ';') |
-	(monitor=[DSLMonitor] 'must-not-access-knowledge' knowledge = [DSLKnowledge] ';') |
-	(monitor=[DSLMonitor] 'must-access-knowledge' knowledge = [DSLKnowledge] 'through' knowledgeinterface=[KnowledgeInterface|FQN] ';')|
-	(monitor=[DSLMonitor] 'must-not-access-analyzer' analyzer = [DSLAnalyzer] ';') |
-	(monitor=[DSLMonitor] 'must-access-analyzer' analyzer = [DSLAnalyzer] 'through' analyzerinterface=[AnalyzerInterface|FQN] ';')
+	( 'monitor' monitor=[DSLMonitor] access=DSLAccess 'sensor' sensor = [DSLSensor] ';') |
+	( 'monitor' monitor=[DSLMonitor] access=DSLAccess 'knowledge' knowledge = [DSLKnowledge] ';') |
+	( 'monitor' monitor=[DSLMonitor] access=DSLAccess 'analyzer' analyzer = [DSLAnalyzer] ';') 
 ;
 
 DSLRuleAnalyzer:
 	
-	(analyzer=[DSLAnalyzer] 'must-not-access-knowledge' knowledge = [DSLKnowledge] ';') |
-	(analyzer=[DSLAnalyzer] 'must-access-knowledge' knowledge = [DSLKnowledge] 'through' knowledgeinterface=[KnowledgeInterface|FQN] ';') |
-	(analyzer=[DSLAnalyzer] 'must-not-access-monitor' monitor = [DSLMonitor] ';') |
-	(analyzer=[DSLAnalyzer] 'must-access-monitor' knowledge = [DSLMonitor] 'through' monitorinterface=[MonitorInterface|FQN] ';') |
-	(analyzer=[DSLAnalyzer] 'must-not-access-planner' planner = [DSLPlanner] ';') |
-	(analyzer=[DSLAnalyzer] 'must-access-planner' planner = [DSLPlanner] 'through' plannerinterface=[PlannerInterface|FQN] ';') 
-	
+	('analyzer' analyzer=[DSLAnalyzer] access=DSLAccess 'knowledge' knowledge = [DSLKnowledge] ';') |
+	('analyzer' analyzer=[DSLAnalyzer] access=DSLAccess 'monitor' monitor = [DSLMonitor] ';') |
+	('analyzer' analyzer=[DSLAnalyzer] access=DSLAccess 'planner' planner = [DSLPlanner] ';') |
+	('analyzer' analyzer=[DSLAnalyzer] access=DSLAccess 'reference-input' rreference = [DSLReferenceInput] ';') 
 ;
 
 DSLRulePlanner:
 	
-	(planner=[DSLPlanner] 'must-not-access-knowledge' knowledge = [DSLKnowledge] ';') |
-	(planner=[DSLPlanner] 'must-access-knowledge' knowledge = [DSLKnowledge] 'through' knowledgeinterface=[KnowledgeInterface|FQN] ';') |
-	(planner=[DSLPlanner] 'must-not-access-analyzer' analyzer = [DSLAnalyzer] ';') |
-	(planner=[DSLPlanner] 'must-access-analyzer' analyzer = [DSLAnalyzer] 'through' analyzerinterface=[AnalyzerInterface|FQN] ';') |
-	(planner=[DSLPlanner] 'must-not-access-executor' executor = [DSLExecutor] ';') |
-	(planner=[DSLPlanner] 'must-access-executor' executor = [DSLExecutor] 'through' executorinterface=[ExecutorInterface|FQN] ';') 
+	('planner' planner=[DSLPlanner] access=DSLAccess 'knowledge' knowledge = [DSLKnowledge] ';') |
+	('planner' planner=[DSLPlanner] access=DSLAccess 'analyzer' analyzer = [DSLAnalyzer] ';') |
+	('planner' planner=[DSLPlanner] access=DSLAccess 'executor' executor = [DSLExecutor] ';') 
 ;
 
 DSLRuleExecutor:
 		
-	(executor=[DSLExecutor] 'must-not-access-effector' effector = [DSLEffector] ';') |
-	(executor=[DSLExecutor] 'must-access-effector' effector = [DSLEffector] 'through' effectorinterface=[EffectorInterface|FQN] ';') |
-	(executor=[DSLExecutor] 'must-not-access-planner' planner = [DSLPlanner] ';') |
-	(executor=[DSLExecutor] 'must-access-planner' planner = [DSLPlanner] 'through' plannerinterface=[PlannerInterface|FQN] ';') |
-	(executor=[DSLExecutor] 'must-not-access-knowledge' knowledge = [DSLKnowledge] ';') |
-	(executor=[DSLExecutor] 'must-access-knowledge' knowledge = [DSLKnowledge] 'through' knowledgeinterface=[KnowledgeInterface|FQN] ';')
+	('executor' executor=[DSLExecutor] access=DSLAccess 'effector' effector = [DSLEffector] ';') |
+	('executor' executor=[DSLExecutor] access=DSLAccess 'planner' planner = [DSLPlanner] ';') |
+	('executor' executor=[DSLExecutor] access=DSLAccess 'knowledge' knowledge = [DSLKnowledge] ';') 
 ;
 
 DSLRuleMO:
 	
-	(sensor=[DSLSensor] 'must-sense' measured = [DSLMeasuredOutput] ';') | 
-	(sensor=[DSLSensor] 'must-not-sense' measured = [DSLMeasuredOutput] ';')
+	('sensor' sensor=[DSLSensor] access=DSLAccess 'measured-output' measured = [DSLMeasuredOutput] ';') 
 ;
 
-DSLRuleRI:
+
+DSLAccess:
 	
-	(analyzer=[DSLAnalyzer] 'must-use' reference = [DSLReferenceInput] ';') | 
-	(analyzer=[DSLAnalyzer] 'must-not-use' reference = [DSLReferenceInput] ';')
+	'can-access' | 'cannot-access'
 ;
 
 DSLManaging: 
@@ -120,7 +101,7 @@ DSLTypeMC:
 
 DSLController:
 	
-	'Controller' name=ID  ('with-interface' controllerinterfaces+=ControllerInterface (',' controllerinterfaces+=ControllerInterface)* )? '{'
+	'Controller' name=ID '{'
 	
 		monitor += DSLMonitor+
 		analyzer += DSLAnalyzer+
@@ -133,27 +114,27 @@ DSLController:
 
 DSLMonitor:
 	
-	'Monitor'  name=ID  ('with-interface' monitorinterfaces+=MonitorInterface (',' monitorinterfaces+=MonitorInterface)* )? ';'
+	'Monitor'  name=ID ';'
 ;
 
 DSLAnalyzer:
 	
-	'Analyzer' name=ID  ('with-interface' anlyzerinterfaces+=AnalyzerInterface (',' anlyzerinterfaces+=AnalyzerInterface)* )? ';'
+	'Analyzer' name=ID  ';'
 ;
 
 DSLPlanner: 
 	
-	'Planner' name=ID ('with-interface' plannerinterfaces+=PlannerInterface (',' plannerinterfaces+=PlannerInterface)* )? ';'
+	'Planner' name=ID ';'
 ;
 
 DSLExecutor: 
 	
-	'Executor' name=ID ('with-interface' executorinterfaces+=ExecutorInterface (',' executorinterfaces+=ExecutorInterface)* )? ';'
+	'Executor' name=ID  ';'
 ;
 
 DSLKnowledge: 
 	
-	'Knowledge' name=ID ('with-interface' knowledgeinterfaces+=KnowledgeInterface (',' knowledgeinterfaces+=KnowledgeInterface)* )? '{'
+	'Knowledge' name=ID '{'
 	
 		referenceInput += DSLReferenceInput+
 	
@@ -162,12 +143,12 @@ DSLKnowledge:
 
 DSLSensor: 
 	
-	'Sensor' name=ID  ('with-interface' sensorinterfaces+=SensorInterface (',' sensorinterfaces+=SensorInterface)* )? ';'
+	'Sensor' name=ID ';'
 ;
 
 DSLEffector: 
 	
-	'Effector' name=ID ('with-interface' effectorinterfaces+=EffectorInterface (',' effectorinterfaces+=EffectorInterface)* )? ';'
+	'Effector' name=ID ';'
 ;
   
 DSLReferenceInput:
@@ -180,47 +161,4 @@ DSLMeasuredOutput:
 	'MeasuredOutput' name=ID ';'
 ;
 
-EffectorInterface :
-	
-	name=ID
-;
 
-
-SensorInterface :
-	
-	name=ID
-;
-
-MonitorInterface :
-	
-	name=ID
-;
-
-AnalyzerInterface :
-	
-	name=ID
-;
-
-PlannerInterface :
-	
-	name=ID
-;
-
-
-ExecutorInterface :
-	
-	name=ID
-;
-
-
-KnowledgeInterface :
-	
-	name=ID
-;
-
-ControllerInterface :
-	
-	name= ID
-;
-
-FQN: ID ("." ID)*;

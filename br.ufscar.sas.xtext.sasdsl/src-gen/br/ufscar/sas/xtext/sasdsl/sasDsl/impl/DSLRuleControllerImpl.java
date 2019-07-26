@@ -3,16 +3,12 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl.impl;
 
-import br.ufscar.sas.xtext.sasdsl.sasDsl.AnalyzerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLAnalyzer;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLController;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLMonitor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleController;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.ExecutorInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.MonitorInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.PlannerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -32,13 +28,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleControllerImpl#getController <em>Controller</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleControllerImpl#getMonitor <em>Monitor</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleControllerImpl#getMonitorinterface <em>Monitorinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleControllerImpl#getAnalyzer <em>Analyzer</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleControllerImpl#getAnalyzerinterface <em>Analyzerinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleControllerImpl#getPlanner <em>Planner</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleControllerImpl#getPlannerinterface <em>Plannerinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleControllerImpl#getExecutor <em>Executor</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleControllerImpl#getExecutorinterface <em>Executorinterface</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,16 +58,6 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
   protected DSLMonitor monitor;
 
   /**
-   * The cached value of the '{@link #getMonitorinterface() <em>Monitorinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMonitorinterface()
-   * @generated
-   * @ordered
-   */
-  protected MonitorInterface monitorinterface;
-
-  /**
    * The cached value of the '{@link #getAnalyzer() <em>Analyzer</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -84,16 +66,6 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
    * @ordered
    */
   protected DSLAnalyzer analyzer;
-
-  /**
-   * The cached value of the '{@link #getAnalyzerinterface() <em>Analyzerinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAnalyzerinterface()
-   * @generated
-   * @ordered
-   */
-  protected AnalyzerInterface analyzerinterface;
 
   /**
    * The cached value of the '{@link #getPlanner() <em>Planner</em>}' reference.
@@ -106,16 +78,6 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
   protected DSLPlanner planner;
 
   /**
-   * The cached value of the '{@link #getPlannerinterface() <em>Plannerinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPlannerinterface()
-   * @generated
-   * @ordered
-   */
-  protected PlannerInterface plannerinterface;
-
-  /**
    * The cached value of the '{@link #getExecutor() <em>Executor</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -124,16 +86,6 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
    * @ordered
    */
   protected DSLExecutor executor;
-
-  /**
-   * The cached value of the '{@link #getExecutorinterface() <em>Executorinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExecutorinterface()
-   * @generated
-   * @ordered
-   */
-  protected ExecutorInterface executorinterface;
 
   /**
    * <!-- begin-user-doc -->
@@ -247,49 +199,6 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
    * <!-- end-user-doc -->
    * @generated
    */
-  public MonitorInterface getMonitorinterface()
-  {
-    if (monitorinterface != null && monitorinterface.eIsProxy())
-    {
-      InternalEObject oldMonitorinterface = (InternalEObject)monitorinterface;
-      monitorinterface = (MonitorInterface)eResolveProxy(oldMonitorinterface);
-      if (monitorinterface != oldMonitorinterface)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RULE_CONTROLLER__MONITORINTERFACE, oldMonitorinterface, monitorinterface));
-      }
-    }
-    return monitorinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MonitorInterface basicGetMonitorinterface()
-  {
-    return monitorinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMonitorinterface(MonitorInterface newMonitorinterface)
-  {
-    MonitorInterface oldMonitorinterface = monitorinterface;
-    monitorinterface = newMonitorinterface;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RULE_CONTROLLER__MONITORINTERFACE, oldMonitorinterface, monitorinterface));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public DSLAnalyzer getAnalyzer()
   {
     if (analyzer != null && analyzer.eIsProxy())
@@ -326,49 +235,6 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
     analyzer = newAnalyzer;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RULE_CONTROLLER__ANALYZER, oldAnalyzer, analyzer));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AnalyzerInterface getAnalyzerinterface()
-  {
-    if (analyzerinterface != null && analyzerinterface.eIsProxy())
-    {
-      InternalEObject oldAnalyzerinterface = (InternalEObject)analyzerinterface;
-      analyzerinterface = (AnalyzerInterface)eResolveProxy(oldAnalyzerinterface);
-      if (analyzerinterface != oldAnalyzerinterface)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RULE_CONTROLLER__ANALYZERINTERFACE, oldAnalyzerinterface, analyzerinterface));
-      }
-    }
-    return analyzerinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AnalyzerInterface basicGetAnalyzerinterface()
-  {
-    return analyzerinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAnalyzerinterface(AnalyzerInterface newAnalyzerinterface)
-  {
-    AnalyzerInterface oldAnalyzerinterface = analyzerinterface;
-    analyzerinterface = newAnalyzerinterface;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RULE_CONTROLLER__ANALYZERINTERFACE, oldAnalyzerinterface, analyzerinterface));
   }
 
   /**
@@ -419,49 +285,6 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
    * <!-- end-user-doc -->
    * @generated
    */
-  public PlannerInterface getPlannerinterface()
-  {
-    if (plannerinterface != null && plannerinterface.eIsProxy())
-    {
-      InternalEObject oldPlannerinterface = (InternalEObject)plannerinterface;
-      plannerinterface = (PlannerInterface)eResolveProxy(oldPlannerinterface);
-      if (plannerinterface != oldPlannerinterface)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RULE_CONTROLLER__PLANNERINTERFACE, oldPlannerinterface, plannerinterface));
-      }
-    }
-    return plannerinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PlannerInterface basicGetPlannerinterface()
-  {
-    return plannerinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPlannerinterface(PlannerInterface newPlannerinterface)
-  {
-    PlannerInterface oldPlannerinterface = plannerinterface;
-    plannerinterface = newPlannerinterface;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RULE_CONTROLLER__PLANNERINTERFACE, oldPlannerinterface, plannerinterface));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public DSLExecutor getExecutor()
   {
     if (executor != null && executor.eIsProxy())
@@ -505,49 +328,6 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExecutorInterface getExecutorinterface()
-  {
-    if (executorinterface != null && executorinterface.eIsProxy())
-    {
-      InternalEObject oldExecutorinterface = (InternalEObject)executorinterface;
-      executorinterface = (ExecutorInterface)eResolveProxy(oldExecutorinterface);
-      if (executorinterface != oldExecutorinterface)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RULE_CONTROLLER__EXECUTORINTERFACE, oldExecutorinterface, executorinterface));
-      }
-    }
-    return executorinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ExecutorInterface basicGetExecutorinterface()
-  {
-    return executorinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExecutorinterface(ExecutorInterface newExecutorinterface)
-  {
-    ExecutorInterface oldExecutorinterface = executorinterface;
-    executorinterface = newExecutorinterface;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RULE_CONTROLLER__EXECUTORINTERFACE, oldExecutorinterface, executorinterface));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -559,27 +339,15 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
       case SasDslPackage.DSL_RULE_CONTROLLER__MONITOR:
         if (resolve) return getMonitor();
         return basicGetMonitor();
-      case SasDslPackage.DSL_RULE_CONTROLLER__MONITORINTERFACE:
-        if (resolve) return getMonitorinterface();
-        return basicGetMonitorinterface();
       case SasDslPackage.DSL_RULE_CONTROLLER__ANALYZER:
         if (resolve) return getAnalyzer();
         return basicGetAnalyzer();
-      case SasDslPackage.DSL_RULE_CONTROLLER__ANALYZERINTERFACE:
-        if (resolve) return getAnalyzerinterface();
-        return basicGetAnalyzerinterface();
       case SasDslPackage.DSL_RULE_CONTROLLER__PLANNER:
         if (resolve) return getPlanner();
         return basicGetPlanner();
-      case SasDslPackage.DSL_RULE_CONTROLLER__PLANNERINTERFACE:
-        if (resolve) return getPlannerinterface();
-        return basicGetPlannerinterface();
       case SasDslPackage.DSL_RULE_CONTROLLER__EXECUTOR:
         if (resolve) return getExecutor();
         return basicGetExecutor();
-      case SasDslPackage.DSL_RULE_CONTROLLER__EXECUTORINTERFACE:
-        if (resolve) return getExecutorinterface();
-        return basicGetExecutorinterface();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -600,26 +368,14 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
       case SasDslPackage.DSL_RULE_CONTROLLER__MONITOR:
         setMonitor((DSLMonitor)newValue);
         return;
-      case SasDslPackage.DSL_RULE_CONTROLLER__MONITORINTERFACE:
-        setMonitorinterface((MonitorInterface)newValue);
-        return;
       case SasDslPackage.DSL_RULE_CONTROLLER__ANALYZER:
         setAnalyzer((DSLAnalyzer)newValue);
-        return;
-      case SasDslPackage.DSL_RULE_CONTROLLER__ANALYZERINTERFACE:
-        setAnalyzerinterface((AnalyzerInterface)newValue);
         return;
       case SasDslPackage.DSL_RULE_CONTROLLER__PLANNER:
         setPlanner((DSLPlanner)newValue);
         return;
-      case SasDslPackage.DSL_RULE_CONTROLLER__PLANNERINTERFACE:
-        setPlannerinterface((PlannerInterface)newValue);
-        return;
       case SasDslPackage.DSL_RULE_CONTROLLER__EXECUTOR:
         setExecutor((DSLExecutor)newValue);
-        return;
-      case SasDslPackage.DSL_RULE_CONTROLLER__EXECUTORINTERFACE:
-        setExecutorinterface((ExecutorInterface)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -641,26 +397,14 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
       case SasDslPackage.DSL_RULE_CONTROLLER__MONITOR:
         setMonitor((DSLMonitor)null);
         return;
-      case SasDslPackage.DSL_RULE_CONTROLLER__MONITORINTERFACE:
-        setMonitorinterface((MonitorInterface)null);
-        return;
       case SasDslPackage.DSL_RULE_CONTROLLER__ANALYZER:
         setAnalyzer((DSLAnalyzer)null);
-        return;
-      case SasDslPackage.DSL_RULE_CONTROLLER__ANALYZERINTERFACE:
-        setAnalyzerinterface((AnalyzerInterface)null);
         return;
       case SasDslPackage.DSL_RULE_CONTROLLER__PLANNER:
         setPlanner((DSLPlanner)null);
         return;
-      case SasDslPackage.DSL_RULE_CONTROLLER__PLANNERINTERFACE:
-        setPlannerinterface((PlannerInterface)null);
-        return;
       case SasDslPackage.DSL_RULE_CONTROLLER__EXECUTOR:
         setExecutor((DSLExecutor)null);
-        return;
-      case SasDslPackage.DSL_RULE_CONTROLLER__EXECUTORINTERFACE:
-        setExecutorinterface((ExecutorInterface)null);
         return;
     }
     super.eUnset(featureID);
@@ -680,20 +424,12 @@ public class DSLRuleControllerImpl extends DSLRulesImpl implements DSLRuleContro
         return controller != null;
       case SasDslPackage.DSL_RULE_CONTROLLER__MONITOR:
         return monitor != null;
-      case SasDslPackage.DSL_RULE_CONTROLLER__MONITORINTERFACE:
-        return monitorinterface != null;
       case SasDslPackage.DSL_RULE_CONTROLLER__ANALYZER:
         return analyzer != null;
-      case SasDslPackage.DSL_RULE_CONTROLLER__ANALYZERINTERFACE:
-        return analyzerinterface != null;
       case SasDslPackage.DSL_RULE_CONTROLLER__PLANNER:
         return planner != null;
-      case SasDslPackage.DSL_RULE_CONTROLLER__PLANNERINTERFACE:
-        return plannerinterface != null;
       case SasDslPackage.DSL_RULE_CONTROLLER__EXECUTOR:
         return executor != null;
-      case SasDslPackage.DSL_RULE_CONTROLLER__EXECUTORINTERFACE:
-        return executorinterface != null;
     }
     return super.eIsSet(featureID);
   }

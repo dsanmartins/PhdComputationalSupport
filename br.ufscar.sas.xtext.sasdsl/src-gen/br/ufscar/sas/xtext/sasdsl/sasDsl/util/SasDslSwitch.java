@@ -135,14 +135,6 @@ public class SasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SasDslPackage.DSL_RULE_RI:
-      {
-        DSLRuleRI dslRuleRI = (DSLRuleRI)theEObject;
-        T result = caseDSLRuleRI(dslRuleRI);
-        if (result == null) result = caseDSLRules(dslRuleRI);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case SasDslPackage.DSL_MANAGING:
       {
         DSLManaging dslManaging = (DSLManaging)theEObject;
@@ -231,62 +223,6 @@ public class SasDslSwitch<T> extends Switch<T>
       {
         DSLMeasuredOutput dslMeasuredOutput = (DSLMeasuredOutput)theEObject;
         T result = caseDSLMeasuredOutput(dslMeasuredOutput);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.EFFECTOR_INTERFACE:
-      {
-        EffectorInterface effectorInterface = (EffectorInterface)theEObject;
-        T result = caseEffectorInterface(effectorInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.SENSOR_INTERFACE:
-      {
-        SensorInterface sensorInterface = (SensorInterface)theEObject;
-        T result = caseSensorInterface(sensorInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.MONITOR_INTERFACE:
-      {
-        MonitorInterface monitorInterface = (MonitorInterface)theEObject;
-        T result = caseMonitorInterface(monitorInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.ANALYZER_INTERFACE:
-      {
-        AnalyzerInterface analyzerInterface = (AnalyzerInterface)theEObject;
-        T result = caseAnalyzerInterface(analyzerInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.PLANNER_INTERFACE:
-      {
-        PlannerInterface plannerInterface = (PlannerInterface)theEObject;
-        T result = casePlannerInterface(plannerInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.EXECUTOR_INTERFACE:
-      {
-        ExecutorInterface executorInterface = (ExecutorInterface)theEObject;
-        T result = caseExecutorInterface(executorInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.KNOWLEDGE_INTERFACE:
-      {
-        KnowledgeInterface knowledgeInterface = (KnowledgeInterface)theEObject;
-        T result = caseKnowledgeInterface(knowledgeInterface);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SasDslPackage.CONTROLLER_INTERFACE:
-      {
-        ControllerInterface controllerInterface = (ControllerInterface)theEObject;
-        T result = caseControllerInterface(controllerInterface);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -418,22 +354,6 @@ public class SasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDSLRuleMO(DSLRuleMO object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>DSL Rule RI</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>DSL Rule RI</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDSLRuleRI(DSLRuleRI object)
   {
     return null;
   }
@@ -642,134 +562,6 @@ public class SasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDSLMeasuredOutput(DSLMeasuredOutput object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Effector Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Effector Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEffectorInterface(EffectorInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Sensor Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Sensor Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSensorInterface(SensorInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Monitor Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Monitor Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMonitorInterface(MonitorInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Analyzer Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Analyzer Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAnalyzerInterface(AnalyzerInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Planner Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Planner Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePlannerInterface(PlannerInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Executor Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Executor Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExecutorInterface(ExecutorInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Knowledge Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Knowledge Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseKnowledgeInterface(KnowledgeInterface object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Controller Interface</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Controller Interface</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseControllerInterface(ControllerInterface object)
   {
     return null;
   }

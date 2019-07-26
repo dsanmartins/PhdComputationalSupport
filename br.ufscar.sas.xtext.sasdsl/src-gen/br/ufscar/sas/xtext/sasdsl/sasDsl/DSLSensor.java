@@ -3,8 +3,6 @@
  */
 package br.ufscar.sas.xtext.sasdsl.sasDsl;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor#getName <em>Name</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.DSLSensor#getSensorinterfaces <em>Sensorinterfaces</em>}</li>
  * </ul>
  *
  * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLSensor()
@@ -51,21 +48,5 @@ public interface DSLSensor extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Sensorinterfaces</b></em>' containment reference list.
-   * The list contents are of type {@link br.ufscar.sas.xtext.sasdsl.sasDsl.SensorInterface}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Sensorinterfaces</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Sensorinterfaces</em>' containment reference list.
-   * @see br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage#getDSLSensor_Sensorinterfaces()
-   * @model containment="true"
-   * @generated
-   */
-  EList<SensorInterface> getSensorinterfaces();
 
 } // DSLSensor

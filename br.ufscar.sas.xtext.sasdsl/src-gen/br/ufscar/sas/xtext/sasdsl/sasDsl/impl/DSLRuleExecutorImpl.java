@@ -8,9 +8,6 @@ import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLExecutor;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLKnowledge;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLPlanner;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.DSLRuleExecutor;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.EffectorInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.KnowledgeInterface;
-import br.ufscar.sas.xtext.sasdsl.sasDsl.PlannerInterface;
 import br.ufscar.sas.xtext.sasdsl.sasDsl.SasDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -30,11 +27,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleExecutorImpl#getExecutor <em>Executor</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleExecutorImpl#getEffector <em>Effector</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleExecutorImpl#getEffectorinterface <em>Effectorinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleExecutorImpl#getPlanner <em>Planner</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleExecutorImpl#getPlannerinterface <em>Plannerinterface</em>}</li>
  *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleExecutorImpl#getKnowledge <em>Knowledge</em>}</li>
- *   <li>{@link br.ufscar.sas.xtext.sasdsl.sasDsl.impl.DSLRuleExecutorImpl#getKnowledgeinterface <em>Knowledgeinterface</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,16 +56,6 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
   protected DSLEffector effector;
 
   /**
-   * The cached value of the '{@link #getEffectorinterface() <em>Effectorinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEffectorinterface()
-   * @generated
-   * @ordered
-   */
-  protected EffectorInterface effectorinterface;
-
-  /**
    * The cached value of the '{@link #getPlanner() <em>Planner</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -82,16 +66,6 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
   protected DSLPlanner planner;
 
   /**
-   * The cached value of the '{@link #getPlannerinterface() <em>Plannerinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPlannerinterface()
-   * @generated
-   * @ordered
-   */
-  protected PlannerInterface plannerinterface;
-
-  /**
    * The cached value of the '{@link #getKnowledge() <em>Knowledge</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -100,16 +74,6 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
    * @ordered
    */
   protected DSLKnowledge knowledge;
-
-  /**
-   * The cached value of the '{@link #getKnowledgeinterface() <em>Knowledgeinterface</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getKnowledgeinterface()
-   * @generated
-   * @ordered
-   */
-  protected KnowledgeInterface knowledgeinterface;
 
   /**
    * <!-- begin-user-doc -->
@@ -223,49 +187,6 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EffectorInterface getEffectorinterface()
-  {
-    if (effectorinterface != null && effectorinterface.eIsProxy())
-    {
-      InternalEObject oldEffectorinterface = (InternalEObject)effectorinterface;
-      effectorinterface = (EffectorInterface)eResolveProxy(oldEffectorinterface);
-      if (effectorinterface != oldEffectorinterface)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RULE_EXECUTOR__EFFECTORINTERFACE, oldEffectorinterface, effectorinterface));
-      }
-    }
-    return effectorinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EffectorInterface basicGetEffectorinterface()
-  {
-    return effectorinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setEffectorinterface(EffectorInterface newEffectorinterface)
-  {
-    EffectorInterface oldEffectorinterface = effectorinterface;
-    effectorinterface = newEffectorinterface;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RULE_EXECUTOR__EFFECTORINTERFACE, oldEffectorinterface, effectorinterface));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public DSLPlanner getPlanner()
   {
     if (planner != null && planner.eIsProxy())
@@ -302,49 +223,6 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
     planner = newPlanner;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RULE_EXECUTOR__PLANNER, oldPlanner, planner));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PlannerInterface getPlannerinterface()
-  {
-    if (plannerinterface != null && plannerinterface.eIsProxy())
-    {
-      InternalEObject oldPlannerinterface = (InternalEObject)plannerinterface;
-      plannerinterface = (PlannerInterface)eResolveProxy(oldPlannerinterface);
-      if (plannerinterface != oldPlannerinterface)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RULE_EXECUTOR__PLANNERINTERFACE, oldPlannerinterface, plannerinterface));
-      }
-    }
-    return plannerinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PlannerInterface basicGetPlannerinterface()
-  {
-    return plannerinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPlannerinterface(PlannerInterface newPlannerinterface)
-  {
-    PlannerInterface oldPlannerinterface = plannerinterface;
-    plannerinterface = newPlannerinterface;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RULE_EXECUTOR__PLANNERINTERFACE, oldPlannerinterface, plannerinterface));
   }
 
   /**
@@ -395,49 +273,6 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
    * <!-- end-user-doc -->
    * @generated
    */
-  public KnowledgeInterface getKnowledgeinterface()
-  {
-    if (knowledgeinterface != null && knowledgeinterface.eIsProxy())
-    {
-      InternalEObject oldKnowledgeinterface = (InternalEObject)knowledgeinterface;
-      knowledgeinterface = (KnowledgeInterface)eResolveProxy(oldKnowledgeinterface);
-      if (knowledgeinterface != oldKnowledgeinterface)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGEINTERFACE, oldKnowledgeinterface, knowledgeinterface));
-      }
-    }
-    return knowledgeinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public KnowledgeInterface basicGetKnowledgeinterface()
-  {
-    return knowledgeinterface;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setKnowledgeinterface(KnowledgeInterface newKnowledgeinterface)
-  {
-    KnowledgeInterface oldKnowledgeinterface = knowledgeinterface;
-    knowledgeinterface = newKnowledgeinterface;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGEINTERFACE, oldKnowledgeinterface, knowledgeinterface));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -449,21 +284,12 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
       case SasDslPackage.DSL_RULE_EXECUTOR__EFFECTOR:
         if (resolve) return getEffector();
         return basicGetEffector();
-      case SasDslPackage.DSL_RULE_EXECUTOR__EFFECTORINTERFACE:
-        if (resolve) return getEffectorinterface();
-        return basicGetEffectorinterface();
       case SasDslPackage.DSL_RULE_EXECUTOR__PLANNER:
         if (resolve) return getPlanner();
         return basicGetPlanner();
-      case SasDslPackage.DSL_RULE_EXECUTOR__PLANNERINTERFACE:
-        if (resolve) return getPlannerinterface();
-        return basicGetPlannerinterface();
       case SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGE:
         if (resolve) return getKnowledge();
         return basicGetKnowledge();
-      case SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGEINTERFACE:
-        if (resolve) return getKnowledgeinterface();
-        return basicGetKnowledgeinterface();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -484,20 +310,11 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
       case SasDslPackage.DSL_RULE_EXECUTOR__EFFECTOR:
         setEffector((DSLEffector)newValue);
         return;
-      case SasDslPackage.DSL_RULE_EXECUTOR__EFFECTORINTERFACE:
-        setEffectorinterface((EffectorInterface)newValue);
-        return;
       case SasDslPackage.DSL_RULE_EXECUTOR__PLANNER:
         setPlanner((DSLPlanner)newValue);
         return;
-      case SasDslPackage.DSL_RULE_EXECUTOR__PLANNERINTERFACE:
-        setPlannerinterface((PlannerInterface)newValue);
-        return;
       case SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGE:
         setKnowledge((DSLKnowledge)newValue);
-        return;
-      case SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGEINTERFACE:
-        setKnowledgeinterface((KnowledgeInterface)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -519,20 +336,11 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
       case SasDslPackage.DSL_RULE_EXECUTOR__EFFECTOR:
         setEffector((DSLEffector)null);
         return;
-      case SasDslPackage.DSL_RULE_EXECUTOR__EFFECTORINTERFACE:
-        setEffectorinterface((EffectorInterface)null);
-        return;
       case SasDslPackage.DSL_RULE_EXECUTOR__PLANNER:
         setPlanner((DSLPlanner)null);
         return;
-      case SasDslPackage.DSL_RULE_EXECUTOR__PLANNERINTERFACE:
-        setPlannerinterface((PlannerInterface)null);
-        return;
       case SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGE:
         setKnowledge((DSLKnowledge)null);
-        return;
-      case SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGEINTERFACE:
-        setKnowledgeinterface((KnowledgeInterface)null);
         return;
     }
     super.eUnset(featureID);
@@ -552,16 +360,10 @@ public class DSLRuleExecutorImpl extends DSLRulesImpl implements DSLRuleExecutor
         return executor != null;
       case SasDslPackage.DSL_RULE_EXECUTOR__EFFECTOR:
         return effector != null;
-      case SasDslPackage.DSL_RULE_EXECUTOR__EFFECTORINTERFACE:
-        return effectorinterface != null;
       case SasDslPackage.DSL_RULE_EXECUTOR__PLANNER:
         return planner != null;
-      case SasDslPackage.DSL_RULE_EXECUTOR__PLANNERINTERFACE:
-        return plannerinterface != null;
       case SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGE:
         return knowledge != null;
-      case SasDslPackage.DSL_RULE_EXECUTOR__KNOWLEDGEINTERFACE:
-        return knowledgeinterface != null;
     }
     return super.eIsSet(featureID);
   }
